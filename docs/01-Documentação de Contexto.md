@@ -25,12 +25,11 @@ Apresente também alguns (pelo menos 2) objetivos específicos dependendo de ond
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+Segundo relatório do The Global E-waste Monitor 2020, da Organização das Nações Unidas, o Brasil foi o país da América Latina que mais gerou lixo eletrônico e somente 3% desse lixo gerado é reciclado ou descartado corretamente.  Além disso, estima-se que o lixo eletrônico do mundo corresponderá a 74 milhões de toneladas em 2030. 
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+Quando o lixo eletrônico não é descartado corretamente, gera um grande impacto negativo no meio ambiente, pois pode poluir rios, lagos, lençol freático e, consequentemente causar um desequilíbrio na fauna e flora. Na maioria dos casos, o descarte incorreto ocorre por falta de informação. A maioria das pessoas não sabe como fazer a reciclagem ou logística reversa. 
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Sendo assim, é imperativo que a sociedade se organize para minimizar esses efeitos negativos incentivando o descarte adequado do lixo eletrônico e facilitando o processo. Por esse motivo, nosso projeto pretende fornecer uma solução digital para promover e facilitar o descarte correto e, assim, contribuir para a construção de um modelo de consumo tecnológico mais sustentável. 
 
 ## Público-Alvo
 
