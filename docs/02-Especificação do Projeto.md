@@ -44,11 +44,13 @@ Apresente aqui as histórias de usuário que são relevantes para o projeto de s
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Com o crescente avanço da tecnologia, a cada dia mais dispositivos são criados substituindo os antigos e gerando um acúmulo enorme de lixo eletrônico. No entanto, muitas pessoas ainda não sabem como descartar corretamente esses aparelhos e tem dificuldade para fazê-lo.
+Atualmente, a pessoa pode procurar por uma empresa de reciclagem em sites de pesquisa na web, como o google, e entrar em contato diretamente com a empresa para saber como proceder. Algumas empresas possuem sites com formulários de solicitação de coleta e agendamento. Após o envio do formulário, a empresa entra em contato com a pessoa. 
+
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Nossa proposta tem como objetivo disponibilizar um sistema no qual as pessoas possam encontrar diversas empresas e catadores de lixo próximos à sua localização. Assim, podem escolher dentre as opções e entrar em contato para solicitar a coleta desse material e destiná-lo para o descarte correto. Esse projeto visa dar mais visibilidade para as empresas de reciclagem e para os catadores de lixo facilitando a conexão das pessoas com eles. 
 
 ### Processo 1 – NOME DO PROCESSO
 
@@ -123,14 +125,7 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+![Diagrama de Casos de uso](img/Diagrama_Casos_de_Uso.png)
 
 # Matriz de Rastreabilidade
 
