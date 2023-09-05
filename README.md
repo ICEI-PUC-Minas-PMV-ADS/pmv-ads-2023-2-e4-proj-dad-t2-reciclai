@@ -6,7 +6,7 @@
 
 `4º SEMESTRE`
 
-O objetivo deste trabalho é fazer com pessoas e empresas que tenham material eletrônico para descartar encontrem empresas que façam esse descarte de forma correta, por isso propomos a criação de um sistema que conecta as pessoas que precisam do serviço com pessoas e empresas que coletam lixo eletrônico.
+O objetivo deste trabalho é fazer com que pessoas que tenham material eletrônico para descartar encontrem empresas ou pessoas que façam esse descarte de forma correta, por isso propomos a criação de um sistema que conecta as pessoas que precisam do serviço com pessoas e empresas que coletam lixo eletrônico.
 
 ## Integrantes
 
