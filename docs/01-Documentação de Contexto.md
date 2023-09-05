@@ -1,18 +1,16 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Já pararam para pensar o quão danoso pode ser para o meio ambiente desfazer em lugares inapropriados daquele eletrônico, que por algum motivo você não quer mais?  
+
+De acordo com a National Geographic (2023), em 2020 foram gerados cerca de 50 milhões de toneladas de lixo eletrônico no mundo, mas o que é lixo eletrônico?  São equipamentos que necessitam de energia para seu funcionamento e contam com um plug ou bateria e são classificados em 8 categorias: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos. 
+
+O descarte incorreto gera poluição ao meio ambiente e consequentemente risco a saúde da população, já que contém substâncias tóxicas e metais pesados como: chumbo, mercúrio, cromo e cádmio (National Geographic, 2023). Entretanto, através da reciclagem desses materiais é possível preservar o meio ambiente e criar modelos de negócios lucrativos, pois através da logística reversa esses materiais retornam a cadeia produtiva. 
+
+Sabendo da importância para a população e meio ambiente, o projeto Reciclaí quer aproximar os cidadãos e empresas que queiram descartar materiais eletrônicos com centros de coletas e para isso, disponibilizar uma solução tecnológica que conecte essa rede. 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Conforme exposto, percebe-se que o descarte incorreto do lixo eletrônico gera muitos danos ao meio ambiente. Dessa forma, o problema a ser solucionado é a conexão de empresas que fazem coleta de tais materiais com pessoas e empresas que tenham esses materiais para descarte. 
 
 ## Objetivos
 
