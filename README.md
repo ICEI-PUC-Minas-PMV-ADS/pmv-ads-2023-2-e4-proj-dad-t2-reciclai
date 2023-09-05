@@ -1,23 +1,24 @@
-# TÍTULO DO PROJETO
+# RECICLAÍ
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`DESENVOLVIMENTO DE UMA APLICAÇÃO DISTRIBUÍDA`
 
-`SEMESTRE`
+`4º SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O objetivo deste trabalho é fazer com pessoas e empresas que tenham material eletrônico para descartar encontrem empresas que façam esse descarte de forma correta, por isso propomos a criação de um sistema que conecta as pessoas que precisam do serviço com pessoas e empresas que coletam lixo eletrônico.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Carolina Vitória Laurindo
+* Cláudia Carapiá Ferraz
+* Douglas Raynner da Silva Santos
+* Jeferson Queiroz
+* Karen Noguti
 
 ## Orientador
 
-* Nome completo do professor 1
+* Leonardo Vilela Cardoso
 
 ## Instruções de utilização
 
