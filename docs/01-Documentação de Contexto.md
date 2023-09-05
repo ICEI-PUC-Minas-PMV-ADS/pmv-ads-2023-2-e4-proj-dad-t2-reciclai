@@ -1,6 +1,12 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Já pararam para pensar o quão danoso pode ser para o meio ambiente desfazer em lugares inapropriados daquele eletrônico, que por algum motivo você não quer mais?  
+
+De acordo com a National Geographic (2023), em 2020 foram gerados cerca de 50 milhões de toneladas de lixo eletrônico no mundo, mas o que é lixo eletrônico?  São equipamentos que necessitam de energia para seu funcionamento e contam com um plug ou bateria e são classificados em 8 categorias: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos. 
+
+O descarte incorreto gera poluição ao meio ambiente e consequentemente risco a saúde da população, já que contém substâncias tóxicas e metais pesados como: chumbo, mercúrio, cromo e cádmio (National Geographic, 2023). Entretanto, através da reciclagem desses materiais é possível preservar o meio ambiente e criar modelos de negócios lucrativos, pois através da logística reversa esses materiais retornam a cadeia produtiva. 
+
+Sabendo da importância para a população e meio ambiente, o projeto Reciclaí quer aproximar os cidadãos e empresas que queiram descartar materiais eletrônicos com centros de coletas e para isso, disponibilizar uma solução tecnológica que conecte essa rede. 
 
 ## Problema
 
