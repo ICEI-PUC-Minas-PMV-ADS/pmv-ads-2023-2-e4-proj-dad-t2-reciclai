@@ -3,12 +3,8 @@
 Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
 
 ## Problema
-Conforme exposto, percebe-se que o descarte incorreto do lixo eletrônico gera muitos danos ao meio ambiente. Dessa forma, o problema a ser solucionado é a conexão de empresas que fazem coleta de tais materiais com pessoas e empresas que tenham esses materiais para descarte. 
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Conforme exposto, percebe-se que o descarte incorreto do lixo eletrônico gera muitos danos ao meio ambiente. Dessa forma, o problema a ser solucionado é a conexão de empresas que fazem coleta de tais materiais com pessoas e empresas que tenham esses materiais para descarte. 
 
 ## Objetivos
 
