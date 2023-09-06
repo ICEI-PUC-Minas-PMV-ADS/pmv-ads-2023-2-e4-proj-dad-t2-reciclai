@@ -10,6 +10,8 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ![Persona_Paula](img/persona.png)
 
+![Persona_Ayeska Basilio](img/Persona_Ayeska.png)
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
