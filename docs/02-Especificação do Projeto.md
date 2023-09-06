@@ -21,6 +21,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Paula Souza   | Quero um sistema que possibilite receber solicitações de coleta de lixo eletrônico.           | Para realizar o descarte adequado o lixo.  |
 |Ayeska Basilio   | Criar um ponto para descarte de lixo eletrônico dos moradores da cidade e entregar esse lixo a empresas que fazem a coleta.            | Para acabar com a falta desse suporte na cidade e para acabar com a poluição das ruas.   |
 |Ayeska Basilio   | Conhecer diferentes empresas que trabalhem com coleta de materiais eletrônicos, principalmente recicláveis.            | Expandir a rede de contatos de empresas nesse meio, cooperar com o meio ambiente e transformar um lixo em matéria prima.   |
+|Miguel Miranda   | Quer um sistema que seja separado por tipos de lixo eletrônicos como: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos.             | Para facilitar o descarte e também saber em qual categoria seu lixo é classificado.    |
 |     |            |  |
 
 
@@ -73,6 +74,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-006| O sistema deve permitir que o usuário escolha uma empresa/pessoa para solicitar a coleta de lixo eletrônico.  | ALTA|
 |RF-007| O sistema deve garantir que a empresa tenha os dados da pessoa que deseja a coleta.  | ALTA|
 |RF-008| O sistema deve permitir que você informe o que deseja descartar. | ALTA|
+|RF-009| O sistema deverá permitir que o usuário possa agendar a coleta do dispositivo eletrônicos em lugares específicos ou por meio de recolhimento programado.  | ALTA|
+|RF-010| O sistema deverá categorizar os lixos eletrônicos em 8 categorias: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos. | ALTA|
 
 ### Requisitos não Funcionais
 
