@@ -17,6 +17,8 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
 |Paula Souza   | Quero um sistema que possibilite receber solicitações de coleta de lixo eletrônico.           | Para realizar o descarte adequado o lixo.  |
+|Ayeska Basilio   | Criar um ponto para descarte de lixo eletrônico dos moradores da cidade e entregar esse lixo a empresas que fazem a coleta.            | Para acabar com a falta desse suporte na cidade e para acabar com a poluição das ruas.   |
+|Ayeska Basilio   | Conhecer diferentes empresas que trabalhem com coleta de materiais eletrônicos, principalmente recicláveis.            | Expandir a rede de contatos de empresas nesse meio, cooperar com o meio ambiente e transformar um lixo em matéria prima.   |
 |     |            |  |
 
 
@@ -65,6 +67,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-002| O sistema deve permitir que o usuário realize o login.   | ALTA |
 |RF-003| O sistema deve permitir que a empresa receba solicitações de coleta de lixo eletrônico.| ALTA|
 |RF-004| O sistema deve permitir que o usuário escolha o tipo de usuário. | ALTA|
+|RF-005| O sistema deve ter uma página com os históricos de pedido. | ALTA|
+|RF-006| O sistema deve permitir que o usuário escolha uma empresa/pessoa para solicitar a coleta de lixo eletrônico.  | ALTA|
+|RF-007| O sistema deve garantir que a empresa tenha os dados da pessoa que deseja a coleta.  | ALTA|
+|RF-008| O sistema deve permitir que você informe o que deseja descartar. | ALTA|
 
 ### Requisitos não Funcionais
 
