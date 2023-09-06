@@ -8,7 +8,7 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-![Persona_Paula](img/persona.png)
+![Persona_Paula](img/Persona_Paula.png)
 
 ![Persona_Ayeska Basilio](img/Persona_Ayeska.png)
 
