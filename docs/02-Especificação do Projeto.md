@@ -32,17 +32,17 @@ Atualmente, a pessoa pode procurar por uma empresa de reciclagem em sites de pes
 
 Nossa proposta tem como objetivo disponibilizar um sistema no qual as pessoas possam encontrar diversas empresas e catadores de lixo próximos à sua localização. Assim, podem escolher dentre as opções e entrar em contato para solicitar a coleta desse material e destiná-lo para o descarte correto. Esse projeto visa dar mais visibilidade para as empresas de reciclagem e para os catadores de lixo facilitando a conexão das pessoas com eles. 
 
-### Processo 1 – NOME DO PROCESSO
+### Processo Atual – Sistema que fornece agendamento de coletas de lixos recicláveis (Eambiental)
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+Nesse processo, o usuário solicita à empresa, a coleta de algum material reciclável, preenchendo um formulário, e após isso é redirecionado a uma conversa no whatsapp para acompanhar a solicitação.
 
-![Processo 1](img/02-bpmn-proc1.png)
+![Processo 1](img/Processo_atual.png)
 
-### Processo 2 – NOME DO PROCESSO
+### Processo Proposto – Sistema que conecta recicladores com usuários de materiais eletrônicos (Reciclaí)
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+Nesse processo, pessoas que coletam ou descartam lixo eletrônico se cadastram na plataforma e os mesmos são capazes de se conectarem e solicitar a coleta do material.
 
-![Processo 2](img/02-bpmn-proc2.png)
+![Processo 2](img/Processo_proposto.png)
 
 ## Indicadores de Desempenho
 
