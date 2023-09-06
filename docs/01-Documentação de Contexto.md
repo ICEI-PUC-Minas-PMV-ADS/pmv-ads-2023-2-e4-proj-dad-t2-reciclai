@@ -29,11 +29,11 @@ Quando o lixo eletrônico não é descartado corretamente, gera um grande impact
 
 Sendo assim, é imperativo que a sociedade se organize para minimizar esses efeitos negativos incentivando o descarte adequado do lixo eletrônico e facilitando o processo. Por esse motivo, nosso projeto pretende fornecer uma solução digital para promover e facilitar o descarte correto e, assim, contribuir para a construção de um modelo de consumo tecnológico mais sustentável. 
 
-## Público-Alvo
+## Público-alvo 
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
+Estabelecemos como público-alvo pessoas sensíveis as questões ambientais que buscam ativamente maneiras de reciclar eletrônicos e reduzir o impacto ambiental causado pelo descarte inadequado, o Reciclaí também tem como objetivo atingir empresas que precisam se desfazer de equipamentos eletrônicos antigos e obsoletos.
+ 
+Outro grupo essencial serão os catadores de recicláveis e eletrônicos, pois esses profissionais desempenham um papel importante na coleta, triagem e preparação de materiais recicláveis para serem transformados em novos produtos. No caso específico de eletrônicos, os catadores podem desmontar os dispositivos para recuperar componentes que podem ser reutilizados ou reciclados, como placas de circuito, cabos e baterias.
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
 > **Links Úteis**:
