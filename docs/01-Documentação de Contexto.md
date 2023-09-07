@@ -14,12 +14,13 @@ Conforme exposto, percebe-se que o descarte incorreto do lixo eletrônico gera m
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo desse projeto é fazer com que pessoas que tenham material eletrônico para descartar encontrem empresas ou pessoas que façam esse descarte de forma correta. 
+Nossos objetivos específicos são: 
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+
+* Permitir que empresas que façam descarte de eletrônicos se cadastrem no sistema.  
+* Permitir que os usuários se cadastrem no sistema e possam solicitar coleta de material eletrônico ao fornecer informações sobre o que será descartado. 
+* Permitir que as empresas visualizem as solicitações de coleta e escolham qual coleta irão realizar.
 
 ## Justificativa
 
