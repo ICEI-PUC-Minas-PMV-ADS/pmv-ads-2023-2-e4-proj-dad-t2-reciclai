@@ -12,6 +12,8 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ![Persona_Ayeska Basilio](img/Persona_Ayeska.png)
 
+![Persona_Kimburu](img/Persona_Kimburu.png)
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
@@ -22,7 +24,8 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Ayeska Basilio   | Criar um ponto para descarte de lixo eletrônico dos moradores da cidade e entregar esse lixo a empresas que fazem a coleta.            | Para acabar com a falta desse suporte na cidade e para acabar com a poluição das ruas.   |
 |Ayeska Basilio   | Conhecer diferentes empresas que trabalhem com coleta de materiais eletrônicos, principalmente recicláveis.            | Expandir a rede de contatos de empresas nesse meio, cooperar com o meio ambiente e transformar um lixo em matéria prima.   |
 |Miguel Miranda   | Quer um sistema que seja separado por tipos de lixo eletrônicos como: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos.             | Para facilitar o descarte e também saber em qual categoria seu lixo é classificado.    |
-|     |            |  |
+| Kimburu|  Poder divulgar sobre a empresa e os serviços prestados |   Para atingir pessoas que desconhecem a empresa e incentivar descarte correto|
+| Kimburu|  Visualizar quais materiais estão no pedido de coleta   |  Para poder decidir se a coleta será adequada para a empresa       |           
 
 
 ## Modelagem do Processo de Negócio 
@@ -76,6 +79,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-008| O sistema deve permitir que você informe o que deseja descartar. | ALTA|
 |RF-009| O sistema deverá permitir que o usuário possa agendar a coleta do dispositivo eletrônicos em lugares específicos ou por meio de recolhimento programado.  | ALTA|
 |RF-010| O sistema deverá categorizar os lixos eletrônicos em 8 categorias: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos. | ALTA|
+|RF-011| O sistema deve ter uma tela com informações sobre o impacto positivo da reciclagem. |Média |
+|RF-012 |O sistema deve ter uma página com os pedidos em andamento. |Alta |
+|RF-013 |O sistema deve disponibilizar busca por empresas/pessoas que fazem coleta. |Alta| 
+
+
 
 ### Requisitos não Funcionais
 
@@ -140,4 +148,4 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
 
-![Orçamento](img/02-orcamento.png)
+![Orçamento](img/Gest%C3%A3o_de_or%C3%A7amento.png)
