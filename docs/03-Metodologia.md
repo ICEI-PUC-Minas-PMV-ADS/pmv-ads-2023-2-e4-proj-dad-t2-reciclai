@@ -80,14 +80,27 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+|Função    | Plataforma  | Link de Acesso |
+|------|-----------------------------------------|----|
+| Editor de código | Visual Studio Code | [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/)|
+| Ferramenta de comunicação | Microsoft Teams | [Microsoft Teams](https://teams.microsoft.com/) |
+| Ferramenta de desenho de telas | Figma | [Figma](https://www.figma.com/file/h6pPlQp1i2mbyOGCTWdMsT/Page-1?type=design&node-id=0-1&mode=design&t=2SdblZzNcRo6zCmD-0)|
+| Repositório | GitHub | [GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t2-reciclai)|
+| Ferramenta de criação de diagramas | Camunda | [Camunda](https://modeler.cloud.camunda.io/diagrams)|
+| Ferramenta de criação de diagramas | Lucid | [Lucid](https://www.lucidchart.com/pages/)|
+| Ferramenta de versionamento de códigos | Git | [Git](https://git-scm.com/) |
 
-O editor de código foi escolhido porque ele possui uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
+<br> 
 
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
+O editor de código foi escolhido porque ele possui integração com o Git e GitHub.
+
+A ferramenta de comunicação utilizada é completa e de fácil acesso, sendo assim, viável para comunicar por computador e smartphone, além de ser possível o compartilhamento de tela para que o grupo consiga visualizar e contribuir na execução de etapas do projeto de forma simultânea.
+
+A ferramenta de desenho de telas é bem completa e pode ser usada de forma gratuita, além de possibilitar a edição simultânea de telas por diferentes membros do grupo.
+
+O repositório utilizado foi definido pela faculdade e é o mais moderno e usual, funcionando bem com Git.
+
+As ferramentas de criação de diagramas foram escolhida devido a usabilidade, gratuidade e a facilidade, atendendo assim, a demanda de criações de diagramas por todo o projeto.
+
+A ferramenta de versionamento de código foi escolhida devido a fácil utilização, modernidade e por funcionar muito bem com o repositório que foi definido pela faculdade.
  
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
