@@ -88,6 +88,7 @@ As ferramentas empregadas no projeto são:
 | Repositório | GitHub | [GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t2-reciclai)|
 | Ferramenta de criação de diagramas | Camunda | [Camunda](https://modeler.cloud.camunda.io/diagrams)|
 | Ferramenta de criação de diagramas | Lucid | [Lucid](https://www.lucidchart.com/pages/)|
+| Ferramenta de criação de diagramas | Draw.io | [Draw.io](https://www.lucidchart.com/pages/)|
 | Ferramenta de versionamento de códigos | Git | [Git](https://git-scm.com/) |
 
 <br> 
