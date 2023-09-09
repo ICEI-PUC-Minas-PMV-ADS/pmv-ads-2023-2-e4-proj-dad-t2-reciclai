@@ -35,5 +35,5 @@ Sendo assim, é imperativo que a sociedade se organize para minimizar esses efei
 Estabelecemos como público-alvo pessoas sensíveis as questões ambientais que buscam ativamente maneiras de reciclar eletrônicos e reduzir o impacto ambiental causado pelo descarte inadequado, o Reciclaí também tem como objetivo atingir empresas que precisam se desfazer de equipamentos eletrônicos antigos e obsoletos.
  
 Outro grupo essencial serão os catadores de recicláveis e eletrônicos, pois esses profissionais desempenham um papel importante na coleta, triagem e preparação de materiais recicláveis para serem transformados em novos produtos. No caso específico de eletrônicos, os catadores podem desmontar os dispositivos para recuperar componentes que podem ser reutilizados ou reciclados, como placas de circuito, cabos e baterias.
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+
 
