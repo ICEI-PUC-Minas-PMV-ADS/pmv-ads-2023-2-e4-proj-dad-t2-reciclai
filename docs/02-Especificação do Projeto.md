@@ -55,6 +55,8 @@ Nesse processo, o usuário solicita à empresa, a coleta de algum material recic
 
 Nesse processo, pessoas que coletam ou descartam lixo eletrônico se cadastram na plataforma e os mesmos são capazes de se conectarem e solicitar a coleta do material.
 
+Após o usuário entregar a coleta e a empresa/Catador finalizar o processo no APP, o lixo reciclável será de responsabilidade do coletor. 
+
 ![Processo 2](img/Processo_proposto2.png)
 
 
