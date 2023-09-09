@@ -95,7 +95,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | ALTA | 
 |RNF-002| O sistema deverá ser capaz, através de um banco de dados, guardar todas as informações das empresas que fazem a coleta. |  ALTA | 
 |RNF-003|O aplicativo móvel deverá ser elaborado utilizando React Native.| ALTA|
-
+|RNF-004|O aplicativo deve ter bom nível de contraste entre os elementos da tela em conformidade.| ALTA|
+|RNF-005|O sistema deverá garantir a segurança dos dados sensíveis do usuário por meio de criptografia. | ALTA|
+|RNF-006|O sistema deve ser capaz de lidar com uma quantidade significativa de registros e transações de forma rápida e eficiente. | ALTA|
 
 ## Restrições
 
