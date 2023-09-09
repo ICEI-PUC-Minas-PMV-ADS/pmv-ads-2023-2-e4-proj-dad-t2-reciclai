@@ -16,6 +16,8 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ![Persona_Kimburu](img/Persona_Miguel.png)
 
+![Persona_Kimburu](img/Persona_Joao.png)
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
@@ -28,6 +30,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Miguel Miranda   | Quer um sistema que seja separado por tipos de lixo eletrônicos como: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos.             | Para facilitar o descarte e também saber em qual categoria seu lixo é classificado.    |
 | Kimburu|  Poder divulgar sobre a empresa e os serviços prestados |   Para atingir pessoas que desconhecem a empresa e incentivar descarte correto|
 | Kimburu|  Visualizar quais materiais estão no pedido de coleta   |  Para poder decidir se a coleta será adequada para a empresa       |           
+| João Victor | Deseja ter um sistema que possa visualizar quando um usuário solicitar uma coleta de lixo eletrônico   | Para ter uma forma mais simples e segura de descarte.     |           
 
 
 ## Modelagem do Processo de Negócio 
@@ -51,6 +54,8 @@ Nesse processo, o usuário solicita à empresa, a coleta de algum material recic
 ### Processo Proposto – Sistema que conecta recicladores com usuários de materiais eletrônicos (Reciclaí)
 
 Nesse processo, pessoas que coletam ou descartam lixo eletrônico se cadastram na plataforma e os mesmos são capazes de se conectarem e solicitar a coleta do material.
+
+Após o usuário entregar a coleta e a empresa/Catador finalizar o processo no APP, o lixo reciclável será de responsabilidade do coletor. 
 
 ![Processo 2](img/Processo_proposto2.png)
 
@@ -76,7 +81,13 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-011| O sistema deve ter uma tela com informações sobre o impacto positivo da reciclagem. |Média |
 |RF-012 |O sistema deve ter uma página com os pedidos em andamento. |Alta |
 |RF-013 |O sistema deve disponibilizar busca por empresas/pessoas que fazem coleta. |Alta| 
-
+|RF-014 |O sistema deve permitir que o usuário altere o tipo de usuário.  |Alta|
+|RF-015 |O sistema deve permitir que o usuário apague sua conta. |Alta|
+|RF-016 |O sistema deve ter uma página que permita ao usuário visualizar informações sobre as empresas cadastradas. |Média |
+|RF-017 |O sistema deve permitir que o coletor recuse uma coleta  . |Alta|
+|RF-018 |O sistema deve permitir que o coletor reagende uma coleta  . |Alta|
+|RF-019 |O sistema deve permitir que o coletor finalize a coleta. |Alta|
+|RF-020 |O sistema deve permitir que o Coletor cancele uma coleta . |Alta|
 
 
 ### Requisitos não Funcionais
@@ -86,7 +97,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | ALTA | 
 |RNF-002| O sistema deverá ser capaz, através de um banco de dados, guardar todas as informações das empresas que fazem a coleta. |  ALTA | 
 |RNF-003|O aplicativo móvel deverá ser elaborado utilizando React Native.| ALTA|
-
+|RNF-004|O aplicativo deve ter bom nível de contraste entre os elementos da tela em conformidade.| ALTA|
+|RNF-005|O sistema deverá garantir a segurança dos dados sensíveis do usuário por meio de criptografia. | ALTA|
+|RNF-006|O sistema deve ser capaz de lidar com uma quantidade significativa de registros e transações de forma rápida e eficiente. | ALTA|
 
 ## Restrições
 
@@ -110,7 +123,7 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
+![Exemplo de matriz de rastreabilidade](img/02-Matriz%20de%20rastreabilidade.png)
 
 
 # Gerenciamento de Projeto
@@ -131,7 +144,7 @@ O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utiliz
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
 
-![Simple Project Timeline](img/02-project-timeline.png)
+![Simple Project Timeline](img/01-gerenciamento%20de%20equipe.png)
 
 ## Gestão de Orçamento
 
