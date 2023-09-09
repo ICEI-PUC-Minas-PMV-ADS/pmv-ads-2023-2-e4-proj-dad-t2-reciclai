@@ -16,6 +16,8 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ![Persona_Kimburu](img/Persona_Miguel.png)
 
+![Persona_Kimburu](img/Persona_Joao.png)
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
@@ -28,6 +30,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Miguel Miranda   | Quer um sistema que seja separado por tipos de lixo eletrônicos como: eletrodomésticos, eletroportáteis, monitores, tecnologia da informação e telecomunicações, fios e cabos, pilhas e baterias, iluminação e painéis fotovoltaicos.             | Para facilitar o descarte e também saber em qual categoria seu lixo é classificado.    |
 | Kimburu|  Poder divulgar sobre a empresa e os serviços prestados |   Para atingir pessoas que desconhecem a empresa e incentivar descarte correto|
 | Kimburu|  Visualizar quais materiais estão no pedido de coleta   |  Para poder decidir se a coleta será adequada para a empresa       |           
+| João Victor | Deseja ter um sistema que possa visualizar quando um usuário solicitar uma coleta de lixo eletrônico   | Para ter uma forma mais simples e segura de descarte.     |           
 
 
 ## Modelagem do Processo de Negócio 
@@ -76,7 +79,13 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-011| O sistema deve ter uma tela com informações sobre o impacto positivo da reciclagem. |Média |
 |RF-012 |O sistema deve ter uma página com os pedidos em andamento. |Alta |
 |RF-013 |O sistema deve disponibilizar busca por empresas/pessoas que fazem coleta. |Alta| 
-
+|RF-014 |O sistema deve permitir que o usuário altere o tipo de usuário.  |Alta|
+|RF-015 |O sistema deve permitir que o usuário apague sua conta. |Alta|
+|RF-016 |O sistema deve ter uma página que permita ao usuário visualizar informações sobre as empresas cadastradas. |Média |
+|RF-017 |O sistema deve permitir que o coletor recuse uma coleta  . |Alta|
+|RF-018 |O sistema deve permitir que o coletor reagende uma coleta  . |Alta|
+|RF-019 |O sistema deve permitir que o coletor finalize a coleta. |Alta|
+|RF-020 |O sistema deve permitir que o Coletor cancele uma coleta . |Alta|
 
 
 ### Requisitos não Funcionais
@@ -110,7 +119,7 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
+![Exemplo de matriz de rastreabilidade](img/02-Matriz%20de%20rastreabilidade.png)
 
 
 # Gerenciamento de Projeto
