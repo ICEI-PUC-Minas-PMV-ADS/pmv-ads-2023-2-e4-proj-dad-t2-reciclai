@@ -1,0 +1,16 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = apis_web_services_projeto_reciclaí
+build_property.RootNamespace = apis_web_services_projeto_reciclaí
+build_property.ProjectDir = C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí
+build_property._RazorSourceGeneratorDebug = 
