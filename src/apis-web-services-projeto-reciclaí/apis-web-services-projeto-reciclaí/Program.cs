@@ -1,4 +1,4 @@
-using mf_apis_web_services_fuel_manager.Models;
+using apis_web_services_projeto_reciclaí.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
