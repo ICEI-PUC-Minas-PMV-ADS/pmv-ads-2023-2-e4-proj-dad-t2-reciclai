@@ -49,7 +49,7 @@
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Humanizer.dll": {
             "related": ".xml"
           }
         },
@@ -192,7 +192,7 @@
           "Mono.TextTemplating": "2.2.1"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {
             "related": ".xml"
           }
         },
@@ -365,7 +365,7 @@
           "System.Text.Json": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/Microsoft.Extensions.DependencyModel.dll": {
             "related": ".xml"
           }
         },
@@ -659,7 +659,7 @@
           "System.CodeDom": "4.4.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {}
+          "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
@@ -731,7 +731,7 @@
       "System.CodeDom/4.4.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "ref/netstandard2.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
@@ -3105,25 +3105,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Keirosu Vida\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jeferson queiroz\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keirosu Vida\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí.csproj",
+      "projectUniqueName": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí.csproj",
       "projectName": "apis-web-services-projeto-reciclaí",
-      "projectPath": "C:\\Users\\Keirosu Vida\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí.csproj",
-      "packagesPath": "C:\\Users\\Keirosu Vida\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keirosu Vida\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
+      "projectPath": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí.csproj",
+      "packagesPath": "C:\\Users\\jeferson queiroz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jeferson queiroz\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Keirosu Vida\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jeferson queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3187,7 +3190,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
