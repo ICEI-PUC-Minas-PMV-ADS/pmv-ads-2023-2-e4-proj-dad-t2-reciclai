@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\apis-web-services-projeto-reciclaí.props" />
+</Project>
