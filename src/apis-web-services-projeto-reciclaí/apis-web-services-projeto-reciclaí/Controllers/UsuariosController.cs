@@ -28,7 +28,7 @@ namespace apis_web_services_projeto_reciclaí.Controllers
         {
             _context.Usuarios.Add(model);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("Create", new { id = model.Id, model });
+            return CreatedAtAction("GetById", new { id = model.Id }, model);
         }
 
         [HttpGet("{id}")]
