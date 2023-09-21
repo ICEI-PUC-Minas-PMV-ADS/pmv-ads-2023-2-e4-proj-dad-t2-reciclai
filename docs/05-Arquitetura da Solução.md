@@ -8,7 +8,10 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Diagrama de Classes
 
-O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
+O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória. 
+
+O diagrama apresenta uma classe Usuario, escolhemos utilizar somente uma classe para Usuário e fazer a diferenciação entre usuários por meio do Perfil(enum). A classe Usuario está ligada à classe Pedido na qual consta os atributos e métodos comuns a todos os pedidos. No Pedido pode ser escolhido o tipo de lixo que será coletado e esses tipos estão subdivididos 
+ em subclasses que herdam da classe Pedido (Eletrodoméstico, Eletroportáteis, Monitores, Fios e Cabos, Pilhas e baterias, Ti e telecomunicações, Painéis Fotovoltaicos, Iluminação).
 
 ![Diagrama de Classes](img/diagrama_classe_reciclai.png)
 
