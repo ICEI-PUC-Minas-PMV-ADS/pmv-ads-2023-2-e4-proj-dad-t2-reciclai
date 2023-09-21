@@ -28,14 +28,14 @@ namespace apis_web_services_projeto_reciclaí.Controllers
         {
             _context.Usuarios.Add(model);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetById", new { id = model.Id, model });
+            return CreatedAtAction("Create", new { id = model.Id, model });
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {
             var model = await _context.Usuarios
-                .FirstOrDefaultAsync(s => s.Id == id);
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             if (model == null) return NotFound();
 
