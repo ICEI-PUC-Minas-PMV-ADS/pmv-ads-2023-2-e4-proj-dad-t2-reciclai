@@ -1,9 +1,9 @@
-﻿using apis_web_services_projeto_reciclaí.Models;
+﻿using apis_web_services_projeto_reciclai.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace apis_web_services_projeto_reciclaí.Controllers
+namespace apis_web_services_projeto_reciclai.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

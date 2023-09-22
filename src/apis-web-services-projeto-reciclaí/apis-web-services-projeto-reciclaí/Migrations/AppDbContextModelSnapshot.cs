@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using apis_web_services_projeto_reciclaí.Models;
+using apis_web_services_projeto_reciclai.Models;
 
 #nullable disable
 
-namespace apis_web_services_projeto_reciclaí.Migrations
+namespace apis_web_services_projeto_reciclai.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot

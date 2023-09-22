@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace apis_web_services_projeto_reciclaí.Models
+namespace apis_web_services_projeto_reciclai.Models
 {
     [Table("Usuario")]
     public class Usuario
