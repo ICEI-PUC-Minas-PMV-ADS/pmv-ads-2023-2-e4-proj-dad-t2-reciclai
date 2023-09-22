@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using apis_web_services_projeto_reciclaí.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
@@ -9,6 +10,7 @@ namespace apis_web_services_projeto_reciclai.Models
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Pedidos> Pedidos { get; set; }
 
     }
 }
