@@ -1,4 +1,5 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
+using apis_web_services_projeto_reciclaí.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,11 +25,21 @@ namespace apis_web_services_projeto_reciclai.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Usuario model)
+        public async Task<ActionResult> Create(UsuarioDto model)
         {
-            _context.Usuarios.Add(model);
+            Usuario novo = new Usuario()
+            {
+                Nome = model.Nome,
+                Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha),
+                Email = model.Email,
+                Endereco = model.Endereco,
+                Perfil = model.Perfil,
+                TipoLixo = model.TipoLixo,
+            };
+
+            _context.Usuarios.Add(novo);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetById", new { id = model.Id }, model);
+            return CreatedAtAction("GetById", new { id = novo.Id }, novo);
         }
 
         [HttpGet("{id}")]
@@ -41,6 +52,35 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             return Ok(model);
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, UsuarioDto model)
+        {
+            if (id != model.Id) return BadRequest();
+
+            var modelDb = await _context.Usuarios.AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (modelDb == null) return NotFound();
+
+            modelDb.Nome = model.Nome;
+            modelDb.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+            modelDb.Email = model.Email;
+            modelDb.Endereco = model.Endereco;
+            modelDb.Perfil = model.Perfil;
+            modelDb.TipoLixo = model.TipoLixo;  
+
+            
+            _context.Usuarios.Update(modelDb);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+
+
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
