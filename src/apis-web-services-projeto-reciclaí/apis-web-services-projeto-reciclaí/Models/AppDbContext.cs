@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace apis_web_services_projeto_reciclaí.Models
+namespace apis_web_services_projeto_reciclai.Models
 {
     public class AppDbContext : DbContext
     {

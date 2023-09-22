@@ -1,4 +1,4 @@
-using apis_web_services_projeto_reciclaí.Models;
+ï»¿using apis_web_services_projeto_reciclai.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 

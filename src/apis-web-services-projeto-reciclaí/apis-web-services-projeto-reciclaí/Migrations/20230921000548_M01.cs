@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace apis_web_services_projeto_reciclaí.Migrations
+namespace apis_web_services_projeto_reciclai.Migrations
 {
     /// <inheritdoc />
     public partial class M01 : Migration
