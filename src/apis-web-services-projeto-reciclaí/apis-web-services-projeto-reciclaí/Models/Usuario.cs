@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
@@ -16,6 +17,7 @@ namespace apis_web_services_projeto_reciclai.Models
         public string Email { get; set; }
 
         [Required]
+        [JsonIgnore]
         public string Senha { get; set; }
 
         [Required]
