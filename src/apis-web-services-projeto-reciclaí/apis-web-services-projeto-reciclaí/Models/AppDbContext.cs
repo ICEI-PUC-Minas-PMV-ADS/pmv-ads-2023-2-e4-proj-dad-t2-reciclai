@@ -10,7 +10,7 @@ namespace apis_web_services_projeto_reciclai.Models
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Pedidos> Pedidos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
 
     }
 }

@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading;
 
-namespace apis_web_services_projeto_reciclaí.Models
+namespace apis_web_services_projeto_reciclai.Models
 {
     [Table("Pedidos")]
-    public class Pedidos
+    public class Pedido
     {
         [Key]
         public int Id { get; set; }
@@ -30,17 +30,6 @@ namespace apis_web_services_projeto_reciclaí.Models
         [Required]
         public bool LixoPerigoso { get; set; }
 
-    }
-    public enum TipoLixo
-    {
-        Eletrodomestico,
-        Eletroportateis,
-        Monitores,
-        Iluminacao,
-        Fios_cabos,
-        Pilhas_baterias,
-        Ti_telecomunicacao,
-        Paineis_fotovoltaicos
     }
 
         /*

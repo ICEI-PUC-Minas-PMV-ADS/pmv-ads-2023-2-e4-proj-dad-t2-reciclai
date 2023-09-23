@@ -12,7 +12,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Pedidos",
+                name: "Pedido",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -30,7 +30,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pedidos", x => x.Id);
+                    table.PrimaryKey("PK_Pedido", x => x.Id);
                 });
         }
 
@@ -38,7 +38,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Pedidos");
+                name: "Pedido");
         }
     }
 }

@@ -12,7 +12,7 @@ using apis_web_services_projeto_reciclai.Models;
 namespace apis_web_services_projeto_reciclai.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230922213540_M02")]
+    [Migration("20230923172250_M02")]
     partial class M02
     {
         /// <inheritdoc />
@@ -25,42 +25,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Perfil")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TipoLixo")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Usuario");
-                });
-
-            modelBuilder.Entity("apis_web_services_projeto_reciclaí.Models.Pedidos", b =>
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,6 +69,41 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pedidos");
+                });
+
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Perfil")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoLixo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }

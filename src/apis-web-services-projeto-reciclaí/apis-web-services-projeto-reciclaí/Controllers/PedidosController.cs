@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace apis_web_services_projeto_reciclaí.Controllers
+namespace apis_web_services_projeto_reciclai.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -25,9 +25,9 @@ namespace apis_web_services_projeto_reciclaí.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Pedidos model)
+        public async Task<ActionResult> Create(Pedido model)
         {
-            Pedidos novo = new Pedidos()
+            Pedido novo = new Pedido()
             {
                 DataColeta = model.DataColeta,
                 HorarioColeta = model.HorarioColeta,
@@ -57,7 +57,7 @@ namespace apis_web_services_projeto_reciclaí.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int Id, Pedidos model)
+        public async Task<ActionResult> Update(int Id, Pedido model)
         {
             if (Id != model.Id) return BadRequest();
 
