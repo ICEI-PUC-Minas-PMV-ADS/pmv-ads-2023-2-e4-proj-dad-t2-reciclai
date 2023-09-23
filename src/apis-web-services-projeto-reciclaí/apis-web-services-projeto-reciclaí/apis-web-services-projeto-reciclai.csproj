@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>apis_web_services_projeto_reciclaí</RootNamespace>
+    <RootNamespace>apis_web_services_projeto_reciclai</RootNamespace>
   </PropertyGroup> 
  
 
