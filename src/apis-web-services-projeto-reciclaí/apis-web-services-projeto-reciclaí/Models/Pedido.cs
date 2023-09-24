@@ -30,6 +30,7 @@ namespace apis_web_services_projeto_reciclai.Models
         [Required]
         public bool LixoPerigoso { get; set; }
 
+        public ICollection<PedidoUsuarios> Usuarios { get; set; }
     }
 
         /*

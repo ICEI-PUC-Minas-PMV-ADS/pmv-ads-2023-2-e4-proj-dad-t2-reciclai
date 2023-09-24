@@ -55,7 +55,6 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return Ok(model);
         }
 
-
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int Id, Pedido model)
         {
@@ -82,9 +81,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             return NoContent();
 
-
         }
-
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
@@ -94,6 +91,31 @@ namespace apis_web_services_projeto_reciclai.Controllers
             if (model == null) return NotFound();
 
             _context.Pedidos.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPost("{id}/usuarios")]
+        public async Task<ActionResult> AddUsuario(int id, PedidoUsuarios model)
+        {
+            if (id != model.PedidoId) return BadRequest();
+            _context.PedidoUsuarios.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.PedidoId }, model);
+        }
+
+        [HttpDelete("{id}/usuarios/{usuarioId}")]
+        public async Task<ActionResult> DeleteUsuario(int id, int usuarioId)
+        {
+            var model = await _context.PedidoUsuarios
+                .Where(c => c.PedidoId == id && c.UsuarioId == usuarioId)
+                .FirstOrDefaultAsync();
+
+            if (model == null) return NotFound();
+
+            _context.PedidoUsuarios.Remove(model);
             await _context.SaveChangesAsync();
 
             return NoContent();
