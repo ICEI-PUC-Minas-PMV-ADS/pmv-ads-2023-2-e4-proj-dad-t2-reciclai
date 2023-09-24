@@ -9,5 +9,6 @@ namespace apis_web_services_projeto_reciclai.Models
         public Pedido Pedido { get; set; }
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
+
     }
 }

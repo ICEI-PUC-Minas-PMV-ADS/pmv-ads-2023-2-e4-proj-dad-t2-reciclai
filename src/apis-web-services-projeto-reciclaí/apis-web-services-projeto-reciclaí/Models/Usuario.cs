@@ -29,8 +29,6 @@ namespace apis_web_services_projeto_reciclai.Models
 
         public TipoLixo TipoLixo { get; set; }
 
-        public ICollection<PedidoUsuarios> Pedidos { get; set; }
-
     }
 
     public enum Perfil

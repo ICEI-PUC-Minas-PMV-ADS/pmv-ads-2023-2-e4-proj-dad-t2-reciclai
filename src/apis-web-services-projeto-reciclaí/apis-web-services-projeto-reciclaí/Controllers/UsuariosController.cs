@@ -34,7 +34,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 Email = model.Email,
                 Endereco = model.Endereco,
                 Perfil = model.Perfil,
-                TipoLixo = (Models.TipoLixo)model.TipoLixo,
+                TipoLixo = model.TipoLixo,
             };
 
             _context.Usuarios.Add(novo);
@@ -69,7 +69,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             modelDb.Email = model.Email;
             modelDb.Endereco = model.Endereco;
             modelDb.Perfil = model.Perfil;
-            modelDb.TipoLixo = (Models.TipoLixo)model.TipoLixo;  
+            modelDb.TipoLixo = model.TipoLixo;  
 
             
             _context.Usuarios.Update(modelDb);

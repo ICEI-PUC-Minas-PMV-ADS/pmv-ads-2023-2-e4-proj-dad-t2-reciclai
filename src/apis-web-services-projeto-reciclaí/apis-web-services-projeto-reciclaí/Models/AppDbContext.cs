@@ -17,9 +17,9 @@ namespace apis_web_services_projeto_reciclai.Models
                 .HasOne(c => c.Pedido).WithMany(c => c.Usuarios)
                 .HasForeignKey(c => c.PedidoId);
 
-            builder.Entity<PedidoUsuarios>()
+           /* builder.Entity<PedidoUsuarios>()
                 .HasOne(c => c.Usuario).WithMany(c => c.Pedidos)
-                .HasForeignKey(c => c.UsuarioId);
+                .HasForeignKey(c => c.UsuarioId);*/
         }
 
         public DbSet<Usuario> Usuarios { get; set; }

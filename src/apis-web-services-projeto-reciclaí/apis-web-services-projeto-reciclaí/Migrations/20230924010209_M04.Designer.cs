@@ -12,8 +12,8 @@ using apis_web_services_projeto_reciclai.Models;
 namespace apis_web_services_projeto_reciclai.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230923224906_M03")]
-    partial class M03
+    [Migration("20230924010209_M04")]
+    partial class M04
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,6 +95,21 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     b.ToTable("Pedidos");
                 });
 
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
+                {
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PedidoId", "UsuarioId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("PedidoUsuarios");
+                });
+
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -139,6 +154,35 @@ namespace apis_web_services_projeto_reciclai.Migrations
                         .IsRequired();
 
                     b.Navigation("Pedido");
+                });
+
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
+                {
+                    b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
+                        .WithMany("Usuarios")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("apis_web_services_projeto_reciclai.Models.Usuario", "Usuario")
+                        .WithMany("Pedidos")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pedido");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
+                {
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
+                {
+                    b.Navigation("Pedidos");
                 });
 #pragma warning restore 612, 618
         }
