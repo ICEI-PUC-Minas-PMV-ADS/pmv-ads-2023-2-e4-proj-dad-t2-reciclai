@@ -36,9 +36,9 @@ namespace apis_web_services_projeto_reciclai.Models
         public ICollection<PainelFotovoltaico> PainelFotovoltaicos { get; set; }
         public ICollection<PilhasBateria> PilhasBaterias { get; set; }
         public ICollection<TiTelecomunicacao> TiTelecomunicacoes { get; set; }
-        //public ICollection<Eletrodomestico> Eletrodomestico { get; set; }
-        //public ICollection<Eletroportatil> Eletroportatil { get; set; }
-        //public ICollection<FiosCabos> FiosCabos { get; set; }
+        public ICollection<Eletrodomestico> Eletrodomesticos { get; set; }
+        public ICollection<Eletroportatil> Eletroportateis { get; set; }
+        public ICollection<FiosCabo> FiosCabos { get; set; }
 
     }
     
