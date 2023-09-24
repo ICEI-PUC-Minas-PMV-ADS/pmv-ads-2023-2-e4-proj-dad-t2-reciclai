@@ -5,7 +5,7 @@
 namespace apis_web_services_projeto_reciclai.Migrations
 {
     /// <inheritdoc />
-    public partial class M04 : Migration
+    public partial class M08 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

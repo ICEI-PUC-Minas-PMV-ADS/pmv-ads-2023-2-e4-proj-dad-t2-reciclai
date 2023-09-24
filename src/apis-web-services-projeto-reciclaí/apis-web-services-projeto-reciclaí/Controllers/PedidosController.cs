@@ -82,7 +82,6 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpPost("{id}/usuarios")]
         public async Task<ActionResult> AddUsuario(int id, PedidoUsuarios model)
         {
-            
             if (id != model.PedidoId) return BadRequest();
 
             model.Usuario = _context.Usuarios.First(u => u.Id == model.UsuarioId);

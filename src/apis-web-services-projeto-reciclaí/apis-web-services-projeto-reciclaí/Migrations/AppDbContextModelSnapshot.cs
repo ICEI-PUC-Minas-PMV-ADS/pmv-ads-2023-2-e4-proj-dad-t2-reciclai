@@ -138,70 +138,68 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     b.ToTable("Pedidos");
                 });
 
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
+                {
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PedidoId", "UsuarioId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("PedidoUsuarios");
+                });
+
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PilhasBateria", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                b.Property<string>("Composicao")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Composicao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("PedidoId")
-                    .HasColumnType("int");
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
 
-                b.HasKey("Id");
+                    b.HasKey("Id");
 
-                b.HasIndex("PedidoId");
+                    b.HasIndex("PedidoId");
 
-                b.ToTable("PilhasBaterias");
-            });
+                    b.ToTable("PilhasBaterias");
+                });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.TiTelecomunicacao", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                b.Property<string>("Estrutura")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Estrutura")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("PedidoId")
-                    .HasColumnType("int");
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
 
-                b.Property<double>("Tamanho")
-                    .HasColumnType("float");
+                    b.Property<double>("Tamanho")
+                        .HasColumnType("float");
 
-                b.HasKey("Id");
+                    b.HasKey("Id");
 
-                b.HasIndex("PedidoId");
+                    b.HasIndex("PedidoId");
 
-                b.ToTable("TiTelecomunicacoes");
-            });
+                    b.ToTable("TiTelecomunicacoes");
+                });
 
-            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
-            {
-                b.Property<int>("PedidoId")
-                    .HasColumnType("int");
-
-                b.Property<int>("UsuarioId")
-                    .HasColumnType("int");
-
-                b.Property<int>("Perfil")
-                    .HasColumnType("int");
-
-                b.HasKey("PedidoId", "UsuarioId");
-
-                b.HasIndex("UsuarioId");
-
-                b.ToTable("PedidoUsuarios");
-            });
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -259,6 +257,17 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     b.Navigation("Pedido");
                 });
 
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PainelFotovoltaico", b =>
+                {
+                    b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
+                        .WithMany()
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pedido");
+                });
+
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
@@ -276,22 +285,6 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     b.Navigation("Pedido");
 
                     b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
-                {
-                    b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PainelFotovoltaico", b =>
-                {
-                    b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pedido");
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PilhasBateria", b =>
@@ -314,6 +307,11 @@ namespace apis_web_services_projeto_reciclai.Migrations
                         .IsRequired();
 
                     b.Navigation("Pedido");
+                });
+
+            modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
+                {
+                    b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
         }
