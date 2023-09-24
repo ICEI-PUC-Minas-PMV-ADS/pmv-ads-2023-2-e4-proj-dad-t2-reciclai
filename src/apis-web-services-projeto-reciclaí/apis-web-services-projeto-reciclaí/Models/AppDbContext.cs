@@ -12,5 +12,6 @@ namespace apis_web_services_projeto_reciclai.Models
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Monitor> Monitores { get; set; }
         public DbSet<Iluminacao> Iluminacoes { get; set; }
-    }
+        public DbSet<PilhasBateria> PilhasBaterias { get; set; }
+    }   
 }
