@@ -3150,19 +3150,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dodos\\.nuget\\packages\\": {}
+    "C:\\Users\\noguti oliveira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dodos\\OneDrive\\Área de Trabalho\\Projeto01\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "projectUniqueName": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
       "projectName": "apis-web-services-projeto-reciclai",
-      "projectPath": "C:\\Users\\dodos\\OneDrive\\Área de Trabalho\\Projeto01\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
-      "packagesPath": "C:\\Users\\dodos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dodos\\OneDrive\\Área de Trabalho\\Projeto01\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
+      "projectPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "packagesPath": "C:\\Users\\noguti oliveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dodos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\noguti oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3230,7 +3230,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

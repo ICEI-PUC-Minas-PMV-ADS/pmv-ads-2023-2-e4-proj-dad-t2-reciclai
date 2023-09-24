@@ -1,5 +1,5 @@
-﻿using apis_web_services_projeto_reciclaí.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
@@ -24,7 +24,7 @@ namespace apis_web_services_projeto_reciclai.Models
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<Monitor> Monitores { get; set; }
         public DbSet<PedidoUsuarios> PedidoUsuarios { get; set; }
-
     }
 }
