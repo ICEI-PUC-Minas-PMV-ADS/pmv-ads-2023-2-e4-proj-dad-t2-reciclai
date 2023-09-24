@@ -31,17 +31,15 @@ namespace apis_web_services_projeto_reciclai.Models
         public bool LixoPerigoso { get; set; }
 
         public ICollection<PedidoUsuarios> Usuarios { get; set; }
-    }
-
-        /*
-        public ICollection<Eletrodomestico> Eletrodomesticos { get; set; }
-        public ICollection<Eletroportateis> Eletroportateis { get; set; }
-        public ICollection<Monitores> Monitores { get; set; }
+        public ICollection<Monitor> Monitor { get; set; }
         public ICollection<Iluminacao> Iluminacao { get; set; }
-        public ICollection<Fios_cabos> Fios_cabos { get; set; }
-        public ICollection<Pilhas_baterias> Pilhas_baterias { get; set; }
-        public ICollection<Ti_telecomunicacao> Ti_telecomunicacao { get; set; }
-        public ICollection<Paineis_fotovoltaicos> Paineis_fotovoltaicos { get; set; }
-        */
+        public ICollection<PainelFotovoltaico> PainelFotovoltaico { get; set; }
+        public ICollection<PilhasBateria> PilhasBateria { get; set; }
+        public ICollection<TiTelecomunicacao> TiTelecomunicacao { get; set; }
+        //public ICollection<Eletrodomestico> Eletrodomestico { get; set; }
+        //public ICollection<Eletroportatil> Eletroportatil { get; set; }
+        //public ICollection<FiosCabos> FiosCabos { get; set; }
+
+    }
     
 }

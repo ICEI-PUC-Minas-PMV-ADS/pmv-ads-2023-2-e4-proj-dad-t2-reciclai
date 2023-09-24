@@ -238,7 +238,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Iluminacao", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("Iluminacao")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -249,7 +249,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Monitor", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("Monitor")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -260,7 +260,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PainelFotovoltaico", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("PainelFotovoltaico")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -290,7 +290,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PilhasBateria", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("PilhasBateria")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -301,7 +301,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.TiTelecomunicacao", b =>
                 {
                     b.HasOne("apis_web_services_projeto_reciclai.Models.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("TiTelecomunicacao")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -311,6 +311,16 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
                 {
+                    b.Navigation("Iluminacao");
+
+                    b.Navigation("Monitor");
+
+                    b.Navigation("PainelFotovoltaico");
+
+                    b.Navigation("PilhasBateria");
+
+                    b.Navigation("TiTelecomunicacao");
+
                     b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
