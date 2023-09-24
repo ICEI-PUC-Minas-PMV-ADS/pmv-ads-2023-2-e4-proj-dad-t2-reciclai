@@ -1,17 +1,16 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Iluminacao = apis_web_services_projeto_reciclai.Models.Iluminacao;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IluminacoesController : ControllerBase
+    public class PainelFotovoltaicosController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public IluminacoesController(AppDbContext context)
+        public PainelFotovoltaicosController(AppDbContext context)
         {
             _context = context;
         }
@@ -19,14 +18,14 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var model = await _context.Iluminacoes.ToListAsync();
+            var model = await _context.PainelFotovoltaicos.ToListAsync();
             return Ok(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Iluminacao model)
+        public async Task<ActionResult> Create(PainelFotovoltaico model)
         {
-            _context.Iluminacoes.Add(model);
+            _context.PainelFotovoltaicos.Add(model);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetById", new { id = model.Id }, model);
@@ -35,7 +34,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {
-            var model = await _context.Iluminacoes
+            var model = await _context.PainelFotovoltaicos
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (model == null) return NotFound();
@@ -45,16 +44,16 @@ namespace apis_web_services_projeto_reciclai.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, Iluminacao model)
+        public async Task<ActionResult> Update(int id, PainelFotovoltaico model)
         {
             if (id != model.Id) return BadRequest();
 
-            var modeloDb = await _context.Iluminacoes.AsNoTracking()
+            var modeloDb = await _context.PainelFotovoltaicos.AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (modeloDb == null) return NotFound();
 
-            _context.Iluminacoes.Update(model);
+            _context.PainelFotovoltaicos.Update(model);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -63,11 +62,11 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var model = await _context.Iluminacoes.FindAsync(id);
+            var model = await _context.PainelFotovoltaicos.FindAsync(id);
 
             if (model == null) return NotFound();
 
-            _context.Iluminacoes.Remove(model);
+            _context.PainelFotovoltaicos.Remove(model);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -75,3 +74,4 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
     }
 }
+
