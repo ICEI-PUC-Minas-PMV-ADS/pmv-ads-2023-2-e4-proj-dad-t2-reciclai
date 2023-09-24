@@ -31,11 +31,11 @@ namespace apis_web_services_projeto_reciclai.Models
         public bool LixoPerigoso { get; set; }
 
         public ICollection<PedidoUsuarios> Usuarios { get; set; }
-        public ICollection<Monitor> Monitor { get; set; }
-        public ICollection<Iluminacao> Iluminacao { get; set; }
-        public ICollection<PainelFotovoltaico> PainelFotovoltaico { get; set; }
-        public ICollection<PilhasBateria> PilhasBateria { get; set; }
-        public ICollection<TiTelecomunicacao> TiTelecomunicacao { get; set; }
+        public ICollection<Monitor> Monitores { get; set; }
+        public ICollection<Iluminacao> Iluminacoes { get; set; }
+        public ICollection<PainelFotovoltaico> PainelFotovoltaicos { get; set; }
+        public ICollection<PilhasBateria> PilhasBaterias { get; set; }
+        public ICollection<TiTelecomunicacao> TiTelecomunicacoes { get; set; }
         //public ICollection<Eletrodomestico> Eletrodomestico { get; set; }
         //public ICollection<Eletroportatil> Eletroportatil { get; set; }
         //public ICollection<FiosCabos> FiosCabos { get; set; }
