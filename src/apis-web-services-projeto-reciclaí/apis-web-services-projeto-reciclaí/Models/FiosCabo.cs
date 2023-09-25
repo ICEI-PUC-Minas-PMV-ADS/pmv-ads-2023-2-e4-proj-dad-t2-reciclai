@@ -9,6 +9,7 @@ namespace apis_web_services_projeto_reciclai.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Espessura { get; set; }
         [Required]
         public string Material { get; set; }

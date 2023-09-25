@@ -30,5 +30,9 @@ namespace apis_web_services_projeto_reciclai.Models
         public DbSet<PainelFotovoltaico> PainelFotovoltaicos { get; set; }
         public DbSet<TiTelecomunicacao> TiTelecomunicacoes { get; set; }
         public DbSet<PedidoUsuarios> PedidoUsuarios { get; set; }
+        public DbSet<Eletrodomestico> Eletrodomesticos { get; set; }
+        public DbSet<Eletroportatil> Eletroportateis { get; set; }
+        public DbSet<FiosCabo> FiosCabos { get; set; }
+
     }
 }
