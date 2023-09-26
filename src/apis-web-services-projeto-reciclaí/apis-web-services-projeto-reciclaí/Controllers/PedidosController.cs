@@ -86,7 +86,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             model.Usuario = _context.Usuarios.First(u => u.Id == model.UsuarioId);
 
-            if (_context.PedidoUsuarios.Any(c => c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
+            if (_context.PedidoUsuarios.Any(c => c.Pedido.Id == id && c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
                 return StatusCode(405);
 
             _context.PedidoUsuarios.Add(model);
