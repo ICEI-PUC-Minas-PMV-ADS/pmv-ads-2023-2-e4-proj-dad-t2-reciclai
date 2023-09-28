@@ -104,9 +104,9 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public async Task<ActionResult> Authenticate(AuthenticateDto model)
+        public async Task<ActionResult> Authenticate([Bind("Email, Senha")] AuthenticateDto model)
         {
-            var usuarioDb = await _context.Usuarios.FindAsync(model.Id);
+            var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == model.Email);
 
             if(usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha ))
                 return Unauthorized();
