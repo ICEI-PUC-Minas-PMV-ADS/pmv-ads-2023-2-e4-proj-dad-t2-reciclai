@@ -72,6 +72,25 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.22": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.10.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1249,6 +1268,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.22": {
+      "sha512": "+iuPmRkxfJ2vHoXifWqPJK8jppS8+iH3m1B8VMdgVWiC2U4q3JPBXx/kb7348HfClMPG+OcHpTUtmJkfUByvgg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.22",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -3143,6 +3177,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BCrypt.Net-Next >= 4.0.3",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.22",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
@@ -3150,23 +3185,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Carolina\\.nuget\\packages\\": {},
+    "C:\\Users\\ccara\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "projectUniqueName": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
       "projectName": "apis-web-services-projeto-reciclai",
-      "projectPath": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
-      "packagesPath": "C:\\Users\\Carolina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
+      "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "packagesPath": "C:\\Users\\ccara\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Carolina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ccara\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3196,6 +3231,10 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[6.0.22, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
