@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ftDQW3J2qaeBzgAQ0KK+mSYJEsZHdhKM9M1+r3s6Fa+cJVbBsUbZkF6gjBNIunLvla2RItGaRKtX1pBjhE984Q==",
+  "dgSpecHash": "+CUoR2N+6Cuavjh1ymn5rqFjOiOZxgw36gteB3Fp4c7HcIjMcKSbYDR9ar2qBgZqXvV5vvx8kUP2JFFcPllTCA==",
   "success": true,
   "projectFilePath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\ccara\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\ccara\\.nuget\\packages\\mstest.testframework\\3.1.1\\mstest.testframework.3.1.1.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
