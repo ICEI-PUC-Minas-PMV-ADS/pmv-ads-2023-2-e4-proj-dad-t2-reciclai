@@ -35,9 +35,16 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+|Função    | Tecnologia  | 
+|------------|-----------------------------------------|
+| Linguagem | C# | 
+| Framework | API ASP.NET | 
+| Bibliotecas |Microsoft.AspNetCore.Authorization; Microsoft.AspNetCore.Http; Microsoft.AspNetCore.Mvc; Microsoft.EntityFrameworkCore; | 
+| IDE | Visual Studio | 
+| Ferramentas | Microsoft Teams, GitHub, Whatsapp | 
+| Banco de dados | SQL Server e MongoDB| 
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+<br>
 
 ## Hospedagem
 
