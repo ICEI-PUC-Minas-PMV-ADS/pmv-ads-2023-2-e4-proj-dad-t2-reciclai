@@ -24,7 +24,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> GetAllUsers()
         {
             var model = await _context.Usuarios.ToListAsync();
             return Ok(model);
@@ -32,7 +32,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> Create(UsuarioDto model)
+        public async Task<ActionResult> CreateUser(UsuarioDto model)
         {
             Usuario novo = new Usuario()
             {
@@ -50,7 +50,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        public async Task<ActionResult> GetUserById(int id)
         {
             var model = await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Id == id);
@@ -62,7 +62,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, UsuarioDto model)
+        public async Task<ActionResult> UpdateUser(int id, UsuarioDto model)
         {
             if (id != model.Id) return BadRequest();
 
@@ -90,7 +90,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteUser(int id)
         {
             var model = await _context.Usuarios.FindAsync(id);
 
