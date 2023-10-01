@@ -1,4 +1,4 @@
-namespace Tests;
+namespace ReciclaiTests;
 
 public class Tests
 {

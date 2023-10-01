@@ -987,9 +987,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\Tests.csproj",
-      "projectName": "Tests",
-      "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\ReciclaiTests.csproj",
+      "projectName": "ReciclaiTests",
+      "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\ReciclaiTests.csproj",
       "packagesPath": "C:\\Users\\ccara\\.nuget\\packages\\",
       "outputPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\obj\\",
       "projectStyle": "PackageReference",

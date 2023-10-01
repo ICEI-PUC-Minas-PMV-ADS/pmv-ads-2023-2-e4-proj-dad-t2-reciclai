@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apis-web-services-projeto-reciclai", "apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclai.csproj", "{F9B73CB2-59C8-48AC-9CFB-87E8889AAC48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9B806EDF-7C6F-4265-A420-3A413DD83E42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReciclaiTests", "Tests\ReciclaiTests.csproj", "{9B806EDF-7C6F-4265-A420-3A413DD83E42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

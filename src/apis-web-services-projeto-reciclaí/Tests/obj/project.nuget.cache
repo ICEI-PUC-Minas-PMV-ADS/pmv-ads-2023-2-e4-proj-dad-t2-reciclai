@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XG2ulWUVMdQIrlW7qb6um/LyLpqgBSTUTal02j3NA+x+N/ADdqvI63ZCxYm10o17hoUNP5NyY1zz8n7InANbvA==",
+  "dgSpecHash": "VXBB5ZrJQhgIWytQz50JzTovKXQ6HqX2IEGb3x7Hej8H8Z3aJuZQj1CofcGWVe6U9vk159gcSv+eUQ6ZRE7ojw==",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\Tests\\ReciclaiTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ccara\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\ccara\\.nuget\\packages\\microsoft.codecoverage\\17.7.1\\microsoft.codecoverage.17.7.1.nupkg.sha512",
