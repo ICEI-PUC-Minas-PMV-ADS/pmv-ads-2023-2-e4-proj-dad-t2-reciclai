@@ -9,6 +9,6 @@ namespace apis_web_services_projeto_reciclai.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]   
         public string? Id { get; set; }
-       public string Token { get; set; } = null!;
+        public string Token { get; set; } = null!;
     }
 }
