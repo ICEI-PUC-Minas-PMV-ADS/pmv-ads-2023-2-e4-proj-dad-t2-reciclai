@@ -46,7 +46,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             _context.Usuarios.Add(novo);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetById", new { id = novo.Id }, novo);
+            return CreatedAtAction("GetUserById", new { id = novo.Id }, novo);
         }
 
         [HttpGet("{id}")]
