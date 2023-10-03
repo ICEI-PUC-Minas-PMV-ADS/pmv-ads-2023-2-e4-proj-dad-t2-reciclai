@@ -282,6 +282,22 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.11"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/7.0.11": {
         "type": "package",
         "dependencies": {
@@ -1788,6 +1804,20 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.7.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.11": {
+      "sha512": "Wc0YniYccjbzg8URydo3zbVUR0NLdvpIPU5qO0Vyvtl2Ty7fFmD6/RfbESjdcnszgiGt417OZiwmiiC+w3hmTA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.7.0.11.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.11": {
@@ -3673,6 +3703,7 @@
       "BCrypt.Net-Next >= 4.0.3",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.22",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
+      "Microsoft.EntityFrameworkCore.InMemory >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
       "MongoDB.Driver >= 2.21.0",
@@ -3680,19 +3711,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\noguti oliveira\\.nuget\\packages\\": {}
+    "C:\\Users\\ccara\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "projectUniqueName": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
       "projectName": "apis-web-services-projeto-reciclai",
-      "projectPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
-      "packagesPath": "C:\\Users\\noguti oliveira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noguti oliveira\\Documents\\MOBILE\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
+      "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+      "packagesPath": "C:\\Users\\ccara\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\noguti oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ccara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3727,6 +3763,10 @@
             "version": "[6.0.22, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.11, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[7.0.11, )"
           },
@@ -3768,7 +3808,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
