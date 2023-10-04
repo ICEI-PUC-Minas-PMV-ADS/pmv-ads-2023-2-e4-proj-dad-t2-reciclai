@@ -4,11 +4,14 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
-    public class UsuarioToken
+    public class OpiniaoUsuario
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]   
         public string? Id { get; set; }
-        public string token { get; set; } = null!;
+
+        public string Nome { get; set; } = null!;
+
+        public string Mensagem { get; set; } = null!;
     }
 }
