@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Logging;
+using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 
 namespace apis_web_services_projeto_reciclai.Controllers
@@ -22,93 +23,144 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var model = await _context.Pedidos.Include(t => t.Usuarios).ThenInclude(t => t.Usuario).ToListAsync();
+            try
+            {
+                var model = await _context.Pedidos.Include(t => t.Usuarios).ThenInclude(t => t.Usuario).ToListAsync();
 
-            return Ok(model);
+                if (model == null) return NotFound();
+
+                return Ok(model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         [HttpPost]
         public async Task<ActionResult> Create(Pedido model)
         {
+            try
+            {
+                _context.Pedidos.Add(model);
+                await _context.SaveChangesAsync();
 
-            _context.Pedidos.Add(model);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction("GetById", new { id = model.Id }, model);
+                return CreatedAtAction("GetById", new { id = model.Id }, model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {
-            var model = await _context.Pedidos
-                .Include(t => t.Usuarios).ThenInclude(t => t.Usuario)
-                .FirstOrDefaultAsync(u => u.Id == id);
+            try
+            {
+                var model = await _context.Pedidos
+                    .Include(t => t.Usuarios).ThenInclude(t => t.Usuario)
+                    .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (model == null) return NotFound();
+                if (model == null) return NotFound();
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, Pedido model)
         {
-            if (id != model.Id) return BadRequest();
+            try
+            {
+                if (id != model.Id) return BadRequest();
 
-            var modelDb = await _context.Pedidos.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == id);
+                var modelDb = await _context.Pedidos.AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (modelDb == null) return NotFound();
+                if (modelDb == null) return NotFound();
 
-            _context.Pedidos.Update(model);
+                _context.Pedidos.Update(model);
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return NoContent();
+                return Ok(model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
 
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var model = await _context.Pedidos.FindAsync(id);
+            try
+            {
+                var model = await _context.Pedidos.FindAsync(id);
 
-            if (model == null) return NotFound();
+                if (model == null) return NotFound();
 
-            _context.Pedidos.Remove(model);
-            await _context.SaveChangesAsync();
+                _context.Pedidos.Remove(model);
+                await _context.SaveChangesAsync();
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         [HttpPost("{id}/usuarios")]
         public async Task<ActionResult> AddUsuario(int id, PedidoUsuarios model)
         {
-            if (id != model.PedidoId) return BadRequest();
+            try
+            {
+                if (id != model.PedidoId) return BadRequest();
 
-            model.Usuario = _context.Usuarios.First(u => u.Id == model.UsuarioId);
+                model.Usuario = _context.Usuarios.First(u => u.Id == model.UsuarioId);
 
-            if (_context.PedidoUsuarios.Any(c => c.Pedido.Id == id && c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
-                return StatusCode(405);
+                if (_context.PedidoUsuarios.Any(c => c.Pedido.Id == id && c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
+                    return StatusCode(405);
 
-            _context.PedidoUsuarios.Add(model);
-            await _context.SaveChangesAsync();
+                _context.PedidoUsuarios.Add(model);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetById", new { id = model.PedidoId }, model);
-        
+                return CreatedAtAction("GetById", new { id = model.PedidoId }, model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
         }
 
         [HttpDelete("{id}/usuarios/{usuarioId}")]
         public async Task<ActionResult> DeleteUsuario(int id, int usuarioId)
         {
-            var model = await _context.PedidoUsuarios
-                .Where(c => c.PedidoId == id && c.UsuarioId == usuarioId)
-                .FirstOrDefaultAsync();
+            try
+            {
+                var model = await _context.PedidoUsuarios
+                    .Where(c => c.PedidoId == id && c.UsuarioId == usuarioId)
+                    .FirstOrDefaultAsync();
 
-            if (model == null) return NotFound();
+                if (model == null) return NotFound();
 
-            _context.PedidoUsuarios.Remove(model);
-            await _context.SaveChangesAsync();
+                _context.PedidoUsuarios.Remove(model);
+                await _context.SaveChangesAsync();
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

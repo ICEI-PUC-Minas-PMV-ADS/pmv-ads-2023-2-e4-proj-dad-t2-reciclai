@@ -5,7 +5,7 @@ namespace apis_web_services_projeto_reciclai.Models
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder builder)

@@ -7,8 +7,8 @@ namespace apis_web_services_projeto_reciclai.Models
     public class UsuarioToken
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]   
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        public string token { get; set; } = null!;
+        public string Token { get; set; } = null!;
     }
 }
