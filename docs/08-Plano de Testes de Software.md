@@ -46,6 +46,31 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 * Passos: Acessar o insomnia e preencher os campos solicitados.
 * Critério de Êxito: Retorno do código 204.
 
+**Caso de teste 08**  -  **Cadastro de Pedido** 
+* Requisito Associado: RF-006 - O sistema deve permitir que o usuário escolha uma empresa/pessoa para solicitar a coleta de lixo eletrônico. .
+* Objetivo do Teste: Verificar se o cadastro será realizado.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 200.
+
+**Caso de teste 09**  -  **Editar Cadastro de Pedido** 
+* Requisito Associado: RF-018 - O sistema deve permitir que o coletor reagende uma coleta.
+* Objetivo do Teste: Verificar se a alteração do cadastro será realizada.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 204.
+
+**Caso de teste 10**  -  **GetById Cadastro de Pedido** 
+* Requisito Associado: RF-012  -O sistema deve ter uma página com os pedidos em andamento.
+* Objetivo do Teste: Verificar se os dados são retornados com sucesso.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 200.
+
+
+**Caso de teste 11**  -  **Apagar Cadastro de Pedido** 
+* Requisito Associado: RF-020  - O sistema deve permitir que o Coletor cancele uma coleta .
+* Objetivo do Teste: Verificar se o cadastro será apagado.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 204.
+
 ## Ferramentas de Testes (Opcional)
 
 Comente sobre as ferramentas de testes utilizadas.
