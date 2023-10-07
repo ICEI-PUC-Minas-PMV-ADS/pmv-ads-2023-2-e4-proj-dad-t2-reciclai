@@ -559,3 +559,18 @@ C:\Users\dodos\OneDrive\Área de Trabalho\ProjetoAtualizado\src\apis-web-service
 C:\Users\dodos\OneDrive\Área de Trabalho\ProjetoAtualizado\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\dodos\OneDrive\Área de Trabalho\ProjetoAtualizado\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\dodos\OneDrive\Área de Trabalho\ProjetoAtualizado\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\Snappier.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Keirosu Vida\Documents\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

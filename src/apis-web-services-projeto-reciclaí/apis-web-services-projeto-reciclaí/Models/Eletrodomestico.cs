@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using mf_apis_web_services_fuel_manager.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
     [Table("Eletrodomesticos") ]
-    public class Eletrodomestico
+    public class Eletrodomestico : LinksHATEOS
     {
         [Key]
         public int Id { get; set; }

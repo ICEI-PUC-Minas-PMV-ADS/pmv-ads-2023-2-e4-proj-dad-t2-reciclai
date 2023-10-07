@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using mf_apis_web_services_fuel_manager.Models;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
     [Table("TiTelecomunicacoes")]
-    public class TiTelecomunicacao
+    public class TiTelecomunicacao : LinksHATEOS
     {
         [Key]
         public int Id { get; set; }

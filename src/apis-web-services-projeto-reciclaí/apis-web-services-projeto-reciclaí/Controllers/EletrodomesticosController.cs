@@ -1,4 +1,5 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
+using mf_apis_web_services_fuel_manager.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,8 +37,9 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             if (model == null) return NotFound();
 
-
+            GerarLinks(model);
             return Ok(model);
+
         }
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, Eletrodomestico model)
@@ -66,6 +68,23 @@ namespace apis_web_services_projeto_reciclai.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+
         }
+
+        private void GerarLinks(Eletrodomestico model)
+        {
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "Delete"));
+
+        }
+
+
+
+
+
+
+
     }
 }
+
