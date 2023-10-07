@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using mf_apis_web_services_fuel_manager.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading;
 
 namespace apis_web_services_projeto_reciclai.Models
 {
     [Table("Pedidos")]
-    public class Pedido
+    public class Pedido : LinksHATEOS
     {
         [Key]
         public int Id { get; set; }
