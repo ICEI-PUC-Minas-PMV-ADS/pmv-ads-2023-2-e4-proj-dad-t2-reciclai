@@ -1,8 +1,19 @@
 # Registro de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>, <a href="8-Plano de Testes de Software.md"> Plano de Testes de Software</a>
-
 Relatório com as evidências dos testes de software realizados no sistema pela equipe, baseado em um plano de testes pré-definido.
+
+
+**Caso de Teste 01 - Cadastro de Usuário**
+![print cadastro usuario](img/cadastro_usuario_print.png)
+
+**Caso de Teste 02 - Editar Cadastro de Usuário**
+![print update usuario](img/update_usuario_print.png)
+
+**Caso de Teste 03 - Apagar Cadastro de Usuário**
+![print delete usuario](img/delete_usuario_print.png)
+
+**Caso de Teste 04 - Login do Usuário**
+![login usuario](img/login_usario_print.png)
 
 ## Avaliação
 
