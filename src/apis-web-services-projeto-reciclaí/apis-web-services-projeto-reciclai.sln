@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apis-web-services-projeto-reciclai", "apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclai.csproj", "{F9B73CB2-59C8-48AC-9CFB-87E8889AAC48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReciclaiTestes", "ReciclaiTestes\ReciclaiTestes.csproj", "{A3F4108F-8ED8-45F2-A68A-8B398625A811}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestReciclai", "TestReciclai\TestReciclai.csproj", "{B5F9609B-6877-4CC6-9960-112B2DAB6866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F9B73CB2-59C8-48AC-9CFB-87E8889AAC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B73CB2-59C8-48AC-9CFB-87E8889AAC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B73CB2-59C8-48AC-9CFB-87E8889AAC48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3F4108F-8ED8-45F2-A68A-8B398625A811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3F4108F-8ED8-45F2-A68A-8B398625A811}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3F4108F-8ED8-45F2-A68A-8B398625A811}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3F4108F-8ED8-45F2-A68A-8B398625A811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F9609B-6877-4CC6-9960-112B2DAB6866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F9609B-6877-4CC6-9960-112B2DAB6866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F9609B-6877-4CC6-9960-112B2DAB6866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F9609B-6877-4CC6-9960-112B2DAB6866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
