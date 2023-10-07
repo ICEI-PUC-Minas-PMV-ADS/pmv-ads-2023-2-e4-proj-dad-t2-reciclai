@@ -155,6 +155,8 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 await _context.SaveChangesAsync();
 
                 return NoContent();
+
+
             }
             catch (Exception e)
             {
