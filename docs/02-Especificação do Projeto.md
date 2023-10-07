@@ -88,6 +88,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-018 |O sistema deve permitir que o coletor reagende uma coleta  . |Alta|
 |RF-019 |O sistema deve permitir que o coletor finalize a coleta. |Alta|
 |RF-020 |O sistema deve permitir que o Coletor cancele uma coleta . |Alta|
+|RF-021|O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela incial| Média|
 
 
 ### Requisitos não Funcionais
