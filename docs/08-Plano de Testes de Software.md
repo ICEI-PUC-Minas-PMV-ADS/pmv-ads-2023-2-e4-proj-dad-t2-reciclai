@@ -4,25 +4,25 @@ Apresente os cenários de testes utilizados na realização dos testes da sua ap
 
 Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
 
-### **Caso de teste**  -  **CT-01- Cadastro do Usuário** 
+**Caso de teste 01**  -  **Cadastro do Usuário** 
 * Requisito Associado: RF-001  -  O sistema deve permitir que o usuário se cadastre na aplicação.
 * Objetivo do Teste: Verificar se o cadastro será realizado.
 * Passos: Acessar o insomnia e preencher os campos solicitados.
 * Critério de Êxito: Retorno do código 200.
 
-### **Caso de teste**  -  **CT-02- Editar Cadastro do Usuário** 
+**Caso de teste 02**  -  **Editar Cadastro do Usuário** 
 * Requisito Associado: RF-014  - O sistema deve permitir que o usuário altere o tipo de usuário.
 * Objetivo do Teste: Verificar se a alteração do cadastro será realizada.
 * Passos: Acessar o insomnia e preencher os campos solicitados.
 * Critério de Êxito: Retorno do código 204.
 
-### **Caso de teste**  -  **CT-03- Apagar Cadastro do Usuário** 
+**Caso de teste 03**  -  **Apagar Cadastro do Usuário** 
 * Requisito Associado: RF-015  - O sistema deve permitir que o usuário apague a sua conta.
 * Objetivo do Teste: Verificar se o cadastro será apagado.
 * Passos: Acessar o insomnia e preencher os campos solicitados.
 * Critério de Êxito: Retorno do código 204.
 
-### **Caso de teste**  -  **CT-04- Login do Usuário** 
+**Caso de teste 04**  -  **Login do Usuário** 
 * Requisito Associado: RF-002  - O sistema deve permitir que o usuário realize o login.
 * Objetivo do Teste: Verificar se o usuário conseguirá realizar o login com sucesso.
 * Passos: Acessar o insomnia e preencher os campos solicitados.
