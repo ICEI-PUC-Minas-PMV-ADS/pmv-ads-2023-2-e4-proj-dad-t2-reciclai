@@ -15,6 +15,18 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 **Caso de Teste 04 - Login do Usuário**
 ![login usuario](img/login_usario_print.png)
 
+**Caso de Teste 08 - Cadastro de Pedido**
+![create pedido](img/create_pedido.png)
+
+**Caso de Teste 09 - Editar Pedido**
+![editar pedido](img/update_pedido.png)
+
+**Caso de Teste 10 - GetById Cadastro de Pedido**
+![GetById pedido](img/getbyid_pedido.png)
+
+**Caso de Teste 11 - Apagar Cadastro de Pedido**
+![delete pedido](img/delete_pedido.png)
+
 ## Avaliação
 
 Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
