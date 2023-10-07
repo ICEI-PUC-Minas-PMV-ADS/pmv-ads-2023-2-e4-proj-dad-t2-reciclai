@@ -7,7 +7,8 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 ### **Caso de teste**  -  **CT-01-Tela Cadastro do Usuário** 
 * Requisito Associado: RF-001  - O O sistema deve permitir que o usuário se cadastre na aplicação.
 * Objetivo do Teste: Verificar se o cadastro será realizado.
-* Critério de Êxito: Verificar se após inserir as informações o cadastro foi realizado.
+* Passos: Acessar o swagger, acessar o try out e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 200.
  
 ## Ferramentas de Testes (Opcional)
 
