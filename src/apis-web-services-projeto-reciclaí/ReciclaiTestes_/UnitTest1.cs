@@ -5,7 +5,7 @@ namespace ReciclaiTestes_
         [Fact]
         public void Test1()
         {
-
+            Assert.True(true);
         }
     }
 }
