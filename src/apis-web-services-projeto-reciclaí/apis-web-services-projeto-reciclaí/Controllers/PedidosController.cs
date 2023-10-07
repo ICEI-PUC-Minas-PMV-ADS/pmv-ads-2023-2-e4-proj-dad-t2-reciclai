@@ -94,7 +94,6 @@ namespace apis_web_services_projeto_reciclai.Controllers
             {
                 throw new Exception(e.Message);
             }
-
         }
 
         [HttpDelete("{id}")]
