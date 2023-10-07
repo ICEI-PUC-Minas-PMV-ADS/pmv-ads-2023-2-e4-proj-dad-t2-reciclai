@@ -1,5 +1,6 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
 using apis_web_services_projeto_reciclaí.Models;
+using mf_apis_web_services_fuel_manager.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -64,6 +65,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
                 if (model == null) return NotFound();
 
+                GerarLinks(model);
                 return Ok(model);
             }
             catch (Exception e)
@@ -94,7 +96,6 @@ namespace apis_web_services_projeto_reciclai.Controllers
             {
                 throw new Exception(e.Message);
             }
-
         }
 
         [HttpDelete("{id}")]
@@ -156,11 +157,24 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 await _context.SaveChangesAsync();
 
                 return NoContent();
+
+
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
+
+        private void GerarLinks(Pedido model)
+        {
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "Delete"));
+
+        }
+
+
+
     }
 }

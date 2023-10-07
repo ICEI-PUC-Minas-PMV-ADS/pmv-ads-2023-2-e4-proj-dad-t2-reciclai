@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<ReciclaiDatabaseSettings>(
     builder.Configuration.GetSection("ReciclaiDatabase"));
 
-builder.Services.AddSingleton<UsuariosTokenService>();
+builder.Services.AddSingleton<OpiniaoUsuarioService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
