@@ -28,8 +28,24 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 * Passos: Acessar o insomnia e preencher os campos solicitados.
 * Critério de Êxito: Retorno do código 200.
 
+**Caso de teste 05**  -  **Cadastrar a Opinião dos Usuários** 
+* Requisito Associado: RF-021  -  O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela inicial.
+* Objetivo do Teste: Verificar se o usuário consegue escrever a sua opinião.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 200.
 
- 
+**Caso de teste 06**  -  **Editar a Opinião dos Usuários** 
+* Requisito Associado: RF-021  -  O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela inicial.
+* Objetivo do Teste: Verificar se a alteração da mensagem será realizada.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 204.
+
+**Caso de teste 07**  -  **Apagar a Opinião dos Usuários** 
+* Requisito Associado: RF-021  - O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela inicial.
+* Objetivo do Teste: Verificar se a mensagem será apagada.
+* Passos: Acessar o insomnia e preencher os campos solicitados.
+* Critério de Êxito: Retorno do código 204.
+
 ## Ferramentas de Testes (Opcional)
 
 Comente sobre as ferramentas de testes utilizadas.
