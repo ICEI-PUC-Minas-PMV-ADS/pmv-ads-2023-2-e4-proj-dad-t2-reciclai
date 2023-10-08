@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace ReciclaiTestes_
 {
-    public class UsuarioTeste
+    public class TesteUsuario
     {
         private readonly AppDbContext _dbContext;
 
-        public UsuarioTeste()
+        public TesteUsuario()
         {
             // Banco de dados in memory (só pra testar)
             var serviceProvider = new ServiceCollection()
@@ -104,7 +104,7 @@ namespace ReciclaiTestes_
             // Arrange
             var controller = new UsuariosController(_dbContext);
 
-            var model = new Usuario
+            var usuarioDto = new UsuarioDto
             {
                 // Objeto "model" com os dados pra teste
                 Id = 1,
@@ -117,14 +117,14 @@ namespace ReciclaiTestes_
             };
 
             // Act
-            var result = await controller.CreateUser(model);
+            var result = await controller.CreateUser(usuarioDto);
 
             // Assert
             var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
-            var createdModel = Assert.IsAssignableFrom<Pedido>(createdAtActionResult.Value);
+            var createdUsuarioDto = Assert.IsAssignableFrom<Usuario>(createdAtActionResult.Value);
 
             // Verificando se o objeto foi adicionado ao banco de dados
-            var savedModel = await _dbContext.Pedidos.FirstOrDefaultAsync(p => p.Id == createdModel.Id);
+            var savedModel = await _dbContext.Usuarios.FirstOrDefaultAsync(p => p.Id == createdUsuarioDto.Id);
             Assert.NotNull(savedModel);
 
         }
@@ -165,7 +165,7 @@ namespace ReciclaiTestes_
             // Arrange
             var controller = new UsuariosController(_dbContext);
             var id = 2; // ID de um pedido de teste existente
-            var updatedModel = new Usuario
+            var updatedUsuarioDto = new UsuarioDto
             {
                 Id = id,
                 Nome = "Cláudia",
@@ -177,14 +177,14 @@ namespace ReciclaiTestes_
             };
 
             // Act
-            var result = await controller.UpdateUser(id, updatedModel);
+            var result = await controller.UpdateUser(id, updatedUsuarioDto);
 
             // Assert
             Assert.IsType<OkObjectResult>(result);
 
             // Verificando se os dados foram atualizados no banco de dados
-            var updatedModelDb = await _dbContext.Pedidos.FindAsync(id);
-            Assert.Equal(updatedModel.Id, updatedModelDb.Id);
+            var updatedModelDb = await _dbContext.Usuarios.FindAsync(id);
+            Assert.Equal(updatedUsuarioDto.Id, updatedModelDb.Id);
 
         }
 
@@ -194,7 +194,7 @@ namespace ReciclaiTestes_
             // Arrange
             var controller = new UsuariosController(_dbContext);
             var id = 1; // ID de um pedido de teste existente
-            var updatedModel = new Usuario { 
+            var updatedUsuarioDto = new UsuarioDto { 
                 Id = 999,
                 Email = "puc@pucminas.com",
                 Senha = "pucminas2",
@@ -204,7 +204,7 @@ namespace ReciclaiTestes_
             }; // ID inválido
 
             // Act
-            var result = await controller.UpdateUser(id, updatedModel);
+            var result = await controller.UpdateUser(id, updatedUsuarioDto);
 
             // Assert
             Assert.IsType<BadRequestResult>(result);
@@ -216,10 +216,18 @@ namespace ReciclaiTestes_
             // Arrange
             var controller = new UsuariosController(_dbContext);
             var id = 999; // ID que não existe no banco de dados
-            var updatedModel = new Usuario { Id = id, /* Lembrar de preencher com os outros atributos de Pedido */ };
+            var updatedUsuarioDto = new UsuarioDto {
+
+                Nome = "Cláudia",
+                Email = "claudia@pucminas.br",
+                Senha = "pucminas",
+                Endereco = "Avenida Rio Branco",
+                Perfil = Perfil.Solicitante,
+                TipoLixo = TipoLixo.Iluminacao
+            };
 
             // Act
-            var result = await controller.UpdateUser(id, updatedModel);
+            var result = await controller.UpdateUser(id, updatedUsuarioDto);
 
             // Assert
             Assert.IsType<NotFoundResult>(result);
@@ -261,4 +269,4 @@ namespace ReciclaiTestes_
 
     }
 }
-}
+
