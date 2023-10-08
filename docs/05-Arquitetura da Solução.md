@@ -4,7 +4,9 @@
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![Arquitetura da Solução](img/Arquitetura_de_software.png)
+Abaixo, na imagem, temos a representação de como será a arquitetura do projeto, tendo assim um FrontEnd (web e mobile) conectados a uma API Rest e temos dois bancos de dados, um para salvar opiniões de usuários em relação a plataforma/serviço (MongoDb) e outro banco para guardar dados de funcionalidade do sistema (SQL server).
+
+![Arquitetura da Solução](img/Arquitetura_de_software_Att.png)
 
 ## Diagrama de Classes
 
@@ -26,8 +28,10 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER�
 ## Esquema Relacional
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
+
+No esquema temos classes de diferentes tipos de pedidos (Eletrodoméstico, Eletroportáteis, Monitores, Fios e Cabos, Pilhas e baterias, Ti e telecomunicações, Painéis Fotovoltaicos, Iluminação) com uma FK contendo o Id da tabela de pedidos e para fazer a ligação dos pedidos com os usuários, nós temos a tabela PedidoUsuarios, contendo uma FK da tabela de pedidos e uma FK da tabela de Usuarios.
  
-![Esquema relacional](img/Base_de_dados.png)
+![Esquema relacional](img/Base_de_dados_Att.png)
 
 ## Modelo Físico
 
