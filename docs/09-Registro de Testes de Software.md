@@ -36,6 +36,9 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 **Caso de Teste 11 - Apagar Cadastro de Pedido**
 ![delete pedido](img/delete_pedido.png)
 
+**Caso de teste 12 - GetById Cadastro de Usuário** 
+![delete pedido](img/GetByIdUsuario.png)
+
 ## Avaliação
 
 Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
