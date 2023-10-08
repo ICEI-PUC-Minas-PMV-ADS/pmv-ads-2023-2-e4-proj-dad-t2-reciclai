@@ -29,7 +29,7 @@ namespace ReciclaiTestes_
 
             _dbContext = new AppDbContext(options);
 
-            SeedTestData();
+            ReciclaiDatabase();
         }
 
         public void Dispose()
@@ -37,7 +37,7 @@ namespace ReciclaiTestes_
             _dbContext.Dispose();
         }
 
-        private void SeedTestData()
+        private void ReciclaiDatabase()
         {
             // Inserir dados de teste no banco de dados
             var usuarios = new[]

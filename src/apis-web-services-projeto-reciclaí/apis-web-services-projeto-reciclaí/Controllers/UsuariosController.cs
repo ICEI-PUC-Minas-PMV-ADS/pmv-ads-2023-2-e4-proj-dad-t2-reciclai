@@ -1,5 +1,4 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
-using apis_web_services_projeto_reciclaí.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

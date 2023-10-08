@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace apis_web_services_projeto_reciclaí.Models
+namespace apis_web_services_projeto_reciclai.Models
 {
     public class UsuarioDto
     {
