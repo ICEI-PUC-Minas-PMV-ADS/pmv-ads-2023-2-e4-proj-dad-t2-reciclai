@@ -1,11 +1,13 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
 using mf_apis_web_services_fuel_manager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Iluminacao = apis_web_services_projeto_reciclai.Models.Iluminacao;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class IluminacoesController : ControllerBase
