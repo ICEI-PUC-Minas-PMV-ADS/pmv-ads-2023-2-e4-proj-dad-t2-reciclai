@@ -15,15 +15,15 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 O diagrama apresenta uma classe Usuario, escolhemos utilizar somente uma classe para Usuário e fazer a diferenciação entre usuários por meio do Perfil(enum). A classe Usuario está ligada à classe Pedido na qual consta os atributos e métodos comuns a todos os pedidos. No Pedido pode ser escolhido o tipo de lixo que será coletado e esses tipos estão subdivididos 
  em subclasses que herdam da classe Pedido (Eletrodoméstico, Eletroportáteis, Monitores, Fios e Cabos, Pilhas e baterias, Ti e telecomunicações, Painéis Fotovoltaicos, Iluminação).
 
-![Diagrama de Classes](img/diagrama_classe_reciclai.png)
+_![Diagrama de Classes](img/diagrama_classe_reciclai.png)_
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
+O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
 
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![Diagrama ER](img/Diagrama_ER.png)
+
 
 ## Esquema Relacional
 
