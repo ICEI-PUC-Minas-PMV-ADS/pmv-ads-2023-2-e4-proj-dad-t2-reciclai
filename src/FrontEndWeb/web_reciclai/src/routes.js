@@ -1,4 +1,4 @@
-import CadastroUsuario from './pages/CadastroUsuario.js'
+import CadastroUsuario from './pages/CadastroUsuario/index.js'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function AppRoutes(){
