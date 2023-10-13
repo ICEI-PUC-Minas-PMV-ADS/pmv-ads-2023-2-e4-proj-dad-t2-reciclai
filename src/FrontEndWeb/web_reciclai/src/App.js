@@ -1,9 +1,15 @@
-import AppRoutes from './routes';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+
+import CadastroUsuario from './pages/CadastroUsuario/index.js'
 
 function App() {
   return (
-    <AppRoutes />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CadastroUsuario />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
