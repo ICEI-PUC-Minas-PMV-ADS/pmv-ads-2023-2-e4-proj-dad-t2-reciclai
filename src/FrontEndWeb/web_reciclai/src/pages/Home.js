@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel' ;
 import Natureza from "../img/Natureza.jpg";
-import Earth from "../img/Earth.jpg";
 import Eletronico from "../img/Eletronico.jpg";
 import People from "../img/people.png";
 import FigureHome from '../components/FigureHome'
