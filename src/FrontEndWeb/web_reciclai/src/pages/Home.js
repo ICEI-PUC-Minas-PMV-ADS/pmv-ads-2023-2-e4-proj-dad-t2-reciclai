@@ -13,13 +13,14 @@ function Home() {
    };
 
    return (
-      <Carousel data-bs-theme="dark">
+      <Carousel data-bs-theme="dark" >
       <Carousel.Item >
         <img 
-          className="d-block w-30" 
+          className="d-block w-30 " 
           src={Reciclando}
           alt="Firt slide"
           height={300}
+          
           />
          
         <Carousel.Caption>
