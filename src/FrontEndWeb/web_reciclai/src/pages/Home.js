@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel' ;
 import Natureza from "../img/Natureza.jpg";
-import Atitude from "../img/Atitudes Transformam.jpg";
-import Reciclando2 from "../img/Reciclando2.jpg";
+import Earth from "../img/Earth.jpg";
+import Eletronico from "../img/Eletronico.jpg";
+import People from "../img/people.png";
 import FigureHome from '../components/FigureHome'
 
 
@@ -35,7 +36,7 @@ function Home() {
        <Carousel.Item>
          <img
            className="d-block w-50"
-           src={Atitude}
+           src={People}
            alt="Second slide"
            width={300}
            height={500} 
@@ -43,23 +44,23 @@ function Home() {
 
          <Carousel.Caption
          className="d-block w-100 h-50">
-           <h5>Second slide label</h5>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           <h5>Cadastre-se </h5>
+           <p>Venha Fazer Parte Dessa Transformação!! </p>
          </Carousel.Caption>
        </Carousel.Item>
        <Carousel.Item>
          <img
            className="d-block w-50"
-           src={Reciclando2}
+           src={Eletronico}
            alt="Third slide"
            width={300}
            height={500} />
 
          <Carousel.Caption
          className="d-block w-100 h-50">
-           <h5>Third slide label</h5>
+           <h5>Não Sabe Como Descartar Seu Lixo Eletrônico?</h5>
            <p>
-             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+             Baixe Nosso Aplicativo!
            </p>
          </Carousel.Caption>
        </Carousel.Item>
