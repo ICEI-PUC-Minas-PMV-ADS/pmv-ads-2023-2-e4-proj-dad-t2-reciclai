@@ -15,7 +15,7 @@ function Home() {
    };
 
    return (
-      <><Carousel data-bs-theme="dark">
+      <Carousel data-bs-theme="dark">
        <Carousel.Item>
          <img
            className="d-block w-50 "
@@ -34,26 +34,29 @@ function Home() {
        </Carousel.Item>
        <Carousel.Item>
          <img
-           className="d-block w-100"
+           className="d-block w-50"
            src={Reciclando1}
            alt="Second slide"
            width={300}
            height={500} 
            />
 
-         <Carousel.Caption>
+         <Carousel.Caption
+         className="d-block w-100 h-50">
            <h5>Second slide label</h5>
            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
          </Carousel.Caption>
        </Carousel.Item>
        <Carousel.Item>
          <img
-           className="d-block w-100"
+           className="d-block w-50"
            src={Reciclando2}
            alt="Third slide"
            width={300}
            height={500} />
-         <Carousel.Caption>
+
+         <Carousel.Caption
+         className="d-block w-100 h-50">
            <h5>Third slide label</h5>
            <p>
              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
@@ -61,9 +64,9 @@ function Home() {
          </Carousel.Caption>
        </Carousel.Item>
      </Carousel>
-     <FigureHome></FigureHome></>
+    
    );
    
-   
+  
 }
 export default Home;
