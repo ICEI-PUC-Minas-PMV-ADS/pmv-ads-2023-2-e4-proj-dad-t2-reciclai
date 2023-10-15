@@ -4,7 +4,7 @@ import Jorge from "../img/Jorge.jpg";
 
 function FigureHome() {
   return (
-    <Figure>
+    <Figure className="d-block w-100">
       <Figure.Image
         width={171}
         height={180}
