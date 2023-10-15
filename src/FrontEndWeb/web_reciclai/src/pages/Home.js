@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel' ;
 import Natureza from "../img/Natureza.jpg";
-import Reciclando1 from "../img/Reciclando1.jpg";
-import Reciclando2 from "../img/Reciclando2.jpg";
+import Eletronico from "../img/Eletronico.jpg";
+import People from "../img/people.png";
 import FigureHome from '../components/FigureHome'
 
 
@@ -15,7 +15,7 @@ function Home() {
    };
 
    return (
-      <><Carousel data-bs-theme="dark">
+      <Carousel data-bs-theme="dark">
        <Carousel.Item>
          <img
            className="d-block w-50 "
@@ -34,36 +34,39 @@ function Home() {
        </Carousel.Item>
        <Carousel.Item>
          <img
-           className="d-block w-100"
-           src={Reciclando1}
+           className="d-block w-50"
+           src={People}
            alt="Second slide"
            width={300}
            height={500} 
            />
 
-         <Carousel.Caption>
-           <h5>Second slide label</h5>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+         <Carousel.Caption
+         className="d-block w-100 h-50">
+           <h5>Cadastre-se </h5>
+           <p>Venha Fazer Parte Dessa Transformação!! </p>
          </Carousel.Caption>
        </Carousel.Item>
        <Carousel.Item>
          <img
-           className="d-block w-100"
-           src={Reciclando2}
+           className="d-block w-50"
+           src={Eletronico}
            alt="Third slide"
            width={300}
            height={500} />
-         <Carousel.Caption>
-           <h5>Third slide label</h5>
+
+         <Carousel.Caption
+         className="d-block w-100 h-50">
+           <h5>Não Sabe Como Descartar Seu Lixo Eletrônico?</h5>
            <p>
-             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+             Baixe Nosso Aplicativo!
            </p>
          </Carousel.Caption>
        </Carousel.Item>
      </Carousel>
-     <FigureHome></FigureHome></>
+    
    );
    
-   
+  
 }
 export default Home;
