@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home.js";
 import CadastroUsuario from './pages/CadastroUsuario.js';
+import PerfilUsuario from  './pages/PerfilUsuario.js';
 import Header from './components/Header.js';
 
 
@@ -12,7 +13,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="usuarios" element={<CadastroUsuario />} />
+          <Route path="/cadastro" element={<CadastroUsuario />} />
+          <Route path="/perfil" element={<PerfilUsuario />} />
 
         </Routes>
       </BrowserRouter>
