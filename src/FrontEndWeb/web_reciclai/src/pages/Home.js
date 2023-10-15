@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel' ;
 import Natureza from "../img/Natureza.jpg";
-import Reciclando1 from "../img/Reciclando1.jpg";
+import Atitude from "../img/Atitudes Transformam.jpg";
 import Reciclando2 from "../img/Reciclando2.jpg";
 import FigureHome from '../components/FigureHome'
 
@@ -35,7 +35,7 @@ function Home() {
        <Carousel.Item>
          <img
            className="d-block w-50"
-           src={Reciclando1}
+           src={Atitude}
            alt="Second slide"
            width={300}
            height={500} 
