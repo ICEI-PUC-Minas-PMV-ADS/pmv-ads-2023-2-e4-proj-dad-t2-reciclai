@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./CadastroUsuario.module.css";
 
 
-const CadastroUsuario = ({ user }) => {
+
+const CadastroUsuario = () => {
 
 
   return (

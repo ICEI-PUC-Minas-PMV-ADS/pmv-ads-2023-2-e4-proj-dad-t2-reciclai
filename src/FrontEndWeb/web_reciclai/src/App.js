@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import './App.css';
 import Header from "./components/Header.js";
 
-import Home from "./pages/Home/Home.js";
-import CadastroUsuario from './pages/CadastroUsuario/index.js'
+import Home from "./pages/Home.js";
+import CadastroUsuario from './pages/CadastroUsuario.js'
 
 function App() {
   return (
