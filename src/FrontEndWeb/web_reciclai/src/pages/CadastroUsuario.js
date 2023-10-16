@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
-import { TextField, Button, Container, Stack } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import { Link } from "react-router-dom";
 import styles from './CadastroUsuario.module.css';
- 
+import Input from '../components/Input.js';
+import Botao from '../components/Button.js';
+import { insertUsuarios } from '../services/Usuarios.services';
+import { SelectPerfil } from '../components/SelectPerfil.js';
+import { SelectTipoLixo } from '../components/SelectTipoLixo.js';
  
 
 const CadastroUsuario = () => {
@@ -13,13 +17,15 @@ const CadastroUsuario = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
-  const [perfil, setPerfil] = useState('');
-  const [tipoLixo, setTipoLixo] = useState('');
+  //const [perfil, setPerfil] = useState('');
+  //const [tipoLixo, setTipoLixo] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(nome, email, senha, endereco) 
-}
+
+
+  function handleSubmit() {
+    console.log(nome, email, senha, endereco)
+  }
+
 
   return (
     <React.Fragment>
@@ -27,54 +33,47 @@ const CadastroUsuario = () => {
     <h2 className={styles.form}>Cadastro de Usuário</h2>
     <form onSubmit={handleSubmit} action={<Link to="/" />}>
         
-            <TextField
+            <Input
                 type="text"
-                variant='standard'
-                color='secondary'
                 label="Nome:"
                 onChange={e => setNome(e.target.value)}
                 value={nome}
-                fullWidth
                 required
                 sx={{mb: 4}}
             />
             <Stack spacing={2} direction="row" sx={{marginBottom: 4}}>
-            <TextField
+            <Input
                 type="email"
-                variant='standard'
-                color='secondary'
                 label="Email:"
                 onChange={e => setEmail(e.target.value)}
                 value={email}
-                fullWidth
                 required
             />
-             <TextField
+             <Input
             type="password"
-            variant='standard'
-            color='secondary'
             label="Senha"
             onChange={e => setSenha(e.target.value)}
             value={senha}
             required
-            fullWidth
             sx={{mb: 4}}
         />
         </Stack>
              
-          <TextField
+          <Input
             type="text"
-            variant='standard'
-            color='secondary'
             label="Endereço"
             onChange={e => setEndereco(e.target.value)}
             value={endereco}
-            fullWidth
             required
             sx={{mb: 4}}
         />
-    
-        <Button variant="contained"  type="submit">Cadastrar</Button>
+        <div className={styles.select} >
+        <SelectPerfil />
+        </div>
+        <div className={styles.select}>
+        <SelectTipoLixo />
+        </div>
+        <Botao type="submit" onPress={handleSubmit} className={styles.botao}>Cadastrar</Botao>
     </form>
     </Container>
 </React.Fragment>
