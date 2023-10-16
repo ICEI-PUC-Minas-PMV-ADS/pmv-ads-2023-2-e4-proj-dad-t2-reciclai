@@ -1,20 +1,5 @@
 .form{
     margin-top: 30px;
-
+    color: var(--verde);
 }
 
-.label{
-    text-align: left;
-}
-
-.select{
-    margin-bottom: 20px;
-    margin-top: 20px;
-
-}
-
-.button{
-    width: 200px;
-    align-items: center;
-    
-}
