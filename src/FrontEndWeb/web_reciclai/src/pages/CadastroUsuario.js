@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Stack } from '@mui/material';
 import { Link } from "react-router-dom";
 import styles from './CadastroUsuario.module.css';
@@ -7,11 +7,11 @@ import Botao from '../components/Button.js';
 //import { insertUsuarios } from '../services/Usuarios.services';
 import { SelectPerfil } from '../components/SelectPerfil.js';
 import { SelectTipoLixo } from '../components/SelectTipoLixo.js';
+
  
 
-const CadastroUsuario = () => {
-
-
+const CadastroUsuario =  () => {
+  
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -21,6 +21,17 @@ const CadastroUsuario = () => {
   //const [tipoLixo, setTipoLixo] = useState('');
 
 
+  /*useEffect(() =>{
+    if(item){
+      setNome(item.nome);
+      setEmail(item.email);
+      setSenha(item.senha);
+      setEndereco(item.endereco);
+      setPerfil(item.perfil);
+      setTipoLixo(item.tipoLixo);
+     
+    }
+  }, [item]);*/
 
   function handleSubmit() {
     console.log(nome, email, senha, endereco)
@@ -73,7 +84,9 @@ const CadastroUsuario = () => {
         <div className={styles.select}>
         <SelectTipoLixo />
         </div>
-        <Botao type="submit" onPress={handleSubmit} className={styles.botao}>Cadastrar</Botao>
+        <Botao type="submit" onPress={handleSubmit} className={styles.botao}>
+          Cadastrar
+        </Botao>
     </form>
     </Container>
 </React.Fragment>

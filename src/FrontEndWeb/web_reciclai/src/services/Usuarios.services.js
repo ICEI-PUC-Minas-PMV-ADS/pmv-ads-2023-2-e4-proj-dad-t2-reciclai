@@ -1,9 +1,10 @@
 import API from './Api.services.js';
 import { BASE_URL } from './Urls.js';
+import axios from "axios"
 
-export const insertUsuarios = async (param) => {
+export const insertUsuarios = async () => {
     try{
-      return await API.post(`${BASE_URL}/usuarios`, param).then( 
+      return await axios.post(`${BASE_URL}/usuarios`).then( 
         response => {
           return response.data;
         },
