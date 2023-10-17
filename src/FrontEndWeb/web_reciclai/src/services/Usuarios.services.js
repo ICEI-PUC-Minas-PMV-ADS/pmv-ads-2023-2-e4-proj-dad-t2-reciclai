@@ -1,4 +1,3 @@
-import API from './Api.services.js';
 import { BASE_URL } from './Urls.js';
 import axios from "axios"
 
