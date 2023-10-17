@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from './CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { insertUsuarios } from '../services/Usuarios.services';
+//import { insertUsuarios } from '../services/Usuarios.services';
 import { SelectPerfil } from '../components/SelectPerfil.js';
 import { SelectTipoLixo } from '../components/SelectTipoLixo.js';
  
