@@ -4,39 +4,56 @@ import { Link } from "react-router-dom";
 import styles from './CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-//import { insertUsuarios } from '../services/Usuarios.services';
+import { insertUsuarios } from '../services/Usuarios.services';
 import { SelectPerfil } from '../components/SelectPerfil.js';
 import { SelectTipoLixo } from '../components/SelectTipoLixo.js';
+import { useNavigate } from 'react-router-dom';
 
  
 
 const CadastroUsuario =  () => {
   
+  const navigate = useNavigate();
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
-  //const [perfil, setPerfil] = useState('');
-  //const [tipoLixo, setTipoLixo] = useState('');
+  const [perfil, setPerfil] = useState('');
+  const [tipoLixo, setTipoLixo] = useState('');
 
 
-  /*useEffect(() =>{
-    if(item){
+  useEffect(() =>{
+   insertUsuarios().then(item =>{
+    if(item) {
       setNome(item.nome);
       setEmail(item.email);
       setSenha(item.senha);
       setEndereco(item.endereco);
       setPerfil(item.perfil);
       setTipoLixo(item.tipoLixo);
-     
     }
-  }, [item]);*/
+   })
+  }, []);
 
-  function handleSubmit() {
-    console.log(nome, email, senha, endereco)
-  }
 
+  async function handleSubmit() {
+  
+    insertUsuarios({
+      "nome": nome,
+      "email": email,
+      "senha": senha,
+      "endereco": endereco,
+      "perfil": perfil,
+      "tipoLixo": tipoLixo
+  }).then(res => {
+      navigate('/');
+      console.log(res);
+  });
+
+}
+
+  
 
   return (
     <React.Fragment>
@@ -84,7 +101,7 @@ const CadastroUsuario =  () => {
         <div className={styles.select}>
         <SelectTipoLixo />
         </div>
-        <Botao type="submit" onPress={handleSubmit} className={styles.botao}>
+        <Botao type="submit" className={styles.botao}>
           Cadastrar
         </Botao>
     </form>
