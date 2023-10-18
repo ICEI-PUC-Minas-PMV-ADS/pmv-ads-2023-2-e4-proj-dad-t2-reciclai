@@ -5,7 +5,7 @@ const Botao = (props) => {
   return (
     <Button
     variant="contained"
-      {...props}
+    {...props}
     />
   );
 };

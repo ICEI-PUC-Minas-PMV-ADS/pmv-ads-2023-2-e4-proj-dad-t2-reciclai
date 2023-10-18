@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router-dom';
 const CadastroUsuario =  () => {
   
   const navigate = useNavigate();
-
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -24,31 +23,32 @@ const CadastroUsuario =  () => {
 
 
   useEffect(() =>{
-   insertUsuarios().then(item =>{
-    if(item) {
-      setNome(item.nome);
-      setEmail(item.email);
-      setSenha(item.senha);
-      setEndereco(item.endereco);
-      setPerfil(item.perfil);
-      setTipoLixo(item.tipoLixo);
+    async function postUser(){
+      await insertUsuarios().then(item =>{
+        if(item) {
+          setNome(item.nome);
+          setEmail(item.email);
+          setSenha(item.senha);
+          setEndereco(item.endereco);
+          setPerfil(item.perfil);
+          setTipoLixo(item.tipoLixo);
+          console.log('insertUsuario');
+        }
+       })
     }
-   })
+   postUser();
   }, []);
 
 
-  async function handleSubmit() {
-  
-    insertUsuarios({
+  async function handleSubmit(event) {
+    event.preventDefault();
+     await insertUsuarios({
       "nome": nome,
       "email": email,
       "senha": senha,
       "endereco": endereco,
       "perfil": perfil,
       "tipoLixo": tipoLixo
-  }).then(res => {
-      navigate('/');
-      console.log(res);
   });
 
 }
@@ -59,7 +59,7 @@ const CadastroUsuario =  () => {
     <React.Fragment>
       <Container>
     <h2 className={styles.form}>Cadastro de Usuário</h2>
-    <form onSubmit={handleSubmit} action={<Link to="/" />}>
+    <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
         
             <Input
                 type="text"
@@ -101,7 +101,7 @@ const CadastroUsuario =  () => {
         <div className={styles.select}>
         <SelectTipoLixo />
         </div>
-        <Botao type="submit" className={styles.botao}>
+        <Botao type="submit" className={styles.botao} >
           Cadastrar
         </Botao>
     </form>

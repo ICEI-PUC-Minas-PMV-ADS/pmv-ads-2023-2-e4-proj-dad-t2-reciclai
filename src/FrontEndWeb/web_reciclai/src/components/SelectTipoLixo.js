@@ -17,14 +17,14 @@ export const SelectTipoLixo = () => {
             value={tipoLixo}
             onChange={handleChange}
             fullWidth >
-                <MenuItem value={0}>Eletrodoméstico</MenuItem>
-                <MenuItem value={1}>Eletroportáteis</MenuItem>
-                <MenuItem value={2}>Monitores</MenuItem>
-                <MenuItem value={3}>Iluminação</MenuItem>
-                <MenuItem value={4}>Fios e Cabos</MenuItem>
-                <MenuItem value={5}>Pilhas e baterias</MenuItem>
-                <MenuItem value={6}>TI e telecomunicações</MenuItem>
-                <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
+                <MenuItem value={"Eletrodomestico"}>Eletrodoméstico</MenuItem>
+                <MenuItem value={"Eletroportateis"}>Eletroportáteis</MenuItem>
+                <MenuItem value={"Monitores"}>Monitores</MenuItem>
+                <MenuItem value={"Iluminacao"}>Iluminação</MenuItem>
+                <MenuItem value={"Fios_cabos"}>Fios e Cabos</MenuItem>
+                <MenuItem value={"Pilhas_baterias"}>Pilhas e baterias</MenuItem>
+                <MenuItem value={"Ti_telecomunicacao"}>TI e telecomunicações</MenuItem>
+                <MenuItem value={"Paineis_fotovoltaicos"}>Painéis Fotovoltaicos</MenuItem>
             </TextField>
 
         </Box>

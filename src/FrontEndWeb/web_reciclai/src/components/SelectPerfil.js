@@ -6,6 +6,7 @@ export const SelectPerfil = () => {
     const [perfil, setPerfil] = useState('');
     const handleChange = (e) => {
        setPerfil(e.target.value) 
+       console.log(e.target.value);
     }
 
     return(
@@ -17,8 +18,8 @@ export const SelectPerfil = () => {
             value={perfil}
             onChange={handleChange}
             fullWidth >
-                <MenuItem value={0}>Solicitante</MenuItem>
-                <MenuItem value={1}>Coletor</MenuItem>
+                <MenuItem value={"Solicitante"}>Solicitante</MenuItem>
+                <MenuItem value={"Coletor"}>Coletor</MenuItem>
             </TextField>
 
         </Box>
