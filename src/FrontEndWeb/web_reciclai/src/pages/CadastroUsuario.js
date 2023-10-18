@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Stack } from '@mui/material';
+import { Container, Stack, Box, TextField, MenuItem } from '@mui/material';
 import { Link } from "react-router-dom";
 import styles from './CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
 import { insertUsuarios } from '../services/Usuarios.services';
-import { SelectPerfil } from '../components/SelectPerfil.js';
-import { SelectTipoLixo } from '../components/SelectTipoLixo.js';
 import { useNavigate } from 'react-router-dom';
 
  
@@ -32,13 +30,19 @@ const CadastroUsuario =  () => {
           setEndereco(item.endereco);
           setPerfil(item.perfil);
           setTipoLixo(item.tipoLixo);
-          console.log('insertUsuario');
+          
         }
        })
     }
    postUser();
   }, []);
 
+  const handleChangePerfil = (e) => {
+    setPerfil(e.target.value);
+     }
+ const handleChangeTipoLixo = (e) => {
+      setTipoLixo(e.target.value);
+       }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -97,10 +101,40 @@ const CadastroUsuario =  () => {
             sx={{mb: 4}}
         />
         <div className={styles.select} >
-        <SelectPerfil />
+        <Box>
+            <TextField 
+            label="Perfil"
+            variant="standard"
+            select
+            value={perfil}
+            onChange={handleChangePerfil}
+            fullWidth >
+                <MenuItem value={0}>Solicitante</MenuItem>
+                <MenuItem value={1}>Coletor</MenuItem>
+            </TextField>
+
+        </Box>
         </div>
         <div className={styles.select}>
-        <SelectTipoLixo />
+        <Box>
+            <TextField 
+            label="Tipo de Lixo"
+            variant="standard"
+            select
+            value={tipoLixo}
+            onChange={handleChangeTipoLixo}
+            fullWidth >
+                <MenuItem value={0}>Eletrodoméstico</MenuItem>
+                <MenuItem value={1}>Eletroportáteis</MenuItem>
+                <MenuItem value={2}>Monitores</MenuItem>
+                <MenuItem value={3}>Iluminação</MenuItem>
+                <MenuItem value={4}>Fios e Cabos</MenuItem>
+                <MenuItem value={5}>Pilhas e baterias</MenuItem>
+                <MenuItem value={6}>TI e telecomunicações</MenuItem>
+                <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
+            </TextField>
+
+        </Box>
         </div>
         <Botao type="submit" className={styles.botao} >
           Cadastrar
