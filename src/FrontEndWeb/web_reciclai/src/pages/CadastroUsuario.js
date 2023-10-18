@@ -18,8 +18,8 @@ const CadastroUsuario =  () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
-  const [perfil, setPerfil] = useState('');
-  const [tipoLixo, setTipoLixo] = useState('');
+  const [perfil, setPerfil] = useState();
+  const [tipoLixo, setTipoLixo] = useState();
 
 
   useEffect(() =>{

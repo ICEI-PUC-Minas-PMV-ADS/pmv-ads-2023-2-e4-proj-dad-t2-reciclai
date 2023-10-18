@@ -18,8 +18,8 @@ export const SelectPerfil = () => {
             value={perfil}
             onChange={handleChange}
             fullWidth >
-                <MenuItem value={"Solicitante"}>Solicitante</MenuItem>
-                <MenuItem value={"Coletor"}>Coletor</MenuItem>
+                <MenuItem value={0}>Solicitante</MenuItem>
+                <MenuItem value={1}>Coletor</MenuItem>
             </TextField>
 
         </Box>
