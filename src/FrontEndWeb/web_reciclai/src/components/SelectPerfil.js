@@ -6,7 +6,6 @@ export const SelectPerfil = () => {
     const [perfil, setPerfil] = useState('');
     const handleChange = (e) => {
        setPerfil(e.target.value) 
-       console.log(e.target.value);
     }
 
     return(

@@ -49,7 +49,8 @@ const CadastroUsuario =  () => {
       "endereco": endereco,
       "perfil": perfil,
       "tipoLixo": tipoLixo
-  });
+     }, 
+     navigate('/'));
 
 }
 
