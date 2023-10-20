@@ -15,6 +15,15 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 **Caso de Teste 04 - Login do Usuário**
 ![login usuario](img/login_usario_print.png)
 
+**Caso de teste 05 - Cadastrar a Opinião dos Usuários**
+![login usuario](img/CreateOpiniaoUsuario.png)
+
+**Caso de teste 06 - Editar a Opinião dos Usuários** 
+![login usuario](img/UptadeOpiniaoUsuario.png)
+
+**Caso de teste 07 - Apagar a Opinião dos Usuários**
+![login usuario](img/DeleteOpiniaoUsuario.png)
+
 **Caso de Teste 08 - Cadastro de Pedido**
 ![create pedido](img/create_pedido.png)
 
@@ -26,6 +35,9 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 **Caso de Teste 11 - Apagar Cadastro de Pedido**
 ![delete pedido](img/delete_pedido.png)
+
+**Caso de teste 12 - GetById Cadastro de Usuário** 
+![delete pedido](img/GetByIdUsuario.png)
 
 ## Avaliação
 

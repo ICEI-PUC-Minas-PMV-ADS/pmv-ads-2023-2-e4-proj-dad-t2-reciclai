@@ -4,7 +4,9 @@
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![Arquitetura da Solução](img/Arquitetura_de_software.png)
+Abaixo, na imagem, temos a representação de como será a arquitetura do projeto, tendo assim um FrontEnd (web e mobile) conectados a uma API Rest e temos dois bancos de dados, um para salvar opiniões de usuários em relação a plataforma/serviço (MongoDb) e outro banco para guardar dados de funcionalidade do sistema (SQL server).
+
+![Arquitetura da Solução](img/Arquitetura_de_software_Att.png)
 
 ## Diagrama de Classes
 
@@ -13,21 +15,23 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 O diagrama apresenta uma classe Usuario, escolhemos utilizar somente uma classe para Usuário e fazer a diferenciação entre usuários por meio do Perfil(enum). A classe Usuario está ligada à classe Pedido na qual consta os atributos e métodos comuns a todos os pedidos. No Pedido pode ser escolhido o tipo de lixo que será coletado e esses tipos estão subdivididos 
  em subclasses que herdam da classe Pedido (Eletrodoméstico, Eletroportáteis, Monitores, Fios e Cabos, Pilhas e baterias, Ti e telecomunicações, Painéis Fotovoltaicos, Iluminação).
 
-![Diagrama de Classes](img/diagrama_classe_reciclai.png)
+_![Diagrama de Classes](img/diagrama_classe_reciclai.png)_
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
+O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
 
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![Diagrama ER](img/Diagrama_ER.png)
+
 
 ## Esquema Relacional
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
+
+No esquema temos classes de diferentes tipos de pedidos (Eletrodoméstico, Eletroportáteis, Monitores, Fios e Cabos, Pilhas e baterias, Ti e telecomunicações, Painéis Fotovoltaicos, Iluminação) com uma FK contendo o Id da tabela de pedidos e para fazer a ligação dos pedidos com os usuários, nós temos a tabela PedidoUsuarios, contendo uma FK da tabela de pedidos e uma FK da tabela de Usuarios.
  
-![Esquema relacional](img/Base_de_dados.png)
+![Esquema relacional](img/Base_de_dados_Att.png)
 
 ## Modelo Físico
 

@@ -1,5 +1,6 @@
 ﻿using apis_web_services_projeto_reciclai.Models;
 using mf_apis_web_services_fuel_manager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using System.Linq.Expressions;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PedidosController : ControllerBase

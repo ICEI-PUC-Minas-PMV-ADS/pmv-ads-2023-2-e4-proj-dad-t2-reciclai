@@ -1,0 +1,9 @@
+.navbar{
+    background-color: var(--verde);
+    color: var(--branco);
+}
+
+.link{
+    color: var(--branco)
+
+}
