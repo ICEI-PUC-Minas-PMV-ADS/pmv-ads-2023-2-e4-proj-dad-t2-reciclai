@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Carousel, Container, Button, Form } from 'react-bootstrap';
+import { Carousel, Container, Button, Form, Row, Col } from 'react-bootstrap';
 import Natureza from "../img/Natureza.jpg";
 import Eletronico from "../img/Eletronico.jpg";
 import People from "../img/people.png";
@@ -85,20 +85,26 @@ const Home = () => {
       <Depoimentos></Depoimentos>
 
     </><>
-        <Container>
-          <h5 className={styles.Home}>Deixe Seu Comentário</h5>
-          <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
-            <Form.Group className="mb-3">
-              <Form.Control onChange={e => setNome(e.target.value)}
-                value={nome} id="nome" placeholder="Nome:" />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Control onChange={e => setMensagem(e.target.value)}
-                value={mensagem} id="mensagem" placeholder="Comentário:" />
-            </Form.Group>
-            <Form.Group className="mb-3">
-            </Form.Group>
+        <Container >
+          <h8 className={styles.Home} mb-3 align-items-left >Deixe Seu Comentário</h8>
+          <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />} >
+            <Row className="mb-3 align-items-center"  >
+               <Col sm={3} className="my-1">
+              <Form.Group as={Col} onChange={e => setNome(e.target.value)}
+                value={nome} id="nome" placeholder="Nome:">
+                <Form.Control type="name" placeholder="Nome" />
+              </Form.Group>
+           </Col>
+           <Col sm={6} className="my-1">
+              <Form.Group as={Col} >
+                <Form.Control onChange={e => setMensagem(e.target.value)}
+                  value={mensagem} id="mensagem" placeholder="Comentário:" />
+              </Form.Group>
+              </Col>
+            <Col sm={3} className="my-1">
             <Button type="submit">Enviar</Button>
+            </Col>
+            </Row>
           </Form>
         </Container>
       </></>
