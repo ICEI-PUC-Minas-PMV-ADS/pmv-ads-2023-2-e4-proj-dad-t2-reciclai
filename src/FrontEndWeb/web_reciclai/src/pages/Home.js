@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Carousel, Stack, Container, Button, Form } from 'react-bootstrap';
+import { Carousel, Container, Button, Form } from 'react-bootstrap';
 import Natureza from "../img/Natureza.jpg";
 import Eletronico from "../img/Eletronico.jpg";
 import People from "../img/people.png";
@@ -84,33 +84,24 @@ const Home = () => {
     </Carousel>
       <Depoimentos></Depoimentos>
 
-    </><Form>
+    </><>
         <Container>
-          <fieldset>
-            <h5 className={styles.Home}>Deixe Seu Comentário</h5>
-            <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
-
-            </form>
-            <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="TextInput"
-                  onChange={e => setNome(e.target.value)}
-                  value={nome}></Form.Label>
-                <Form.Control id="nome" placeholder="Nome:" />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="TextInput"
-                  onChange={e => setMensagem(e.target.value)}
-                  value={mensagem}></Form.Label>
-                <Form.Control id="mensagem" placeholder="Comentário:" />
-              </Form.Group>
-              <Form.Group className="mb-3">
-              </Form.Group>
-            </Stack>
+          <h5 className={styles.Home}>Deixe Seu Comentário</h5>
+          <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
+            <Form.Group className="mb-3">
+              <Form.Control onChange={e => setNome(e.target.value)}
+                value={nome} id="nome" placeholder="Nome:" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control onChange={e => setMensagem(e.target.value)}
+                value={mensagem} id="mensagem" placeholder="Comentário:" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+            </Form.Group>
             <Button type="submit">Enviar</Button>
-          </fieldset>
+          </Form>
         </Container>
-      </Form ></>
+      </></>
   );
 }
 
