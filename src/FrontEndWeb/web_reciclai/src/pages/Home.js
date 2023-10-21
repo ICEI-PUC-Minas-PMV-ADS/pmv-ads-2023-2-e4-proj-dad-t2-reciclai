@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {Carousel, Stack, Container,Button,Form} from 'react-bootstrap';
+import { Carousel, Stack, Container, Button, Form } from 'react-bootstrap';
 import Natureza from "../img/Natureza.jpg";
 import Eletronico from "../img/Eletronico.jpg";
 import People from "../img/people.png";
@@ -92,21 +92,25 @@ const Home = () => {
 
             </form>
             <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="TextInput"></Form.Label>
-              <Form.Control id="nome" placeholder="Nome:" />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="TextInput"></Form.Label>
-              <Form.Control id="mensagem" placeholder="Comentário:" />
-            </Form.Group>
-          <Form.Group className="mb-3">
-          </Form.Group>
-          </Stack>
-          <Button type="submit">Enviar</Button>
-        </fieldset>
-      </Container>
-    </Form ></>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="TextInput"
+                  onChange={e => setNome(e.target.value)}
+                  value={nome}></Form.Label>
+                <Form.Control id="nome" placeholder="Nome:" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="TextInput"
+                  onChange={e => setMensagem(e.target.value)}
+                  value={mensagem}></Form.Label>
+                <Form.Control id="mensagem" placeholder="Comentário:" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+              </Form.Group>
+            </Stack>
+            <Button type="submit">Enviar</Button>
+          </fieldset>
+        </Container>
+      </Form ></>
   );
 }
 
