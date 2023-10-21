@@ -1,41 +1,84 @@
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Container, InputLabel } from '@mui/material';
+import Botao from '../components/Button.js';
+import styles from './CadastroUsuario.module.css';
+import React, { useState, useEffect } from 'react';
+import Input from '../components/Input.js';
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function PerfilUsuario() {
+
+const PerfilUsuario = () => {
+  async function handleSubmit(event) {
+    event.preventDefault();
+    
+
+  }
+  
+
+
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Perfil Usuario</Form.Label>
-        <Form.Control type="email" placeholder="Nome Usuário" />
-        <Form.Text className="text-muted">         
-        </Form.Text>
-      </Form.Group>
+    <React.Fragment>
+    <Container>
+      <h2 className={styles.form}>Perfil de Usuário</h2>
+      <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-       
-        <Form.Control type="email" placeholder="Email" />
-        <Form.Text className="text-muted">
-          
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword"> 
-           
-        <Form.Control type="Endereço" placeholder="Endereço" />
-        <Form.Label> </Form.Label>       
-        <Form.Control type="Perfil" placeholder="Perfil" />
-        <Form.Label> </Form.Label>       
-        <Form.Control type="Tipo de lixo" placeholder="Tipo de lixo" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label />
-      </Form.Group>
-      <Button variant="primary" type="Editar">
-        Editar        
-      </Button>
       
-    </Form>
+      <div >
+        <Input
+            disabled
+            id="nomeUsuario"
+            label="Nome Usuário" 
+          />
+        </div>
+      <div >
+        <Input
+            disabled
+            id="emailUsuario"
+            label="Email" 
+          />
+      </div>
+      <div >
+        <Input
+            disabled
+            id="enderecoUsuario"
+            label="Endereço" 
+          />
+      </div>
+
+      <div >
+        <Input
+            disabled
+            id="perfilUsuario"
+            label="Perfil" 
+          />
+      </div>
+
+      <div >
+        <Input
+            disabled
+            id="tipoLixo"
+            label="Tipo de Lixo" 
+          />
+      </div>
+      
+      <div> . </div>
+      
+      <div >
+      <Botao type="submit" className={styles.botao} >
+          Editar        
+        </Botao>
+        </div>
+        <div> . </div>
+      <div >
+      <Botao className={styles.botao} >
+          Excluir        
+        </Botao>
+      </div>
+      </form>
+    </Container>
+    </React.Fragment>
   );
-}
+};
 
 export default PerfilUsuario;
