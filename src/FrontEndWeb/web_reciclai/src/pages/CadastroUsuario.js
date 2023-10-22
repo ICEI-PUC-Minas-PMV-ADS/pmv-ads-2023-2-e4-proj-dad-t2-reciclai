@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link } from "react-router-dom";
-import styles from './CadastroUsuario.module.css';
+import styles from './styles/CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
 import { insertUsuarios } from '../services/Usuarios.services';
