@@ -1,4 +1,4 @@
-import styles from './Login.module.css';
+import styles from './styles/Login.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
 
