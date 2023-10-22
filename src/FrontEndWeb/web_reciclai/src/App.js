@@ -4,6 +4,7 @@ import Home from "./pages/Home.js";
 import CadastroUsuario from './pages/CadastroUsuario.js';
 import PerfilUsuario from  './pages/PerfilUsuario.js';
 import Sobre from  './pages/Sobre.js';
+import Login from  './pages/Login.js';
 import Header from './components/Header.js';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/cadastro" element={<CadastroUsuario />} />
           <Route path="/perfil" element={<PerfilUsuario />} />
-          
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>

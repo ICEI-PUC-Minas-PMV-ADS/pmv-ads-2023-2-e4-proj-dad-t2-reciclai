@@ -1,0 +1,28 @@
+.title {
+    margin-top: 150px;
+    color: var(--verde);
+    font-size: 55px;
+}
+
+.botao {
+    margin-top: 20px;
+    width: 200px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.box {
+    width: 400px;
+    height: 300px;
+}
+
+
+.texto {
+    margin: 15px;
+}

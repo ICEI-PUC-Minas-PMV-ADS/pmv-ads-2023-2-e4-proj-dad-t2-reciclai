@@ -19,7 +19,7 @@ const Header = () => {
           <Nav.Link as={Link} to={"/cadastro"} className={styles.link}>Cadastre-se</Nav.Link>
           <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
           <Nav.Link as={Link} to={"/perfil"} className={styles.link}>Perfil Usuário</Nav.Link>
-         
+          <Nav.Link as={Link} to={"/login"} className={styles.link}>Login</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
