@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Stack, Box, TextField, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link } from "react-router-dom";
-import styles from './CadastroUsuario.module.css';
+import styles from './styles/CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
 import { insertUsuarios } from '../services/Usuarios.services';
@@ -102,41 +102,42 @@ const CadastroUsuario = () => {
           />
           <div className={styles.select} >
             <Box>
-            <FormControl variant="standard"  sx={{ mb: 4 }} fullWidth>
-              <InputLabel id="demo-simple-select-standard-label">Perfil</InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={perfil}
-                onChange={handleChangePerfil}
-                label="Perfil"
-              >
-                <MenuItem value={0}>Solicitante</MenuItem>
-                <MenuItem value={1}>Coletor</MenuItem>
-              </Select>
-            </FormControl>
+              <FormControl variant="standard" sx={{ mb: 4 }} fullWidth>
+                <InputLabel id="demo-simple-select-standard-label">Perfil</InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={perfil}
+                  onChange={handleChangePerfil}
+                  label="Perfil"
+                >
+                  <MenuItem value={0}>Solicitante</MenuItem>
+                  <MenuItem value={1}>Coletor</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </div>
           <div className={styles.select}>
             <Box>
-              <TextField
-                label="Tipo de Lixo"
-                variant="standard"
-                select
-                value={tipoLixo}
-                onChange={handleChangeTipoLixo}
-                sx={{ mb: 4 }}
-                fullWidth >
-                <MenuItem value={0}>Eletrodoméstico</MenuItem>
-                <MenuItem value={1}>Eletroportáteis</MenuItem>
-                <MenuItem value={2}>Monitores</MenuItem>
-                <MenuItem value={3}>Iluminação</MenuItem>
-                <MenuItem value={4}>Fios e Cabos</MenuItem>
-                <MenuItem value={5}>Pilhas e baterias</MenuItem>
-                <MenuItem value={6}>TI e telecomunicações</MenuItem>
-                <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
-              </TextField>
-
+              <FormControl variant="standard" sx={{ mb: 4 }} fullWidth>
+                <InputLabel id="demo-simple-select-standard-label">Tipo de Lixo</InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={tipoLixo}
+                  onChange={handleChangeTipoLixo}
+                  label="Tipo de Lixo"
+                >
+                  <MenuItem value={0}>Eletrodoméstico</MenuItem>
+                  <MenuItem value={1}>Eletroportáteis</MenuItem>
+                  <MenuItem value={2}>Monitores</MenuItem>
+                  <MenuItem value={3}>Iluminação</MenuItem>
+                  <MenuItem value={4}>Fios e Cabos</MenuItem>
+                  <MenuItem value={5}>Pilhas e baterias</MenuItem>
+                  <MenuItem value={6}>TI e telecomunicações</MenuItem>
+                  <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </div>
           <Botao type="submit" className={styles.botao} >

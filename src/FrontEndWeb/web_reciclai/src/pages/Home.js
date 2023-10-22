@@ -1,65 +1,109 @@
-import { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import { useState, useEffect } from 'react';
+import { Carousel, Container, Button, Form, Row, Col } from 'react-bootstrap';
 import Natureza from "../img/Natureza.jpg";
 import Eletronico from "../img/Eletronico.jpg";
 import People from "../img/people.png";
-import Depoimentos from '../components/Depoimentos'
+import Depoimentos from '../components/Depoimentos';
+import { insertOpiniaoUsuarios } from '../services/OpiniaoUsuario.services';
+import { useNavigate, Link } from 'react-router-dom';
+import styles from './Home.module.css';
 
-function Home() {
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+const Home = () => {
+  const navigate = useNavigate();
+  const [nome, setNome] = useState('');
+  const [mensagem, setMensagem] = useState('');
+
+  useEffect(() => {
+    async function postUser() {
+      const item = await insertOpiniaoUsuarios();
+      if (item) {
+        setNome(item.nome);
+        setMensagem(item.mensagem);
+      }
+    }
+    postUser();
+  }, []);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await insertOpiniaoUsuarios({
+      "nome": nome,
+      "mensagem": mensagem,
+    },
+    navigate('/sobre'));
+  }
+
   return (
-    <><Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-          className="d-block w-100 "
-          src={Natureza}
-          alt="Firt slide"
-          width={300}
-          height={500} />
+    <div>
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={Natureza}
+            alt="Firt slide"
+            width={300}
+            height={500}
+          />
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={People}
+            alt="Second slide"
+            width={300}
+            height={500}
+          />
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={Eletronico}
+            alt="Third slide"
+            width={300}
+            height={500}
+          />
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
 
-        <Carousel.Caption
-          className="d-block w-100 h-50"
-        >
-          <h5></h5>
-          <p></p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={People}
-          alt="Second slide"
-          width={300}
-          height={500} />
+      <Depoimentos />
 
-        <Carousel.Caption
-          className="d-block" color="fff">
-          <h5> </h5>
-          <p> </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={Eletronico}
-          alt="Third slide"
-          width={300}
-          height={500} />
-
-        <Carousel.Caption
-          className="d-block w-100 h-50">
-          <h5></h5>
-          <p>
-
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-      <Depoimentos></Depoimentos></>
+      <Container>
+        <h8 className={styles.Home}>Deixe Seu Comentário</h8>
+        <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/sobre" />}>
+          <Row className="mb-3 align-items-center">
+            <Col sm={3} className="my-1">
+              <Form.Group as={Col}>
+                <Form.Control
+                  type="text"
+                  placeholder="Nome"
+                  onChange={(e) => setNome(e.target.value)}
+                  value={nome}
+                />
+              </Form.Group>
+            </Col>
+            <Col sm={8} className="my-1">
+              <Form.Group as={Col}>
+                <Form.Control
+                  placeholder="Comentário"
+                  onChange={(e) => setMensagem(e.target.value)}
+                  value={mensagem}
+                />
+              </Form.Group>
+            </Col>
+            <Col sm={1} className="my-1">
+              <Button type="submit">Enviar</Button>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    </div>
   );
-}
-export default Home;
+};
 
+export default Home;
