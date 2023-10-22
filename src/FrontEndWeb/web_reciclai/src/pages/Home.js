@@ -6,7 +6,7 @@ import People from "../img/people.png";
 import Depoimentos from '../components/Depoimentos';
 import { insertOpiniaoUsuarios } from '../services/OpiniaoUsuario.services';
 import { useNavigate, Link } from 'react-router-dom';
-import styles from './Home.module.css';
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -74,7 +74,6 @@ const Home = () => {
       <Depoimentos />
 
       <Container>
-        <h8 className={styles.Home}>Deixe Seu Comentário</h8>
         <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/sobre" />}>
           <Row className="mb-3 align-items-center">
             <Col sm={3} className="my-1">
@@ -90,7 +89,7 @@ const Home = () => {
             <Col sm={8} className="my-1">
               <Form.Group as={Col}>
                 <Form.Control
-                  placeholder="Comentário"
+                  placeholder="Deixe Seu Comentário Sobre o Reciclaí"
                   onChange={(e) => setMensagem(e.target.value)}
                   value={mensagem}
                 />
