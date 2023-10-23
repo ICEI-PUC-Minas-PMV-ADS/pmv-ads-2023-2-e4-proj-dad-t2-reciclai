@@ -6,6 +6,7 @@ import PerfilUsuario from  './pages/PerfilUsuario.js';
 import Sobre from  './pages/Sobre.js';
 import Login from  './pages/Login.js';
 import Header from './components/Header.js';
+import FormularioPedidos from "./pages/FormularioPedidos";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cadastro" element={<CadastroUsuario />} />
           <Route path="/perfil" element={<PerfilUsuario />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/formulario" element={<FormularioPedidos />} />
         </Routes>
       </BrowserRouter>
     </div>
