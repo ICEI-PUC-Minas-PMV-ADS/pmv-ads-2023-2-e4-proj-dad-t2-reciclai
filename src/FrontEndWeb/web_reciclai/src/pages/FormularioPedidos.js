@@ -23,7 +23,7 @@ const FormularioPedidos = () => {
 
 
     useEffect(() => {
-        async function postUser() {
+        async function postPedidos() {
             await insertPedidos().then(item => {
                 if (item) {
                     setNome(item.nome);
@@ -38,7 +38,7 @@ const FormularioPedidos = () => {
                 }
             })
         }
-        postUser();
+        postPedidos();
     }, []);
 
     const handleChangeTipoLixo = (e) => {
@@ -73,29 +73,21 @@ const FormularioPedidos = () => {
                 <h2 className={styles.form}>Formulário de solicitação</h2>
                 <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
 
-                    <Input
-                        type="text"
-                        label="Nome:"
-                        onChange={e => setNome(e.target.value)}
-                        value={nome}
-                        required
-                        sx={{ mb: 4 }}
-                    />
                     <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
                         <Input
-                            type="date"
+                            type="text"
+                            label="Nome:"
+                            onChange={e => setNome(e.target.value)}
+                            value={nome}
+                            required
+                            sx={{ mb: 4 }}
+                        />
+                        <Input
+                            type="datetime-local"
                             label="Data da coleta:"
                             onChange={e => setDataColeta(e.target.value)}
                             value={dataColeta}
                             required
-                        />
-                        <Input
-                            type="time"
-                            label="Horário da coleta"
-                            onChange={e => setHorarioColeta(e.target.value)}
-                            value={horarioColeta}
-                            required
-                            sx={{ mb: 4 }}
                         />
                     </Stack>
                     <Box>
@@ -122,14 +114,7 @@ const FormularioPedidos = () => {
                             </FormControl>
                         </Stack>
                     </Box>
-                    <Input
-                        type="text"
-                        label="Descrição:"
-                        onChange={e => setDescricao(e.target.value)}
-                        value={descricao}
-                        required
-                        sx={{ mb: 4 }}
-                    />
+
                     <div className={styles.select}>
                         <Box>
                             <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
@@ -164,6 +149,14 @@ const FormularioPedidos = () => {
                             </Stack>
                         </Box>
                     </div>
+                    <Input
+                        type="text"
+                        label="Descrição:"
+                        onChange={e => setDescricao(e.target.value)}
+                        value={descricao}
+                        required
+                        sx={{ mb: 4 }}
+                    />
                     <Botao type="submit" className={styles.botao} >
                         Solicitar
                     </Botao>
