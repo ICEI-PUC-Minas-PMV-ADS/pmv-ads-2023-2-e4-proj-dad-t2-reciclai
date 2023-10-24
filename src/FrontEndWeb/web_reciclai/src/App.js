@@ -7,6 +7,7 @@ import Sobre from  './pages/Sobre.js';
 import Login from  './pages/Login.js';
 import Header from './components/Header.js';
 import FormularioPedidos from "./pages/FormularioPedidos";
+import HomeAposLogin from "./pages/HomeAposLogin";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/perfil" element={<PerfilUsuario />} />
           <Route path="/login" element={<Login />} />
           <Route path="/formulario" element={<FormularioPedidos />} />
+          <Route path="/aposlogin" element={<HomeAposLogin />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,31 +11,36 @@ const HomeAposLogin = () => {
 
   const [data, setData] = useState([]);
 
-  async function getPedidos(){
-    try{
-  
-        const req = await API.get(`${BASE_URL}/pedidos`)
-        return req.data
-  
-    }catch(error){
-        console.error("Pedido não encontrado", error)
-  
-    }
-  }
 
-  async function fetchPedido() {
-    try {
-      const res = await getPedidos();
-      setData(res.data);
-  
-    } catch (error) {
-      console.error('Erro ao buscar informações do pedido:', error);
+   const getPedidos = async () => {
+      try {
+        return await API.get(`${BASE_URL}/pedidos`).then(
+          response => {
+            return response.data;
+          },
+          error => {
+            console.log(error);
+            return null;
+          }
+        );
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
     }
-  }
+
+
 
   useEffect(() => {
-    fetchPedido();
-  })
+    async function fetchPedidos() {
+      const data = await getPedidos();
+      if (data) {
+        setData(data);
+      }
+    }
+    fetchPedidos();
+  }, [data]);
+
 
   return (
     <Container>
@@ -53,13 +58,13 @@ const HomeAposLogin = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map(pedido => (
-              <tr key={pedido.id}>
-                <td>{pedido.id}</td>
-                <td>{pedido.nomeSolicitante}</td>
-                <td>{pedido.dataColeta}</td>
-                <td>{pedido.tipoLixo}</td>
-                <td>{pedido.qtdeLixo}</td>
+            {data.map((pedidos) => (
+              <tr key={pedidos.id}>
+                <td>{pedidos.id}</td>
+                <td>{pedidos.nomeSolicitante}</td>
+                <td>{pedidos.dataColeta}</td>
+                <td>{pedidos.tipoLixo}</td>
+                <td>{pedidos.qtdeLixo}</td>
               </tr>
             ))}
           </tbody>
