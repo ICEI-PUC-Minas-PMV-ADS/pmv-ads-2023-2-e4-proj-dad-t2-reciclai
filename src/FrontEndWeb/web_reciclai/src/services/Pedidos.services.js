@@ -4,7 +4,7 @@ import API from './Api.services.js';
 export async function getPedidos(id){
   try{
 
-      const req = await API.get(`${BASE_URL}/pedidos/${1}`)
+      const req = await API.get(`${BASE_URL}/Pedidos/${id}`)
       return req.data
 
   }catch(error){
@@ -17,7 +17,7 @@ export async function getPedidos(id){
 export const insertPedidos = async (params) => {
   console.log(params);  
   try{
-      return await API.post(`${BASE_URL}/pedidos`, params).then( 
+      return await API.post(`${BASE_URL}/Pedidos`, params).then( 
         response => {
           return response.data;
         },
@@ -34,7 +34,7 @@ export const insertPedidos = async (params) => {
 
   export const updatePedidos = async (param) => {
     try{
-      return await API.put(`${BASE_URL}/pedidos/${param.id}`, param).then( 
+      return await API.put(`${BASE_URL}/Pedidos/${param.id}`, param).then( 
         response => {
           return response.data;
         },

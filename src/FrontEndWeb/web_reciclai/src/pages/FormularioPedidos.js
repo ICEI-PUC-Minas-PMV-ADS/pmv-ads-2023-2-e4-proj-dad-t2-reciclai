@@ -12,9 +12,10 @@ import { useNavigate } from 'react-router-dom';
 const FormularioPedidos = () => {
 
     const navigate = useNavigate();
-    const [nome, setNome] = useState('');
+    const [idSolicitante, setIdSolicitante] = useState('');
+    const [idColetor, setIdColetor] = useState('');
+    const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
-    const [horarioColeta, setHorarioColeta] = useState('');
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState();
     const [descricao, setDescricao] = useState();
@@ -26,9 +27,10 @@ const FormularioPedidos = () => {
         async function postPedidos() {
             await insertPedidos().then(item => {
                 if (item) {
-                    setNome(item.nome);
+                    setIdSolicitante(item.idSolicitante);
+                    setIdColetor(item.idColetor);
+                    setNomeSolicitante(item.nomeSolicitante);
                     setDataColeta(item.dataColeta);
-                    setHorarioColeta(item.horarioColeta);
                     setEndereco(item.endereco);
                     setLixoPerigoso(item.lixoPerigoso);
                     setDescricao(item.descricao);
@@ -52,9 +54,10 @@ const FormularioPedidos = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         await insertPedidos({
-            "nome": nome,
+            "idSolicitante":idSolicitante,
+            "idColetor": idColetor,
+            "nome": nomeSolicitante,
             "dataColeta": dataColeta,
-            "horarioColeta": horarioColeta,
             "endereco": endereco,
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
@@ -77,8 +80,8 @@ const FormularioPedidos = () => {
                         <Input
                             type="text"
                             label="Nome:"
-                            onChange={e => setNome(e.target.value)}
-                            value={nome}
+                            onChange={e => setNomeSolicitante(e.target.value)}
+                            value={nomeSolicitante}
                             required
                             sx={{ mb: 4 }}
                         />
@@ -157,7 +160,7 @@ const FormularioPedidos = () => {
                         required
                         sx={{ mb: 4 }}
                     />
-                    <Botao type="submit" className={styles.botao} >
+                    <Botao type="submit" className={styles.botao} onClick={console.log("Submit!!!")} >
                         Solicitar
                     </Botao>
                 </form>
