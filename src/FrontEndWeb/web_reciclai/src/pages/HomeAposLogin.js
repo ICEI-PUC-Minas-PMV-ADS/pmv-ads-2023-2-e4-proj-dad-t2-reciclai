@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosPedidos } from '../services/Pedidos.services';
-import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Stack } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import IconButton from '@mui/material/IconButton';
+import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const HomeAposLogin = () => {
-
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -20,9 +24,20 @@ const HomeAposLogin = () => {
     fetchPedidos();
   }, [data]);
 
+  async function redirecionar (){
+    navigate('/perfil')
+  }
+
 
   return (
     <Container>
+      <div className={styles.icone}>
+      <Stack direction="row" spacing={3} alignItems="flex-end">
+      <IconButton aria-label="Perfil">
+        <AccountCircleIcon fontSize="large" onClick={redirecionar}/>
+      </IconButton>
+      </Stack>
+      </div>
       <div>
         <h5 className={styles.titulo}>Histórico de pedidos:</h5>
         <TableContainer component={Paper} className={styles.table}>
