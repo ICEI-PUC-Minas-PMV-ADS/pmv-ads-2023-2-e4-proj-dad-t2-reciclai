@@ -4,6 +4,7 @@ import styles from './styles/Header.module.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import LoginIcon from '@mui/icons-material/Login';
 
 
 const Header = () => {
@@ -19,8 +20,8 @@ const Header = () => {
           <Nav.Link as={Link} to={"/cadastro"} className={styles.link}>Cadastre-se</Nav.Link>
           <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
           <Nav.Link as={Link} to={"/perfil"} className={styles.link}>Perfil Usuário</Nav.Link>
-          <Nav.Link as={Link} to={"/login"} className={styles.link}>Login</Nav.Link>
-          <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>AposLogin</Nav.Link>
+          <Nav.Link as={Link} to={"/login"} className={styles.link}><LoginIcon/></Nav.Link>
+          <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>Aposlogin</Nav.Link>
          
         </Nav>
       </Navbar.Collapse>
