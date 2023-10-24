@@ -17,8 +17,6 @@ namespace apis_web_services_projeto_reciclai.Models
         [Required]
         public DateTime DataColeta { get; set; }
         [Required]
-        public DateTime HorarioColeta { get; set; }
-        [Required]
         public TipoLixo TipoLixo { get; set; }
         [Required]
         public int QtdLixo { get; set; }
