@@ -20,7 +20,6 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     IdSolicitante = table.Column<int>(type: "int", nullable: false),
                     IdColetor = table.Column<int>(type: "int", nullable: false),
                     DataColeta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HorarioColeta = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TipoLixo = table.Column<int>(type: "int", nullable: false),
                     QtdLixo = table.Column<int>(type: "int", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),

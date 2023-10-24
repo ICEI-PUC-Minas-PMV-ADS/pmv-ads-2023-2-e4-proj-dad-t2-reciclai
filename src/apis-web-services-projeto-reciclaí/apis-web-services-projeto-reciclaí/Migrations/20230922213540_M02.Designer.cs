@@ -44,9 +44,6 @@ namespace apis_web_services_projeto_reciclai.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("HorarioColeta")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("IdColetor")
                         .HasColumnType("int");
 

@@ -12,9 +12,10 @@ import { useNavigate } from 'react-router-dom';
 const FormularioPedidos = () => {
 
     const navigate = useNavigate();
-    const [nome, setNome] = useState('');
+    const [idSolicitante, setIdSolicitante] = useState('');
+    const [idColetor, setIdColetor] = useState('');
+    const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
-    const [horarioColeta, setHorarioColeta] = useState('');
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState();
     const [descricao, setDescricao] = useState();
@@ -23,12 +24,13 @@ const FormularioPedidos = () => {
 
 
     useEffect(() => {
-        async function postUser() {
+        async function postPedidos() {
             await insertPedidos().then(item => {
                 if (item) {
-                    setNome(item.nome);
+                    setIdSolicitante(item.idSolicitante);
+                    setIdColetor(item.idColetor);
+                    setNomeSolicitante(item.nomeSolicitante);
                     setDataColeta(item.dataColeta);
-                    setHorarioColeta(item.horarioColeta);
                     setEndereco(item.endereco);
                     setLixoPerigoso(item.lixoPerigoso);
                     setDescricao(item.descricao);
@@ -38,7 +40,7 @@ const FormularioPedidos = () => {
                 }
             })
         }
-        postUser();
+        postPedidos();
     }, []);
 
     const handleChangeTipoLixo = (e) => {
@@ -52,9 +54,10 @@ const FormularioPedidos = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         await insertPedidos({
-            "nome": nome,
+            "idSolicitante":idSolicitante,
+            "idColetor": idColetor,
+            "nome": nomeSolicitante,
             "dataColeta": dataColeta,
-            "horarioColeta": horarioColeta,
             "endereco": endereco,
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
@@ -73,29 +76,21 @@ const FormularioPedidos = () => {
                 <h2 className={styles.form}>Formulário de solicitação</h2>
                 <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
 
-                    <Input
-                        type="text"
-                        label="Nome:"
-                        onChange={e => setNome(e.target.value)}
-                        value={nome}
-                        required
-                        sx={{ mb: 4 }}
-                    />
                     <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
                         <Input
-                            type="date"
+                            type="text"
+                            label="Nome:"
+                            onChange={e => setNomeSolicitante(e.target.value)}
+                            value={nomeSolicitante}
+                            required
+                            sx={{ mb: 4 }}
+                        />
+                        <Input
+                            type="datetime-local"
                             label="Data da coleta:"
                             onChange={e => setDataColeta(e.target.value)}
                             value={dataColeta}
                             required
-                        />
-                        <Input
-                            type="time"
-                            label="Horário da coleta"
-                            onChange={e => setHorarioColeta(e.target.value)}
-                            value={horarioColeta}
-                            required
-                            sx={{ mb: 4 }}
                         />
                     </Stack>
                     <Box>
@@ -122,14 +117,7 @@ const FormularioPedidos = () => {
                             </FormControl>
                         </Stack>
                     </Box>
-                    <Input
-                        type="text"
-                        label="Descrição:"
-                        onChange={e => setDescricao(e.target.value)}
-                        value={descricao}
-                        required
-                        sx={{ mb: 4 }}
-                    />
+
                     <div className={styles.select}>
                         <Box>
                             <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
@@ -164,7 +152,15 @@ const FormularioPedidos = () => {
                             </Stack>
                         </Box>
                     </div>
-                    <Botao type="submit" className={styles.botao} >
+                    <Input
+                        type="text"
+                        label="Descrição:"
+                        onChange={e => setDescricao(e.target.value)}
+                        value={descricao}
+                        required
+                        sx={{ mb: 4 }}
+                    />
+                    <Botao type="submit" className={styles.botao} onClick={console.log("Submit!!!")} >
                         Solicitar
                     </Botao>
                 </form>

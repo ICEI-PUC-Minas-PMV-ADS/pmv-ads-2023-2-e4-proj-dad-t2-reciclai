@@ -8,3 +8,6 @@
     margin-top: 10px;
     width: 190px;
 }
+
+
+input[value=""]:not(:focus) { color: transparent; }
