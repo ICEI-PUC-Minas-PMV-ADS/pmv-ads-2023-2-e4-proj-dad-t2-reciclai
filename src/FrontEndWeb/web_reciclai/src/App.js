@@ -8,11 +8,13 @@ import Login from  './pages/Login.js';
 import Header from './components/Header.js';
 import FormularioPedidos from "./pages/FormularioPedidos";
 import HomeAposLogin from "./pages/HomeAposLogin";
+import  UserProvider from "./contexts/UserContext";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <UserProvider>
         <Header />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -23,6 +25,7 @@ function App() {
           <Route path="/formulario" element={<FormularioPedidos />} />
           <Route path="/aposlogin" element={<HomeAposLogin />} />
         </Routes>
+        </UserProvider>
       </BrowserRouter>
     </div>
   );
