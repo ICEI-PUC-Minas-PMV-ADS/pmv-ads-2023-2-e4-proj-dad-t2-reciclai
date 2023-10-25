@@ -107,12 +107,20 @@ namespace apis_web_services_projeto_reciclai.Controllers
         {
             var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == model.Email);
 
+            var usuarioId = usuarioDb.Id;
+
             if(usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha ))
                 return Unauthorized();
 
             var jwt = GenerateJwtToken(usuarioDb);
 
-            return Ok(new { jwtToken = jwt });
+            var data = new
+            {
+                jwtToken = jwt,
+                userId = usuarioId,
+            };
+
+            return Ok(data);
             
         }
 
