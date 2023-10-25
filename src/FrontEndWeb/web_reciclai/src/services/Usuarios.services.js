@@ -4,7 +4,7 @@ import API from './Api.services.js';
 export async function getUsuario(id){
   try{
 
-      const req = await API.get(`${BASE_URL}/usuarios/${1}`)
+      const req = await API.get(`${BASE_URL}/usuarios/${id}`)
       return req.data
 
   }catch(error){

@@ -13,8 +13,8 @@ import  UserProvider from "./contexts/UserContext";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <UserProvider>
+       <UserProvider>
+      <BrowserRouter> 
         <Header />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -24,9 +24,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/formulario" element={<FormularioPedidos />} />
           <Route path="/aposlogin" element={<HomeAposLogin />} />
-        </Routes>
-        </UserProvider>
+        </Routes>    
       </BrowserRouter>
+      </UserProvider>
     </div>
   );
 }

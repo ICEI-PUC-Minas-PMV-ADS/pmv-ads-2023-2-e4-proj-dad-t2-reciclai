@@ -5,7 +5,7 @@ export const UserContext = createContext();
 export default function UserProvider({ children }) {
   const [signed, setSigned] = useState(false);
   const [user, setUser] = useState({});
-
+  const userId = localStorage.getItem('userId');
 
   return (
     <UserContext.Provider
@@ -14,6 +14,7 @@ export default function UserProvider({ children }) {
         setSigned,
         user,
         setUser,
+        userId
 
       }}>
       {children}

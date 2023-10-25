@@ -26,6 +26,7 @@ const Login = () => {
             setUser(res.jwtToken);
             console.log(res.jwtToken)
             localStorage.setItem('jwtToken', res.jwtToken);
+            localStorage.setItem('userId', res.userId);
             navigate('/')
           } else {
             alert('Atenção, Usuário ou senha inválidos!');
