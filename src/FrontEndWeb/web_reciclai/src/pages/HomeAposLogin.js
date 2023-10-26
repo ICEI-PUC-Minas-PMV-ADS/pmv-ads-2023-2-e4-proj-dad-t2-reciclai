@@ -5,24 +5,29 @@ import { getTodosPedidos } from '../services/Pedidos.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Stack } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
-import { redirect } from 'react-router-dom';
+//import { redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 
 
 const HomeAposLogin = () => {
   const navigate = useNavigate();
+  const { userId } = useUser();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchPedidos() {
       const data = await getTodosPedidos();
       if (data) {
-        setData(data);
+        let PedidosUsuario = [];
+        PedidosUsuario = data.filter((pedido)=> pedido.idSolicitante === userId);
+        setData(PedidosUsuario);
+        console.log(data);
       }
     }
     fetchPedidos();
-  }, [data]);
+  }, []);
 
   async function redirecionar (){
     navigate('/perfil')

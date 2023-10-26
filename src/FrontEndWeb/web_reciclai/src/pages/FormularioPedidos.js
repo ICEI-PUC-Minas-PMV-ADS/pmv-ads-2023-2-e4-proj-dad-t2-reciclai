@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link } from "react-router-dom";
 import { insertPedidos } from '../services/Pedidos.services';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
@@ -11,7 +12,8 @@ import Botao from '../components/Button.js';
 const FormularioPedidos = () => {
 
     const navigate = useNavigate();
-    const [idSolicitante, setIdSolicitante] = useState('');
+    const {userId} = useUser();
+    //const [idSolicitante, setIdSolicitante] = useState('');
     const [idColetor, setIdColetor] = useState('');
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
@@ -21,40 +23,41 @@ const FormularioPedidos = () => {
     const [tipoLixo, setTipoLixo] = useState();
     const [quantidadeLixo, setQuantidadeLixo] = useState();
 
+    // async function postPedidos() {
+    //     await insertPedidos().then(item => {
+    //         if (item) {
+    //             setIdSolicitante(userId);
+    //             setIdColetor(item.idColetor);
+    //             setNomeSolicitante(item.nomeSolicitante);
+    //             setDataColeta(item.newDate(dataColeta));
+    //             setEndereco(item.endereco);
+    //             setLixoPerigoso(item.lixoPerigoso);
+    //             setDescricao(item.descricao);
+    //             setTipoLixo(item.tipoLixo);
+    //             setQuantidadeLixo(item.quantidadeLixo);
 
-    useEffect(() => {
-        async function postPedidos() {
-            await insertPedidos().then(item => {
-                if (item) {
-                    setIdSolicitante(item.idSolicitante);
-                    setIdColetor(item.idColetor);
-                    setNomeSolicitante(item.nomeSolicitante);
-                    setDataColeta(item.newDate(dataColeta));
-                    setEndereco(item.endereco);
-                    setLixoPerigoso(item.lixoPerigoso);
-                    setDescricao(item.descricao);
-                    setTipoLixo(item.tipoLixo);
-                    setQuantidadeLixo(item.quantidadeLixo);
+    //         }
+    //     })
+    // }
 
-                }
-            })
-        }
-        postPedidos();
-    }, []);
+    // useEffect(() => {
+        
+    //     postPedidos();
+    // }, []);
 
     const handleChangeTipoLixo = (e) => {
         setTipoLixo(e.target.value);
     }
 
     const handleChangeLixoPerigoso = (e) => {
-        setQuantidadeLixo(e.target.value);
+        setLixoPerigoso(e.target.value);
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
         await insertPedidos({
-            "idSolicitante":idSolicitante,
-            "idColetor": idColetor,
+            "idSolicitante": 1, //mudar pra userId
+            "idColetor": 0, //mudar para id do coletor
             "nomeSolicitante": nomeSolicitante,
             "dataColeta": dataColeta,
             "endereco": endereco,
@@ -64,7 +67,6 @@ const FormularioPedidos = () => {
             "qtdLixo": quantidadeLixo
         },
             navigate('/formulario'));
-
     }
 
 
@@ -87,6 +89,7 @@ const FormularioPedidos = () => {
                         <Input
                             type="datetime-local"
                             label="Data da coleta:"
+                            max="2099-12-12T23:59"
                             onChange={e => setDataColeta(e.target.value)}
                             value={dataColeta}
                             required
@@ -110,8 +113,8 @@ const FormularioPedidos = () => {
                                     onChange={handleChangeLixoPerigoso}
                                     label="Lixo Perigoso"
                                 >
-                                    <MenuItem value={0}>Sim</MenuItem>
-                                    <MenuItem value={1}>Não</MenuItem>
+                                    <MenuItem value={false}>Não</MenuItem>
+                                    <MenuItem value={true}>Sim</MenuItem>
                                 </Select>
                             </FormControl>
                         </Stack>
