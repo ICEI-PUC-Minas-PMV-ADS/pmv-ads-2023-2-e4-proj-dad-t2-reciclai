@@ -9133,24 +9133,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ccara\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\dodos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\ReciclaiTestes_.csproj",
+      "projectUniqueName": "C:\\Users\\dodos\\source\\repos\\Reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\ReciclaiTestes_.csproj",
       "projectName": "ReciclaiTestes_",
-      "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\ReciclaiTestes_.csproj",
-      "packagesPath": "C:\\Users\\ccara\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\obj\\",
+      "projectPath": "C:\\Users\\dodos\\source\\repos\\Reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\ReciclaiTestes_.csproj",
+      "packagesPath": "C:\\Users\\dodos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dodos\\source\\repos\\Reciclai\\src\\apis-web-services-projeto-reciclaí\\ReciclaiTestes_\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ccara\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\dodos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9164,8 +9159,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj": {
-              "projectPath": "C:\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj"
+            "C:\\Users\\dodos\\source\\repos\\Reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj": {
+              "projectPath": "C:\\Users\\dodos\\source\\repos\\Reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj"
             }
           }
         }
