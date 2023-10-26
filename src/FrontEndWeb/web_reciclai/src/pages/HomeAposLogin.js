@@ -5,15 +5,16 @@ import { getTodosPedidos } from '../services/Pedidos.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Stack } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
-import { redirect } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 
 
 const HomeAposLogin = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-
+  
   useEffect(() => {
     async function fetchPedidos() {
       const data = await getTodosPedidos();
@@ -28,17 +29,12 @@ const HomeAposLogin = () => {
     navigate('/perfil')
   }
 
+ 
 
   return (
     <Container>
-      <div className={styles.icone}>
-      <Stack direction="row" spacing={3} alignItems="flex-end">
-      <IconButton aria-label="Perfil">
-        <AccountCircleIcon fontSize="large" onClick={redirecionar}/>
-      </IconButton>
-      </Stack>
-      </div>
-      <div>
+
+    <div>
         <h5 className={styles.titulo}>Histórico de pedidos:</h5>
         <TableContainer component={Paper} className={styles.table}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">

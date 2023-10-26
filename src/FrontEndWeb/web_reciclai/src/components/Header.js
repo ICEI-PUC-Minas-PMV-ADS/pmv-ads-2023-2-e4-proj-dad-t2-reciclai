@@ -6,11 +6,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useUser } from "../contexts/UserContext";
 
 
 const Header = () => {
-  const { signed } = useUser();
+  const { signed, setSigned } = useUser();
+
+
+  const handleLogout = async () => {
+    setSigned(false);
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userId');
+
+   
+  }
+
 
   return (
 
@@ -24,6 +35,7 @@ const Header = () => {
            <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>Home</Nav.Link>
             <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
             <Nav.Link as={Link} to={"/perfil"} className={styles.link}><AccountCircleIcon /></Nav.Link>
+            <Nav.Link as={Link} to={"/"} className={styles.link}><LogoutIcon onClick={handleLogout}/></Nav.Link>
             </Nav>:
             <Nav className="me-auto">
             <Nav.Link as={Link} to={"/"} className={styles.link}>Home</Nav.Link>
