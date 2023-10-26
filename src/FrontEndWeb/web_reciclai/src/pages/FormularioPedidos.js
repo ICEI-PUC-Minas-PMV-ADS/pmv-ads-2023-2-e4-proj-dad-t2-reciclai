@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link } from "react-router-dom";
-import styles from './styles/FormularioPedidos.module.css';
-import Input from '../components/Input.js';
-import Botao from '../components/Button.js';
 import { insertPedidos } from '../services/Pedidos.services';
 import { useNavigate } from 'react-router-dom';
 
-
+import styles from './styles/FormularioPedidos.module.css';
+import Input from '../components/Input.js';
+import Botao from '../components/Button.js';
 
 const FormularioPedidos = () => {
 
@@ -30,7 +29,7 @@ const FormularioPedidos = () => {
                     setIdSolicitante(item.idSolicitante);
                     setIdColetor(item.idColetor);
                     setNomeSolicitante(item.nomeSolicitante);
-                    setDataColeta(item.dataColeta);
+                    setDataColeta(item.newDate(dataColeta));
                     setEndereco(item.endereco);
                     setLixoPerigoso(item.lixoPerigoso);
                     setDescricao(item.descricao);
@@ -56,15 +55,15 @@ const FormularioPedidos = () => {
         await insertPedidos({
             "idSolicitante":idSolicitante,
             "idColetor": idColetor,
-            "nome": nomeSolicitante,
+            "nomeSolicitante": nomeSolicitante,
             "dataColeta": dataColeta,
             "endereco": endereco,
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
             "tipoLixo": tipoLixo,
-            "quantidadeLixo": quantidadeLixo
+            "qtdLixo": quantidadeLixo
         },
-            navigate('/'));
+            navigate('/formulario'));
 
     }
 
