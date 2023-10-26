@@ -29,15 +29,15 @@ const Header = () => {
       <Container>
         <Navbar.Brand as={Link} to={"/"} className={styles.link}>Reciclaí</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" >
+        <Navbar.Collapse  className="justify-content-end">
         {signed ?
-          <Nav className="me-auto">
+          <Nav className="justify-content-end">
            <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>Home</Nav.Link>
             <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
             <Nav.Link as={Link} to={"/perfil"} className={styles.link}><AccountCircleIcon /></Nav.Link>
             <Nav.Link as={Link} to={"/"} className={styles.link}><LogoutIcon onClick={handleLogout}/></Nav.Link>
             </Nav>:
-            <Nav className="me-auto">
+            <Nav className="justify-content-end">
             <Nav.Link as={Link} to={"/"} className={styles.link}>Home</Nav.Link>
           <Nav.Link as={Link} to={"/cadastro"} className={styles.link}>Cadastre-se</Nav.Link>
           <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
