@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from './styles/CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { insertUsuarios } from '../services/Usuarios.services';
+import { insertUsuarios, updateUsuarios } from '../services/Usuarios.services';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 
 
 const CadastroUsuario = () => {
-
+  const parametros = useParams();
+  const {signed} = useUser();
   const navigate = useNavigate();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -46,16 +48,28 @@ const CadastroUsuario = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await insertUsuarios({
-      "nome": nome,
-      "email": email,
-      "senha": senha,
-      "endereco": endereco,
-      "perfil": perfil,
-      "tipoLixo": tipoLixo
-    },
-      navigate('/'));
-
+    if (parametros.id) {
+      await updateUsuarios({
+        "id": parametros.id,
+        "nome": nome,
+        "email": email,
+        "senha": senha,
+        "endereco": endereco,
+        "perfil": perfil,
+        "tipoLixo": tipoLixo
+      },
+        navigate('/aposlogin'));
+    } else {
+      await insertUsuarios({
+        "nome": nome,
+        "email": email,
+        "senha": senha,
+        "endereco": endereco,
+        "perfil": perfil,
+        "tipoLixo": tipoLixo
+      },
+        navigate('/'));
+    }
   }
 
 
@@ -63,7 +77,9 @@ const CadastroUsuario = () => {
   return (
     <React.Fragment>
       <Container>
+        {signed?<h2 className={styles.form}>Editar Cadastro</h2>:
         <h2 className={styles.form}>Cadastro de Usuário</h2>
+        }
         <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
 
           <Input
@@ -140,9 +156,9 @@ const CadastroUsuario = () => {
               </FormControl>
             </Box>
           </div>
-          <Botao type="submit" className={styles.botao} >
-            Cadastrar
-          </Botao>
+         {signed?<Botao type="submit" className={styles.botao} >Editar</Botao>:
+          <Botao type="submit" className={styles.botao} >Cadastrar</Botao>
+          }
         </form>
       </Container>
     </React.Fragment>
