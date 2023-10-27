@@ -65,3 +65,22 @@ export const insertPedidos = async (params) => {
       return null;
     }
   }
+
+  // export const insertTipoPedidos = async (params, rota) => {
+  //   console.log(params);  
+  //   try{
+  //       return await API.post(`${BASE_URL}/${rota}`, params).then( 
+  //         response => {
+  //           return response.data;
+  //         },
+  //         error =>{
+  //           console.log(error);
+  //           return  null;
+  //         }
+  //       );
+  //     }catch(error){
+  //       console.log(error);
+  //       return null;
+  //     }
+  //   }
+
