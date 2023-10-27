@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Carousel, Container, Button, Form, Row, Col } from 'react-bootstrap';
-import Natureza from "../img/Natureza.jpg";
-import Eletronico from "../img/Eletronico.jpg";
+import Natureza from "../img/recicla.png";
+import Eletronico from "../img/recicla2.png";
 import People from "../img/people.png";
 import Depoimentos from '../components/Depoimentos';
 import { insertOpiniaoUsuarios } from '../services/OpiniaoUsuario.services';
@@ -72,7 +72,7 @@ const Home = () => {
       </Carousel>
 
       <Depoimentos />
-
+  
       <Container>
         <Form onSubmit={(event) => handleSubmit(event)} action={<Link to="/sobre" />}>
           <Row className="mb-3 align-items-center">
