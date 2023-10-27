@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
@@ -143,6 +146,51 @@ namespace apis_web_services_projeto_reciclai.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        [HttpOptions("{id}/EnviarEmail")]
+        public async Task<ActionResult> EnviarEmail(int id, UsuarioDto model)
+        {
+            try
+            {
+                if (id != model.Id) return BadRequest();
+
+                var modelDb = await _context.Usuarios.AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.Id == id);
+
+                if (modelDb == null) return NotFound();
+
+                modelDb.Email = model.Email;
+
+                MailMessage mail = new MailMessage()
+                {
+                    From = new MailAddress("reciclai2023@gmail.com", "Reciclaí")
+                };
+
+                mail.To.Add(new MailAddress(modelDb.Email));
+
+                mail.Subject = "Solicitação de coleta";
+
+                mail.Body = "O status da coleta foi alterado, favor entrar na sua conta para visualizar.";
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.UseDefaultCredentials = false;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Credentials = new NetworkCredential("reciclai2023@gmail.com", "vtrgxoqweixjruva");
+                    smtp.EnableSsl = true;
+                    smtp.Timeout = 20_000;
+                    await smtp.SendMailAsync(mail);
+                }
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
