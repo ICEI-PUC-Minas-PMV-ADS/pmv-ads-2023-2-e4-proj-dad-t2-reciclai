@@ -12,17 +12,31 @@ const HomeAposLogin = () => {
   const navigate = useNavigate();
   const { userId } = useUser();
   const [data, setData] = useState([]);
+  const [ pedidoSelecionado, setPedidoSelecionado] = useState ({
+    id:null,
+    nomeSolicitante: '',
+    dataColeta: '',
+    tipoLixo:null,
+    qtdLixo: null,
+    endereco:'',
+    descricao:''
+  });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const selecionarPedido = (pedido) => {
+    setPedidoSelecionado(pedido)
+    handleShow();
+  }
 
   useEffect(() => {
     async function fetchPedidos() {
       const data = await getTodosPedidos();
       if (data) {
-        let PedidosUsuario = [];
-        PedidosUsuario = data.filter((pedido) => pedido.idSolicitante === userId);
-        setData(PedidosUsuario);
+        //let PedidosUsuario = [];
+       // PedidosUsuario = data.filter((pedido) => pedido.idSolicitante === userId);
+        setData(data);
         console.log(data);
       }
     }
@@ -55,7 +69,7 @@ const HomeAposLogin = () => {
                   <TableCell align="left">{pedido.nomeSolicitante}</TableCell>
                   <TableCell align="left">{pedido.dataColeta}</TableCell>
                   <TableCell align="left">
-                    <Button onClick={handleShow}>Visualizar</Button>
+                    <Button onClick={() => selecionarPedido(pedido)} className={styles.botao}>Visualizar</Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -65,15 +79,15 @@ const HomeAposLogin = () => {
 
         <Modal show={show} onHide={handleClose} >
           <Modal.Header closeButton>
-            <Modal.Title>Pedido: </Modal.Title>
+            <Modal.Title>Número do Pedido: {pedidoSelecionado.id} </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Nome:</p>
-            <p>Data da Coleta: </p>
-            <p>Tipo de Lixo:</p>
-            <p>Quantidade de Lixo:</p>
-            <p>Descrição:</p>
-            <p>Endereço: </p>
+            <p>Nome: {pedidoSelecionado.nomeSolicitante}</p>
+            <p>Data da Coleta: {pedidoSelecionado.dataColeta}</p>
+            <p>Tipo de Lixo: {pedidoSelecionado.tipoLixo}</p>
+            <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
+            <p>Descrição: {pedidoSelecionado.descricao}</p>
+            <p>Endereço: {pedidoSelecionado.endereco} </p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
