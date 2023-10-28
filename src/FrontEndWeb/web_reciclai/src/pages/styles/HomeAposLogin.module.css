@@ -15,3 +15,8 @@
     background-color: var(--verde);
     border-color: var(--verde);
 }
+.botao2{
+    background-color: var(--verde);
+    border-color: var(--verde);
+    margin: 20px;
+}

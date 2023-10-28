@@ -3,7 +3,7 @@ import { Container, Modal, Button } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosPedidos } from '../services/Pedidos.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
 
@@ -48,6 +48,7 @@ const HomeAposLogin = () => {
     <Container>
 
       <div>
+        <Button as={Link} to={`/formulario`} className={styles.botao2} >Formulário</Button>
         <h5 className={styles.titulo}>Histórico de pedidos:</h5>
         <TableContainer component={Paper} className={styles.table}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
