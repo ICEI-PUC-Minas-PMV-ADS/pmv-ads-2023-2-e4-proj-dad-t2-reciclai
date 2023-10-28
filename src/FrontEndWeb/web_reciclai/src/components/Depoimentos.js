@@ -7,22 +7,23 @@ import Row from 'react-bootstrap/Row';
 function Depoimentos() {
   return (
     <Container>
-    <Row xs={2} md={3} className="g-3">
-      {Array.from({ length: 3 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card body outline color="success" className="mx-auto my-5">
-            <Card.Body>
-              <Card.Title>Ana</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+      <Container className="containerHome">
+      <h7 >Depoimentos:</h7>
+      </Container>
+      <Row xs={1} md={3} className="g-3">
+        {depoimentos.map((depoimento, idx) => (
+          <Col key={idx}>
+            <Card body outline color="success" className="mx-auto my-5">
+              <Card.Body style={{ height: '150px' }}>
+                <Card.Title>{depoimento.nome}</Card.Title>
+                <Card.Text style={{ whiteSpace: 'pre-line' }}>
+                  {limitarCaracteres(depoimento.mensagem, 150)}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 }
