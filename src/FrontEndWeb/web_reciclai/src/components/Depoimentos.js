@@ -26,7 +26,7 @@ function Depoimentos() {
   return (
     <Container>
       <Container className="containerHome">
-      <h6 >Depoimentos:</h6>
+      <h7 >Depoimentos:</h7>
       </Container>
       <Row xs={1} md={3} className="g-3">
         {depoimentos.map((depoimento, idx) => (
