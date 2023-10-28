@@ -4,8 +4,10 @@ import Button from 'react-bootstrap/Button';
 import { Container, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getUsuario } from '../services/Usuarios.services.js';
+import { useUser } from '../contexts/UserContext';
 
 const PerfilUsuario = () => {
+  const {userId} = useUser();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [endereco, setEndereco] = useState('');
@@ -19,7 +21,7 @@ const PerfilUsuario = () => {
 
   async function fetchUsuario() {
     try {
-      const res = await getUsuario();
+      const res = await getUsuario(userId);
       setNome(res.nome);
       setEmail(res.email);
       setEndereco(res.endereco);
