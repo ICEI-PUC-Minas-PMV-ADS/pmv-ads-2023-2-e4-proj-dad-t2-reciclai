@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Container, Stack } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import { getUsuario } from '../services/Usuarios.services.js';
 import { useUser } from '../contexts/UserContext';
 
@@ -50,7 +50,7 @@ const PerfilUsuario = () => {
           <Card.Text>Perfil: {perfil}</Card.Text>
           <Card.Text>Tipo de Lixo: {tipoLixo}</Card.Text>
           <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-            <Button variant="primary" onClick={handleEditar}>
+            <Button as={Link} to={`/cadastro/${userId}`} variant="primary" >
               Editar
             </Button>
             <Button variant="outline-danger" onClick={handleExcluir}>
