@@ -1,16 +1,16 @@
 import { BASE_URL } from './Urls.js';
 import API from './Api.services.js';
 
- export async function getUsuario(id){
-    try{
+export async function getUsuario(id){
+  try{
 
-        const req = await API.get(`${BASE_URL}/usuarios/${id}`)
-        return req.data
+      const req = await API.get(`${BASE_URL}/usuarios/${1}`)
+      return req.data
 
-    }catch(error){
-        console.error("Usuário não encontrado", error)
+  }catch(error){
+      console.error("Usuário não encontrado", error)
 
-    }
+  }
 }
 
 
