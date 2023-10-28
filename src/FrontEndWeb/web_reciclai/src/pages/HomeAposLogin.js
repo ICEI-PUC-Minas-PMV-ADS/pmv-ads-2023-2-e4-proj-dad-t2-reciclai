@@ -12,7 +12,7 @@ const HomeAposLogin = () => {
   const navigate = useNavigate();
   const { userId } = useUser();
   const [data, setData] = useState([]);
-  const [ status, setStatus] = useState(true);
+  const [ status, setStatus] = useState(false);
   const [ pedidoSelecionado, setPedidoSelecionado] = useState ({
     id:null,
     nomeSolicitante: '',
@@ -32,6 +32,7 @@ const HomeAposLogin = () => {
   }
 
   const handleCancelar = () => setStatus(false);
+  const handleAceitar = () => setStatus(true);
 
   useEffect(() => {
     async function fetchPedidos() {
@@ -98,9 +99,15 @@ const HomeAposLogin = () => {
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            <Button variant="danger" onClick={handleCancelar}>
+            {status == false?
+            <Button className={styles.botao2}  onClick={handleAceitar}>
+              Aceitar Pedido
+            </Button>
+            :
+            <Button  variant="danger" onClick={handleAceitar}>
               Cancelar Pedido
             </Button>
+          }
           </Modal.Footer>
         </Modal>
 
