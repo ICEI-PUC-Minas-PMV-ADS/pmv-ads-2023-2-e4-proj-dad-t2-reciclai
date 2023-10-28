@@ -12,6 +12,7 @@ const HomeAposLogin = () => {
   const navigate = useNavigate();
   const { userId } = useUser();
   const [data, setData] = useState([]);
+  const [ status, setStatus] = useState(true);
   const [ pedidoSelecionado, setPedidoSelecionado] = useState ({
     id:null,
     nomeSolicitante: '',
@@ -29,6 +30,8 @@ const HomeAposLogin = () => {
     setPedidoSelecionado(pedido)
     handleShow();
   }
+
+  const handleCancelar = () => setStatus(false);
 
   useEffect(() => {
     async function fetchPedidos() {
@@ -89,12 +92,13 @@ const HomeAposLogin = () => {
             <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
             <p>Descrição: {pedidoSelecionado.descricao}</p>
             <p>Endereço: {pedidoSelecionado.endereco} </p>
+            <p>Status: {status? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            <Button variant="danger" onClick={handleClose}>
+            <Button variant="danger" onClick={handleCancelar}>
               Cancelar Pedido
             </Button>
           </Modal.Footer>

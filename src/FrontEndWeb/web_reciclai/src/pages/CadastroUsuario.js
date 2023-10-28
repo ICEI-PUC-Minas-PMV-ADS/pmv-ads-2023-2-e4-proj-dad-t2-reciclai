@@ -21,6 +21,7 @@ const CadastroUsuario = () => {
   const [perfil, setPerfil] = useState();
   const [tipoLixo, setTipoLixo] = useState();
 
+  
 
   useEffect(() => {
     async function postUser() {
@@ -68,7 +69,7 @@ const CadastroUsuario = () => {
         "perfil": perfil,
         "tipoLixo": tipoLixo
       },
-        navigate('/'));
+        navigate('/login'));
     }
   }
 
