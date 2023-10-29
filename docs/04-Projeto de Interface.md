@@ -26,3 +26,11 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 ### Tela Home Após o Login
 
 ![Apos Login](img/tela_pos_login.png)
+
+### Tela Perfil Usuário
+
+![Perfi de Usuário](img/Perfil.png)
+
+### Tela Página Inicial
+
+![Página Inicial](img/paginaInicial.png)
