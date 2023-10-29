@@ -5,7 +5,7 @@ import { getTodosUsuarios } from '../services/Usuarios.services';
 import {
   Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow,
 } from '@mui/material';
-import { Form, Button, InputGroup, Row, Col } from 'react-bootstrap';
+import { Form, InputGroup, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
@@ -19,17 +19,12 @@ const BuscaColetor = () => {
     async function fetchUsuarios() {
       const usuarios = await getTodosUsuarios();
       if (usuarios) {
-        const colectores = usuarios.filter((usuario) => usuario.perfil === 1);
-        setData(colectores);
+        const coletores = usuarios.filter((usuario) => usuario.perfil === 1);
+        setData(coletores);
       }
     }
     fetchUsuarios();
   }, [userId]);
-
-  const handleSearch = () => {
-    // Implement search functionality here
-    // You can filter the data based on the searchInput and update the data state
-  };
 
   const redirecionar = () => {
     navigate('/perfil');
@@ -51,9 +46,6 @@ const BuscaColetor = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
               </Col>
-              <Col xs="auto">
-                <Button onClick={handleSearch}>Submit</Button>
-              </Col>
             </Row>
           </Form>
           <TableContainer component={Paper} className={styles.table}>
@@ -66,13 +58,20 @@ const BuscaColetor = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.map((usuario) => (
-                  <TableRow key={usuario.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                    <TableCell align="left">{usuario.id}</TableCell>
-                    <TableCell align="left">{usuario.nome}</TableCell>
-                    <TableCell align="left">{usuario.perfil}</TableCell>
-                  </TableRow>
-                ))}
+                {data
+                  .filter((usuario) =>
+                    usuario.nome.toLowerCase().includes(searchInput.toLowerCase())
+                  )
+                  .map((usuario) => (
+                    <TableRow
+                      key={usuario.id}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell align="left">{usuario.id}</TableCell>
+                      <TableCell align="left">{usuario.nome}</TableCell>
+                      <TableCell align="left">{usuario.perfil}</TableCell>
+                    </TableRow>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>
