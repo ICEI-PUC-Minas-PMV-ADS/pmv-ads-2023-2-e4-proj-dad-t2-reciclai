@@ -6,6 +6,7 @@ export default function UserProvider({ children }) {
   const [signed, setSigned] = useState(false);
   const [user, setUser] = useState({});
   const userId = localStorage.getItem('userId');
+  const userPerfil = localStorage.getItem('userPerfil');
 
   return (
     <UserContext.Provider
@@ -14,7 +15,8 @@ export default function UserProvider({ children }) {
         setSigned,
         user,
         setUser,
-        userId
+        userId,
+        userPerfil
 
       }}>
       {children}

@@ -10,17 +10,17 @@ import { useUser } from '../contexts/UserContext';
 
 const HomeAposLogin = () => {
   const navigate = useNavigate();
-  const { userId } = useUser();
+  const { userId, userPerfil } = useUser();
   const [data, setData] = useState([]);
-  const [ status, setStatus] = useState(false);
-  const [ pedidoSelecionado, setPedidoSelecionado] = useState ({
-    id:null,
+  const [status, setStatus] = useState(false);
+  const [pedidoSelecionado, setPedidoSelecionado] = useState({
+    id: null,
     nomeSolicitante: '',
     dataColeta: '',
-    tipoLixo:null,
+    tipoLixo: null,
     qtdLixo: null,
-    endereco:'',
-    descricao:''
+    endereco: '',
+    descricao: ''
   });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -38,22 +38,26 @@ const HomeAposLogin = () => {
     async function fetchPedidos() {
       const data = await getTodosPedidos();
       if (data) {
+
         //let PedidosUsuario = [];
-       // PedidosUsuario = data.filter((pedido) => pedido.idSolicitante === userId);
+        // PedidosUsuario = data.filter((pedido) => pedido.idSolicitante === userId);
         setData(data);
         console.log(data);
       }
     }
     fetchPedidos();
-  }, []);
+  }, [userId]);
 
 
   return (
     <Container>
 
       <div>
-        <Button as={Link} to={`/formulario`} className={styles.botao2} >Formulário</Button>
-        <h5 className={styles.titulo}>Histórico de pedidos:</h5>
+        {userPerfil == 0 ?
+          <h5 className={styles.titulo}>Histórico de pedidos:</h5>
+          :
+          <h5 className={styles.titulo}>Histórico de coletas:</h5>
+        }
         <TableContainer component={Paper} className={styles.table}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -93,21 +97,21 @@ const HomeAposLogin = () => {
             <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
             <p>Descrição: {pedidoSelecionado.descricao}</p>
             <p>Endereço: {pedidoSelecionado.endereco} </p>
-            <p>Status: {status? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
+            <p>Status: {status ? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            {status == false?
-            <Button className={styles.botao2}  onClick={handleAceitar}>
-              Aceitar Pedido
-            </Button>
-            :
-            <Button  variant="danger" onClick={handleAceitar}>
-              Cancelar Pedido
-            </Button>
-          }
+            {status == false ?
+              <Button className={styles.botao2} onClick={handleAceitar}>
+                Aceitar Pedido
+              </Button>
+              :
+              <Button variant="danger" onClick={handleCancelar}>
+                Cancelar Pedido
+              </Button>
+            }
           </Modal.Footer>
         </Modal>
 
