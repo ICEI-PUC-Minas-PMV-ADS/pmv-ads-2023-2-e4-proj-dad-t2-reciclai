@@ -56,7 +56,7 @@ const FormularioPedidos = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         await insertPedidos({
-            "idSolicitante": 1, //mudar pra userId
+            "idSolicitante": userId,
             "idColetor": 0, //mudar para id do coletor
             "nomeSolicitante": nomeSolicitante,
             "dataColeta": dataColeta,
