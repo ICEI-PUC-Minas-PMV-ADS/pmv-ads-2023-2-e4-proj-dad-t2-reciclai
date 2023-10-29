@@ -49,4 +49,21 @@ export const insertUsuarios = async (params) => {
     }
   }
 
+  
+  export const getTodosUsuarios = async () => {
+    try {
+      return await API.get(`${BASE_URL}/usuarios`).then(
+        response => {
+          return response.data;
+        },
+        error => {
+          console.log(error);
+          return null;
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
  

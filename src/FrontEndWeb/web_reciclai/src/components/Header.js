@@ -35,6 +35,7 @@ const Header = () => {
            <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>Home</Nav.Link>
             <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
             <Nav.Link as={Link} to={"/perfil"} className={styles.link}><AccountCircleIcon /></Nav.Link>
+            <Nav.Link as={Link} to={"/buscaColetor"} className={styles.link}>Busca</Nav.Link>
             <Nav.Link as={Link} to={"/"} className={styles.link}><LogoutIcon onClick={handleLogout}/></Nav.Link>
             </Nav>:
             <Nav className="justify-content-end">
