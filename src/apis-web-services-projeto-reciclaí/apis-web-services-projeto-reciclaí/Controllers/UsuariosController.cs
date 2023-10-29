@@ -112,6 +112,8 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             var usuarioId = usuarioDb.Id;
 
+            var usuarioPerfil = usuarioDb.Perfil;
+
             if(usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha ))
                 return Unauthorized();
 
@@ -121,6 +123,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             {
                 jwtToken = jwt,
                 userId = usuarioId,
+                userPerfil = usuarioPerfil,
             };
 
             return Ok(data);
