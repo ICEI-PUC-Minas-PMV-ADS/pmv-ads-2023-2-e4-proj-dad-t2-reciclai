@@ -39,10 +39,10 @@ const HomeAposLogin = () => {
       const data = await getTodosPedidos();
       if (data) {
 
-        //let PedidosUsuario = [];
-        // PedidosUsuario = data.filter((pedido) => pedido.idSolicitante === userId);
-        setData(data);
-        console.log(data);
+        // let PedidosUsuario = [];
+        let PedidosUsuario = data.filter((pedido) => pedido.idSolicitante == userId);
+        setData(PedidosUsuario);
+        console.log(PedidosUsuario);
       }
     }
     fetchPedidos();
