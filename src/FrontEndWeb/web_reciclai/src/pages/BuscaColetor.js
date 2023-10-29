@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosUsuarios } from '../services/Usuarios.services';
-import {
-  Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow,
+import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Input,
 } from '@mui/material';
 import { Form, InputGroup, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
+import Buscastyles from './styles/Busca.module.css';
 
 const BuscaColetor = () => {
   const navigate = useNavigate();
@@ -38,10 +38,9 @@ const BuscaColetor = () => {
           <Form inline>
             <Row>
               <Col xs="auto">
-                <Form.Control
+                <Form.Control className={Buscastyles.search}
                   type="text"
-                  placeholder="Search"
-                  className="mr-sm-2"
+                  placeholder="Buscar coletores"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
@@ -54,7 +53,7 @@ const BuscaColetor = () => {
                 <TableRow>
                   <TableCell align="left">Id</TableCell>
                   <TableCell align="left">Nome</TableCell>
-                  <TableCell align="left">Perfil</TableCell>
+                  <TableCell align="left">E-mail</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -69,7 +68,7 @@ const BuscaColetor = () => {
                     >
                       <TableCell align="left">{usuario.id}</TableCell>
                       <TableCell align="left">{usuario.nome}</TableCell>
-                      <TableCell align="left">{usuario.perfil}</TableCell>
+                      <TableCell align="left">{usuario.email}</TableCell>
                     </TableRow>
                   ))}
               </TableBody>
