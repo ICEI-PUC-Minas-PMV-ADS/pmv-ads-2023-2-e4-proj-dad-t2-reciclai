@@ -30,3 +30,7 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 ### Tela Perfil Usuário
 
 ![Perfi de Usuário](img/Perfil.png)
+
+### Tela Página Inicial
+
+![Página Inicial](img/paginaInicial.png)
