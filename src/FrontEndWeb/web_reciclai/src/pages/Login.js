@@ -27,6 +27,7 @@ const Login = () => {
             console.log(res.jwtToken)
             localStorage.setItem('jwtToken', res.jwtToken);
             localStorage.setItem('userId', res.userId);
+            localStorage.setItem('userPerfil', res.userPerfil);
             navigate('/aposlogin')
           } else {
             alert('Atenção, Usuário ou senha inválidos!');
