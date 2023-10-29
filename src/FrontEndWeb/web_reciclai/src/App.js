@@ -8,6 +8,7 @@ import Login from  './pages/Login.js';
 import Header from './components/Header.js';
 import FormularioPedidos from "./pages/FormularioPedidos";
 import HomeAposLogin from "./pages/HomeAposLogin";
+import BuscaColetor from "./pages/BuscaColetor";
 import  UserProvider from "./contexts/UserContext";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/formulario" element={<FormularioPedidos />} />
           <Route path="/aposlogin" element={<HomeAposLogin />} />
+          <Route path="/buscaColetor" element={<BuscaColetor />} />
         </Routes>    
       </BrowserRouter>
       </UserProvider>
