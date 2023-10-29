@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SearchIcon from '@mui/icons-material/Search';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useUser } from "../contexts/UserContext";
 
@@ -35,8 +36,8 @@ const Header = () => {
            <Nav.Link as={Link} to={"/aposlogin"} className={styles.link}>Home</Nav.Link>
             <Nav.Link as={Link} to={"/sobre"} className={styles.link}>Sobre</Nav.Link>
             <Nav.Link as={Link} to={"/perfil"} className={styles.link}><AccountCircleIcon /></Nav.Link>
-            <Nav.Link as={Link} to={"/buscaColetor"} className={styles.link}>Busca</Nav.Link>
             <Nav.Link as={Link} to={"/"} className={styles.link}><LogoutIcon onClick={handleLogout}/></Nav.Link>
+            <Nav.Link as={Link} to={"/buscaColetor"} className={styles.link}><SearchIcon></SearchIcon></Nav.Link>
             </Nav>:
             <Nav className="justify-content-end">
             <Nav.Link as={Link} to={"/"} className={styles.link}>Home</Nav.Link>

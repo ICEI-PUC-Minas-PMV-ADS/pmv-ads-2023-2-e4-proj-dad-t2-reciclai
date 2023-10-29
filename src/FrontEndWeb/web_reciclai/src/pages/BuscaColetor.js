@@ -2,12 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosUsuarios } from '../services/Usuarios.services';
-import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Input,
+import {
+  Table,
+  Paper,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from '@mui/material';
-import { Form, InputGroup, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import Buscastyles from './styles/Busca.module.css';
+import { Link } from 'react-router-dom';
 
 const BuscaColetor = () => {
   const navigate = useNavigate();
@@ -30,6 +38,10 @@ const BuscaColetor = () => {
     navigate('/perfil');
   };
 
+  const handleSubmit = () => {
+    navigate(`/formulario`);
+  };
+
   return (
     <Container>
       <div>
@@ -38,7 +50,8 @@ const BuscaColetor = () => {
           <Form inline>
             <Row>
               <Col xs="auto">
-                <Form.Control className={Buscastyles.search}
+                <Form.Control
+                  className={Buscastyles.search}
                   type="text"
                   placeholder="Buscar coletores"
                   value={searchInput}
@@ -69,6 +82,9 @@ const BuscaColetor = () => {
                       <TableCell align="left">{usuario.id}</TableCell>
                       <TableCell align="left">{usuario.nome}</TableCell>
                       <TableCell align="left">{usuario.email}</TableCell>
+                      <TableCell align="left">
+                        <Button onClick={handleSubmit}>Selecionar Coletor</Button>
+                      </TableCell>
                     </TableRow>
                   ))}
               </TableBody>
