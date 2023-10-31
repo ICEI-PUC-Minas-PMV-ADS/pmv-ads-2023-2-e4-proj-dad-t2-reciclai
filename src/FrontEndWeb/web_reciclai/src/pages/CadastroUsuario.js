@@ -18,6 +18,7 @@ const CadastroUsuario = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
+  const [estado, setEstado] = useState('');
   const [perfil, setPerfil] = useState();
   const [tipoLixo, setTipoLixo] = useState();
 
@@ -31,6 +32,7 @@ const CadastroUsuario = () => {
           setEmail(item.email);
           setSenha(item.senha);
           setEndereco(item.endereco);
+          setEstado(item.estado);
           setPerfil(item.perfil);
           setTipoLixo(item.tipoLixo);
 
@@ -56,6 +58,7 @@ const CadastroUsuario = () => {
         "email": email,
         "senha": senha,
         "endereco": endereco,
+        "estado": estado,
         "perfil": perfil,
         "tipoLixo": tipoLixo
       },
@@ -66,6 +69,7 @@ const CadastroUsuario = () => {
         "email": email,
         "senha": senha,
         "endereco": endereco,
+        "estado": estado,
         "perfil": perfil,
         "tipoLixo": tipoLixo
       },
@@ -108,7 +112,7 @@ const CadastroUsuario = () => {
               sx={{ mb: 4 }}
             />
           </Stack>
-
+          <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
           <Input
             type="text"
             label="Endereço:"
@@ -117,8 +121,48 @@ const CadastroUsuario = () => {
             required
             sx={{ mb: 4 }}
           />
-          <div className={styles.select} >
-            <Box>
+              <FormControl variant="standard" sx={{ mb: 4 }} fullWidth>
+                <InputLabel id="demo-simple-select-standard-label">Estado</InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={estado}
+                  onChange={e => setEstado(e.target.value)}
+                  label="Estado"
+                >
+                  <MenuItem value="Acre">Acre</MenuItem>
+                  <MenuItem value="Alagoas">Alagoas</MenuItem>
+                  <MenuItem value="Amapá">Amapá</MenuItem>
+                  <MenuItem value="Amazonas">Amazonas</MenuItem>
+                  <MenuItem value="Bahia">Bahia</MenuItem>
+                  <MenuItem value="Ceará">Ceará</MenuItem>
+                  <MenuItem value="Distrito Federal">Distrito Federal</MenuItem>
+                  <MenuItem value="Espírito Santo">Espírito Santo</MenuItem>
+                  <MenuItem value="Goiás">Goiás</MenuItem>
+                  <MenuItem value="Maranhão">Maranhão</MenuItem>
+                  <MenuItem value="Mato Grosso">Mato Grosso</MenuItem>
+                  <MenuItem value="Mato Grosso do Sul">Mato Grosso do Sul</MenuItem>
+                  <MenuItem value="Minas Gerais">Minas Gerais</MenuItem>
+                  <MenuItem value="Pará">Pará</MenuItem>
+                  <MenuItem value="Paraíba">Paraíba</MenuItem>
+                  <MenuItem value="Paraná">Paraná</MenuItem>
+                  <MenuItem value="Pernambuco">Pernambuco</MenuItem>
+                  <MenuItem value="Piauí">Piauí</MenuItem>
+                  <MenuItem value="Rio de Janeiro">Rio de Janeiro</MenuItem>
+                  <MenuItem value="Rio Grande do Norte">Rio Grande do Norte</MenuItem>
+                  <MenuItem value="Rio Grande do Sul">Rio Grande do Sul</MenuItem>
+                  <MenuItem value="Rondônia">Rondônia</MenuItem>
+                  <MenuItem value="Roraima">Roraima</MenuItem>
+                  <MenuItem value="Santa Catarina">Santa Catarina</MenuItem>
+                  <MenuItem value="São Paulo">São Paulo</MenuItem>
+                  <MenuItem value="Sergipe">Sergipe</MenuItem>
+                  <MenuItem value="Tocantins">Tocantins</MenuItem>
+                </Select>
+              </FormControl>
+            
+          </Stack>
+          <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
+
               <FormControl variant="standard" sx={{ mb: 4 }} fullWidth>
                 <InputLabel id="demo-simple-select-standard-label">Perfil</InputLabel>
                 <Select
@@ -132,10 +176,10 @@ const CadastroUsuario = () => {
                   <MenuItem value={1}>Coletor</MenuItem>
                 </Select>
               </FormControl>
-            </Box>
-          </div>
-          <div className={styles.select}>
-            <Box>
+            
+           
+       
+          
               <FormControl variant="standard" sx={{ mb: 4 }} fullWidth>
                 <InputLabel id="demo-simple-select-standard-label">Tipo de Lixo</InputLabel>
                 <Select
@@ -155,8 +199,9 @@ const CadastroUsuario = () => {
                   <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
                 </Select>
               </FormControl>
-            </Box>
-          </div>
+        
+        
+          </Stack>
          {signed?<Botao type="submit" className={styles.botao} >Editar</Botao>:
           <Botao type="submit" className={styles.botao} >Cadastrar</Botao>
           }

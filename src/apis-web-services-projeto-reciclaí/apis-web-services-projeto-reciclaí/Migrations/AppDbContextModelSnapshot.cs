@@ -43,7 +43,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("Eletrodomesticos");
+                    b.ToTable("Eletrodomesticos", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Eletroportatil", b =>
@@ -69,7 +69,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("Eletroportateis");
+                    b.ToTable("Eletroportateis", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.FiosCabo", b =>
@@ -94,7 +94,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("FiosCabos");
+                    b.ToTable("FiosCabos", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Iluminacao", b =>
@@ -116,7 +116,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("Iluminacoes");
+                    b.ToTable("Iluminacoes", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Monitor", b =>
@@ -140,7 +140,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("Monitores");
+                    b.ToTable("Monitores", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PainelFotovoltaico", b =>
@@ -164,7 +164,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("PainelFotovoltaicos");
+                    b.ToTable("PainelFotovoltaicos", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Pedido", b =>
@@ -210,7 +210,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pedidos");
+                    b.ToTable("Pedidos", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PedidoUsuarios", b =>
@@ -225,7 +225,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("PedidoUsuarios");
+                    b.ToTable("PedidoUsuarios", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.PilhasBateria", b =>
@@ -247,7 +247,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("PilhasBaterias");
+                    b.ToTable("PilhasBaterias", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.TiTelecomunicacao", b =>
@@ -272,7 +272,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("TiTelecomunicacoes");
+                    b.ToTable("TiTelecomunicacoes", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Usuario", b =>
@@ -307,7 +307,7 @@ namespace apis_web_services_projeto_reciclai.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
                 });
 
             modelBuilder.Entity("apis_web_services_projeto_reciclai.Models.Eletrodomestico", b =>

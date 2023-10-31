@@ -42,6 +42,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha),
                 Email = model.Email,
                 Endereco = model.Endereco,
+                Estado = model.Estado,
                 Perfil = model.Perfil,
                 TipoLixo = model.TipoLixo,
             };
@@ -77,6 +78,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             modelDb.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
             modelDb.Email = model.Email;
             modelDb.Endereco = model.Endereco;
+            modelDb.Estado = model.Estado;
             modelDb.Perfil = model.Perfil;
             modelDb.TipoLixo = model.TipoLixo;  
 
