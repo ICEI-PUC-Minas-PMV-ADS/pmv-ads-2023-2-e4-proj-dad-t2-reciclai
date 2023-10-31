@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
-import { Link } from "react-router-dom";
-import { insertPedidos } from '../services/Pedidos.services';
+import { Link, useLocation } from "react-router-dom";
+import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
@@ -10,11 +10,13 @@ import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
 
 const FormularioPedidos = () => {
-
+    const location = useLocation();
+    const dados = location.state;
+    const coletor = dados.id;
     const navigate = useNavigate();
     const {userId} = useUser();
     //const [idSolicitante, setIdSolicitante] = useState('');
-    const [idColetor, setIdColetor] = useState('');
+    //const [idColetor, setIdColetor] = useState('');
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
     const [endereco, setEndereco] = useState('');
@@ -56,8 +58,8 @@ const FormularioPedidos = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         await insertPedidos({
-            "idSolicitante": userId,
-            "idColetor": 0, //mudar para id do coletor
+            "idSolicitante": parseInt(userId),
+            "idColetor": coletor,
             "nomeSolicitante": nomeSolicitante,
             "dataColeta": dataColeta,
             "endereco": endereco,
@@ -65,8 +67,15 @@ const FormularioPedidos = () => {
             "descricao": descricao,
             "tipoLixo": tipoLixo,
             "qtdLixo": quantidadeLixo
-        },
-            navigate('/formulario'));
+        }, navigate('/formulario'));
+        // await insertUsuariosPedidos({
+        //     "pedidoId": id,
+        //     "usuarioId": parseInt(userId)
+        // });
+        // await insertUsuariosPedidos({
+        //     "pedidoId": id,
+        //     "usuarioId": coletor
+        // });
     }
 
 
@@ -162,7 +171,7 @@ const FormularioPedidos = () => {
                         required
                         sx={{ mb: 4 }}
                     />
-                    <Botao type="submit" className={styles.botao} onClick={console.log("Submit!!!")} >
+                    <Botao type="submit" className={styles.botao} >
                         Solicitar
                     </Botao>
                 </form>

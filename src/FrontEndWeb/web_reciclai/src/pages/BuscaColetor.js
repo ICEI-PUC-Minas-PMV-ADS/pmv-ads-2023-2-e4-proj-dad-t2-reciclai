@@ -38,8 +38,9 @@ const BuscaColetor = () => {
     navigate('/perfil');
   };
 
-  const handleSubmit = () => {
-    navigate(`/formulario`);
+  const handleSubmit = (index) => {
+    navigate(`/formulario`, {state:data[index]});
+    console.log(data[index]);
   };
 
   return (
@@ -74,7 +75,7 @@ const BuscaColetor = () => {
                   .filter((usuario) =>
                     usuario.nome.toLowerCase().includes(searchInput.toLowerCase())
                   )
-                  .map((usuario) => (
+                  .map((usuario, index) => (
                     <TableRow
                       key={usuario.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -83,7 +84,7 @@ const BuscaColetor = () => {
                       <TableCell align="left">{usuario.nome}</TableCell>
                       <TableCell align="left">{usuario.email}</TableCell>
                       <TableCell align="left">
-                        <Button onClick={handleSubmit}>Selecionar Coletor</Button>
+                        <Button onClick={() => handleSubmit(index)}>Selecionar Coletor</Button>
                       </TableCell>
                     </TableRow>
                   ))}

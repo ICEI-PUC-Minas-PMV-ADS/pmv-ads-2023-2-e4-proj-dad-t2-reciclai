@@ -151,7 +151,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        [HttpOptions("{id}/EnviarEmail")]
+        [HttpPost("{id}/EnviarEmail")]
         public async Task<ActionResult> EnviarEmail(int id, UsuarioDto model)
         {
             try
