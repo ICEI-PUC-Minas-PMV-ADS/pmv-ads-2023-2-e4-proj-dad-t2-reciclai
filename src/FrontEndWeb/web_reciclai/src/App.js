@@ -9,7 +9,8 @@ import Header from './components/Header.js';
 import FormularioPedidos from "./pages/FormularioPedidos";
 import HomeAposLogin from "./pages/HomeAposLogin";
 import BuscaColetor from "./pages/BuscaColetor";
-import  UserProvider from "./contexts/UserContext";
+import UserProvider from "./contexts/UserContext";
+import UsuarioApagado from "./pages/UsuarioApagado";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/formulario" element={<FormularioPedidos />} />
           <Route path="/aposlogin" element={<HomeAposLogin />} />
           <Route path="/buscaColetor" element={<BuscaColetor />} />
+          <Route path="/usuarioApagado" element={<UsuarioApagado />} />
         </Routes>    
       </BrowserRouter>
       </UserProvider>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
+import styles from './styles/PerfilUsuario.module.css';
 import Button from 'react-bootstrap/Button';
 import { Container, Stack } from '@mui/material';
 import {Link, useNavigate } from 'react-router-dom';
 import { getUsuario } from '../services/Usuarios.services.js';
 import { useUser } from '../contexts/UserContext';
+import {deleteUsuario} from '../services/Usuarios.services';
 
 const PerfilUsuario = () => {
   const {userId} = useUser();
@@ -38,30 +39,33 @@ const PerfilUsuario = () => {
     navigate('/cadastro');
   };
 
-  const handleExcluir = () => {
+  async function handleExcluir(event) {
+    event.preventDefault();
+    await deleteUsuario(userId);  
+    navigate('/usuarioApagado');
   };
-
+  
   return (
     <Container>
-      <Card body outline color="success" className="mx-auto my-5" style={{ width: '50rem' }}>
-        <Card.Body>
-          <Card.Title>Perfil do Usuário</Card.Title>
-          <Card.Text>Nome: {nome}</Card.Text>
-          <Card.Text>Email: {email}</Card.Text>
-          <Card.Text>Endereço: {endereco}</Card.Text>
-          <Card.Text>Perfil: {perfil}</Card.Text>
-          <Card.Text>Tipo de Lixo: {tipoLixo}</Card.Text>
-          <Card.Text>Estado: {estado}</Card.Text>
-          <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-            <Button as={Link} to={`/cadastro/${userId}`} variant="primary" >
+     
+       
+          <h4 className={styles.titulo}>Perfil do Usuário</h4>
+          <p>Nome: {nome}</p>
+          <p>Email: {email}</p>
+          <p>Endereço: {endereco}</p>
+          <p>Estado: {estado}</p>
+          <p>Perfil: {perfil}</p>
+          <p>Tipo de Lixo: {tipoLixo}</p>
+          
+            <Button  onClick={handleEditar} className={styles.botao3} >
               Editar
             </Button>
-            <Button variant="outline-danger" onClick={handleExcluir}>
+            <Button variant="outline-danger" onClick={handleExcluir}className={styles.botao4}>
               Excluir
             </Button>
-          </Stack>
-        </Card.Body>
-      </Card>
+    
+      
+  
     </Container>
   );
 };

@@ -66,4 +66,14 @@ export const insertUsuarios = async (params) => {
       return null;
     }
   }
- 
+
+  export async function deleteUsuario(id){
+    try { 
+      const req = await API.delete(`${BASE_URL}/usuarios/${id}`)
+      return req.data
+
+    }catch(error){
+      console.error("Usuário não encontrado", error)
+
+    }
+  }
