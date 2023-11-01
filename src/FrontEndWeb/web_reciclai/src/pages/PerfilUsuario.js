@@ -14,6 +14,7 @@ const PerfilUsuario = () => {
   const [perfil, setPerfil] = useState('');
   const [tipoLixo, setTipoLixo] = useState('');
   const navigate = useNavigate();
+  const [estado, setEstado] = useState('');
 
   useEffect(() => {
     fetchUsuario();
@@ -27,6 +28,7 @@ const PerfilUsuario = () => {
       setEndereco(res.endereco);
       setPerfil(res.perfil);
       setTipoLixo(res.tipoLixo);
+      setEstado(res.estado);
     } catch (error) {
       console.error('Erro ao buscar informações do usuário:', error);
     }
@@ -49,6 +51,7 @@ const PerfilUsuario = () => {
           <Card.Text>Endereço: {endereco}</Card.Text>
           <Card.Text>Perfil: {perfil}</Card.Text>
           <Card.Text>Tipo de Lixo: {tipoLixo}</Card.Text>
+          <Card.Text>Estado: {estado}</Card.Text>
           <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
             <Button as={Link} to={`/cadastro/${userId}`} variant="primary" >
               Editar

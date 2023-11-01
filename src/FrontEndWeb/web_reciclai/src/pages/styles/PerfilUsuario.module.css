@@ -1,0 +1,19 @@
+.botao3{
+    margin:20px;
+    padding: 5px;
+    background-color: var(--verde);
+    border-color: var(--verde);
+    width: 100px;
+}
+
+.botao4{
+    margin:20px;
+    padding: 5px;
+    width: 100px;
+}
+
+.titulo{
+    margin: 40px;
+    color: var(--verde);
+}
+    
