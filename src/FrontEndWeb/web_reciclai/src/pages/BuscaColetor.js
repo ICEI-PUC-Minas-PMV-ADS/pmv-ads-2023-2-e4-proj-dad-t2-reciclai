@@ -54,7 +54,7 @@ const BuscaColetor = () => {
                 <Form.Control
                   className={Buscastyles.search}
                   type="text"
-                  placeholder="Buscar coletores"
+                  placeholder="Buscar por Estado"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
@@ -65,27 +65,27 @@ const BuscaColetor = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="left">Id</TableCell>
                   <TableCell align="left">Nome</TableCell>
                   <TableCell align="left">E-mail</TableCell>
+                  <TableCell align="left">Estado</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {data
                   .filter((usuario) =>
-                    usuario.nome.toLowerCase().includes(searchInput.toLowerCase())
+                    usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
                   )
                   .map((usuario, index) => (
                     <TableRow
                       key={usuario.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell align="left">{usuario.id}</TableCell>
+
                       <TableCell align="left">{usuario.nome}</TableCell>
                       <TableCell align="left">{usuario.email}</TableCell>
-                      <TableCell align="left">
-                        <Button onClick={() => handleSubmit(index)}>Selecionar Coletor</Button>
-                      </TableCell>
+                      <TableCell align="left">{usuario.estado}  </TableCell>
+                      <Button onClick={() => handleSubmit(index)}>Selecionar Coletor</Button>
+                    
                     </TableRow>
                   ))}
               </TableBody>
