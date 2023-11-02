@@ -29,6 +29,8 @@ namespace apis_web_services_projeto_reciclai.Models
         [Required]
         public bool LixoPerigoso { get; set; }
 
+        public Status Status { get; set; }
+
         public ICollection<PedidoUsuarios> Usuarios { get; set; }
         public ICollection<Monitor> Monitores { get; set; }
         public ICollection<Iluminacao> Iluminacoes { get; set; }
@@ -40,5 +42,12 @@ namespace apis_web_services_projeto_reciclai.Models
         public ICollection<FiosCabo> FiosCabos { get; set; }
 
     }
-    
+
+    public enum Status
+    {
+        Processando,
+        Aceito,
+        Cancelado
+    }
+
 }

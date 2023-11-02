@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Modal, Button } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
-import { getTodosPedidos } from '../services/Pedidos.services';
+import { getTodosPedidos, updatePedidos } from '../services/Pedidos.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
@@ -12,7 +12,6 @@ const HomeAposLogin = () => {
   const navigate = useNavigate();
   const { userId, userPerfil } = useUser();
   const [data, setData] = useState([]);
-  const [status, setStatus] = useState(false);
   const [pedidoSelecionado, setPedidoSelecionado] = useState({
     id: null,
     nomeSolicitante: '',
@@ -20,7 +19,8 @@ const HomeAposLogin = () => {
     tipoLixo: null,
     qtdLixo: null,
     endereco: '',
-    descricao: ''
+    descricao: '',
+    status: null
   });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -30,9 +30,6 @@ const HomeAposLogin = () => {
     setPedidoSelecionado(pedido)
     handleShow();
   }
-
-  const handleCancelar = () => setStatus(false);
-  const handleAceitar = () => setStatus(true);
 
   useEffect(() => {
     async function fetchPedidos() {
@@ -47,6 +44,7 @@ const HomeAposLogin = () => {
     }
     fetchPedidos();
   }, [userId]);
+
 
 
   return (
@@ -97,21 +95,20 @@ const HomeAposLogin = () => {
             <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
             <p>Descrição: {pedidoSelecionado.descricao}</p>
             <p>Endereço: {pedidoSelecionado.endereco} </p>
-            <p>Status: {status ? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
+            <p>Status: {pedidoSelecionado.status == 0 ? 'Processando' : pedidoSelecionado.status == 1 ? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            {status == false ?
-              <Button className={styles.botao2} onClick={handleAceitar}>
-                Aceitar Pedido
-              </Button>
-              :
-              <Button variant="danger" onClick={handleCancelar}>
-                Cancelar Pedido
-              </Button>
-            }
+            <Button className={styles.botao} onClick={console.log('pedido aceito')}>
+              Aceitar
+            </Button>
+            <Button variant="outline-danger" onClick={console.log('pedido aceito')}>
+              Cancelar
+            </Button>
+
+
           </Modal.Footer>
         </Modal>
 

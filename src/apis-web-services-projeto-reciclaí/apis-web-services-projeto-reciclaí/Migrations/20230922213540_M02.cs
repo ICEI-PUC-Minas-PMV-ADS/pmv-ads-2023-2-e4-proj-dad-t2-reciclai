@@ -25,7 +25,8 @@ namespace apis_web_services_projeto_reciclai.Migrations
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NomeSolicitante = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LixoPerigoso = table.Column<bool>(type: "bit", nullable: false)
+                    LixoPerigoso = table.Column<bool>(type: "bit", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

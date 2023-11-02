@@ -23,6 +23,7 @@ const FormularioPedidos = () => {
     const [lixoPerigoso, setLixoPerigoso] = useState();
     const [descricao, setDescricao] = useState();
     const [tipoLixo, setTipoLixo] = useState();
+    const [status, setStatus] = useState();
     const [quantidadeLixo, setQuantidadeLixo] = useState();
 
     // async function postPedidos() {
@@ -66,7 +67,8 @@ const FormularioPedidos = () => {
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
             "tipoLixo": tipoLixo,
-            "qtdLixo": quantidadeLixo
+            "qtdLixo": quantidadeLixo,
+            "status": 0,
         }, navigate('/formulario'));
         // await insertUsuariosPedidos({
         //     "pedidoId": id,
