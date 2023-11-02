@@ -8,7 +8,7 @@ import { useUser } from '../contexts/UserContext';
 import {deleteUsuario} from '../services/Usuarios.services';
 
 const PerfilUsuario = () => {
-  const {userId} = useUser();
+  const {userId, setSigned} = useUser();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [endereco, setEndereco] = useState('');
@@ -17,9 +17,28 @@ const PerfilUsuario = () => {
   const navigate = useNavigate();
   const [estado, setEstado] = useState('');
 
+  const Perfil =
+    [
+        'Solicitante',
+        'Coletor'
+    ];
+
+  const TipoLixo = 
+  [
+    'Eletrodomestico',
+    'Eletroportateis',
+    'Monitores',
+    'Iluminação',
+    'Fios e cabos',
+    'Pilhas e baterias',
+    'TI e telecomunicações',
+    'Painéis Fotovoltaicos'
+  ];
+
   useEffect(() => {
     fetchUsuario();
   }, []);
+
 
   async function fetchUsuario() {
     try {
@@ -27,8 +46,8 @@ const PerfilUsuario = () => {
       setNome(res.nome);
       setEmail(res.email);
       setEndereco(res.endereco);
-      setPerfil(res.perfil);
-      setTipoLixo(res.tipoLixo);
+      setPerfil(Perfil[res.perfil]);
+      setTipoLixo(TipoLixo[res.tipoLixo]);
       setEstado(res.estado);
     } catch (error) {
       console.error('Erro ao buscar informações do usuário:', error);
@@ -42,6 +61,9 @@ const PerfilUsuario = () => {
   async function handleExcluir(event) {
     event.preventDefault();
     await deleteUsuario(userId);  
+    setSigned(false);
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userId');
     navigate('/usuarioApagado');
   };
   
