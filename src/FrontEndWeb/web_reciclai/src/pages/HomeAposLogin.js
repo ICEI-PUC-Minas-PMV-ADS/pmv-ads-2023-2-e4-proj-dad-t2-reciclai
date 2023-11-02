@@ -31,6 +31,25 @@ const HomeAposLogin = () => {
     handleShow();
   }
 
+  const Status =
+  [
+    'Processando',
+    'Pedido Aceito',
+    'Pedido Cancelado'
+  ]
+
+  const TipoLixo = 
+  [
+    'Eletrodomestico',
+    'Eletroportateis',
+    'Monitores',
+    'Iluminação',
+    'Fios e cabos',
+    'Pilhas e baterias',
+    'TI e telecomunicações',
+    'Painéis Fotovoltaicos'
+  ];
+
   useEffect(() => {
     async function fetchPedidos() {
       const data = await getTodosPedidos();
@@ -91,11 +110,11 @@ const HomeAposLogin = () => {
           <Modal.Body>
             <p>Nome: {pedidoSelecionado.nomeSolicitante}</p>
             <p>Data da Coleta: {pedidoSelecionado.dataColeta}</p>
-            <p>Tipo de Lixo: {pedidoSelecionado.tipoLixo}</p>
+            <p>Tipo de Lixo: {TipoLixo[pedidoSelecionado.tipoLixo]}</p>
             <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
             <p>Descrição: {pedidoSelecionado.descricao}</p>
             <p>Endereço: {pedidoSelecionado.endereco} </p>
-            <p>Status: {pedidoSelecionado.status == 0 ? 'Processando' : pedidoSelecionado.status == 1 ? 'Pedido Aceito' : 'Pedido Cancelado'}</p>
+            <p>Status: {Status[pedidoSelecionado.status]}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
