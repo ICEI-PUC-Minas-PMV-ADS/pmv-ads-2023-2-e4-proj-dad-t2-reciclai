@@ -25,7 +25,7 @@ function Sobre(){
             
             <div className={styles.grid}>
                 <div className={styles.gridItem}>
-                    <p className={styles.p}>askdajsdka</p>
+                    <p className={styles.p}>Reduz a precarização do trabalho</p>
                 </div>
                 <div className={styles.gridItem}>
                     <p className={styles.p}>Fomenta um mercado de comercialização justo</p>
