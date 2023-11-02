@@ -9,7 +9,7 @@ const UsuarioApagado = () => {
     const navigate = useNavigate();
 
     const handleContinuar = () => {
-        navigate('/login');
+        navigate('/');
       };
 
     return(

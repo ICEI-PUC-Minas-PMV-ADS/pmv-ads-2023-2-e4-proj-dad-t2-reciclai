@@ -22,8 +22,27 @@ function Sobre(){
             para a reutilização desses componentes. Nosso projeto, o Reciclaí, entra nesse contexto como uma alternativa sustentável. Visando conectar 
             catadores, empresas e consumidores para destinar corretamente o lixo eletrônico, diminuindo o impacto ambiental.
             </h5>
-            <Image src={Natureza}roundedCircle/>
-           
+            
+            <div className={styles.grid}>
+                <div className={styles.gridItem}>
+                    <p className={styles.p}>askdajsdka</p>
+                </div>
+                <div className={styles.gridItem}>
+                    <p className={styles.p}>Fomenta um mercado de comercialização justo</p>
+                </div>
+                <div className={styles.gridItem}>
+                    <p className={styles.p}>Estimula a autoestima e o sentimendo de pertencimento</p>
+                </div>
+                <div className={styles.gridItem}>                            
+                    <p className={styles.p}>Traz dignidade e respeito aos trabalhadores</p>
+                </div>
+                <div className={styles.gridItem}>
+                    <p className={styles.p}>Reconhece a importância de organizações para catadores</p>
+                </div>
+                <div className={styles.gridItem}>
+                    <p className={styles.p}>Inclui e integra catadores de materiais recicláveis</p>
+                </div>
+            </div>
         </Container>
     )
 }
