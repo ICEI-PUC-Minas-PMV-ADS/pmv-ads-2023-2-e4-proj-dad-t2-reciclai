@@ -3,7 +3,7 @@ import { Container, Modal, Button } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosPedidos, updatePedidos } from '../services/Pedidos.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
 
@@ -32,23 +32,23 @@ const HomeAposLogin = () => {
   }
 
   const Status =
-  [
-    'Processando',
-    'Pedido Aceito',
-    'Pedido Cancelado'
-  ]
+    [
+      'Processando',
+      'Pedido Aceito',
+      'Pedido Cancelado'
+    ]
 
-  const TipoLixo = 
-  [
-    'Eletrodomestico',
-    'Eletroportateis',
-    'Monitores',
-    'Iluminação',
-    'Fios e cabos',
-    'Pilhas e baterias',
-    'TI e telecomunicações',
-    'Painéis Fotovoltaicos'
-  ];
+  const TipoLixo =
+    [
+      'Eletrodomestico',
+      'Eletroportateis',
+      'Monitores',
+      'Iluminação',
+      'Fios e cabos',
+      'Pilhas e baterias',
+      'TI e telecomunicações',
+      'Painéis Fotovoltaicos'
+    ];
 
   useEffect(() => {
     async function fetchPedidos() {
@@ -56,15 +56,63 @@ const HomeAposLogin = () => {
       if (data) {
 
         // let PedidosUsuario = [];
-        let PedidosUsuario = data.filter((pedido) => pedido.idSolicitante == userId);
+        let PedidosUsuario = data.filter((pedido) => pedido.idSolicitante == userId || pedido.idColetor == userId);
         setData(PedidosUsuario);
         console.log(PedidosUsuario);
       }
     }
+    async function editarPedido() {
+      await updatePedidos(pedidoSelecionado.id).then(item => {
+        if (item) {
+          setPedidoSelecionado(item.pedidoSelecionado);
+        }
+      })
+    }
     fetchPedidos();
-  }, [userId]);
+    editarPedido();
+  }, []);
 
 
+  async function handleAceitar(event) {
+    event.preventDefault();
+    if (pedidoSelecionado.id) {
+      await updatePedidos({
+        "id": pedidoSelecionado.id,
+        "idSolicitante": pedidoSelecionado.idSolicitante,
+        "idColetor": pedidoSelecionado.idColetor,
+        "nomeSolicitante": pedidoSelecionado.nomeSolicitante,
+        "dataColeta": pedidoSelecionado.dataColeta,
+        "endereco": pedidoSelecionado.endereco,
+        "lixoPerigoso": pedidoSelecionado.lixoPerigoso,
+        "descricao": pedidoSelecionado.descricao,
+        "tipoLixo": pedidoSelecionado.tipoLixo,
+        "status": 1,
+      });
+      alert('O pedido foi aceito com sucesso!');
+      handleClose();
+    }
+  }
+
+  async function handleCancelar(event) {
+    event.preventDefault();
+    if (pedidoSelecionado.id) {
+      await updatePedidos({
+        "id": pedidoSelecionado.id,
+        "idSolicitante": pedidoSelecionado.idSolicitante,
+        "idColetor": pedidoSelecionado.idColetor,
+        "nomeSolicitante": pedidoSelecionado.nomeSolicitante,
+        "dataColeta": pedidoSelecionado.dataColeta,
+        "endereco": pedidoSelecionado.endereco,
+        "lixoPerigoso": pedidoSelecionado.lixoPerigoso,
+        "descricao": pedidoSelecionado.descricao,
+        "tipoLixo": pedidoSelecionado.tipoLixo,
+        "status": 2,
+      });
+
+      alert('O pedido foi cancelado com sucesso!');
+      handleClose();
+    }
+  }
 
   return (
     <Container>
@@ -120,10 +168,10 @@ const HomeAposLogin = () => {
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            <Button className={styles.botao} onClick={console.log('pedido aceito')}>
+            <Button className={styles.botao} onClick={handleAceitar}>
               Aceitar
             </Button>
-            <Button variant="outline-danger" onClick={console.log('pedido aceito')}>
+            <Button variant="outline-danger" onClick={handleCancelar}>
               Cancelar
             </Button>
 
