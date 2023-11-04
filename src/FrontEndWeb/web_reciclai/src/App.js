@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home.js";
 import CadastroUsuario from './pages/CadastroUsuario.js';
+import EditarCadastroUsuario from './pages/EditarCadastroUsuario.js';
 import PerfilUsuario from  './pages/PerfilUsuario.js';
 import Sobre from  './pages/Sobre.js';
 import Login from  './pages/Login.js';
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/cadastro" element={<CadastroUsuario />} />
-          <Route path="/cadastro/:id" element={<CadastroUsuario />} />
+          <Route path="/cadastro/:id" element={<EditarCadastroUsuario />} />
           <Route path="/perfil" element={<PerfilUsuario />} />
           <Route path="/login" element={<Login />} />
           <Route path="/formulario" element={<FormularioPedidos />} />

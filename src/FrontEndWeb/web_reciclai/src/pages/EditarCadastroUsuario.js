@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Stack, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from './styles/CadastroUsuario.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { insertUsuarios } from '../services/Usuarios.services';
+import { updateUsuarios } from '../services/Usuarios.services.js';
 import { useNavigate } from 'react-router-dom';
-
+import { useUser } from '../contexts/UserContext.js';
 
 
 
 const CadastroUsuario = () => {
-
+  const parametros = useParams();
+  const {signed} = useUser();
   const navigate = useNavigate();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -24,8 +25,8 @@ const CadastroUsuario = () => {
   
 
   useEffect(() => {
-    async function postUser() {
-      await insertUsuarios().then(item => {
+    async function editUser() {
+      await updateUsuarios().then(item => {
         if (item) {
           setNome(item.nome);
           setEmail(item.email);
@@ -38,7 +39,7 @@ const CadastroUsuario = () => {
         }
       })
     }
-    postUser();
+    editUser();
   }, []);
 
   const handleChangePerfil = (e) => {
@@ -50,8 +51,9 @@ const CadastroUsuario = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-   
-      await insertUsuarios({
+    if (parametros.id) {
+      await updateUsuarios({
+        "id": parametros.id,
         "nome": nome,
         "email": email,
         "senha": senha,
@@ -60,8 +62,8 @@ const CadastroUsuario = () => {
         "perfil": perfil,
         "tipoLixo": tipoLixo
       },
-        navigate('/login'));
-    
+        navigate('/aposlogin'));
+    } 
   }
 
 
@@ -69,13 +71,13 @@ const CadastroUsuario = () => {
   return (
     <React.Fragment>
       <Container>
-        <h2 className={styles.form}>Cadastro de Usuário</h2>
-
+       <h2 className={styles.form}>Editar Cadastro</h2>
+       
         <form onSubmit={(event) => handleSubmit(event)} action={<Link to="/" />}>
 
           <Input
             type="text"
-            label="Nome:"
+            label="Nome: "
             onChange={e => setNome(e.target.value)}
             value={nome}
             required
@@ -188,8 +190,7 @@ const CadastroUsuario = () => {
         
         
           </Stack>
-          <Botao type="submit" className={styles.botao} >Cadastrar</Botao>
-          
+        <Botao type="submit" className={styles.botao} >Editar</Botao>
         </form>
       </Container>
     </React.Fragment>

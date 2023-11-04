@@ -55,7 +55,7 @@ const PerfilUsuario = () => {
   }
 
   const handleEditar = () => {
-    navigate('/cadastro');
+    navigate(`/cadastro/${userId}`);
   };
 
   async function handleExcluir(event) {
