@@ -29,3 +29,20 @@ export const getTodosPedidos = async () => {
       return null;
     }
   }
+
+  export const updatePedidos = async (param) => {
+    try{
+      return await API.put(`${BASE_URL}/Pedidos/${param.id}`, param).then( 
+        response => {
+          return response.data;
+        },
+        error =>{
+          console.log(error);
+          return  null;
+        }
+      );
+    }catch(error){
+      console.log(error);
+      return null;
+    }
+  }
