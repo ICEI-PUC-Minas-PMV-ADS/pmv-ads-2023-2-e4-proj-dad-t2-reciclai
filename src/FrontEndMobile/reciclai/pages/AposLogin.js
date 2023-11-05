@@ -13,6 +13,18 @@ const AposLogin = () => {
   const isFocused = useIsFocused();
   const [pedidos, setPedidos] = useState([]);
 
+  const TipoLixo =
+    [
+      'Eletrodomestico',
+      'Eletroportateis',
+      'Monitores',
+      'Iluminação',
+      'Fios e cabos',
+      'Pilhas e baterias',
+      'TI e telecomunicações',
+      'Painéis Fotovoltaicos'
+    ];
+
   useEffect(() => {
     getTodosPedidos().then((data) => {
 
@@ -25,7 +37,20 @@ const AposLogin = () => {
     console.log(item);
     return (
       <List.Item
-        title={item.nomeSolicitante}
+        title={'Nome: '+ item.nomeSolicitante}
+        description={'Tipo: '+ TipoLixo[item.tipoLixo]}
+        left={(props) => (
+          <List.Icon
+            {...props}
+            color={'#24926D'}
+            icon="form-select"
+          />)}
+        right={(props) => (
+          <Text {...props} style={{ alignSelf: 'center' }}>
+            {' '}
+            {item.dataColeta}{' '}
+          </Text>
+        )}
       />
     )
   }
@@ -39,7 +64,7 @@ const AposLogin = () => {
       </View>
 
       
-        <ScrollView>
+     
 
           <Text style={styles.titulo}>Meus Pedidos:</Text>
           <Card>
@@ -50,7 +75,7 @@ const AposLogin = () => {
             />
           </Card>
 
-        </ScrollView>
+
       </Body>
     </Container>
   );
