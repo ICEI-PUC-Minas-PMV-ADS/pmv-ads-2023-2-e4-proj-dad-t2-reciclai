@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import Home from './pages/Home';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Reciclaí</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <PaperProvider>
+        <NavigationContainer>
+          <Home />
+        </NavigationContainer>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#24926D',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
