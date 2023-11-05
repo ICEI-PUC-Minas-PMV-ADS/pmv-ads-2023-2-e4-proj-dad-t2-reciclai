@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const AposLogin = () => {
+const Pesquisa = () => {
 
   return (
 
@@ -15,4 +15,4 @@ const AposLogin = () => {
 
 }
 
-export default AposLogin;
+export default Pesquisa;
