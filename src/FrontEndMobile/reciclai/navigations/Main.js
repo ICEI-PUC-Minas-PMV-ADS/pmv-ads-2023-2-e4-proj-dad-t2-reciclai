@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../pages/Home';
 import Pesquisa from '../pages/Pesquisa';
 import AposLogin from '../pages/AposLogin';
+import VerPedido from '../pages/VerPedido';
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,13 @@ const Main = () => {
           header: () => null,
         }}
       />
+      <Stack.Screen
+        name="VerPedido"
+        component={VerPedido}
+        options={{
+          header: () => null,
+        }}
+      />
 
       <Stack.Screen
         name="Pesquisa"
@@ -33,6 +41,7 @@ const Main = () => {
           header: () => null,
         }}
       />
+       
 
 
     </Stack.Navigator>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
 import { Headline, List } from 'react-native-paper';
 import { useIsFocused } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import Card from '../components/Card';
 import { getTodosPedidos } from '../services/Pedidos.services';
@@ -9,7 +10,7 @@ import Container from '../components/Container';
 import Body from '../components/Body';
 
 const AposLogin = () => {
-
+  const navigation = useNavigation();
   const isFocused = useIsFocused();
   const [pedidos, setPedidos] = useState([]);
 
@@ -51,6 +52,7 @@ const AposLogin = () => {
             {item.dataColeta}{' '}
           </Text>
         )}
+        onPress={() => navigation.navigate('VerPedido', { item })}
       />
     )
   }

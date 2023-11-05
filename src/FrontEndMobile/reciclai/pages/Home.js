@@ -3,6 +3,7 @@ import { BottomNavigation, Text } from 'react-native-paper';
 
 import Pesquisa from './Pesquisa'; 
 import AposLogin from './AposLogin'; 
+import VerPedido from './VerPedido';
 
 const Home = () => {
   const [index, setIndex] = React.useState(0);
@@ -13,7 +14,7 @@ const Home = () => {
 
   const renderScene = BottomNavigation.SceneMap({
     pesquisa: Pesquisa,
-    aposLogin: AposLogin
+    aposLogin: AposLogin,   
   });
 
   return (
