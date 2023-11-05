@@ -71,20 +71,19 @@ const VerPedido = ({ route }) => {
                     <Card>
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
-                    </Card>
-                    <Card>
+
+                        <Text1 title="Endereço: " />
+                        <Text2 name={endereco} />
+                 
                         <Text1 title="Descrição:" />
                         <Text2 name={descricao} />
-                    </Card>
-                    <Card>
+                    
                         <Text1 title="Data da Coleta: " />
                         <Text2 name={dataColeta} />
-                    </Card>
-                    <Card>
+                   
                         <Text1 title="Tipo de Lixo: " />
                         <Text2 name={TipoLixo[tipoLixo]} />
-                    </Card>
-                    <Card>
+                   
                         <Text1 title="Quantidade: " />
                         <Text2 name={quantidadeLixo} />
                     </Card>
