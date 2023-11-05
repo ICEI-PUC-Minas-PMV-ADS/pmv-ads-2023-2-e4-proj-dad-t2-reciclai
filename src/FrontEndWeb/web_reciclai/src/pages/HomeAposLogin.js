@@ -70,7 +70,7 @@ const HomeAposLogin = () => {
     }
     fetchPedidos();
     editarPedido();
-  }, []);
+  });
 
 
   async function handleAceitar(event) {
@@ -89,7 +89,7 @@ const HomeAposLogin = () => {
         "status": 1,
       });
       alert('O pedido foi aceito com sucesso!');
-      handleClose();
+      navigate(0);
     }
   }
 
@@ -110,7 +110,7 @@ const HomeAposLogin = () => {
       });
 
       alert('O pedido foi cancelado com sucesso!');
-      handleClose();
+      navigate(0);
     }
   }
 
@@ -168,12 +168,20 @@ const HomeAposLogin = () => {
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
+            {userPerfil == 1 ?
             <Button className={styles.botao} onClick={handleAceitar}>
               Aceitar
             </Button>
-            <Button variant="outline-danger" onClick={handleCancelar}>
-              Cancelar
-            </Button>
+            :
+            <></>
+            }
+             
+             
+              <Button variant="outline-danger" onClick={handleCancelar}>
+                Cancelar
+              </Button>
+            
+
 
 
           </Modal.Footer>
