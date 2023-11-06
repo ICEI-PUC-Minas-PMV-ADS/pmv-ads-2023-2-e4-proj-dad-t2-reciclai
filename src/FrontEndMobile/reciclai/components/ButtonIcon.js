@@ -6,7 +6,7 @@ const ButtonIcon = (props) => {
     return  <Button
                 icon={props.icon}
                 onPress={props.onPress}
-                theme={{ colors: {primary: '#3E2500'}}}
+                theme={props.theme}
                 style= {styles.button}>
                     {props.title}
             </Button>
@@ -15,7 +15,7 @@ const ButtonIcon = (props) => {
 const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
-        margin: 15
+        margin: 15,
     }
 });
 

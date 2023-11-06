@@ -156,8 +156,8 @@ const VerPedido = ({ route }) => {
                         <Text2 name={Status[status]} />
 
                         <View style={styles.button}>
-                        <ButtonIcon onPress={handleAceitar} icon="check" />
-                        <ButtonIcon onPress={handleCancelar} icon="trash-can" />
+                        <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: {primary: '#24926D'}}}/>
+                        <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar"  theme={{ colors: {primary: '#a51b0b'}}}/>
                         </View>
                     </Card>
 
