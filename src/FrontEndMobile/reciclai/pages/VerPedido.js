@@ -131,12 +131,13 @@ const VerPedido = ({ route }) => {
     return (
         <Container>
             <ScrollView>
+               
+        <Logo />
         
                 <Body>
                     <Card>
-                        <Text1 title="Número do pedido: " />
-                        <Text2 name={id} />
-
+                        <Text1 title={"Número do pedido: "+ id} />
+                       
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
 
@@ -179,7 +180,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         flexDirection: "row"
-    }
+    },
+    logo: {
+        alignItems: 'center',
+        marginTop: 10,
+      }
 }
 );
 
