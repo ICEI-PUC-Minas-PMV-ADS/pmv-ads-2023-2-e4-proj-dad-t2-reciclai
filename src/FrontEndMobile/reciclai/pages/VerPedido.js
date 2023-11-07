@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, View  } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { getPedidos, updatePedidos } from '../services/Pedidos.services';
 import { useNavigation } from '@react-navigation/native';
@@ -13,6 +13,7 @@ import Body from '../components/Body';
 import Titulo from '../components/Titulo';
 import Button1 from '../components/Button';
 import ButtonIcon from '../components/ButtonIcon';
+import Logo from '../components/Logo';
 
 
 const VerPedido = ({ route }) => {
@@ -130,10 +131,12 @@ const VerPedido = ({ route }) => {
     return (
         <Container>
             <ScrollView>
-
+        
                 <Body>
-                    <Titulo title={'Número do Pedido: ' + id} />
                     <Card>
+                        <Text1 title="Número do pedido: " />
+                        <Text2 name={id} />
+
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
 
@@ -156,8 +159,8 @@ const VerPedido = ({ route }) => {
                         <Text2 name={Status[status]} />
 
                         <View style={styles.button}>
-                        <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: {primary: '#24926D'}}}/>
-                        <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar"  theme={{ colors: {primary: '#a51b0b'}}}/>
+                            <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' } }} />
+                            <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar" theme={{ colors: { primary: '#a51b0b' } }} />
                         </View>
                     </Card>
 
@@ -173,12 +176,12 @@ const VerPedido = ({ route }) => {
 
 const styles = StyleSheet.create({
     button: {
-      flex: 1,
-      justifyContent: "center",
-      flexDirection: "row"
+        flex: 1,
+        justifyContent: "center",
+        flexDirection: "row"
     }
-  }
-  );
+}
+);
 
 
 
