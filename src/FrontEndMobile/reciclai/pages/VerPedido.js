@@ -136,7 +136,7 @@ const VerPedido = ({ route }) => {
         
                 <Body>
                     <Card>
-                        <Text1 title={"Número do pedido: "+ id} />
+                        <Titulo title={"Número do pedido: "+ id} />
                        
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
@@ -160,7 +160,7 @@ const VerPedido = ({ route }) => {
                         <Text2 name={Status[status]} />
 
                         <View style={styles.button}>
-                            <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' } }} />
+                            <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' }}}/>
                             <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar" theme={{ colors: { primary: '#a51b0b' } }} />
                         </View>
                     </Card>

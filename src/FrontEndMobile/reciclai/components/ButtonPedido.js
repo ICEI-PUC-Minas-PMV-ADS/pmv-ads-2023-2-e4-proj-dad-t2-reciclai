@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
 
-const ButtonIcon = (props) => {
+const ButtonPedido = (props) => {
     return  <Button
                 icon={props.icon}
                 onPress={props.onPress}
@@ -16,9 +16,13 @@ const ButtonIcon = (props) => {
 
 const styles = StyleSheet.create({
     button: {
-        alignItems: 'center',
-        margin: 15,
+      position: 'absolute', 
+      right: 0,
+      marginTop: 80,
+      marginRight: 5,
+      backgroundColor:'#4660BE',
+    
     }
 });
 
-export default ButtonIcon;
+export default ButtonPedido;

@@ -8,6 +8,7 @@ import Card from '../components/Card';
 import { getTodosPedidos } from '../services/Pedidos.services';
 import Container from '../components/Container';
 import Body from '../components/Body';
+import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
@@ -37,6 +38,7 @@ const AposLogin = () => {
   const ItemView = ({ item }) => {
     console.log(item);
     return (
+      <Card>
       <List.Item
         title={'Nome: '+ item.nomeSolicitante}
         description={'Tipo: '+ TipoLixo[item.tipoLixo]}
@@ -54,31 +56,29 @@ const AposLogin = () => {
         )}
         onPress={() => navigation.navigate('VerPedido', { item })}
       />
+      </Card>
     )
   }
 
   return (
     <Container>
+      <ScrollView>
       <Body>
 
       <View style={styles.headline}>
         <Headline style={styles.headline2}>Olá,</Headline>
       </View>
-
-      
+      <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' }}} onPress={() => navigation.navigate('Pesquisa')}/>
      
-
           <Text style={styles.titulo}>Meus Pedidos:</Text>
-          <Card>
+          
             <FlatList
               data={pedidos}
               keyExtractor={item => item.id}
               renderItem={ItemView}
             />
-          </Card>
-
-
       </Body>
+      </ScrollView>
     </Container>
   );
 
