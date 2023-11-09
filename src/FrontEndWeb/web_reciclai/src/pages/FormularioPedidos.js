@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Stack, Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import { Link, useLocation } from "react-router-dom";
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
@@ -8,16 +8,18 @@ import { useUser } from '../contexts/UserContext';
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
+import { getUsuario } from '../services/Usuarios.services';
 
 const FormularioPedidos = () => {
     const location = useLocation();
     const dados = location.state;
     const coletor = dados.id;
+    console.log(coletor);
     const navigate = useNavigate();
     const {userId} = useUser();
     //const [idSolicitante, setIdSolicitante] = useState('');
     //const [idColetor, setIdColetor] = useState('');
-    const [nomeSolicitante, setNomeSolicitante] = useState('');
+    const [nomeSolicitante, setNomeSolicitante] = useState(''); 
     const [dataColeta, setDataColeta] = useState('');
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState();
@@ -58,7 +60,8 @@ const FormularioPedidos = () => {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        await insertPedidos({
+        
+        const novoPedido = await insertPedidos({
             "idSolicitante": parseInt(userId),
             "idColetor": coletor,
             "nomeSolicitante": nomeSolicitante,
@@ -69,18 +72,34 @@ const FormularioPedidos = () => {
             "tipoLixo": tipoLixo,
             "qtdLixo": quantidadeLixo,
             "status": 0,
-        }, navigate('/formulario'));
-        // await insertUsuariosPedidos({
-        //     "pedidoId": id,
-        //     "usuarioId": parseInt(userId)
-        // });
-        // await insertUsuariosPedidos({
-        //     "pedidoId": id,
-        //     "usuarioId": coletor
-        // });
+        });
+        console.log(novoPedido.id);
+
+        await insertUsuariosPedidos({
+            "pedidoId": novoPedido.id,
+            "usuarioId": parseInt(userId)
+        });
+
+        await insertUsuariosPedidos({
+            "pedidoId": novoPedido.id,
+            "usuarioId": coletor
+        });
+        
+        navigate('/buscaColetor');
     }
 
+    const handleNameChange = (e) => {
+        setNomeSolicitante(e.target.value);
+    }
 
+    useEffect(() => {
+        async function fetchUser(){
+            const user = await getUsuario(userId);
+            setNomeSolicitante(user.nome);
+        }
+        fetchUser();
+      },[]);
+        
 
     return (
         <React.Fragment>
@@ -92,7 +111,7 @@ const FormularioPedidos = () => {
                         <Input
                             type="text"
                             label="Nome:"
-                            onChange={e => setNomeSolicitante(e.target.value)}
+                            onChange={handleNameChange}
                             value={nomeSolicitante}
                             required
                             sx={{ mb: 4 }}

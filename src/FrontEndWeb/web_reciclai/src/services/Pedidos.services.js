@@ -87,7 +87,7 @@ export const insertPedidos = async (params) => {
   export const insertUsuariosPedidos = async (params) => {
     console.log(params);  
     try{
-        return await API.post(`${BASE_URL}/Pedidos/${params.id}/usuarios`, params).then( 
+        return await API.post(`${BASE_URL}/Pedidos/${params.pedidoId}/usuarios`, params).then( 
           response => {
             return response.data;
           },
