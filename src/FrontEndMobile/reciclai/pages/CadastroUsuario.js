@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { MenuItem, Select } from '@mui/material';
 import Text1 from '../components/Text';
 import Text2 from '../components/Text2';
 import Container from '../components/Container';
@@ -18,14 +19,14 @@ import { useNavigation } from '@react-navigation/native';
 
 const CadastroUsuario = () => {
 
-    const navigate = useNavigation();
+    const navigation = useNavigation();
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [endereco, setEndereco] = useState('');
-    // const [estado, setEstado] = useState('');
-    // const [perfil, setPerfil] = useState();
-    // const [tipoLixo, setTipoLixo] = useState();
+    const [estado, setEstado] = useState('');
+    const [perfil, setPerfil] = useState();
+    const [tipoLixo, setTipoLixo] = useState();
   
     
   
@@ -37,12 +38,12 @@ const CadastroUsuario = () => {
             setEmail(item.email);
             setSenha(item.senha);
             setEndereco(item.endereco);
-            // setEstado(item.estado);
-            // setPerfil(item.perfil);
-            // setTipoLixo(item.tipoLixo);
-            setEstado(1);
-            setPerfil(1);
-            setTipoLixo(1);
+            setEstado(item.estado);
+            setPerfil(item.perfil);
+            setTipoLixo(item.tipoLixo);
+            setEstado(item.estado);
+            setPerfil(item.perfil);
+            setTipoLixo(item.tipoLixo);
   
           }
         })
@@ -65,11 +66,11 @@ const CadastroUsuario = () => {
             "email": email,
             "senha": senha,
             "endereco": endereco,
-            // "estado": estado,
-            // "perfil": perfil,
-            // "tipoLixo": tipoLixo
+            "estado": estado,
+            "perfil": perfil,
+            "tipoLixo": tipoLixo
           },
-            navigate('/login'));
+            navigation.navigate('/login'));
         
       }
     
@@ -82,7 +83,7 @@ const CadastroUsuario = () => {
         <Logo />
         <Titulo title="Cadastre-se" />
         <Body>
-            <Card>
+           
                 <Titulo title={"Nome: "} />                        
                 <TextInput
                 style={styles.textInput}
@@ -99,7 +100,15 @@ const CadastroUsuario = () => {
                 onChangeText={(text) => setEmail(text)}
                 />
 
-                
+                <Titulo title={"Senha"} />                        
+                <TextInput
+                style={styles.textInput}
+                placeholder="senha"
+                secureTextEntry
+                value={senha}
+                onChangeText={(text) => setSenha(text)}
+                />
+
                 <Titulo title={"Endereço"} />                        
                 <TextInput
                 style={styles.textInput}
@@ -107,9 +116,75 @@ const CadastroUsuario = () => {
                 value={endereco}
                 onChangeText={(text) => setEndereco(text)}
                 />
-            </Card>
-                   
+
+                <Titulo title={"Estado"} />
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={estado}
+                  onChange={e => setEstado(e.target.value)}
+                  label="Estado"
+                >
+                  <MenuItem value="Acre">Acre</MenuItem>
+                  <MenuItem value="Alagoas">Alagoas</MenuItem>
+                  <MenuItem value="Amapá">Amapá</MenuItem>
+                  <MenuItem value="Amazonas">Amazonas</MenuItem>
+                  <MenuItem value="Bahia">Bahia</MenuItem>
+                  <MenuItem value="Ceará">Ceará</MenuItem>
+                  <MenuItem value="Distrito Federal">Distrito Federal</MenuItem>
+                  <MenuItem value="Espírito Santo">Espírito Santo</MenuItem>
+                  <MenuItem value="Goiás">Goiás</MenuItem>
+                  <MenuItem value="Maranhão">Maranhão</MenuItem>
+                  <MenuItem value="Mato Grosso">Mato Grosso</MenuItem>
+                  <MenuItem value="Mato Grosso do Sul">Mato Grosso do Sul</MenuItem>
+                  <MenuItem value="Minas Gerais">Minas Gerais</MenuItem>
+                  <MenuItem value="Pará">Pará</MenuItem>
+                  <MenuItem value="Paraíba">Paraíba</MenuItem>
+                  <MenuItem value="Paraná">Paraná</MenuItem>
+                  <MenuItem value="Pernambuco">Pernambuco</MenuItem>
+                  <MenuItem value="Piauí">Piauí</MenuItem>
+                  <MenuItem value="Rio de Janeiro">Rio de Janeiro</MenuItem>
+                  <MenuItem value="Rio Grande do Norte">Rio Grande do Norte</MenuItem>
+                  <MenuItem value="Rio Grande do Sul">Rio Grande do Sul</MenuItem>
+                  <MenuItem value="Rondônia">Rondônia</MenuItem>
+                  <MenuItem value="Roraima">Roraima</MenuItem>
+                  <MenuItem value="Santa Catarina">Santa Catarina</MenuItem>
+                  <MenuItem value="São Paulo">São Paulo</MenuItem>
+                  <MenuItem value="Sergipe">Sergipe</MenuItem>
+                  <MenuItem value="Tocantins">Tocantins</MenuItem>
+                </Select>
             
+                <Titulo title={"Perfil"} />
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={perfil}
+                  onChange={handleChangePerfil}
+                  label="Perfil"
+                >
+                  <MenuItem value={0}>Solicitante</MenuItem>
+                  <MenuItem value={1}>Coletor</MenuItem>
+                </Select>
+            
+                <Titulo title={"Tipo de Lixo"} />
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={tipoLixo}
+                  onChange={handleChangeTipoLixo}
+                  label="Tipo de Lixo"
+                >
+                  <MenuItem value={0}>Eletrodoméstico</MenuItem>
+                  <MenuItem value={1}>Eletroportáteis</MenuItem>
+                  <MenuItem value={2}>Monitores</MenuItem>
+                  <MenuItem value={3}>Iluminação</MenuItem>
+                  <MenuItem value={4}>Fios e Cabos</MenuItem>
+                  <MenuItem value={5}>Pilhas e baterias</MenuItem>
+                  <MenuItem value={6}>TI e telecomunicações</MenuItem>
+                  <MenuItem value={7}>Painéis Fotovoltaicos</MenuItem>
+                </Select>
+
+
                 <Button1
                     title="Cadastre-se"
                     onPress={handleSubmit}
@@ -129,7 +204,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titulo: {
-    fontSize: 24,
+    fontSize: 68,
     marginBottom: 10,
   },
   box: {
@@ -143,7 +218,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: '90%',
     marginTop: "auto", 
-  },
+  },  
   itemContainer: {
     borderWidth: 1,
     borderColor: '#ccc',
