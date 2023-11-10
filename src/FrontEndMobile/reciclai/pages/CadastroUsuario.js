@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { MenuItem, Select } from '@mui/material';
-import Text1 from '../components/Text';
-import Text2 from '../components/Text2';
 import Container from '../components/Container';
 import Card from '../components/Card';
 import Body from '../components/Body';
@@ -195,7 +193,7 @@ const CadastroUsuario = () => {
 );
 };
 
-const styles = StyleSheet.create({
+const  styles = StyleSheet.create({
   container: {
     marginTop: 100,
     flex: 1,
