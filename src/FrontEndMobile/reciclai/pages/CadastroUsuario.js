@@ -82,7 +82,7 @@ const CadastroUsuario = () => {
         <Titulo title="Cadastre-se" />
         <Body>
            
-                <Titulo title={"Nome: "} />                        
+                
                 <TextInput
                 style={styles.textInput}
                 placeholder="Nome"
@@ -90,7 +90,7 @@ const CadastroUsuario = () => {
                 onChangeText={(text) => setNome(text)}
                 />
             
-                <Titulo title={"Email"} />                        
+                                      
                 <TextInput
                 style={styles.textInput}
                 placeholder="Email"
@@ -98,7 +98,7 @@ const CadastroUsuario = () => {
                 onChangeText={(text) => setEmail(text)}
                 />
 
-                <Titulo title={"Senha"} />                        
+                                        
                 <TextInput
                 style={styles.textInput}
                 placeholder="senha"
@@ -107,7 +107,7 @@ const CadastroUsuario = () => {
                 onChangeText={(text) => setSenha(text)}
                 />
 
-                <Titulo title={"Endereço"} />                        
+                                       
                 <TextInput
                 style={styles.textInput}
                 placeholder="Endereço"
@@ -166,6 +166,7 @@ const CadastroUsuario = () => {
             
                 <Titulo title={"Tipo de Lixo"} />
                 <Select
+                placeholder="Tipo de Lixo"
                   labelId="demo-simple-select-standard-label"
                   id="demo-simple-select-standard"
                   value={tipoLixo}
@@ -212,9 +213,9 @@ const  styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: '#ccc',
-    padding: 10,
+    padding: 20,
     marginBottom: 20,
-    width: '90%',
+    width: '100%',
     marginTop: "auto", 
   },  
   itemContainer: {
@@ -232,7 +233,7 @@ const  styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   itemTitle: {
-    fontWeight: 'bold',
+    fontWeight: '#fff',
     marginBottom: 5,
   },
   itemText: {
