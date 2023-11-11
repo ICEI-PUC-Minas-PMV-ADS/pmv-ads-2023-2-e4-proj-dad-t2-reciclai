@@ -233,7 +233,7 @@ const  styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   itemTitle: {
-    fontWeight: '#fff',
+    fontWeight: 'bold',
     marginBottom: 5,
   },
   itemText: {
