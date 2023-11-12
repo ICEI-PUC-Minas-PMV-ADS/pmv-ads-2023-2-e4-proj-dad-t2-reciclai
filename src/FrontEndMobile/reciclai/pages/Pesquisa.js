@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Button } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getTodosUsuarios } from '../services/Usuarios.services';
 import Container from '../components/Container';
@@ -30,57 +37,55 @@ const BuscaColetor = () => {
 
   const handleSubmit = (index) => {
     navigation.navigate('Formulario', { data: data[index] });
-    console.log(data[index]);
   };
 
   return (
-    <Container> 
-        <Logo />
-        <Body>
-    <View>
-      <Text style={styles.titulo}>Busca de Coletores</Text>
-      <View style={styles.box}>
-      <Card>
-        <TextInput
-          placeholder="Buscar por Estado"
-          value={searchInput}
-          onChangeText={(text) => setSearchInput(text)}
-        />
-        </Card>
-        <Card>
-        <ScrollView>
-          {data
-            .filter((usuario) =>
-              usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
-            )
-            .map((usuario, index) => (
-              <TouchableOpacity
-                key={usuario.id}
-                style={styles.itemContainer}
-                onPress={() => handleSubmit(index)}
-              >
-                <View style={styles.column}>
-                  <Text>Nome:</Text>
-                  <Text style={styles.itemText}>{usuario.nome}</Text>
-                </View>
-                <View style={styles.column}>
-                  <Text>Estado:</Text>
-                  <Text>{usuario.estado}</Text>
-                </View>
-                <Text style={styles.selectText}>Selecionar</Text>
-              </TouchableOpacity>
-            ))}
-        </ScrollView>
-        </Card>
-      </View>
-    </View>
-    </Body>
+    <Container>
+      <Logo />
+      <Body>
+        <View style={styles.container}>
+          <Text style={styles.titulo}>Busca de Coletores</Text>
+          <Card>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Buscar por Estado"
+              value={searchInput}
+              onChangeText={(text) => setSearchInput(text)}
+            />
+          </Card>
+          <Card>
+            <ScrollView>
+              {data
+                .filter((usuario) =>
+                  usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
+                )
+                .map((usuario, index) => (
+                  <TouchableOpacity
+                    key={usuario.id}
+                    style={styles.itemContainer}
+                    onPress={() => handleSubmit(index)}
+                  >
+                    <View style={styles.column}>
+                      <Text style={styles.itemTitle}>Nome:</Text>
+                      <Text style={styles.itemText}>{usuario.nome}</Text>
+                    </View>
+                    <View style={styles.column}>
+                      <Text style={styles.itemTitle}>Estado:</Text>
+                      <Text style={styles.itemText}>{usuario.estado}</Text>
+                    </View>
+                    <Text style={styles.selectText}>Selecionar</Text>
+                  </TouchableOpacity>
+                ))}
+            </ScrollView>
+          </Card>
+        </View>
+      </Body>
     </Container>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
     flex: 1,
     padding: 20,
     justifyContent: 'center',
@@ -89,33 +94,29 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     marginBottom: 10,
-    justifyContent: 'center',
-    color:'#fff'
-  
+    color: '#fff',
   },
   searchInput: {
     borderWidth: 1,
     borderColor: '#ccc',
     padding: 10,
-    marginBottom: 20,
-    width: '90%',
+    width: '100%',
   },
   itemContainer: {
     borderWidth: 1,
     borderColor: '#ccc',
     padding: 10,
     marginBottom: 10,
-    width: '90%',
+    width: '100%',
     flexDirection: 'row',
-    justifyContent: 'center',
-   
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   column: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   itemTitle: {
     fontWeight: 'bold',
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
   },
   selectText: {
     color: 'blue',
+    fontWeight: 'bold',
   },
 });
 
