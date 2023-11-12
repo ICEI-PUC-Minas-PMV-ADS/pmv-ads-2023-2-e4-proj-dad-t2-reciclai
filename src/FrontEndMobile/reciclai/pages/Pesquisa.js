@@ -1,37 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { getTodosUsuarios } from '../services/Usuarios.services';
+import Container from '../components/Container';
+import Card from '../components/Card';
+import Body from '../components/Body';
+import Logo from '../components/Logo';
 
 const BuscaColetor = () => {
+  const navigation = useNavigation();
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
- 
-    const usuarios = [
-      { id: 1, nome: 'Maria José da Silva', email: 'maria@maria.com', estado: 'Minas Gerais', perfil: 1 },
-      { id: 2, nome: 'José Maria da Silva ', email: 'jose@jose.com', estado: 'São Paulo', perfil: 1 },
-      { id: 3, nome: 'Cláudia Divina de Jesus', email: 'paulo@paulo.com', estado: 'Maranhão', perfil: 1 },
-      { id: 4, nome: 'Carol Santos', email: 'jose@jose.com', estado: 'Piauí', perfil: 1 },
-    ];
-    const coletores = usuarios.filter((usuario) => usuario.perfil === 1);
-    setData(coletores);
+    const fetchUsuarios = async () => {
+      try {
+        const usuarios = await getTodosUsuarios();
+        if (usuarios) {
+          const coletores = usuarios.filter((usuario) => usuario.perfil === 1);
+          setData(coletores);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar o usuário:', error);
+      }
+    };
+
+    fetchUsuarios();
   }, []);
 
   const handleSubmit = (index) => {
-    const selectedData = data[index];
-    console.log(selectedData);
+    navigation.navigate('Formulario', { data: data[index] });
+    console.log(data[index]);
   };
 
   return (
-    <View style={styles.container}>
+    <Container> 
+        <Logo />
+        <Body>
+    <View>
       <Text style={styles.titulo}>Busca de Coletores</Text>
       <View style={styles.box}>
+      <Card>
         <TextInput
-          style={styles.searchInput}
           placeholder="Buscar por Estado"
           value={searchInput}
           onChangeText={(text) => setSearchInput(text)}
         />
+        </Card>
+        <Card>
         <ScrollView>
           {data
             .filter((usuario) =>
@@ -44,22 +60,24 @@ const BuscaColetor = () => {
                 onPress={() => handleSubmit(index)}
               >
                 <View style={styles.column}>
-                  <Text style={styles.itemTitle}>Nome:</Text>
+                  <Text>Nome:</Text>
                   <Text style={styles.itemText}>{usuario.nome}</Text>
                 </View>
                 <View style={styles.column}>
-                  <Text style={styles.itemTitle}>Estado:</Text>
-                  <Text style={styles.itemText}>{usuario.estado}</Text>
+                  <Text>Estado:</Text>
+                  <Text>{usuario.estado}</Text>
                 </View>
                 <Text style={styles.selectText}>Selecionar</Text>
               </TouchableOpacity>
             ))}
         </ScrollView>
+        </Card>
       </View>
     </View>
+    </Body>
+    </Container>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     marginTop: 100,
@@ -71,10 +89,9 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     marginBottom: 10,
-  },
-  box: {
-    width: '100%',
-    alignItems: 'center',
+    justifyContent: 'center',
+    color:'#fff'
+  
   },
   searchInput: {
     borderWidth: 1,
@@ -82,7 +99,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     width: '90%',
-    marginTop: "auto", 
   },
   itemContainer: {
     borderWidth: 1,
@@ -91,12 +107,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: '90%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+   
   },
   column: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   itemTitle: {
     fontWeight: 'bold',

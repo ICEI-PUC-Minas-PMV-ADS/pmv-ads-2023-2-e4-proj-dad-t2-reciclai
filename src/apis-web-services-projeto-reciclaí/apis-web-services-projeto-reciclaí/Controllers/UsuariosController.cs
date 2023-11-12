@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
