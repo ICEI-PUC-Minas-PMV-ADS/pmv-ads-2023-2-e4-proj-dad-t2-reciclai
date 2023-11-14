@@ -43,6 +43,7 @@ const BuscaColetor = () => {
     <Container>
       <Logo />
       <Body>
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.titulo}>Busca de Coletores</Text>
           <Card>
@@ -54,7 +55,6 @@ const BuscaColetor = () => {
             />
           </Card>
           <Card>
-            <ScrollView>
               {data
                 .filter((usuario) =>
                   usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
@@ -76,9 +76,9 @@ const BuscaColetor = () => {
                     <Text style={styles.selectText}>Selecionar</Text>
                   </TouchableOpacity>
                 ))}
-            </ScrollView>
-          </Card>
+            </Card>
         </View>
+        </ScrollView>
       </Body>
     </Container>
   );
