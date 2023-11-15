@@ -17,7 +17,7 @@ const Auth = () => {
         }}
       />
       <Stack.Screen
-        name="Register"
+        name="CadastroUsuario"
         component={CadastroUsuario}
         options={{
           header: () => null,
