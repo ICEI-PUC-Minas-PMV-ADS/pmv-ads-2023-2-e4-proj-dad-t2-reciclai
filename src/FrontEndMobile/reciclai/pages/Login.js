@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TextInput, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import Input from '../components/input';
+import Logo from '../components/Logo';
 import Container from '../components/Container';
+import BtnLogin from '../components/BtnLogin'
 import Body from '../components/Body';
-import { Button } from 'react-native-paper';
 import {login} from "../services/Auth.services";
 import { useUser } from '../contexts/UserContext';
 
@@ -29,7 +30,8 @@ const Login = () => {
         } else {
           alert('Atenção, Usuário ou senha inválidos!');
         }
-      } catch (error) {
+      } 
+      catch (error) {
         console.error('Login failed:', error);
         if (error.response) {
           console.log('Server response:', error.response.data);
@@ -39,28 +41,58 @@ const Login = () => {
     };
 
     return (
-        <Container>
-            <Body>
+        <Container >
+          <Logo />
+            <Body >
                 <ScrollView>
-                    <Text>Login</Text>
-                    <Input
-                        label="E-mail"
+                    <Text style= {styles.title}>Login</Text>
+                    <View style= {styles.card}>
+                    <Input style={styles.input}
+                        label="E-mail:"
                         value={email}
                         onChangeText={(text) => setEmail(text)}
                     />
-                    <Input
+                    <Input style={styles.input}
                         label="Senha:"
                         value={senha}
                         secureTextEntry
                         onChangeText={(text) => setSenha(text)}
                     />
-                    <Button mode="elevated" onPress={handleLogin}>
-                        Login
-                    </Button>
+                    <BtnLogin 
+                      title="Login"
+                      onPress={handleLogin}>
+                    </BtnLogin>
+                    </View>
+                    <Text style= {styles.texto}>Não tem uma conta? <a href="/AposLogin">Cadastre-se</a></Text>
                 </ScrollView>
             </Body>
 
         </Container>
     );
 };
+
+const styles = StyleSheet.create({
+
+title: {
+  marginTop:50,
+  fontSize: 35,
+  textAlign: 'center',
+  color: 'white',
+},
+
+card:{
+  alignItems:'center',
+
+}, 
+
+input:{
+  width:'350px'
+},
+texto:{
+  fontSize:'18px',
+  textAlign:'center',
+  color:'white'
+}
+});
+
 export default Login;
