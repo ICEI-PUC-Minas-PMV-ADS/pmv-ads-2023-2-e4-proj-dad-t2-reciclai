@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create();
 
-/*API.interceptors.request.use(async(config)=> {
+API.interceptors.request.use(async(config)=> {
 
     try {
         
@@ -17,6 +17,6 @@ const API = axios.create();
         console.log(err);
     }
 
-})*/
+})
 
 export default API;
