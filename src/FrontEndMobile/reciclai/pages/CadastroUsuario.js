@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Picker } from 'react-native';
 import { Text } from 'react-native-paper';
 
+
 import Container from '../components/Container';
 import Body from '../components/Body';
 import Input from '../components/input';
@@ -34,7 +35,7 @@ const CadastroUsuario = () => {
                     setNome(item.nome);
                     setEmail(item.email);
                     setSenha(item.senha);
-                    setEndereco(item.endereço);
+                    setEndereco(item.endereco);
                     setEstado(item.estado);
                     setPerfil(item.perfil);
                     setTipoLixo(item.tipoLixo);
@@ -97,7 +98,7 @@ const CadastroUsuario = () => {
                         onChangeText={(text) => setSenhaUsuario(text)}
                     />
                     <Input
-                        label="* Endereço:"
+                        label="* Endereﾃｧo:"
                         value={endereco}
                         onChangeText={(text) => setDescricaoUsuario(text)}
                     />
@@ -108,7 +109,7 @@ const CadastroUsuario = () => {
                         onValueChange={handleChangePerfil}
                         style={styles.picker}
                     >
-                        <Picker.Item label="* Perfil"  />
+                        
                         <Picker.Item label="Solicitante" value={0} />
                         <Picker.Item label="Coletor" value={1} />
                     </Picker>
