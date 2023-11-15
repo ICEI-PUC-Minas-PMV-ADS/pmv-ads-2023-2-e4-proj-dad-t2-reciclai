@@ -41,9 +41,6 @@ const Main = () => {
           header: () => null,
         }}
       />
-       
-
-
     </Stack.Navigator>
 
   );

@@ -14,15 +14,13 @@ const Home = () => {
     { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
     { key: 'aposLogin', title: 'AposLogin', focusedIcon: 'album' },
     { key: 'cadastroUsuario', title: 'CadastroUsuario', focusedIcon: 'album' },
-    { key: 'login', title: 'Login', focusedIcon: 'key' },
     { key: 'formularioPedidos', title: 'FormularioPedidos', focusedIcon: 'album' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
     pesquisa: Pesquisa,
     aposLogin: AposLogin,
-    cadastroUsuario: CadastroUsuario,
-    login: Login,     
+    cadastroUsuario: CadastroUsuario,  
     formularioPedidos: FormularioPedidos
   });
 
