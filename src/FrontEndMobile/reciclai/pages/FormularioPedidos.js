@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Picker, Text, View, Alert, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { ScrollView, StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -11,6 +12,16 @@ import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.servic
 import Button from '../components/ButtonFormulario';
 
 const FormularioPedidos = () => {
+
+    const pickerRef = useRef();
+
+    function open() {
+        pickerRef.current.focus();
+    }
+
+    function close() {
+        pickerRef.current.blur();
+    }
 
     const navigation = useNavigation();
     //const { item } = route.params ? route:params;
@@ -29,9 +40,9 @@ const FormularioPedidos = () => {
     }
 
     const handleChangeLixoPerigoso = (value) => {
-        if(value === 'true'){
+        if (value === 'true') {
             setLixoPerigoso(true);
-        } else if(value === 'false'){
+        } else if (value === 'false') {
             setLixoPerigoso(false);
         }
     }
@@ -113,6 +124,7 @@ const FormularioPedidos = () => {
                         />
 
                         <Picker
+                            ref={pickerRef}
                             selectedValue={lixoPerigoso}
                             onValueChange={handleChangeLixoPerigoso}
                             style={styles.picker}
@@ -123,6 +135,9 @@ const FormularioPedidos = () => {
                         </Picker>
 
                         <Picker
+                            ref={pickerRef}
+                            mode='dialog'
+                            numberOfLines={1}
                             selectedValue={tipoLixo}
                             onValueChange={handleChangeTipoLixo}
                             style={styles.picker}
@@ -159,7 +174,7 @@ const FormularioPedidos = () => {
 
                         <Button
                             title="Solicitar"
-                            theme={{ colors: { primary: '#FFFFFF' }}}
+                            theme={{ colors: { primary: '#FFFFFF' } }}
                             onPress={() => handleSubmit()}
                         />
 
@@ -178,15 +193,14 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
     },
-    picker: {
-        backgroundColor: "#EDEBEB",
-        marginBottom: 10,
-        borderRadius: 5,
-        width: '80%',
-        height: 50,
-        color: '#cac4d0',
-        fontFamily: 'sans-serif'
-    },
+     picker: {
+         backgroundColor: "#EDEBEB",
+         marginBottom: 10,
+         borderRadius: 5,
+         width: '80%',
+         height: 50,
+         color: '#cac4d0',
+     },
     container: {
         flex: 1,
         padding: 20,

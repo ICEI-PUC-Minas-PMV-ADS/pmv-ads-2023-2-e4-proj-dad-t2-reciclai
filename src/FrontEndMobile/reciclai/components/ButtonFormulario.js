@@ -16,7 +16,7 @@ const ButtonPedido = (props) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: '140px',
+        width: 'auto',
         marginVertical: 8,
         marginHorizontal: 40,
         backgroundColor:'#4660BE',
