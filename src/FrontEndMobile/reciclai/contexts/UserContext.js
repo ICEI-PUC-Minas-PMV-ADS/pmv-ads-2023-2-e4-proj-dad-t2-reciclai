@@ -1,12 +1,13 @@
 import React, { createContext, useState, useContext } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [signed, setSigned] = useState(false);
   const [user, setUser] = useState({});
-  const userId = localStorage.getItem('userId');
-  const userPerfil = localStorage.getItem('userPerfil');
+  const userId = AsyncStorage.getItem('userId');
+  const userPerfil = AsyncStorage.getItem('userPerfil');
 
   return (
     <UserContext.Provider
