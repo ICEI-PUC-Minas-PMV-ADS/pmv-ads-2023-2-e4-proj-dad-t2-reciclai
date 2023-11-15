@@ -8,6 +8,13 @@ export default function UserProvider({ children }) {
   const [user, setUser] = useState({});
   const userId = AsyncStorage.getItem('userId');
   const userPerfil = AsyncStorage.getItem('userPerfil');
+  const [name, setName] = useState('');
+
+  function setUserName(name) {
+
+    setName(name)
+
+  }
 
   return (
     <UserContext.Provider
@@ -17,7 +24,10 @@ export default function UserProvider({ children }) {
         user,
         setUser,
         userId,
-        userPerfil
+        userPerfil,
+        name,
+        setName,
+        setUserName
 
       }}>
       {children}
