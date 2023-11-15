@@ -13,6 +13,24 @@ export async function getPedidos(id){
   }
 }
 
+export const insertPedidos = async (params) => {
+  console.log(params);  
+  try{
+      return await API.post(`${BASE_URL}/pedidos`, params).then( 
+        response => {
+          return response.data;
+        },
+        error =>{
+          console.log(error);
+          return  null;
+        }
+      );
+    }catch(error){
+      console.log(error);
+      return null;
+    }
+  }
+
 export const getTodosPedidos = async () => {
     try {
       return await API.get(`${BASE_URL}/pedidos`).then(
