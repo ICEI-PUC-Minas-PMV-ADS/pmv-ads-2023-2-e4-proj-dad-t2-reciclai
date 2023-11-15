@@ -3,6 +3,9 @@ import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
 import { Headline, List } from 'react-native-paper';
 import { useIsFocused } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { useUser } from "../contexts/UserContext";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 import Card from '../components/Card';
 import { getTodosPedidos } from '../services/Pedidos.services';
@@ -12,6 +15,7 @@ import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
+  const { name, setSigned } = useUser();
   const isFocused = useIsFocused();
   const [pedidos, setPedidos] = useState([]);
 
@@ -34,7 +38,7 @@ const AposLogin = () => {
     })
   }, [isFocused]);
 
-
+  
   const ItemView = ({ item }) => {
     console.log(item);
     return (
@@ -60,13 +64,19 @@ const AposLogin = () => {
     )
   }
 
+  const handleLogout = async () => {
+    setSigned(false);
+    AsyncStorage.removeItem('jwtToken');
+
+}
+
   return (
     <Container>
       <ScrollView>
       <Body>
 
       <View style={styles.headline}>
-        <Headline style={styles.headline2}>Olá,</Headline>
+        <Headline style={styles.headline2}>Olá, {name}</Headline>
       </View>
       <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' }}} onPress={() => navigation.navigate('Pesquisa')}/>
      
