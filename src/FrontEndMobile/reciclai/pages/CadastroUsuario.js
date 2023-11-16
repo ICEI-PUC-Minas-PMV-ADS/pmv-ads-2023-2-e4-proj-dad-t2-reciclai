@@ -89,23 +89,31 @@ const CadastroUsuario = () => {
                     <InputPedido
                         label="* Nome:"
                         value={nome}
-                        onChangeText={(text) => setNomeUsuario(text)}
+                        onChangeText={(text) => setNome(text)}
+                        keyboardType="default"
+                        required
                     />
                     <InputPedido
                         label="* E-mail:"
                         value={email}
-                        onChangeText={(text) => setEmailUsuario(text)}
+                        onChangeText={(text) => setEmail(text)}
+                        keyboardType="default"
+                        required
                     />
                     <InputPedido
                         label="* Senha:"
                         value={senha}
                         secureTextEntry
-                        onChangeText={(text) => setSenhaUsuario(text)}
+                        onChangeText={(text) => setSenha(text)}
+                        keyboardType="default"
+                        required
                     />
                     <InputPedido
                         label="* Endereço:"
                         value={endereco}
-                        onChangeText={(text) => setDescricaoUsuario(text)}
+                        onChangeText={(text) => setEndereco(text)}
+                        keyboardType="default"
+                        required
                     />
 
 
