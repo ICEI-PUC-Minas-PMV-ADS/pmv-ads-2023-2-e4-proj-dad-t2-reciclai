@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, ScrollView, View, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import Input from '../components/input';
+import InputPedido from '../components/inputPedido';
 import Logo from '../components/Logo';
 import Container from '../components/Container';
 import BtnLogin from '../components/BtnLogin'
@@ -45,12 +45,12 @@ const Login = () => {
         <ScrollView>
           <Text style={styles.title}>Login</Text>
           <View style={styles.card}>
-            <Input style={styles.input}
+            <InputPedido style={styles.input}
               label="E-mail:"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
-            <Input style={styles.input}
+            <InputPedido style={styles.input}
               label="Senha:"
               value={senha}
               secureTextEntry

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Picker } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
+import { Picker } from '@react-native-picker/picker';
 
 
 import Container from '../components/Container';
 import Body from '../components/Body';
-import Input from '../components/input';
+import InputPedido from '../components/inputPedido';
 import Logo from '../components/Logo';
 
 import { insertUsuarios } from '../services/Usuarios.services';
@@ -22,11 +23,15 @@ const CadastroUsuario = () => {
     const [perfil, setPerfil] = useState();
     const [tipoLixo, setTipoLixo] = useState();
 
-    const [visible, setVisible] = React.useState(false);
+    const pickerRef = useRef();
 
-    const openMenu = () => setVisible(true);
+    function open() {
+        pickerRef.current.focus();
+    }
 
-    const closeMenu = () => setVisible(false);
+    function close() {
+        pickerRef.current.blur();
+    }
 
     useEffect(() => {
         async function postUser() {
@@ -81,23 +86,23 @@ const CadastroUsuario = () => {
 
                 <Body>
                     <Text style={styles.titulo} >Cadastre-se</Text>
-                    <Input
+                    <InputPedido
                         label="* Nome:"
                         value={nome}
                         onChangeText={(text) => setNomeUsuario(text)}
                     />
-                    <Input
+                    <InputPedido
                         label="* E-mail:"
                         value={email}
                         onChangeText={(text) => setEmailUsuario(text)}
                     />
-                    <Input
+                    <InputPedido
                         label="* Senha:"
                         value={senha}
                         secureTextEntry
                         onChangeText={(text) => setSenhaUsuario(text)}
                     />
-                    <Input
+                    <InputPedido
                         label="* Endereço:"
                         value={endereco}
                         onChangeText={(text) => setDescricaoUsuario(text)}
@@ -105,16 +110,17 @@ const CadastroUsuario = () => {
 
 
                     <Picker
+                        ref={pickerRef}
                         selectedValue={perfil}
                         onValueChange={handleChangePerfil}
                         style={styles.picker}
                     >
-                        
+
                         <Picker.Item label="Solicitante" value={0} />
                         <Picker.Item label="Coletor" value={1} />
                     </Picker>
 
-                   
+
                 </Body>
             </ScrollView>
 
@@ -123,7 +129,7 @@ const CadastroUsuario = () => {
 };
 
 const styles = StyleSheet.create({
-    titulo:{
+    titulo: {
         color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
@@ -132,13 +138,13 @@ const styles = StyleSheet.create({
 
     },
     picker: {
-      backgroundColor: "#EDEBEB",
-      marginBottom: 10,
-      borderRadius: 5,
-      height: 50,
-      color: '#515151',
-      fontFamily: 'sans-serif'
+        backgroundColor: "#EDEBEB",
+        marginBottom: 10,
+        borderRadius: 5,
+        width: '80%',
+        height: 50,
+        color: '#cac4d0',
     },
-  });
+});
 
 export default CadastroUsuario;
