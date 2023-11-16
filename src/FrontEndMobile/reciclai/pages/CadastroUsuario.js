@@ -98,7 +98,7 @@ const CadastroUsuario = () => {
                         onChangeText={(text) => setSenhaUsuario(text)}
                     />
                     <Input
-                        label="* Endereﾃｧo:"
+                        label="* Endereço:"
                         value={endereco}
                         onChangeText={(text) => setDescricaoUsuario(text)}
                     />
