@@ -45,12 +45,12 @@ const Login = () => {
         <ScrollView>
           <Text style={styles.title}>Login</Text>
           <View style={styles.card}>
-            <InputPedido style={styles.input}
+            <InputPedido 
               label="E-mail:"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
-            <InputPedido style={styles.input}
+            <InputPedido 
               label="Senha:"
               value={senha}
               secureTextEntry
@@ -88,9 +88,6 @@ const styles = StyleSheet.create({
 
   },
 
-  input: {
-    width: '350px'
-  },
   texto: {
     fontSize: '18px',
     textAlign: 'center',
