@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ScrollView, StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
+import RNDateTimePicker, {  DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -27,7 +28,9 @@ const FormularioPedidos = () => {
     //const { item } = route.params ? route:params;
 
     const [nomeSolicitante, setNomeSolicitante] = useState('');
-    const [dataColeta, setDataColeta] = useState('2012-12-12T12:00');
+    const [dataColeta, setDataColeta] = useState('');
+    const [Aux1Coleta, setAux1Coleta] = useState(new Date());
+    const [Aux2Coleta, setAux2Coleta] = useState(new Date());
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState('');
     const [descricao, setDescricao] = useState('');
@@ -60,7 +63,7 @@ const FormularioPedidos = () => {
             "idSolicitante": 1,
             "idColetor": 1,
             "nomeSolicitante": nomeSolicitante,
-            "dataColeta": dataColeta,
+            "dataColeta": Aux1Coleta + Aux2Coleta,
             "endereco": endereco,
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
@@ -105,7 +108,7 @@ const FormularioPedidos = () => {
                             required
                         />
 
-                        <InputPedido
+                        {/* <InputPedido
                             label="Data da coleta:"
                             value={dataColeta}
                             format="YYYY-MM-DD hh:mm:ss"
@@ -113,7 +116,64 @@ const FormularioPedidos = () => {
                             onChange={e => setDataColeta(e.target.value)}
                             keyboardType="numeric"
                             required
-                        />
+                        /> */}
+
+                        <View>
+                        <Text style={styles.textLableInput}>Data da coleta</Text>
+                        {/* O datePicker funciona nativamente apenas no Ios
+                        para android é preciso modificações */}
+                        {Platform.OS === 'android' ? (
+                            <TouchableOpacity
+                                onPress={() =>
+                                    DateTimePickerAndroid.open({
+                                        mode: 'date',
+                                        value: Aux1Coleta,
+                                        onChange: (event, date) =>
+                                            event.type === 'set' ? setAux1Coleta(date) : null,
+                                    })
+                                }
+                            >
+                                <View style={styles.textInput}>
+                                    <Text>{Aux1Coleta.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        ) : (
+                            <RNDateTimePicker
+                                mode="date"
+                                value={Aux1Coleta}
+                                style={{height: 50 }}
+                                onChange={(event, date) => setAux1Coleta(date)}
+                            />
+                        )}
+                        <Text style={styles.textLableInput}>Horário da coleta</Text>
+                        {/* O datePicker funciona nativamente apenas no Ios
+                        para android é preciso modificações */}
+                        {Platform.OS === 'android' ? (
+                            <TouchableOpacity
+                                onPress={() =>
+                                    DateTimePickerAndroid.open({
+                                        mode: 'time',
+                                        is24Hour: true,
+                                        value: Aux2Coleta,
+                                        onChange: (event, date) =>
+                                            event.type === 'set' ? setAux2Coleta(date) : null,
+                                    })
+                                }
+                            >
+                                <View style={styles.textInput}>
+                                    <Text>{Aux2Coleta.toLocaleTimeString('pt-BR', {timeZone: 'UTC'})}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        ) : (
+                            <RNDateTimePicker
+                                mode="time"
+                                value={Aux2Coleta}
+                                style={{ height: 50 }}
+                                onChange={(event, date) => setAux2Coleta(date)}
+                            />
+                        )}
+                        </View>
+
 
                         <InputPedido
                             label="Endereço:"
@@ -128,6 +188,7 @@ const FormularioPedidos = () => {
                             selectedValue={lixoPerigoso}
                             onValueChange={handleChangeLixoPerigoso}
                             style={styles.picker}
+                            itemStyle={{fontSize:16, height:50, textAlign:'left', marginLeft: -13}}
                         >
                             <Picker.Item label="Lixo Perigoso" />
                             <Picker.Item label="Não" value={false} />
@@ -141,6 +202,7 @@ const FormularioPedidos = () => {
                             selectedValue={tipoLixo}
                             onValueChange={handleChangeTipoLixo}
                             style={styles.picker}
+                            itemStyle={{fontSize:16, height:50, textAlign:'left', marginLeft: -13}}
                         >
                             <Picker.Item label="Tipo de lixo" />
                             <Picker.Item label="Eletrodoméstico" value={0} />
@@ -156,7 +218,7 @@ const FormularioPedidos = () => {
                         <InputPedido
                             type="number"
                             label="Quantidade de lixo:"
-                            onChange={e => setQuantidadeLixo(e.target.value)}
+                            onChange={e => setQuantidadeLixo(e.target.value > 0 ? e.target.value.replace(/[^a-zA-Z0-9]/g, "") : 0)}
                             value={quantidadeLixo}
                             keyboardType="numeric"
                             required
@@ -170,7 +232,6 @@ const FormularioPedidos = () => {
                             keyboardType="default"
                             required
                         />
-
 
                         <Button
                             title="Solicitar"
@@ -193,20 +254,25 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
     },
-     picker: {
-         backgroundColor: "#EDEBEB",
-         marginBottom: 10,
-         borderRadius: 5,
-         width: '80%',
-         height: 50,
-         color: '#cac4d0',
-     },
+    picker: {
+        backgroundColor: "#EDEBEB",
+        marginBottom: 10,
+        borderRadius: 5,
+        width: '80%',
+        //height: 50,
+        color: '#6d6c6d',
+    },
     container: {
         flex: 1,
         padding: 20,
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%'
+    },
+    textLableInput: {
+        fontSize: 16,
+        fontWeight: '400',
+        marginVertical: 8,
     },
 });
 
