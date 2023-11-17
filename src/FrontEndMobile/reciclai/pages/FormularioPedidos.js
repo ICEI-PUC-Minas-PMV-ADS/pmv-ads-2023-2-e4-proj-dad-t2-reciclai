@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ScrollView, StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
-import RNDateTimePicker, {  DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -13,16 +13,6 @@ import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.servic
 import Button from '../components/ButtonFormulario';
 
 const FormularioPedidos = () => {
-
-    const pickerRef = useRef();
-
-    function open() {
-        pickerRef.current.focus();
-    }
-
-    function close() {
-        pickerRef.current.blur();
-    }
 
     const navigation = useNavigation();
     //const { item } = route.params ? route:params;
@@ -108,70 +98,72 @@ const FormularioPedidos = () => {
                             required
                         />
 
-                        {/* <InputPedido
-                            label="Data da coleta:"
-                            value={dataColeta}
-                            format="YYYY-MM-DD hh:mm:ss"
-                            //maxLength={12}
-                            onChange={e => setDataColeta(e.target.value)}
-                            keyboardType="numeric"
-                            required
-                        /> */}
-
-                        <View>
-                        <Text style={styles.textLableInput}>Data da coleta</Text>
-                        {/* O datePicker funciona nativamente apenas no Ios
-                        para android é preciso modificações */}
-                        {Platform.OS === 'android' ? (
-                            <TouchableOpacity
-                                onPress={() =>
-                                    DateTimePickerAndroid.open({
-                                        mode: 'date',
-                                        value: Aux1Coleta,
-                                        onChange: (event, date) =>
-                                            event.type === 'set' ? setAux1Coleta(date) : null,
-                                    })
-                                }
-                            >
-                                <View style={styles.textInput}>
-                                    <Text>{Aux1Coleta.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        ) : (
-                            <RNDateTimePicker
-                                mode="date"
-                                value={Aux1Coleta}
-                                style={{height: 50 }}
-                                onChange={(event, date) => setAux1Coleta(date)}
-                            />
-                        )}
-                        <Text style={styles.textLableInput}>Horário da coleta</Text>
-                        {/* O datePicker funciona nativamente apenas no Ios
-                        para android é preciso modificações */}
-                        {Platform.OS === 'android' ? (
-                            <TouchableOpacity
-                                onPress={() =>
-                                    DateTimePickerAndroid.open({
-                                        mode: 'time',
-                                        is24Hour: true,
-                                        value: Aux2Coleta,
-                                        onChange: (event, date) =>
-                                            event.type === 'set' ? setAux2Coleta(date) : null,
-                                    })
-                                }
-                            >
-                                <View style={styles.textInput}>
-                                    <Text>{Aux2Coleta.toLocaleTimeString('pt-BR', {timeZone: 'UTC'})}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        ) : (
-                            <RNDateTimePicker
-                                mode="time"
-                                value={Aux2Coleta}
-                                style={{ height: 50 }}
-                                onChange={(event, date) => setAux2Coleta(date)}
-                            />
-                        )}
+                        <View style={styles.uniao}>
+                            <View style={styles.littleCard}>
+                                {Platform.OS === 'android' ? (
+                                    <Text style={styles.textLableInputAndroid}>Data da coleta</Text>
+                                ) : (
+                                    <Text style={styles.textLableInputIOS}>Data da coleta</Text>
+                                )}
+                                {/* O datePicker funciona nativamente apenas no Ios
+                                    para android é preciso modificações */}
+                                {Platform.OS === 'android' ? (
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            DateTimePickerAndroid.open({
+                                                mode: 'date',
+                                                value: Aux1Coleta,
+                                                onChange: (event, date) =>
+                                                    event.type === 'set' ? setAux1Coleta(date) : null,
+                                            })
+                                        }
+                                    >
+                                        <View style={styles.textDateInput}>
+                                            <Text style={{ color: 'grey' }}>{Aux1Coleta.toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                ) : (
+                                    <RNDateTimePicker
+                                        mode="date"
+                                        value={Aux1Coleta}
+                                        style={styles.dateIOS}
+                                        onChange={(event, date) => setAux1Coleta(date)}
+                                    />
+                                )}
+                            </View>
+                            <View style={styles.littleCard}>
+                                {Platform.OS === 'android' ? (
+                                    <Text style={styles.textLableInputAndroid}>Data da coleta</Text>
+                                ) : (
+                                    <Text style={styles.textLableInputIOS}>Data da coleta</Text>
+                                )}
+                                {/* O datePicker funciona nativamente apenas no Ios
+                                    para android é preciso modificações */}
+                                {Platform.OS === 'android' ? (
+                                    <TouchableOpacity
+                                        onPress={() =>
+                                            DateTimePickerAndroid.open({
+                                                mode: 'time',
+                                                is24Hour: true,
+                                                value: Aux2Coleta,
+                                                onChange: (event, date) =>
+                                                    event.type === 'set' ? setAux2Coleta(date) : null,
+                                            })
+                                        }
+                                    >
+                                        <View style={styles.textDateInput}>
+                                            <Text style={{ color: 'grey' }}>{Aux2Coleta.toLocaleTimeString('pt-BR', { timeZone: 'UTC' })}</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                ) : (
+                                    <RNDateTimePicker
+                                        mode="time"
+                                        value={Aux2Coleta}
+                                        style={styles.dateIOS}
+                                        onChange={(event, date) => setAux2Coleta(date)}
+                                    />
+                                )}
+                            </View>
                         </View>
 
 
@@ -184,11 +176,10 @@ const FormularioPedidos = () => {
                         />
 
                         <Picker
-                            ref={pickerRef}
                             selectedValue={lixoPerigoso}
                             onValueChange={handleChangeLixoPerigoso}
                             style={styles.picker}
-                            itemStyle={{fontSize:16, height:50, textAlign:'left', marginLeft: -13}}
+                            itemStyle={{ fontSize: 16, height: 50, textAlign: 'left', marginLeft: -13 }}
                         >
                             <Picker.Item label="Lixo Perigoso" />
                             <Picker.Item label="Não" value={false} />
@@ -196,13 +187,12 @@ const FormularioPedidos = () => {
                         </Picker>
 
                         <Picker
-                            ref={pickerRef}
                             mode='dialog'
                             numberOfLines={1}
                             selectedValue={tipoLixo}
                             onValueChange={handleChangeTipoLixo}
                             style={styles.picker}
-                            itemStyle={{fontSize:16, height:50, textAlign:'left', marginLeft: -13}}
+                            itemStyle={{ fontSize: 16, height: 50, textAlign: 'left', marginLeft: -13 }}
                         >
                             <Picker.Item label="Tipo de lixo" />
                             <Picker.Item label="Eletrodoméstico" value={0} />
@@ -216,9 +206,8 @@ const FormularioPedidos = () => {
                         </Picker>
 
                         <InputPedido
-                            type="number"
                             label="Quantidade de lixo:"
-                            onChange={e => setQuantidadeLixo(e.target.value > 0 ? e.target.value.replace(/[^a-zA-Z0-9]/g, "") : 0)}
+                            onChange={e => setQuantidadeLixo(e.target.value > 0 ? e.target.value.replace(/[^0-9]/) : 0)}
                             value={quantidadeLixo}
                             keyboardType="numeric"
                             required
@@ -259,8 +248,25 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderRadius: 5,
         width: '80%',
-        //height: 50,
-        color: '#6d6c6d',
+        height: 50,
+        color: '#605d60',
+    },
+    littleCard: {
+        width: "48%",
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: "#EDEBEB",
+        padding: 10,
+        marginVertical: 5,
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+    },
+    uniao: {
+        flex: 1,
+        justifyContent: "space-between",
+        flexDirection: "row",
+        width: '80%',
+        marginBottom: 5
     },
     container: {
         flex: 1,
@@ -269,11 +275,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%'
     },
-    textLableInput: {
-        fontSize: 16,
-        fontWeight: '400',
-        marginVertical: 8,
+    textLableInputAndroid: {
+        fontSize: 13,
+        marginVertical: 1,
+        paddingLeft: 6
     },
+    textLableInputIOS: {
+        fontSize: 13,
+        //marginTop: 10,
+        //padding: 30,
+        //fontWeight: '400',
+        // textAlign:'center',
+        // justifyContent: 'center',
+        marginVertical: 1,
+        paddingLeft: 6
+    },
+    textDateInput: {
+        justifyContent: 'center',
+        paddingLeft: 5,
+    },
+    dateIOS: {
+        //height: 30,
+        //marginLeft:6,
+        paddingEnd:60,
+    }
 });
 
 export default FormularioPedidos;
