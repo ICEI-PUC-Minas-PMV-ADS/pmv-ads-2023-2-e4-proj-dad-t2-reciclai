@@ -8,6 +8,7 @@ import BtnLogin from '../components/BtnLogin'
 import Body from '../components/Body';
 import { login } from "../services/Auth.services";
 import { useUser } from '../contexts/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -28,6 +29,7 @@ const Login = () => {
 
       if (res && res.jwtToken) {
         setSigned(true);
+        AsyncStorage.setItem('jwtToken', res.jwtToken)
       } else {
         Alert.alert('Atenção, Usuário ou senha inválidos!');
       }

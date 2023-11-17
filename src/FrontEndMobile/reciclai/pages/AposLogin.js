@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 import Card from '../components/Card';
+import ButtonLogout from '../components/ButtonLogout';
 import { getTodosPedidos } from '../services/Pedidos.services';
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -78,6 +79,7 @@ const AposLogin = () => {
       <View style={styles.headline}>
         <Headline style={styles.headline2}>Olá, {name}</Headline>
       </View>
+      <ButtonLogout onPress={handleLogout} />
       <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' }}} onPress={() => navigation.navigate('Pesquisa')}/>
      
           <Text style={styles.titulo}>Meus Pedidos:</Text>
