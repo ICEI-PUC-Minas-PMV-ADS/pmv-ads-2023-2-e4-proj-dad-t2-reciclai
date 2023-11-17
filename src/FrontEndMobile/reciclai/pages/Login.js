@@ -13,6 +13,7 @@ import { useUser } from '../contexts/UserContext';
 
 const Login = () => {
   const navigation = useNavigation();
+  const { setSigned, setUser } = useUser();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -26,6 +27,7 @@ const Login = () => {
       console.log(res);
 
       if (res && res.jwtToken) {
+        setSigned(true);
       } else {
         Alert.alert('Atenção, Usuário ou senha inválidos!');
       }

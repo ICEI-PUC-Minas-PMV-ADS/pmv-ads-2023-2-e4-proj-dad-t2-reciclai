@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i51X21EGtRAEYDCsdsr2piAMJdkjScke/mbR7hRpKXYqaSY2FpwncNQS7/NFCyi1vkSbczXSymA/gHJB+W30sA==",
+  "dgSpecHash": "/gn0kQcUlF1B1s9Sg3XchlRfIVOIx2KuaUr+s0wWRRv7ZBUwwzA/Es6zFv6A/gMx1KeDwOfVVOpQTNU0b8Zdpg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
+  "projectFilePath": "C:\\Users\\Carolina\\Documents\\GitHub\\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\\src\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclaí\\apis-web-services-projeto-reciclai.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carolina\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Carolina\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
