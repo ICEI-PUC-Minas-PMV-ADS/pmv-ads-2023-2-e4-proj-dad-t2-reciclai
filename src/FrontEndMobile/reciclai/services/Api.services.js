@@ -1,12 +1,13 @@
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const API = axios.create();
 
-/*API.interceptors.request.use(async(config)=> {
+API.interceptors.request.use(async(config)=> {
 
     try {
         
-    const token =  localStorage.getItem('jwtToken');
+    const token =  AsyncStorage.getItem('jwtToken');
 
     if (token){
         config.headers.Authorization =`Bearer ${token}` ;
@@ -17,6 +18,6 @@ const API = axios.create();
         console.log(err);
     }
 
-})*/
+})
 
 export default API;
