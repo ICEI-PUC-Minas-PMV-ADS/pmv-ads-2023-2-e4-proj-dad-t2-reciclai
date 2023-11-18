@@ -4,10 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
-  const [signed, setSigned] = useState(false);
+  const [signed, setSigned] = useState(true);
   const [user, setUser] = useState({});
-  const userId = AsyncStorage.getItem('userId');
-  const userPerfil = AsyncStorage.getItem('userPerfil');
+  const userId =AsyncStorage.getItem('userId');
+  const userPerfil =AsyncStorage.getItem('userPerfil');
+  const userName =AsyncStorage.getItem('userName');
   const [name, setName] = useState('');
 
   function setUserName(name) {
@@ -19,12 +20,14 @@ export default function UserProvider({ children }) {
   return (
     <UserContext.Provider
       value={{
+
         signed,
         setSigned,
         user,
         setUser,
         userId,
         userPerfil,
+        userName,
         name,
         setName,
         setUserName
