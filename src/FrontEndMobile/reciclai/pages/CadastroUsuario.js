@@ -12,6 +12,8 @@ import Logo from '../components/Logo';
 import { insertUsuarios } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
 
+import Button from '../components/ButtonFormulario';
+
 
 const CadastroUsuario = () => {
     const navigation = useNavigation();
@@ -34,8 +36,9 @@ const CadastroUsuario = () => {
     }
 
     useEffect(() => {
+        
         async function postUser() {
-            await insertUsuarios().then((item) => {
+            await insertUsuarios().then((item) => {                
                 if (item) {
                     setNome(item.nome);
                     setEmail(item.email);
@@ -43,29 +46,19 @@ const CadastroUsuario = () => {
                     setEndereco(item.endereco);
                     setEstado(item.estado);
                     setPerfil(item.perfil);
-                    setTipoLixo(item.tipoLixo);
-                    setEstado(item.estado);
-                    setPerfil(item.perfil);
-                    setTipoLixo(item.tipoLixo);
+                    setTipoLixo(item.tipoLixo);                    
                 }
             });
         }
         postUser();
     }, []);
 
-    const handleChangePerfil = (e) => {
-        setPerfil(e.target.value);
-    };
-    const handleChangeTipoLixo = (e) => {
-        setTipoLixo(e.target.value);
-    };
-    const handleChangeEstado = (e) => {
-        setEstado(e.target.value);
-    };
+    const handleChangeEstado=(itemValue, itemIndex) =>setEstado(itemValue);
+    const handleChangePerfil=(itemValue, itemIndex) =>setPerfil(parseInt(itemValue));
+    const handleChangeTipoLixo=(itemValue, itemIndex) =>setTipoLixo(parseInt(itemValue));
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-
+    async function handleCadastrar(event) {
+        
         await insertUsuarios(
             {
                 nome: nome,
@@ -76,10 +69,13 @@ const CadastroUsuario = () => {
                 perfil: perfil,
                 tipoLixo: tipoLixo,
             },
-            navigation.navigate("/login")
+            navigation.navigate("Login")
         );
     }
 
+    function handleVoltar() {        
+        navigation.goBack();
+    }
 
     return (
         <Container  style={styles.container}>
@@ -124,61 +120,54 @@ const CadastroUsuario = () => {
                     />
 
 
-                        <Picker
-                            ref={pickerRef}
-                            mode='dialog'
-                            numberOfLines={1}
+                        <Picker                           
                             selectedValue={estado}
                             onValueChange={handleChangeEstado}
                             style={styles.picker}
                             itemStyle={styles.pickerItem}
                         >
                         <Picker.Item label="* Estado" />
-                        <Picker.Item label="Acre" value={0} />
-                        <Picker.Item label="Alagoas" value={1} />
-                        <Picker.Item label="Amapá" value={2} />
-                        <Picker.Item label="Amazonas" value={3} />
-                        <Picker.Item label="Bahia" value={4} />
-                        <Picker.Item label="Ceará" value={5} />
-                        <Picker.Item label="Distrito Federal" value={6} />
-                        <Picker.Item label="Espírito Santo" value={7} />
-                        <Picker.Item label="Goiás" value={8} />
-                        <Picker.Item label="Maranhão" value={9} />
-                        <Picker.Item label="Mato Grosso" value={10} />
-                        <Picker.Item label="Mato Grosso do Sul" value={11} />
-                        <Picker.Item label="Minas Gerais" value={12} />
-                        <Picker.Item label="Pará" value={13} />
-                        <Picker.Item label="Paraíba" value={14} />
-                        <Picker.Item label="Paraná" value={15} />
-                        <Picker.Item label="Pernambuco" value={16} />
-                        <Picker.Item label="Piauí" value={17} />
-                        <Picker.Item label="Rio de Janeiro" value={18} />
-                        <Picker.Item label="Rio Grande do Norte" value={19} />
-                        <Picker.Item label="Rio Grande do Sul" value={20} />
-                        <Picker.Item label="Rondônia" value={21} />
-                        <Picker.Item label="Roraima" value={22} />
-                        <Picker.Item label="Santa Catarina" value={23} />
-                        <Picker.Item label="São Paulo" value={24} />
-                        <Picker.Item label="Sergipe" value={25} />
-                        <Picker.Item label="Tocantins" value={26} />
+                        <Picker.Item label="Acre" value={"Acre"} />
+                        <Picker.Item label="Alagoas" value={"Alagoas"} />
+                        <Picker.Item label="Amapá" value={"Amapá"} />
+                        <Picker.Item label="Amazonas" value={"Amazonas"} />
+                        <Picker.Item label="Bahia" value={"Bahia"} />
+                        <Picker.Item label="Ceará" value={"Ceará"} />
+                        <Picker.Item label="Distrito Federal" value={"Distrito Federal"} />
+                        <Picker.Item label="Espírito Santo" value={"Espírito Santo"} />
+                        <Picker.Item label="Goiás" value={"Goiás"} />
+                        <Picker.Item label="Maranhão" value={"Maranhão"} />
+                        <Picker.Item label="Mato Grosso" value={"Mato Grosso"} />
+                        <Picker.Item label="Mato Grosso do Sul" value={"Mato Grosso do Sul"} />
+                        <Picker.Item label="Minas Gerais" value={"Minas Gerais"} />
+                        <Picker.Item label="Pará" value={"Pará"} />
+                        <Picker.Item label="Paraíba" value={"Paraíba"} />
+                        <Picker.Item label="Paraná" value={"Paraná"} />
+                        <Picker.Item label="Pernambuco" value={"Pernambuco"} />
+                        <Picker.Item label="Piauí" value={"Piauí"} />
+                        <Picker.Item label="Rio de Janeiro" value={"Rio de Janeiro"} />
+                        <Picker.Item label="Rio Grande do Norte" value={"Rio Grande do Norte"} />
+                        <Picker.Item label="Rio Grande do Sul" value={"Rio Grande do Sul"} />
+                        <Picker.Item label="Rondônia" value={"Rondônia"} />
+                        <Picker.Item label="Roraima" value={"Roraima"} />
+                        <Picker.Item label="Santa Catarina" value={"Santa Catarina"} />
+                        <Picker.Item label="São Paulo" value={"São Paulo"} />
+                        <Picker.Item label="Sergipe" value={"Sergipe"} />
+                        <Picker.Item label="Tocantins" value={"Tocantins"} />
                         </Picker>
                     
                     <Picker
-                        ref={pickerRef}
                         selectedValue={perfil}
                         onValueChange={handleChangePerfil}
                         style={styles.picker}
                         itemStyle={styles.pickerItem}
                     >
-                         <Picker.Item label="* Perfil" value={0} />
-                        <Picker.Item label="Solicitante" value={1} />
-                        <Picker.Item label="Coletor" value={2} />
+                         <Picker.Item label="* Perfil" />
+                        <Picker.Item label="Solicitante" value={0} />
+                        <Picker.Item label="Coletor" value={1} />
                     </Picker>
 
                     <Picker
-                            ref={pickerRef}
-                            mode='dialog'
-                            numberOfLines={1}
                             selectedValue={tipoLixo}
                             onValueChange={handleChangeTipoLixo}
                             style={styles.picker}
@@ -193,46 +182,19 @@ const CadastroUsuario = () => {
                             <Picker.Item label="Pilhas e baterias" value={5} />
                             <Picker.Item label="TI e telecomunicações" value={6} />
                             <Picker.Item label="Painéis Fotovoltaicos" value={7} />
-                        </Picker>
+                        </Picker>                     
+                        
+                        <Button
+                            title="Cadastrar"
+                            theme={{ colors: { primary: '#FFFFFF' } }}
+                            onPress={() => handleCadastrar()}
+                        />
 
-                        <Picker
-                            ref={pickerRef}
-                            mode='dialog'
-                            numberOfLines={1}
-                            selectedValue={estado}
-                            onValueChange={handleChangeEstado}
-                            style={styles.picker}
-                            itemStyle={styles.pickerItem}
-                        >
-                        <Picker.Item label="* Estado" />
-                        <Picker.Item label="Acre" value={0} />
-                        <Picker.Item label="Alagoas" value={1} />
-                        <Picker.Item label="Amapá" value={2} />
-                        <Picker.Item label="Amazonas" value={3} />
-                        <Picker.Item label="Bahia" value={4} />
-                        <Picker.Item label="Ceará" value={5} />
-                        <Picker.Item label="Distrito Federal" value={6} />
-                        <Picker.Item label="Espírito Santo" value={7} />
-                        <Picker.Item label="Goiás" value={8} />
-                        <Picker.Item label="Maranhão" value={9} />
-                        <Picker.Item label="Mato Grosso" value={10} />
-                        <Picker.Item label="Mato Grosso do Sul" value={11} />
-                        <Picker.Item label="Minas Gerais" value={12} />
-                        <Picker.Item label="Pará" value={13} />
-                        <Picker.Item label="Paraíba" value={14} />
-                        <Picker.Item label="Paraná" value={15} />
-                        <Picker.Item label="Pernambuco" value={16} />
-                        <Picker.Item label="Piauí" value={17} />
-                        <Picker.Item label="Rio de Janeiro" value={18} />
-                        <Picker.Item label="Rio Grande do Norte" value={19} />
-                        <Picker.Item label="Rio Grande do Sul" value={20} />
-                        <Picker.Item label="Rondônia" value={21} />
-                        <Picker.Item label="Roraima" value={22} />
-                        <Picker.Item label="Santa Catarina" value={23} />
-                        <Picker.Item label="São Paulo" value={24} />
-                        <Picker.Item label="Sergipe" value={25} />
-                        <Picker.Item label="Tocantins" value={26} />
-                        </Picker>
+                        <Button
+                            title="Voltar"
+                            theme={{ colors: { primary: '#FFFFFF' } }}
+                            onPress={() => handleVoltar()}
+                        />
                         
                 </Body>
                 
