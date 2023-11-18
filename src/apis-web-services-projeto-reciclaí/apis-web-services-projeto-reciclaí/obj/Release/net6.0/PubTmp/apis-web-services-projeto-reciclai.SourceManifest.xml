@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Release\net6.0\PubTmp\Out\" />
+  <dbfullsql path="C:\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Release\net6.0\PubTmp\EFSQLScripts\apis_web_services_projeto_reciclai.Models.AppDbContext.sql" />
+</sitemanifest>

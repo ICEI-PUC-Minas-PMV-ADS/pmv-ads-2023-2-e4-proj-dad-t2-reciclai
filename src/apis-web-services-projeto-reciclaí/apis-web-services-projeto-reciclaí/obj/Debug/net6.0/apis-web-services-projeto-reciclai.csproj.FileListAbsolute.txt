@@ -894,3 +894,4 @@ c:\Users\dodos\source\repos\Reciclai3\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src
 c:\Users\dodos\source\repos\Reciclai3\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Debug\net6.0\apis-web-services-projeto-reciclai.pdb
 c:\Users\dodos\source\repos\Reciclai3\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Debug\net6.0\apis-web-services-projeto-reciclai.genruntimeconfig.cache
 c:\Users\dodos\source\repos\Reciclai3\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Debug\net6.0\ref\apis-web-services-projeto-reciclai.dll
+C:\GitHub\pmv-ads-2023-2-e4-proj-dad-t2-reciclai\src\apis-web-services-projeto-reciclaí\apis-web-services-projeto-reciclaí\obj\Debug\net6.0\apis-web-services-projeto-reciclai.sourcelink.json

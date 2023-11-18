@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6Wl4Ba+AKUud3umhSgROIAAAAAACAAAAAAAQZgAAAAEAACAAAADufFDEEatn88eVOWxptLXUC3n2C/MCIZLEg+6mM6MZKgAAAAAOgAAAAAIAACAAAADrEYQ764MOOgG/b1cTeEsf9KZuVn1OSfO7WHXoOxPgOIAAAADNMi2HzUIjY7ujA/BU9KW4ULFKcHXK5SZFUxpqVxVopEuPkoyQN80/4BnHyjiFw/bFJq9oGlq48IgnPSKmbeMsmBztHMHOjMHvazRBqSURjssMYiHONRgk4ACmY2zJcf7El+tjYVZ6HavwZURKMb1VjjUjQs5M1rkM7/d29cVxKUAAAABpLlDAoeyF+SWFCFvsrvUngdylzNMt1zf0i6r2B94zMZ7qAIeVEkwzsmEaZsPO0aauD1cEEse9mhh3ZiXLcP7d</EncryptedPassword>
+    <History>True|2023-11-18T19:51:48.6191494Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="apis_web_services_projeto_reciclai.Models.AppDbContext">
+      <Value>Server=tcp:reciclai.database.windows.net,1433%3bInitial Catalog=Reciclai%3bPersist Security Info=False%3bUser ID=reciclaiAdmin%3bPassword=123456aB#%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

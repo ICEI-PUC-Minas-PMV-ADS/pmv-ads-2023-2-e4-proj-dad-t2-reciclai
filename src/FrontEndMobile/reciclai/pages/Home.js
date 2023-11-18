@@ -11,8 +11,8 @@ import FormularioPedidos from './FormularioPedidos';
 const Home = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
     { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
+    { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
     { key: 'cadastroUsuario', title: 'CadastroUsuario', focusedIcon: 'album' },
     { key: 'formularioPedidos', title: 'FormularioPedidos', focusedIcon: 'album' },
   ]);

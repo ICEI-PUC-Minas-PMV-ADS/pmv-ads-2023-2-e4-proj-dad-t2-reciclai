@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -113,6 +114,8 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
             var usuarioId = usuarioDb.Id;
 
+            var usuarioNome = usuarioDb.Nome;
+
             var usuarioPerfil = usuarioDb.Perfil;
 
             if(usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha ))
@@ -125,6 +128,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 jwtToken = jwt,
                 userId = usuarioId,
                 userPerfil = usuarioPerfil,
+                userName = usuarioNome,
             };
 
             return Ok(data);
