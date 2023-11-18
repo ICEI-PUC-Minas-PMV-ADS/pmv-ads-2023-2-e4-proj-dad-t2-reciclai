@@ -10,16 +10,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Card from '../components/Card';
 import ButtonLogout from '../components/ButtonLogout';
 import { getTodosPedidos } from '../services/Pedidos.services';
-import { getUsuario } from '../services/Usuarios.services';
 import Container from '../components/Container';
 import Body from '../components/Body';
 import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
-  const { userId, setSigned } = useUser();
+  const { userId, setSigned, userName, userPerfil } = useUser();
   const [pedidos, setPedidos] = useState([]);
-  const [nome, setNome] = useState('');
   const isFocused = useIsFocused();
 
   const TipoLixo =
@@ -39,35 +37,30 @@ const AposLogin = () => {
       const meusPedidos = data.filter((pedido) => pedido.idSolicitante == userId || pedido.idColetor == userId);
       setPedidos(meusPedidos);
     })
-    async function fetchUser() {
-    const user = getUsuario(userId);
-    setNome(user.nome);
-    }
-    fetchUser();
   }, [isFocused]);
 
-  
+
   const ItemView = ({ item }) => {
     console.log(item);
     return (
       <Card>
-      <List.Item
-        title={'Nome: '+ item.nomeSolicitante}
-        description={'Tipo: '+ TipoLixo[item.tipoLixo]}
-        left={(props) => (
-          <List.Icon
-            {...props}
-            color={'#24926D'}
-            icon="form-select"
-          />)}
-        right={(props) => (
-          <Text {...props} style={{ alignSelf: 'center' }}>
-            {' '}
-            {item.dataColeta}{' '}
-          </Text>
-        )}
-        onPress={() => navigation.navigate('VerPedido', { item })}
-      />
+        <List.Item
+          title={'Nome: ' + item.nomeSolicitante}
+          description={'Tipo: ' + TipoLixo[item.tipoLixo]}
+          left={(props) => (
+            <List.Icon
+              {...props}
+              color={'#24926D'}
+              icon="form-select"
+            />)}
+          right={(props) => (
+            <Text {...props} style={{ alignSelf: 'center' }}>
+              {' '}
+              {item.dataColeta}{' '}
+            </Text>
+          )}
+          onPress={() => navigation.navigate('VerPedido', { item })}
+        />
       </Card>
     )
   }
@@ -76,29 +69,30 @@ const AposLogin = () => {
     setSigned(false);
     AsyncStorage.removeItem('jwtToken');
 
-}
+  }
 
   return (
     <Container>
       <ScrollView>
-      <Body>
+        <Body>
 
-      <View style={styles.headline}>
-        <Headline style={styles.headline2}>Olá, {nome}</Headline>
-      </View>
-      <ButtonLogout onPress={handleLogout} />
-      <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' }}} onPress={() => navigation.navigate('Pesquisa')}/>
-     
-          <Text style={styles.titulo}>Meus Pedidos:</Text>
+          <View style={styles.headline}>
+            <Headline style={styles.headline2}>Olá, {userName}</Headline>
+          </View>
+          <ButtonLogout onPress={handleLogout} />
+          <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' } }} onPress={() => navigation.navigate('Pesquisa')} />
           
-            <FlatList
-              data={pedidos}
-              keyExtractor={item => item.id}
-              renderItem={ItemView}
-            />
+            < Text style={styles.titulo}>Meus Pedidos:</Text>
+      
+
+        <FlatList
+          data={pedidos}
+          keyExtractor={item => item.id}
+          renderItem={ItemView}
+        />
       </Body>
-      </ScrollView>
-    </Container>
+    </ScrollView>
+    </Container >
   );
 
 }
@@ -108,8 +102,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#FFFFFF',
     marginLeft: 10,
-  }, 
-  headline:{
+  },
+  headline: {
     marginTop: 50,
     marginBottom: 30,
     marginLeft: 10,

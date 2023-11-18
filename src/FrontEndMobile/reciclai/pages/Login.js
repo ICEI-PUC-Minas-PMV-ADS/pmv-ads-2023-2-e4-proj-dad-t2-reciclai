@@ -32,6 +32,8 @@ const Login = () => {
         setUser(res.jwtToken);
         AsyncStorage.setItem('jwtToken', res.jwtToken)
         AsyncStorage.setItem('userId', res.userId);
+        AsyncStorage.setItem('userName', res.userName);
+        AsyncStorage.setItem('userPerfil', res.userPerfil);
       } else {
         Alert.alert('Atenção, Usuário ou senha inválidos!');
       }
