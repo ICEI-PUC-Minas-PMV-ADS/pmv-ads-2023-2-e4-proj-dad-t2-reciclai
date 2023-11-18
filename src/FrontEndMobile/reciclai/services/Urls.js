@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://localhost:7025/api';
+export const BASE_URL = 'https://reciclaiapi.azurewebsites.net/api';

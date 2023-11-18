@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("apis-web-services-projeto-reciclai")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcaa735f614e48f06609f748865574b100b6c38a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38a35dbaf9da4dbacb5d97ff40eac5f1c54a469f")]
 [assembly: System.Reflection.AssemblyProductAttribute("apis-web-services-projeto-reciclai")]
 [assembly: System.Reflection.AssemblyTitleAttribute("apis-web-services-projeto-reciclai")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

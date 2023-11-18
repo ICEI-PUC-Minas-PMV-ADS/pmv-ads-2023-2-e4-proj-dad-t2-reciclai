@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://reciclaiapi.azurewebsites.net';
+export const BASE_URL = 'https://reciclaiapi.azurewebsites.net/api';
