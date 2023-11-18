@@ -29,7 +29,9 @@ const Login = () => {
 
       if (res && res.jwtToken) {
         setSigned(true);
+        setUser(res.jwtToken);
         AsyncStorage.setItem('jwtToken', res.jwtToken)
+        AsyncStorage.setItem('userId', res.userId);
       } else {
         Alert.alert('Atenção, Usuário ou senha inválidos!');
       }

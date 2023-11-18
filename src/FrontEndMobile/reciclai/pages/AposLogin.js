@@ -10,15 +10,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Card from '../components/Card';
 import ButtonLogout from '../components/ButtonLogout';
 import { getTodosPedidos } from '../services/Pedidos.services';
+import { getUsuario } from '../services/Usuarios.services';
 import Container from '../components/Container';
 import Body from '../components/Body';
 import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
-  const { name, setSigned } = useUser();
-  const isFocused = useIsFocused();
+  const { userId, setSigned } = useUser();
   const [pedidos, setPedidos] = useState([]);
+  const [nome, setNome] = useState('');
+  const isFocused = useIsFocused();
 
   const TipoLixo =
     [
@@ -34,9 +36,14 @@ const AposLogin = () => {
 
   useEffect(() => {
     getTodosPedidos().then((data) => {
-
-      setPedidos(data);
+      const meusPedidos = data.filter((pedido) => pedido.idSolicitante == userId || pedido.idColetor == userId);
+      setPedidos(meusPedidos);
     })
+    async function fetchUser() {
+    const user = getUsuario(userId);
+    setNome(user.nome);
+    }
+    fetchUser();
   }, [isFocused]);
 
   
@@ -77,7 +84,7 @@ const AposLogin = () => {
       <Body>
 
       <View style={styles.headline}>
-        <Headline style={styles.headline2}>Olá, {name}</Headline>
+        <Headline style={styles.headline2}>Olá, {nome}</Headline>
       </View>
       <ButtonLogout onPress={handleLogout} />
       <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' }}} onPress={() => navigation.navigate('Pesquisa')}/>
