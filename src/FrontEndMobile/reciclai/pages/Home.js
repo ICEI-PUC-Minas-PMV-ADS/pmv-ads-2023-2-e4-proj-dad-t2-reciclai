@@ -7,6 +7,7 @@ import VerPedido from './VerPedido';
 import CadastroUsuario from './CadastroUsuario';
 import Login from './Login';
 import FormularioPedidos from './FormularioPedidos';
+import PerfilUsuario from './PerfilUsuario';
 
 const Home = () => {
   const [index, setIndex] = React.useState(0);
@@ -15,13 +16,15 @@ const Home = () => {
     { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
     { key: 'cadastroUsuario', title: 'CadastroUsuario', focusedIcon: 'album' },
     { key: 'formularioPedidos', title: 'FormularioPedidos', focusedIcon: 'album' },
+    { key: 'perfilUsuario', title: 'PerfilUsuario', focusedIcon: 'album' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
     pesquisa: Pesquisa,
     aposLogin: AposLogin,
     cadastroUsuario: CadastroUsuario,  
-    formularioPedidos: FormularioPedidos
+    formularioPedidos: FormularioPedidos,
+    perfilUsuario:PerfilUsuario
   });
 
   return (
