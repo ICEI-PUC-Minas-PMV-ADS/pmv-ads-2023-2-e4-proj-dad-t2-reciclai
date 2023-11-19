@@ -16,7 +16,7 @@ import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
-  const {  setSigned } = useUser();
+  const {  setSigned, name, idUsuario } = useUser();
   const [pedidos, setPedidos] = useState([]);
   const isFocused = useIsFocused();
 
@@ -34,8 +34,8 @@ const AposLogin = () => {
 
   useEffect(() => {
     getTodosPedidos().then((data) => {
-      //const meusPedidos = data.filter((pedido) => pedido.idSolicitante == userId || pedido.idColetor == userId);
-      setPedidos(data);
+      const meusPedidos = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
+      setPedidos(meusPedidos);
     })
   }, [isFocused]);
 
@@ -77,7 +77,7 @@ const AposLogin = () => {
         <Body>
 
           <View style={styles.headline}>
-            <Headline style={styles.headline2}>Olá, </Headline>
+            <Headline style={styles.headline2}>Olá, {name}</Headline>
           </View>
           <ButtonLogout onPress={handleLogout} />
           <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' } }} onPress={() => navigation.navigate('Pesquisa')} />

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -52,6 +52,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return CreatedAtAction("GetUserById", new { id = novo.Id }, novo);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetUserById(int id)
         {
@@ -63,7 +64,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return Ok(model);
         }
 
-
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUser(int id, UsuarioDto model)
         {
@@ -92,7 +93,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
         }
 
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {

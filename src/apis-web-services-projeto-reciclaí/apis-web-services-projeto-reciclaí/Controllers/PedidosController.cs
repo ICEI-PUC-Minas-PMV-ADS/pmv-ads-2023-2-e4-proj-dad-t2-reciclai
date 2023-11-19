@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace apis_web_services_projeto_reciclai.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class PedidosController : ControllerBase
@@ -21,7 +21,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
         {
             _context = context;
         }
-
+        
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
@@ -39,6 +39,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult> Create(Pedido model)
         {
@@ -74,7 +75,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 throw new Exception(e.Message);
             }
         }
-
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, Pedido model)
         {
@@ -99,6 +100,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

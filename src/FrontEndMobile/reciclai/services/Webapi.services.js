@@ -5,7 +5,7 @@ const API = axios.create();
 
 API.interceptors.request.use(async(config)=> {
     try {
-    const token = await AsyncStorage.getItem('@TOKEN_KEY');
+    const token = await AsyncStorage.getItem('jwtToken');
 
     if (token){
         config.headers.Authorization =`Bearer ${token}` ;
