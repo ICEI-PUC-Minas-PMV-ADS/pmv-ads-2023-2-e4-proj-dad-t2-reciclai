@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Text, StyleSheet, Alert } from 'react-native';
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { getUsuario, deleteUsuario } from '../services/Usuarios.services';
+import { useUser } from '../contexts/UserContext';
+
 import Container from '../components/Container';
 import Card from '../components/Card';
 import Body from '../components/Body';
 import Logo from '../components/Logo';
 import ButtonDelete from '../components/ButtonDelete';
-
 import Button from '../components/ButtonFormulario';
 
 const PerfilUsuario = () => {
-    const userId = '3';
+    const { setSigned, idUsuario } = useUser();
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [endereco, setEndereco] = useState('');
@@ -19,12 +20,13 @@ const PerfilUsuario = () => {
     const [tipoLixo, setTipoLixo] = useState('');
     const [estado, setEstado] = useState('');
     const navigation = useNavigation();
+    const isFocused = useIsFocused();
 
-    const Perfil = ['Solicitante', 'Coletor'];
+    const Perfis = ['Solicitante', 'Coletor'];
 
-    const TipoLixo = [
-        'Eletrodomestico',
-        'Eletroportateis',
+    const TiposDeLixo = [
+        'Eletrodoméstico',
+        'Eletroportáteis',
         'Monitores',
         'Iluminação',
         'Fios e cabos',
@@ -35,16 +37,16 @@ const PerfilUsuario = () => {
 
     useEffect(() => {
         fetchUsuario();
-    }, []);
+    }, [isFocused]);
 
     async function fetchUsuario() {
         try {
-            const res = await getUsuario(userId);
+            const res = await getUsuario(idUsuario);
             setNome(res.nome);
             setEmail(res.email);
             setEndereco(res.endereco);
-            setPerfil(Perfil[res.perfil]);
-            setTipoLixo(TipoLixo[res.tipoLixo]);
+            setPerfil(Perfis[res.perfil]);
+            setTipoLixo(TiposDeLixo[res.tipoLixo]);
             setEstado(res.estado);
         } catch (error) {
             console.error('Erro ao buscar informações do usuário:', error);
@@ -52,23 +54,38 @@ const PerfilUsuario = () => {
     }
 
     const handleEditar = () => {
-        navigation.navigate('Cadastro', { userId });
+        navigation.navigate('CadastroUsuario', { idUsuario });
     };
 
     async function handleExcluir() {
         try {
-            await deleteUsuario(userId);
-            navigation.navigate('UsuarioApagado');
+            const confirmacao = await mostrarMensagemConfirmacao('Tem certeza que deseja excluir o usuário?');
+            if (confirmacao) {
+                await deleteUsuario(idUsuario);
+                navigation.navigate('/');
+            }
         } catch (error) {
             console.error('Erro ao excluir usuário:', error);
         }
     }
 
+    const mostrarMensagemConfirmacao = (mensagem) =>
+        new Promise((resolve) => {
+            Alert.alert(
+                'Confirmação',
+                mensagem,
+                [
+                    { text: 'Cancelar', onPress: () => resolve(false), style: 'cancel' },
+                    { text: 'Confirmar', onPress: () => resolve(true) },
+                ],
+                { cancelable: false }
+            );
+        });
+
     return (
         <Container>
             <Logo />
             <Body>
-
                 <Text style={styles.titulo}>Perfil do Usuário</Text>
                 <Card>
                     <Text>Nome: {nome}</Text>
@@ -90,11 +107,7 @@ const PerfilUsuario = () => {
                     theme={{ colors: { primary: '#FFFFFF' } }}
                     type="outline"
                     onPress={handleExcluir}
-
                 />
-
-
-
             </Body>
         </Container>
     );
@@ -113,7 +126,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
     },
-
 });
 
 export default PerfilUsuario;
