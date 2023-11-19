@@ -52,7 +52,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return CreatedAtAction("GetUserById", new { id = novo.Id }, novo);
         }
 
-        [Authorize]
+        
         [HttpGet("{id}")]
         public async Task<ActionResult> GetUserById(int id)
         {
