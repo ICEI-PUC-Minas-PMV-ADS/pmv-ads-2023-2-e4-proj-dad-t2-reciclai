@@ -39,22 +39,27 @@ const BuscaColetor = () => {
     navigation.navigate('Formulario', { data: data[index] });
   };
 
+  const handleGoBack = () => {
+    navigation.navigate('AposLogin');
+  };
+
   return (
     <Container>
       <Logo />
       <Body>
-      <ScrollView>
-        <View style={styles.container}>
-          <Text style={styles.titulo}>Busca de Coletores</Text>
-          <Card>
-            <TextInput
-              style={styles.searchInput}
-              placeholder="Buscar por Estado"
-              value={searchInput}
-              onChangeText={(text) => setSearchInput(text)}
-            />
-          </Card>
-          <Card>
+        <ScrollView>
+          <View style={styles.container}>
+
+            <Text style={styles.titulo}>Busca de Coletores</Text>
+            <Card>
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Buscar por Estado"
+                value={searchInput}
+                onChangeText={(text) => setSearchInput(text)}
+              />
+            </Card>
+            <Card>
               {data
                 .filter((usuario) =>
                   usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
@@ -74,10 +79,17 @@ const BuscaColetor = () => {
                       <Text style={styles.itemText}>{usuario.estado}</Text>
                     </View>
                     <Text style={styles.selectText}>Selecionar</Text>
+
                   </TouchableOpacity>
+
+
                 ))}
+
             </Card>
-        </View>
+          </View>
+                   <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+                   <Text style={styles.backButtonText}>Voltar</Text>
+                  </TouchableOpacity>
         </ScrollView>
       </Body>
     </Container>
@@ -128,6 +140,17 @@ const styles = StyleSheet.create({
   selectText: {
     color: 'blue',
     fontWeight: 'bold',
+  },
+
+  backButton: {
+    padding: 10,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  backButtonText: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 18 ,
   },
 });
 
