@@ -53,9 +53,9 @@ const PerfilUsuario = () => {
         }
     }
 
-    const handleEditar = () => {
-        navigation.navigate('CadastroUsuario', { idUsuario });
-    };
+const handleEditar = () => {
+    navigation.navigate('CadastroUsuario', { usuario: { id: idUsuario, nome, email, endereco, perfil, tipoLixo, estado } });
+};
 
     async function handleExcluir() {
         try {
