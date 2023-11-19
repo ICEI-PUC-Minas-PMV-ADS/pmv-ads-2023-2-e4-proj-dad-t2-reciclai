@@ -77,13 +77,14 @@ const AposLogin = () => {
         <Body>
 
           <View style={styles.headline}>
-            <Headline style={styles.headline2}>Olá, {name}</Headline>
+            <Headline style={styles.headline2}>Olá, {name}!</Headline>
           </View>
+       
           <ButtonLogout onPress={handleLogout} />
-          <ButtonPedido icon="plus" title="Coleta" theme={{ colors: { primary: '#FFFFFF' } }} onPress={() => navigation.navigate('Pesquisa')} />
+          <ButtonPedido icon="plus"  theme={{ colors: { primary: '#FFFFFF' } }} onPress={() => navigation.navigate('Pesquisa')} />
+         
+          < Text style={styles.titulo}>Meus Pedidos:</Text>
           
-            < Text style={styles.titulo}>Meus Pedidos:</Text>
-      
 
         <FlatList
           data={pedidos}
@@ -102,6 +103,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#FFFFFF',
     marginLeft: 10,
+    marginTop:25,
+    marginBottom: 15,
   },
   headline: {
     marginTop: 50,

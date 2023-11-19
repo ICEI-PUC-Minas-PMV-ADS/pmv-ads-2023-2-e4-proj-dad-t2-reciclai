@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ButtonLogout = (props) => {
    
-    return <Button  mode="text"  onPress={props.onPress} style={styles.button}>
+    return <Button  mode="elevated"  onPress={props.onPress} style={styles.button}>
         <Icon name="logout" size={22} color={'#FFFFFF'}/>
     </Button>
           
@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
     button: {
         position: 'absolute', 
         right: 0,
-        marginTop: 10,
+        marginTop: 90,
         marginRight: 5,
-        padding: 15
+        backgroundColor:'#4660BE'
             
     }
 });

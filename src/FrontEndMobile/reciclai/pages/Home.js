@@ -12,11 +12,10 @@ import PerfilUsuario from './PerfilUsuario';
 const Home = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
     { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
-    { key: 'cadastroUsuario', title: 'CadastroUsuario', focusedIcon: 'album' },
-    { key: 'formularioPedidos', title: 'FormularioPedidos', focusedIcon: 'album' },
-    { key: 'perfilUsuario', title: 'PerfilUsuario', focusedIcon: 'album' },
+    { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
+    { key: 'formularioPedidos', title: 'Fazer Pedido', focusedIcon: 'album' },
+    { key: 'perfilUsuario', title: 'PerfilUsuario', focusedIcon: 'account' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
