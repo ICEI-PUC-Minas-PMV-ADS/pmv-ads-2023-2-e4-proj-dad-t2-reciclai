@@ -33,11 +33,20 @@ const AposLogin = () => {
     ];
 
   useEffect(() => {
-    getTodosPedidos().then((data) => {
-      const meusPedidos = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
-      setPedidos(meusPedidos);
-    })
+    fetchPedidos();
   }, [isFocused]);
+
+  async function fetchPedidos() {
+    try {
+      await getTodosPedidos().then((data) => {
+        const meusPedidos = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
+        setPedidos(meusPedidos);
+      })
+    } catch(error){
+      console.error('Pedidos não encontrados!', error);
+    }
+  
+  }
 
 
   const ItemView = ({ item }) => {
@@ -73,7 +82,7 @@ const AposLogin = () => {
 
   return (
     <Container>
-      <ScrollView>
+    
         <Body>
 
           <View style={styles.headline}>
@@ -92,7 +101,7 @@ const AposLogin = () => {
           renderItem={ItemView}
         />
       </Body>
-    </ScrollView>
+  
     </Container >
   );
 

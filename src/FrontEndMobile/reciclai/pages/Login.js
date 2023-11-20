@@ -25,13 +25,10 @@ const Login = () => {
         senha: senha,
       });
 
-      console.log(res);
-      console.log(res.userId);
 
       if (res && res.jwtToken) {
         setSigned(true);
         AsyncStorage.setItem('jwtToken', res.jwtToken)
-        console.log(res.userId);
         setUserId(res.userId);
         setUserName(res.userName);
       } else {

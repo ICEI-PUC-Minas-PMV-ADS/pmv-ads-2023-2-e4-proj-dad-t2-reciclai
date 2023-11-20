@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { getPedidos, updatePedidos } from '../services/Pedidos.services';
 import { useNavigation } from '@react-navigation/native';
-import { Button } from 'react-native-paper';
+
 
 import Text1 from '../components/Text';
 import Text2 from '../components/Text2';
@@ -57,9 +57,7 @@ const VerPedido = ({ route }) => {
 
     async function fetchPedidos() {
 
-        console.log(item)
         const res = await getPedidos(item.id)
-        console.log(res)
         setId(res.id)
         setNomeSolicitante(res.nomeSolicitante)
         setDataColeta(res.dataColeta)
