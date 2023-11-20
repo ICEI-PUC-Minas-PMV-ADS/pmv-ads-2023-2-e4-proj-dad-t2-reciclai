@@ -69,7 +69,7 @@ const Login = () => {
               onPress={handleLogin}>
             </BtnLogin>
             <BtnLogin
-            title="Registrar"
+            title="Cadastre-se"
             onPress={() => navigation.navigate('CadastroUsuario')}>
           </BtnLogin>
           </View>
@@ -85,12 +85,12 @@ const Login = () => {
 const styles = StyleSheet.create({
 
   title: {
-    marginTop: 50,
+    marginTop: 40,
+    marginBottom: 25,
     fontSize: 35,
     textAlign: 'center',
     color: 'white',
   },
-
   card: {
     alignItems: 'center',
 

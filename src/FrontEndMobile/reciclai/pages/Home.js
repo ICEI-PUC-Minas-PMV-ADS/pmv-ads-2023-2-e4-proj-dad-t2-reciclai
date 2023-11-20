@@ -15,7 +15,7 @@ const Home = () => {
     { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
     { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
     { key: 'formularioPedidos', title: 'Fazer Pedido', focusedIcon: 'album' },
-    { key: 'perfilUsuario', title: 'PerfilUsuario', focusedIcon: 'account' },
+    { key: 'perfilUsuario', title: 'Perfil', focusedIcon: 'account' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({

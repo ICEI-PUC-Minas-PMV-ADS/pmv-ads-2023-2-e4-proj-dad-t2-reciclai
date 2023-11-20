@@ -19,7 +19,7 @@ button: {
 width: 'auto',
 marginVertical: 8,
 marginHorizontal: 40,
-backgroundColor:'red',
+backgroundColor:'#8B0000',
 }
 });
 
