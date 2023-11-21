@@ -26,7 +26,7 @@ const FormularioPedidos = () => {
     const [descricao, setDescricao] = useState('');
     const [tipoLixo, setTipoLixo] = useState('');
     const [status, setStatus] = useState('');
-    const [quantidadeLixo, setQuantidadeLixo] = useState('');
+    const [quantidadeLixo, setQuantidadeLixo] = useState();
 
     const handleChangeTipoLixo = (value) => {
         setTipoLixo(value);
@@ -207,7 +207,7 @@ const FormularioPedidos = () => {
 
                         <InputPedido
                             label="Quantidade de lixo:"
-                            onChange={e => setQuantidadeLixo(e.target.value > 0 ? e.target.value.replace(/[^0-9]/) : 0)}
+                            onChange={e => setQuantidadeLixo(e.target.value)}
                             value={quantidadeLixo}
                             keyboardType="numeric"
                             required
