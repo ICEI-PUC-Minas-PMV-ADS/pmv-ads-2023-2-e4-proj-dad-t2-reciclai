@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
-import { useUser } from '../contexts/UserContext';
 import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
 import InputPedido from '../components/inputPedido';
 import Logo from '../components/Logo';
-
-import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
 import Button from '../components/ButtonFormulario';
+
+import { useUser } from '../contexts/UserContext';
+import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
 
 const FormularioPedidos = ({route}) => {
     const { id } = route.params.data;
@@ -93,13 +93,10 @@ const FormularioPedidos = ({route}) => {
         // navigation.navigate('/buscaColetor');
     }
 
-
     return (
         <Container>
-
             <ScrollView>
-                <Logo />
-
+                <Logo/>
                 <Body>
                     <View style={styles.container}>
                         <Text style={styles.titulo} >Formulário de pedido</Text>
@@ -180,7 +177,6 @@ const FormularioPedidos = ({route}) => {
                             </View>
                         </View>
 
-
                         <InputPedido
                             label="Endereço:"
                             value={endereco}
@@ -244,8 +240,7 @@ const FormularioPedidos = ({route}) => {
                     </View>
                 </Body>
             </ScrollView>
-
-        </Container >
+        </Container>
     );
 };
 
