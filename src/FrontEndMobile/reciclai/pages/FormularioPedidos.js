@@ -19,7 +19,7 @@ const FormularioPedidos = ({route}) => {
     const navigation = useNavigation();
     const { user } = useUser();
     const solicitante = user.userId;
-    console.log(user.userId);
+    // console.log(user.userId);
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
     const [Aux1Coleta, setAux1Coleta] = useState(new Date());
@@ -52,30 +52,18 @@ const FormularioPedidos = ({route}) => {
             if(Platform.OS !== 'android'){
                 data.setHours(data.getHours() - (data.getTimezoneOffset()/60))
             }
-            console.log(data.getHours())
-            console.log(data.getTimezoneOffset())
+            // console.log(data.getHours())
+            // console.log(data.getTimezoneOffset())
         return data;
     }
 
     const handleChangeLixoPerigoso = (value) => {
         setLixoPerigoso(value);
-        // if (value === 'true') {
-        //     setLixoPerigoso(true);
-        // } else if (value === 'false') {
-        //     setLixoPerigoso(false);
-        // }
     }
-
-    // const handleQtd = (text) => {
-    //     if (typeof text === 'string') {
-    //         const qtd = text.replace(/[^0-9]/g, '');
-    //         setQuantidadeLixo(qtd);
-    //     }
-    // }
 
     async function handleSubmit() {
 
-        await insertPedidos({
+        const novoPedido = await insertPedidos({
             "idSolicitante": solicitante,
             "idColetor": coletor,
             "nomeSolicitante": nomeSolicitante,
@@ -90,17 +78,17 @@ const FormularioPedidos = ({route}) => {
             //navigation.goBack();
             //console.log(res);
         });
-        //console.log(novoPedido.id);
+        console.log(novoPedido.id);
 
-        // await insertUsuariosPedidos({
-        //     "pedidoId": novoPedido.id,
-        //     "usuarioId": parseInt(userId)
-        // });
+        await insertUsuariosPedidos({
+            "pedidoId": novoPedido.id,
+            "usuarioId": solicitante
+        });
 
-        // await insertUsuariosPedidos({
-        //     "pedidoId": novoPedido.id,
-        //     "usuarioId": coletor
-        // });
+        await insertUsuariosPedidos({
+            "pedidoId": novoPedido.id,
+            "usuarioId": coletor
+        });
 
         // navigation.navigate('/buscaColetor');
     }
