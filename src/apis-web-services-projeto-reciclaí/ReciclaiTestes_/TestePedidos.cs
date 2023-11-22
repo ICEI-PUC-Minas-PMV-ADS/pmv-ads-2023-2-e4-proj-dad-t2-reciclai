@@ -48,6 +48,7 @@ namespace ReciclaiTestes_
                 Email = "dodo@dodo.com",
                 Senha = "dodo",
                 Endereco = "avenida tres, caramuru",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Coletor,
                 TipoLixo = TipoLixo.Eletrodomestico},
             new Usuario {
@@ -56,6 +57,7 @@ namespace ReciclaiTestes_
                 Email = "dodo@dodo.com",
                 Senha = "dodo",
                 Endereco = "avenida tres, ipiranga",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Solicitante,
                 TipoLixo = TipoLixo.Monitores},
             new Usuario {
@@ -64,6 +66,7 @@ namespace ReciclaiTestes_
                 Email = "dodo@dodo.com",
                 Senha = "dodo",
                 Endereco = "avenida tres, jorge velho",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Coletor,
                 TipoLixo = TipoLixo.Iluminacao}
             };

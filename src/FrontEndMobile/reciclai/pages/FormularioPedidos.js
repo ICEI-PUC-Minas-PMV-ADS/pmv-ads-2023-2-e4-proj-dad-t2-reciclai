@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
+import { useUser } from '../contexts/UserContext';
 import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import Container from '../components/Container';
@@ -13,10 +14,13 @@ import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.servic
 import Button from '../components/ButtonFormulario';
 
 const FormularioPedidos = () => {
-
+    //const { item } = route.params ? route:params ;
     const navigation = useNavigation();
-    //const { item } = route.params ? route:params;
 
+    // const location = useLocation();
+    // const dados = location.state;
+    // const coletor = dados.id;
+     const {userId} = useUser();
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
     const [Aux1Coleta, setAux1Coleta] = useState(new Date());
@@ -33,11 +37,12 @@ const FormularioPedidos = () => {
     }
 
     const handleChangeLixoPerigoso = (value) => {
-        if (value === 'true') {
-            setLixoPerigoso(true);
-        } else if (value === 'false') {
-            setLixoPerigoso(false);
-        }
+        setLixoPerigoso(value);
+        // if (value === 'true') {
+        //     setLixoPerigoso(true);
+        // } else if (value === 'false') {
+        //     setLixoPerigoso(false);
+        // }
     }
 
     // const handleQtd = (text) => {
@@ -50,7 +55,7 @@ const FormularioPedidos = () => {
     async function handleSubmit() {
 
         await insertPedidos({
-            "idSolicitante": 1,
+            "idSolicitante": parseInt(userId),
             "idColetor": 1,
             "nomeSolicitante": nomeSolicitante,
             "dataColeta": Aux1Coleta + Aux2Coleta,
@@ -58,7 +63,7 @@ const FormularioPedidos = () => {
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,
             "tipoLixo": parseInt(tipoLixo),
-            "qtdLixo": quantidadeLixo,
+            "qtdLixo": parseInt(quantidadeLixo),
             "status": 0,
             //}).then(res => {
             //navigation.goBack();
@@ -133,9 +138,9 @@ const FormularioPedidos = () => {
                             </View>
                             <View style={styles.littleCard}>
                                 {Platform.OS === 'android' ? (
-                                    <Text style={styles.textLableInputAndroid}>Data da coleta</Text>
+                                    <Text style={styles.textLableInputAndroid}>Horário da coleta</Text>
                                 ) : (
-                                    <Text style={styles.textLableInputIOS}>Data da coleta</Text>
+                                    <Text style={styles.textLableInputIOS}>Horário da coleta</Text>
                                 )}
                                 {/* O datePicker funciona nativamente apenas no Ios
                                     para android é preciso modificações */}
@@ -207,17 +212,16 @@ const FormularioPedidos = () => {
 
                         <InputPedido
                             label="Quantidade de lixo:"
-                            onChange={e => setQuantidadeLixo(e.target.value)}
                             value={quantidadeLixo}
+                            onChangeText={(text) => setQuantidadeLixo(text)}
                             keyboardType="numeric"
                             required
                         />
 
                         <InputPedido
-                            type="text"
                             label="Descrição:"
-                            onChange={e => setDescricao(e.target.value)}
                             value={descricao}
+                            onChangeText={(text) => setDescricao(text)}
                             keyboardType="default"
                             required
                         />
