@@ -13,14 +13,13 @@ import Logo from '../components/Logo';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
 import Button from '../components/ButtonFormulario';
 
-const FormularioPedidos = () => {
-    //const { item } = route.params ? route:params ;
+const FormularioPedidos = ({route}) => {
+    const { id } = route.params.data;
+    const coletor = id;
     const navigation = useNavigation();
-
-    // const location = useLocation();
-    // const dados = location.state;
-    // const coletor = dados.id;
-     const {userId} = useUser();
+    const { user } = useUser();
+    const solicitante = user.userId;
+    console.log(user.userId);
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
     const [Aux1Coleta, setAux1Coleta] = useState(new Date());
@@ -34,6 +33,28 @@ const FormularioPedidos = () => {
 
     const handleChangeTipoLixo = (value) => {
         setTipoLixo(value);
+    }
+
+    function formattedDate(date){
+        let myDate; 
+        myDate = new Date(date)
+            myDate.setMinutes(myDate.getMinutes() + myDate.getTimezoneOffset())
+
+            return myDate;
+    }
+
+    function formattedDateTime(date1, date2){
+        let data;
+        data = formattedDate(date1)
+            data.setHours(date2.getHours())
+            data.setMinutes(date2.getMinutes())
+            data.setSeconds(date2.getSeconds())
+            if(Platform.OS !== 'android'){
+                data.setHours(data.getHours() - (data.getTimezoneOffset()/60))
+            }
+            console.log(data.getHours())
+            console.log(data.getTimezoneOffset())
+        return data;
     }
 
     const handleChangeLixoPerigoso = (value) => {
@@ -55,10 +76,10 @@ const FormularioPedidos = () => {
     async function handleSubmit() {
 
         await insertPedidos({
-            "idSolicitante": parseInt(userId),
-            "idColetor": 1,
+            "idSolicitante": solicitante,
+            "idColetor": coletor,
             "nomeSolicitante": nomeSolicitante,
-            "dataColeta": Aux1Coleta + Aux2Coleta,
+            "dataColeta": formattedDateTime(Aux1Coleta, Aux2Coleta),
             "endereco": endereco,
             "lixoPerigoso": lixoPerigoso,
             "descricao": descricao,

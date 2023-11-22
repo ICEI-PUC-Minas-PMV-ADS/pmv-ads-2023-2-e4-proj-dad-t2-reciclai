@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const navigation = useNavigation();
-  const { setSigned, setUserId, setUserName } = useUser();
+  const { setSigned, setUserId, setUserName, setUser } = useUser();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -29,6 +29,7 @@ const Login = () => {
       if (res && res.jwtToken) {
         setSigned(true);
         AsyncStorage.setItem('jwtToken', res.jwtToken)
+        setUser(res);
         setUserId(res.userId);
         setUserName(res.userName);
       } else {

@@ -45,5 +45,24 @@ export default function UserProvider({ children }) {
 
 export function useUser() {
   const context = useContext(UserContext);
-  return context;
+  const { signed,
+    setSigned,
+    user,
+    setUser,
+    name,
+    setName,
+    setUserName, 
+    idUsuario,
+    setIdUsuario,
+    setUserId } = context;
+  return { signed,
+    setSigned,
+    user,
+    setUser,
+    name,
+    setName,
+    setUserName, 
+    idUsuario,
+    setIdUsuario,
+    setUserId };
 }

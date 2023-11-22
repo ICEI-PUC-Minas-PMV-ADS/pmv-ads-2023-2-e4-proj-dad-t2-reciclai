@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Pesquisa from '../pages/Pesquisa';
 import AposLogin from '../pages/AposLogin';
 import VerPedido from '../pages/VerPedido';
+import FormularioPedidos from '../pages/FormularioPedidos';
 
 
 const Stack = createNativeStackNavigator();
@@ -41,6 +42,15 @@ const Main = () => {
           header: () => null,
         }}
       />
+      
+      <Stack.Screen
+        name="Formulario"
+        component={FormularioPedidos}
+        options={{
+          header: () => null,
+        }}
+      />
+      
     </Stack.Navigator>
 
   );
