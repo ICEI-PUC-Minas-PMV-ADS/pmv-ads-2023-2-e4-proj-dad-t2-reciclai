@@ -15,8 +15,9 @@ import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.servic
 import { getUsuario } from '../services/Usuarios.services';
 
 const FormularioPedidos = ({route}) => {
-    const { id } = route.params.data;
+    const { id, email } = route.params.data;
     const coletor = id;
+    const emailColetor = email;
     const navigation = useNavigation();
     const { user } = useUser();
     const solicitante = user.userId;
@@ -91,9 +92,9 @@ const FormularioPedidos = ({route}) => {
             "usuarioId": coletor
         });
 
-        // await enviarEmail({
-        //     "email": 'douglas.raynner0110@gmail.com'
-        // });
+        await enviarEmail({
+            "email": emailColetor
+        });
 
         // navigation.navigate('/buscaColetor');
     }

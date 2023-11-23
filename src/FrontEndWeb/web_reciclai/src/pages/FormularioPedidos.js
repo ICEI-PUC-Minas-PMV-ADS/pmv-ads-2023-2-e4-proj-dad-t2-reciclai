@@ -14,6 +14,7 @@ const FormularioPedidos = () => {
     const location = useLocation();
     const dados = location.state;
     const coletor = dados.id;
+    const emailColetor = dados.email;
     console.log(coletor);
     const navigate = useNavigate();
     const {userId} = useUser();
@@ -85,9 +86,9 @@ const FormularioPedidos = () => {
             "usuarioId": coletor
         });
         
-        // await enviarEmail({
-        //     "email": 'douglas.raynner0110@gmail.com'
-        // });
+        await enviarEmail({
+            "email": emailColetor
+        });
 
         navigate('/buscaColetor');
     }
