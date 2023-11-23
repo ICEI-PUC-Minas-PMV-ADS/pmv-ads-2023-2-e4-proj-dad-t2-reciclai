@@ -5,6 +5,7 @@ import Pesquisa from './Pesquisa';
 import AposLogin from './AposLogin'; 
 import CadastroUsuario from './CadastroUsuario';
 import PerfilUsuario from './PerfilUsuario';
+import Historico from './Historico';
 
 const Home = () => {
   const [index, setIndex] = React.useState(0);
@@ -12,13 +13,15 @@ const Home = () => {
     { key: 'aposLogin', title: 'Início', focusedIcon: 'home' },
     { key: 'pesquisa', title: 'Pesquisa', focusedIcon: 'file-search-outline'},
     { key: 'perfilUsuario', title: 'Perfil', focusedIcon: 'account' },
+    {key: 'historico', title:'Histórico', focusedIcon:'format-list-bulleted'},
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
     pesquisa: Pesquisa,
     aposLogin: AposLogin,
     cadastroUsuario: CadastroUsuario,
-    perfilUsuario:PerfilUsuario
+    perfilUsuario:PerfilUsuario, 
+    historico: Historico
   });
 
   return (

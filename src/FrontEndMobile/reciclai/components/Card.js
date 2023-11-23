@@ -9,11 +9,12 @@ const Card = ({children, text}) =>{
 
 const styles = StyleSheet.create({
  containerCard:{ 
-    width:"100%",
+    width:"90%",
+    alignSelf: 'center',
     borderRadius: 10,
     backgroundColor:"#EDEBEB",
     padding:10,
-    marginVertical: 15,
+    marginVertical: 8,
 
   },
 
