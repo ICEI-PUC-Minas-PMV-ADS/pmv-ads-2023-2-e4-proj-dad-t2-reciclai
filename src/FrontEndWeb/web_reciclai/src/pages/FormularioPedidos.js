@@ -8,7 +8,7 @@ import { useUser } from '../contexts/UserContext';
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { getUsuario } from '../services/Usuarios.services';
+import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 
 const FormularioPedidos = () => {
     const location = useLocation();
@@ -85,6 +85,10 @@ const FormularioPedidos = () => {
             "usuarioId": coletor
         });
         
+        // await enviarEmail({
+        //     "email": 'douglas.raynner0110@gmail.com'
+        // });
+
         navigate('/buscaColetor');
     }
 

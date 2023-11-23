@@ -157,30 +157,30 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        [HttpPost("{id}/EnviarEmail")]
-        public async Task<ActionResult> EnviarEmail(int id, UsuarioDto model)
+        [HttpPost("{email}/EnviarEmail")]
+        public async Task<ActionResult> EnviarEmail(string email)
         {
             try
             {
-                if (id != model.Id) return BadRequest();
-
-                var modelDb = await _context.Usuarios.AsNoTracking()
-                    .FirstOrDefaultAsync(u => u.Id == id);
-
-                if (modelDb == null) return NotFound();
-
-                modelDb.Email = model.Email;
+                if (email == null) return NotFound();
 
                 MailMessage mail = new MailMessage()
                 {
                     From = new MailAddress("reciclai2023@gmail.com", "Reciclaí")
                 };
 
-                mail.To.Add(new MailAddress(modelDb.Email));
+                mail.To.Add(new MailAddress(email));
 
                 mail.Subject = "Solicitação de coleta";
 
-                mail.Body = "O status da coleta foi alterado, favor entrar na sua conta para visualizar.";
+                StringBuilder msg = new StringBuilder();
+                msg.Append("O status da coleta foi alterado, favor entrar na sua conta para visualizar.");
+                msg.Append(" ");
+                msg.Append("Atenciosamente,");
+                msg.Append("Equipe Reciclaí.");
+
+                mail.Body = msg.ToString();
+
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
 

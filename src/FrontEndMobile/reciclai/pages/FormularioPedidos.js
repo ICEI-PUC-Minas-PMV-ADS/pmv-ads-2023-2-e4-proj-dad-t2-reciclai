@@ -91,6 +91,10 @@ const FormularioPedidos = ({route}) => {
             "usuarioId": coletor
         });
 
+        // await enviarEmail({
+        //     "email": 'douglas.raynner0110@gmail.com'
+        // });
+
         // navigation.navigate('/buscaColetor');
     }
 
@@ -296,12 +300,12 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     textLableInputAndroid: {
-        fontSize: 13,
+        fontSize: 12,
         marginVertical: 1,
         paddingLeft: 6
     },
     textLableInputIOS: {
-        fontSize: 13,
+        fontSize: 12,
         //marginTop: 10,
         //padding: 30,
         //fontWeight: '400',

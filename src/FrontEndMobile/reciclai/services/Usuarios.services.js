@@ -76,3 +76,22 @@ export const insertUsuarios = async (params) => {
       throw error;
     }
   }
+
+  export const enviarEmail = async (param) => {
+    console.log(param);  
+    console.log(param.email);  
+    try{
+        return await API.post(`${BASE_URL}/usuarios/${param.email}/EnviarEmail`).then( 
+          response => {
+            return response.data;
+          },
+          error =>{
+            console.log(error);
+            return  null;
+          }
+        );
+      }catch(error){
+        console.log(error);
+        return null;
+      }
+    }
