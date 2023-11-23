@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
@@ -12,6 +12,7 @@ import Button from '../components/ButtonFormulario';
 
 import { useUser } from '../contexts/UserContext';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
+import { getUsuario } from '../services/Usuarios.services';
 
 const FormularioPedidos = ({route}) => {
     const { id } = route.params.data;
@@ -93,6 +94,17 @@ const FormularioPedidos = ({route}) => {
         // navigation.navigate('/buscaColetor');
     }
 
+    const handleNameChange = (e) => {
+        setNomeSolicitante(e.target.value);
+    }
+    useEffect(() => {
+        async function fetchUser(){
+            const user = await getUsuario(solicitante);
+            setNomeSolicitante(user.nome);
+        }
+        fetchUser();
+      },[]);
+
     return (
         <Container>
             <ScrollView>
@@ -104,7 +116,7 @@ const FormularioPedidos = ({route}) => {
                         <InputPedido
                             label="Nome:"
                             value={nomeSolicitante}
-                            onChangeText={(text) => setNomeSolicitante(text)}
+                            onChange={handleNameChange}
                             keyboardType="default"
                             required
                         />
