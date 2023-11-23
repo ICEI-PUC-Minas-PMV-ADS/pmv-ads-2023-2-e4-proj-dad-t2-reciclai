@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { Headline, List } from 'react-native-paper';
 import { useIsFocused } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -16,8 +16,8 @@ import ButtonPedido from '../components/ButtonPedido';
 
 const AposLogin = () => {
   const navigation = useNavigation();
-  const {  setSigned, name, idUsuario } = useUser();
-  const [pedidos, setPedidos] = useState([]);
+  const {  setSigned, name, idUsuario, setUserId } = useUser();
+  const [data, setData] = useState([]);
   const isFocused = useIsFocused();
 
   const TipoLixo =
@@ -33,49 +33,49 @@ const AposLogin = () => {
     ];
 
   useEffect(() => {
+    async function fetchPedidos() {
+      const data = await getTodosPedidos();
+      if (data) {
+
+        let PedidosUsuario = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
+        setData(PedidosUsuario);
+        console.log(PedidosUsuario);
+      }
+    }
+  
     fetchPedidos();
   }, [isFocused]);
 
-  async function fetchPedidos() {
-    try {
-      await getTodosPedidos().then((data) => {
-        const meusPedidos = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
-        setPedidos(meusPedidos);
-      })
-    } catch(error){
-      console.error('Pedidos não encontrados!', error);
-    }
-  
-  }
-
 
   const ItemView = ({ item }) => {
-    console.log(item);
+  
     return (
-      <Card>
+      
         <List.Item
-          title={'Nome: ' + item.nomeSolicitante}
-          description={'Tipo: ' + TipoLixo[item.tipoLixo]}
+          title={'Número do pedido: ' + item.id}
+          description={(props) => (
+            <Text {...props} style={{ marginTop: 10 }}>
+              Data: {' '}
+              {item.dataColeta}
+            </Text>
+          )}
+         
           left={(props) => (
             <List.Icon
               {...props}
               color={'#24926D'}
               icon="form-select"
             />)}
-          right={(props) => (
-            <Text {...props} style={{ alignSelf: 'center' }}>
-              {' '}
-              {item.dataColeta}{' '}
-            </Text>
-          )}
+
           onPress={() => navigation.navigate('VerPedido', { item })}
         />
-      </Card>
+   
     )
   }
 
   const handleLogout = async () => {
     setSigned(false);
+    setUserId(null);
     AsyncStorage.removeItem('jwtToken');
 
   }
@@ -94,12 +94,13 @@ const AposLogin = () => {
          
           < Text style={styles.titulo}>Meus Pedidos:</Text>
           
-
+<Card>
         <FlatList
-          data={pedidos}
+          data={data}
           keyExtractor={item => item.id}
           renderItem={ItemView}
         />
+        </Card>
       </Body>
   
     </Container >
