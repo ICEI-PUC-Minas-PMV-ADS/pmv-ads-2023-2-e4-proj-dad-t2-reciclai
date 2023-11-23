@@ -157,8 +157,8 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        [HttpPost("{email}/EnviarEmail")]
-        public async Task<ActionResult> EnviarEmail(string email)
+        [HttpPost("{email}/EnviarEmailColetor")]
+        public async Task<ActionResult> EnviarEmailColetor(string email)
         {
             try
             {
@@ -172,6 +172,51 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 mail.To.Add(new MailAddress(email));
 
                 mail.Subject = "Solicitação de coleta";
+
+                StringBuilder msg = new StringBuilder();
+                msg.Append("Um novo pedido de coleta foi solicitado, favor entrar na sua conta para visualizar.");
+                msg.Append(" ");
+                msg.Append("Atenciosamente,");
+                msg.Append("Equipe Reciclaí.");
+
+                mail.Body = msg.ToString();
+
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.UseDefaultCredentials = false;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Credentials = new NetworkCredential("reciclai2023@gmail.com", "vtrgxoqweixjruva");
+                    smtp.EnableSsl = true;
+                    smtp.Timeout = 20_000;
+                    await smtp.SendMailAsync(mail);
+                }
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        [HttpPost("{email}/EnviarEmailSolicitante")]
+        public async Task<ActionResult> EnviarEmailSolicitante(string email)
+        {
+            try
+            {
+                if (email == null) return NotFound();
+
+                MailMessage mail = new MailMessage()
+                {
+                    From = new MailAddress("reciclai2023@gmail.com", "Reciclaí")
+                };
+
+                mail.To.Add(new MailAddress(email));
+
+                mail.Subject = "Atualização do pedido de coleta";
 
                 StringBuilder msg = new StringBuilder();
                 msg.Append("O status da coleta foi alterado, favor entrar na sua conta para visualizar.");

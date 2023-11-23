@@ -8,7 +8,7 @@ import { useUser } from '../contexts/UserContext';
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { getUsuario, enviarEmail } from '../services/Usuarios.services';
+import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
 
 const FormularioPedidos = () => {
     const location = useLocation();
@@ -86,7 +86,7 @@ const FormularioPedidos = () => {
             "usuarioId": coletor
         });
         
-        await enviarEmail({
+        await enviarEmailColetor({
             "email": emailColetor
         });
 

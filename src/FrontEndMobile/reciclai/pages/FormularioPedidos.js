@@ -12,7 +12,7 @@ import Button from '../components/ButtonFormulario';
 
 import { useUser } from '../contexts/UserContext';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
-import { getUsuario } from '../services/Usuarios.services';
+import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
 
 const FormularioPedidos = ({route}) => {
     const { id, email } = route.params.data;
@@ -92,7 +92,7 @@ const FormularioPedidos = ({route}) => {
             "usuarioId": coletor
         });
 
-        await enviarEmail({
+        await enviarEmailColetor({
             "email": emailColetor
         });
 
