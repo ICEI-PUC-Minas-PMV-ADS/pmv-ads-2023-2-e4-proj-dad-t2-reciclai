@@ -12,11 +12,12 @@ import Button from '../components/ButtonFormulario';
 
 import { useUser } from '../contexts/UserContext';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
-import { getUsuario } from '../services/Usuarios.services';
+import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
 
 const FormularioPedidos = ({route}) => {
-    const { id } = route.params.data;
+    const { id, email } = route.params.data;
     const coletor = id;
+    const emailColetor = email;
     const navigation = useNavigation();
     const { user } = useUser();
     const solicitante = user.userId;
@@ -89,6 +90,10 @@ const FormularioPedidos = ({route}) => {
         await insertUsuariosPedidos({
             "pedidoId": novoPedido.id,
             "usuarioId": coletor
+        });
+
+        await enviarEmailColetor({
+            "email": emailColetor
         });
 
         // navigation.navigate('/buscaColetor');
@@ -296,12 +301,12 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     textLableInputAndroid: {
-        fontSize: 13,
+        fontSize: 12,
         marginVertical: 1,
         paddingLeft: 6
     },
     textLableInputIOS: {
-        fontSize: 13,
+        fontSize: 12,
         //marginTop: 10,
         //padding: 30,
         //fontWeight: '400',

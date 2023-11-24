@@ -6,6 +6,7 @@ import Pesquisa from '../pages/Pesquisa';
 import AposLogin from '../pages/AposLogin';
 import VerPedido from '../pages/VerPedido';
 import FormularioPedidos from '../pages/FormularioPedidos';
+import Historico from '../pages/Historico';
 
 
 const Stack = createNativeStackNavigator();
@@ -38,6 +39,13 @@ const Main = () => {
       <Stack.Screen
         name="Pesquisa"
         component={Pesquisa}
+        options={{
+          header: () => null,
+        }}
+      />
+       <Stack.Screen
+        name="Histórico"
+        component={Historico}
         options={{
           header: () => null,
         }}

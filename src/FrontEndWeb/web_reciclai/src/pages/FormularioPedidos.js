@@ -8,12 +8,13 @@ import { useUser } from '../contexts/UserContext';
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { getUsuario } from '../services/Usuarios.services';
+import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
 
 const FormularioPedidos = () => {
     const location = useLocation();
     const dados = location.state;
     const coletor = dados.id;
+    const emailColetor = dados.email;
     console.log(coletor);
     const navigate = useNavigate();
     const {userId} = useUser();
@@ -85,6 +86,10 @@ const FormularioPedidos = () => {
             "usuarioId": coletor
         });
         
+        await enviarEmailColetor({
+            "email": emailColetor
+        });
+
         navigate('/buscaColetor');
     }
 

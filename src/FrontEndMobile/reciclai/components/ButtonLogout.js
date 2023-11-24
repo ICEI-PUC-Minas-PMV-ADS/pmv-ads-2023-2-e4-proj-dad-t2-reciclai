@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     button: {
         position: 'absolute', 
         right: 0,
-        marginTop: 90,
+        marginTop: 40,
         marginRight: 5,
         backgroundColor:'#4660BE'
             
