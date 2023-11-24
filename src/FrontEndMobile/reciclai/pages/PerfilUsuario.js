@@ -21,7 +21,7 @@ const PerfilUsuario = () => {
     const [estado, setEstado] = useState('');
     const navigation = useNavigation();
     const isFocused = useIsFocused();
-
+    const [item, setItem] = useState('');
     const Perfis = ['Solicitante', 'Coletor'];
 
     const TiposDeLixo = [
@@ -48,13 +48,15 @@ const PerfilUsuario = () => {
             setPerfil(Perfis[res.perfil]);
             setTipoLixo(TiposDeLixo[res.tipoLixo]);
             setEstado(res.estado);
+            setItem(res);
         } catch (error) {
             console.error('Erro ao buscar informações do usuário:', error);
         }
     }
 
 const handleEditar = () => {
-    navigation.navigate('CadastroUsuario', { item });
+    if(item != null & item != {})
+        navigation.navigate('CadastroUsuario', { item });
 };
 
     async function handleExcluir() {

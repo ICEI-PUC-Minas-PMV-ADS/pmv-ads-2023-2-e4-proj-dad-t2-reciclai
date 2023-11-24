@@ -9,13 +9,16 @@ import Body from '../components/Body';
 import InputPedido from '../components/inputPedido';
 import Logo from '../components/Logo';
 
-import { insertUsuarios } from '../services/Usuarios.services';
+import { insertUsuarios, updateUsuarios } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
 
 import Button from '../components/ButtonFormulario';
 
 
-const CadastroUsuario = () => {
+
+const CadastroUsuario =  ({ route }) => {
+    
+    const  { item }  = route.params ? route.params : {};
     const navigation = useNavigation();
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
@@ -24,8 +27,7 @@ const CadastroUsuario = () => {
     const [estado, setEstado] = useState("");
     const [perfil, setPerfil] = useState();
     const [tipoLixo, setTipoLixo] = useState();
-
-    const pickerRef = useRef();
+    const pickerRef = useRef();    
 
     function open() {
         pickerRef.current.focus();
@@ -35,42 +37,53 @@ const CadastroUsuario = () => {
         pickerRef.current.blur();
     }
 
-    useEffect(() => {
-        
-        async function postUser() {
-            await insertUsuarios().then((item) => {                
-                if (item) {
+    useEffect(() => { 
+                if (item) {                    
                     setNome(item.nome);
-                    setEmail(item.email);
-                    setSenha(item.senha);
+                    setEmail(item.email);                   
                     setEndereco(item.endereco);
                     setEstado(item.estado);
                     setPerfil(item.perfil);
                     setTipoLixo(item.tipoLixo);                    
                 }
-            });
-        }
-        postUser();
-    }, []);
 
+            }, [item]);
+    
+    
     const handleChangeEstado=(itemValue, itemIndex) =>setEstado(itemValue);
     const handleChangePerfil=(itemValue, itemIndex) =>setPerfil(parseInt(itemValue));
     const handleChangeTipoLixo=(itemValue, itemIndex) =>setTipoLixo(parseInt(itemValue));
 
-    async function handleCadastrar(event) {
+    async function handleCadastrarOuEditar(event) {
         
-        await insertUsuarios(
-            {
-                nome: nome,
-                email: email,
-                senha: senha,
-                endereco: endereco,
-                estado: estado,
-                perfil: perfil,
-                tipoLixo: tipoLixo,
-            },
-            navigation.navigate("Login")
-        );
+        if(item) {
+            await updateUsuarios(
+                {    
+                    id: item.id,                
+                    nome: item.nome,
+                    email: item.email,                    
+                    endereco: item.endereco,
+                    estado: item.estado,
+                    perfil: item.perfil,
+                    tipoLixo: item.tipoLixo
+                },
+                navigation.navigate("PerfilUsuario")
+            );
+        }
+        else {
+            await insertUsuarios(
+                {
+                    nome: nome,
+                    email: email,
+                    senha: senha,
+                    endereco: endereco,
+                    estado: estado,
+                    perfil: perfil,
+                    tipoLixo: tipoLixo,
+                },
+                navigation.navigate("Login")
+            );
+        }
     }
 
     function handleVoltar() {        
@@ -101,15 +114,18 @@ const CadastroUsuario = () => {
                         required
                         style={styles.textLableInput}
                     />
-                    <InputPedido
-                        label="* Senha:"
-                        value={senha}
-                        secureTextEntry
-                        onChangeText={(text) => setSenha(text)}
-                        keyboardType="default"
-                        required
-                        style={styles.textLableInput}
-                    />
+                    {item
+                    ? <div/>
+                    :<InputPedido
+                    label= "* Senha:"
+                    value={senha}
+                    secureTextEntry
+                    onChangeText={(text) => setSenha(text)}
+                    keyboardType="default"
+                    required
+                    style={styles.textLableInput}
+                    />}
+                    
                     <InputPedido
                         label="* Endereço:"
                         value={endereco}
@@ -184,12 +200,18 @@ const CadastroUsuario = () => {
                             <Picker.Item label="Painéis Fotovoltaicos" value={7} />
                         </Picker>                     
                         
-                        <Button
-                            title="Cadastrar"
+                        {item 
+                        ? <Button
+                            title="Editar"
                             theme={{ colors: { primary: '#FFFFFF' } }}
-                            onPress={() => handleCadastrar()}
+                            onPress={() => handleCadastrarOuEditar()}
                         />
-
+                        :<Button
+                        title="Cadastrar"
+                        theme={{ colors: { primary: '#FFFFFF' } }}
+                        onPress={() => handleCadastrarOuEditar()}
+                    />
+                        }
                         <Button
                             title="Voltar"
                             theme={{ colors: { primary: '#FFFFFF' } }}
