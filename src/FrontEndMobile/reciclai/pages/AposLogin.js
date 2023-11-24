@@ -36,14 +36,11 @@ const AposLogin = () => {
   return (
     <Container>
 
-      <Body>
-        <ButtonLogout onPress={handleLogout} />
-        <ButtonPedido icon="plus" theme={{ colors: { primary: '#FFFFFF' } }} onPress={() => navigation.navigate('Pesquisa')} />
-
+      <Body>      
         <View style={styles.headline}>
           <Headline style={styles.headline2}>Olá, {name}!</Headline>
         </View>
-
+        <ButtonLogout onPress={handleLogout} />
 
 
 
