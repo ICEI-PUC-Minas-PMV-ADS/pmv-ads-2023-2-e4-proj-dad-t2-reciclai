@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
@@ -96,7 +96,9 @@ const FormularioPedidos = ({ route }) => {
             "email": emailColetor
         });
 
-        // navigation.navigate('/buscaColetor');
+        Alert.alert('Formulário de pedidos', 'Seu pedido foi finalizado com sucesso', [
+            { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+        ]);
     }
 
     const handleNameChange = (e) => {
@@ -187,7 +189,7 @@ const FormularioPedidos = ({ route }) => {
                                     <RNDateTimePicker
                                         mode="time"
                                         value={Aux2Coleta}
-                                        style={styles.dateIOS}
+                                        style={styles.hourIOS}
                                         onChange={(event, date) => setAux2Coleta(date)}
                                     />
                                 )}
@@ -283,21 +285,24 @@ const styles = StyleSheet.create({
         color: '#605d60',
     },
     littleCard: {
-        width: "48%",
+        width: "48.5%",
         height: 50,
         borderRadius: 5,
         backgroundColor: "#EDEBEB",
-        padding: 10,
+        paddingLeft: 10,
         marginVertical: 5,
-        flexDirection: "column",
-        justifyContent: "space-evenly",
+        justifyContent: 'center',
+        textAlign: 'center',
+        // flexDirection: "column",
+        // justifyContent: "space-evenly",
     },
     uniao: {
         flex: 1,
         justifyContent: "space-between",
         flexDirection: "row",
         width: '80%',
-        marginBottom: 5
+        marginBottom: 5,
+        marginTop: -6
     },
     container: {
         flex: 1,
@@ -313,7 +318,7 @@ const styles = StyleSheet.create({
     },
     textLableInputIOS: {
         fontSize: 12,
-        //marginTop: 10,
+        marginTop: 3,
         //padding: 30,
         //fontWeight: '400',
         // textAlign:'center',
@@ -323,12 +328,19 @@ const styles = StyleSheet.create({
     },
     textDateInput: {
         justifyContent: 'center',
-        paddingLeft: 5,
+        paddingLeft: 6,
     },
     dateIOS: {
-        //height: 30,
-        //marginLeft:6,
-        paddingEnd: 60,
+        height: 25,
+        width: 77,
+        marginLeft: 6,
+    },
+    hourIOS: {
+        height: 25,
+        width: 62,
+        marginLeft:6,
+        //paddingEnd: 60,
+        //backgroundColorolor: "white"
     }
 });
 
