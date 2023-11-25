@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, FlatList, ScrollView } from 'react-native';
-import { List } from 'react-native-paper';
+import { View, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { List, RadioButton, Text } from 'react-native-paper';
 import { useIsFocused } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { useUser } from "../contexts/UserContext";
@@ -17,29 +17,19 @@ import Logo from '../components/Logo';
 
 const Historico = () => {
     const navigation = useNavigation();
-
+    const [checked, setChecked] = useState('Aceito');
     const { idUsuario } = useUser();
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
 
-    const TipoLixo =
-        [
-            'Eletrodomestico',
-            'Eletroportateis',
-            'Monitores',
-            'Iluminação',
-            'Fios e cabos',
-            'Pilhas e baterias',
-            'TI e telecomunicações',
-            'Painéis Fotovoltaicos'
-        ];
+
 
     useEffect(() => {
         async function fetchPedidos() {
-            const data = await getTodosPedidos();
-            if (data) {
+            const pedidosUser = await getTodosPedidos();
+            if (pedidosUser) {
 
-                let PedidosUsuario = data.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
+                let PedidosUsuario = pedidosUser.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
                 setData(PedidosUsuario);
                 console.log(PedidosUsuario);
             }
@@ -47,6 +37,24 @@ const Historico = () => {
 
         fetchPedidos();
     }, [isFocused]);
+
+
+const searchPedidosAceitos = (item) => {
+    if(item){
+         const pedidosAceitos = data.filter(p => p.status == 1 )
+         setData(pedidosAceitos)
+         setChecked('Aceito');
+
+    }}
+
+    const searchPedidosCancelados = (item) => {
+        if(item){
+             const pedidosCancelados = data.filter(p => p.status == 2 )
+             setData(pedidosCancelados)
+             setChecked('Cancelado');
+
+        }}
+    
 
 
     const ItemView = ({ item }) => {
@@ -77,6 +85,27 @@ const Historico = () => {
                 <ScrollView>
                     < Text style={styles.titulo}>Histórico:</Text>
 
+                    <View style={styles.radioButton}>
+                        <View style={styles.radio1}>
+                            <Text style={styles.labelRadio}>Aceitos</Text>
+                            <RadioButton
+                                value={1}
+                                status={checked === 'Aceito' ? 'checked' : 'unchecked'}
+                                onPress={searchPedidosAceitos}
+                                theme={{ colors: { primary: '#4660BE' } }}
+                            />
+                        </View>
+                        <View style={styles.radio1}>
+
+                            <Text style={styles.labelRadio}>Cancelados</Text>
+                            <RadioButton
+                                value={2}
+                                status={checked === 'Cancelado' ? 'checked' : 'unchecked'}
+                                onPress={searchPedidosCancelados}
+                                theme={{ colors: { primary: '#4660BE' } }}
+                            />
+                        </View>
+                    </View>
                     <Card>
                         <FlatList
                             data={data}
@@ -103,6 +132,21 @@ const styles = StyleSheet.create({
         marginTop: 25,
         marginBottom: 15,
     },
+    labelRadio:{
+        color: '#FFF',
+        fontSize: 15,
+        
+    },
+    radioButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    },
+    radio1: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    }
+    
 });
 
 
