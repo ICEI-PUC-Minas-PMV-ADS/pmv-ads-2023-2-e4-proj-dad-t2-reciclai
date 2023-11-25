@@ -11,8 +11,11 @@ import { useNavigation } from '@react-navigation/native';
 import { getTodosUsuarios } from '../services/Usuarios.services';
 import Container from '../components/Container';
 import Card from '../components/Card';
+import CardPesquisa from '../components/CardPesquisa';
 import Body from '../components/Body';
 import Logo from '../components/Logo';
+import Button from '../components/ButtonFormulario';
+
 
 const BuscaColetor = () => {
   const navigation = useNavigation();
@@ -44,52 +47,51 @@ const BuscaColetor = () => {
   };
 
   return (
-    <Container>
+    <Container style={styles.container}>
       <Logo />
       <Body>
-        <ScrollView>
-          <View style={styles.container}>
-
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <View style={styles.contentContainer}>
             <Text style={styles.titulo}>Busca de Coletores</Text>
-            <Card>
+            <CardPesquisa>
               <TextInput
                 style={styles.searchInput}
                 placeholder="Buscar por Estado"
                 value={searchInput}
                 onChangeText={(text) => setSearchInput(text)}
               />
-            </Card>
-            <Card>
-              {data
-                .filter((usuario) =>
-                  usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
-                )
-                .map((usuario, index) => (
-                  <TouchableOpacity
-                    key={usuario.id}
-                    style={styles.itemContainer}
-                    onPress={() => handleSubmit(index)}
-                  >
-                    <View style={styles.column}>
-                      <Text style={styles.itemTitle}>Nome:</Text>
-                      <Text style={styles.itemText}>{usuario.nome}</Text>
-                    </View>
-                    <View style={styles.column}>
-                      <Text style={styles.itemTitle}>Estado:</Text>
-                      <Text style={styles.itemText}>{usuario.estado}</Text>
-                    </View>
-                    <Text style={styles.selectText}>Selecionar</Text>
-
-                  </TouchableOpacity>
-
-
-                ))}
-
-            </Card>
+            </CardPesquisa>
+            <CardPesquisa>
+  {data
+    .filter((usuario) =>
+      usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
+    )
+    .map((usuario, index) => (
+      <TouchableOpacity
+        key={usuario.id}
+        style={styles.itemContainer}
+        onPress={() => handleSubmit(index)}
+      >
+        <View style={styles.column}>
+          <Text style={styles.itemTitle}>Nome:</Text>
+          <Text style={styles.itemText}>
+            {usuario.nome.charAt(0).toUpperCase() + usuario.nome.slice(1)}
+          </Text>
+        </View>
+        <View style={styles.column}>
+          <Text style={styles.itemTitle}>Estado:</Text>
+          <Text style={styles.itemText}>{usuario.estado}</Text>
+        </View>
+        <Text style={styles.selectText}>Selecionar</Text>
+      </TouchableOpacity>
+    ))}
+</CardPesquisa>
+            <Button
+              title="Voltar"
+              theme={{ colors: { primary: '#FFFFFF' } }}
+              onPress={() => navigation.goBack()}
+            />
           </View>
-                   <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-                   <Text style={styles.backButtonText}>Voltar</Text>
-                  </TouchableOpacity>
         </ScrollView>
       </Body>
     </Container>
@@ -97,9 +99,11 @@ const BuscaColetor = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
+  scrollContainer: {
+    flexGrow: 1,
+  },
+  contentContainer: {
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -108,21 +112,30 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: '#fff',
   },
-  searchInput: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    width: '100%',
+  searchCard: {
+    marginBottom: 20,
   },
-  itemContainer: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+  searchInput: {
+    borderWidth: 2,
+    borderColor: '#3498db',
     padding: 10,
-    marginBottom: 10,
     width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    borderRadius: 5,
+    fontSize: 16,
+    color: '#333',
+  },
+
+itemContainer: {
+  borderWidth: 1,
+  borderColor: '#ccc',
+  padding: 15,
+  marginBottom: 10,
+  width: '100%',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  backgroundColor: '#ecf0f1',
+  borderRadius: 8,
   },
   column: {
     flex: 1,
@@ -137,20 +150,21 @@ const styles = StyleSheet.create({
   itemText: {
     marginBottom: 5,
   },
-  selectText: {
-    color: 'blue',
-    fontWeight: 'bold',
-  },
-
+selectText: {
+  color: '#3498db', 
+  fontWeight: 'bold',
+},
   backButton: {
     padding: 10,
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#3498db',
+    borderRadius: 5,
   },
   backButtonText: {
-    color: 'blue',
+    color: '#fff',
     fontWeight: 'bold',
-    fontSize: 18 ,
+    fontSize: 18,
   },
 });
 
