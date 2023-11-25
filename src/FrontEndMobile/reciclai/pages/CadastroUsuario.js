@@ -73,9 +73,12 @@ const CadastroUsuario = ({ route }) => {
                     "estado": estado,
                     "perfil": perfil,
                     "tipoLixo": tipoLixo
-                },
-                navigation.navigate("Login")
-            );
+                });
+                Alert.alert('Cadastro de usuário', 'Seu cadastro foi finalizado com sucesso', [
+                    { text: 'OK', onPress: () => navigation.navigate("Login") }
+                ]);
+                //navigation.navigate("Login")
+
         }
     }
 

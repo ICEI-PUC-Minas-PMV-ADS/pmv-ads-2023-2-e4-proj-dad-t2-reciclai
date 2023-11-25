@@ -8,6 +8,7 @@ export default function UserProvider({ children }) {
   const [user, setUser] = useState({});
   const [name, setName] = useState('');
   const [idUsuario, setIdUsuario] = useState();
+  const [userPerfil, setPerfil] = useState();
 
   function setUserName(name) {
 
@@ -19,6 +20,10 @@ export default function UserProvider({ children }) {
 
     setIdUsuario(idUsuario)
 
+  }
+
+  function setUserPerfil(userPerfil){
+    setPerfil(userPerfil)
   }
 
 
@@ -35,7 +40,8 @@ export default function UserProvider({ children }) {
         setUserName, 
         idUsuario,
         setIdUsuario,
-        setUserId
+        setUserId,
+        userPerfil
 
       }}>
       {children}
@@ -54,7 +60,8 @@ export function useUser() {
     setUserName, 
     idUsuario,
     setIdUsuario,
-    setUserId } = context;
+    setUserId,
+    userPerfil } = context;
   return { signed,
     setSigned,
     user,
@@ -64,5 +71,6 @@ export function useUser() {
     setUserName, 
     idUsuario,
     setIdUsuario,
-    setUserId };
+    setUserId,
+    userPerfil };
 }

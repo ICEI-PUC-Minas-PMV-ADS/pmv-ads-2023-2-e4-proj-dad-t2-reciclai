@@ -59,8 +59,11 @@ const CadastroUsuario = () => {
         "estado": estado,
         "perfil": perfil,
         "tipoLixo": tipoLixo
-      },
-        navigate('/login'));
+      });
+
+        window.alert("Seu cadastro foi finalizado com sucesso! — Clique em OK para ser redirecionado.");
+        //window.location.href = '/login';
+        navigate('/login');
     
   }
 

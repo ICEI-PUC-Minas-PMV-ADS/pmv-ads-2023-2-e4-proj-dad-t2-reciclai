@@ -17,16 +17,16 @@ const FormularioPedidos = () => {
     const emailColetor = dados.email;
     console.log(coletor);
     const navigate = useNavigate();
-    const {userId} = useUser();
+    const { userId, userPerfil } = useUser();
     //const [idSolicitante, setIdSolicitante] = useState('');
     //const [idColetor, setIdColetor] = useState('');
-    const [nomeSolicitante, setNomeSolicitante] = useState(''); 
+    const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState();
     const [descricao, setDescricao] = useState();
     const [tipoLixo, setTipoLixo] = useState();
-    const [status, setStatus] = useState();
+    //const [status, setStatus] = useState();
     const [quantidadeLixo, setQuantidadeLixo] = useState();
 
     // async function postPedidos() {
@@ -47,7 +47,7 @@ const FormularioPedidos = () => {
     // }
 
     // useEffect(() => {
-        
+
     //     postPedidos();
     // }, []);
 
@@ -62,35 +62,42 @@ const FormularioPedidos = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         
-        const novoPedido = await insertPedidos({
-            "idSolicitante": parseInt(userId),
-            "idColetor": coletor,
-            "nomeSolicitante": nomeSolicitante,
-            "dataColeta": dataColeta,
-            "endereco": endereco,
-            "lixoPerigoso": lixoPerigoso,
-            "descricao": descricao,
-            "tipoLixo": tipoLixo,
-            "qtdLixo": quantidadeLixo,
-            "status": 0,
-        });
-        console.log(novoPedido.id);
+        console.log(userPerfil);
+        if (userPerfil == 0) {
+            const novoPedido = await insertPedidos({
+                "idSolicitante": parseInt(userId),
+                "idColetor": coletor,
+                "nomeSolicitante": nomeSolicitante,
+                "dataColeta": dataColeta,
+                "endereco": endereco,
+                "lixoPerigoso": lixoPerigoso,
+                "descricao": descricao,
+                "tipoLixo": tipoLixo,
+                "qtdLixo": quantidadeLixo,
+                "status": 0,
+            });
 
-        await insertUsuariosPedidos({
-            "pedidoId": novoPedido.id,
-            "usuarioId": parseInt(userId)
-        });
+            console.log(novoPedido.id);
+            await insertUsuariosPedidos({
+                "pedidoId": novoPedido.id,
+                "usuarioId": parseInt(userId)
+            });
 
-        await insertUsuariosPedidos({
-            "pedidoId": novoPedido.id,
-            "usuarioId": coletor
-        });
-        
-        await enviarEmailColetor({
-            "email": emailColetor
-        });
+            await insertUsuariosPedidos({
+                "pedidoId": novoPedido.id,
+                "usuarioId": coletor
+            });
 
-        navigate('/buscaColetor');
+            await enviarEmailColetor({
+                "email": emailColetor
+            });
+
+            window.alert("Seu pedido foi finalizado com sucesso! — Clique em OK para ser redirecionado.");
+            //window.location.href = navigate('/buscaColetor');
+            navigate('/buscaColetor');
+        } else {
+            window.alert("Ocorreu um erro, você precisa ser do tipo 'solicitante' para realizar pedidos! — Clique em OK para ser redirecionado.");
+        }
     }
 
     const handleNameChange = (e) => {
@@ -98,13 +105,13 @@ const FormularioPedidos = () => {
     }
 
     useEffect(() => {
-        async function fetchUser(){
+        async function fetchUser() {
             const user = await getUsuario(userId);
             setNomeSolicitante(user.nome);
         }
         fetchUser();
-      },[]);
-        
+    });
+
 
     return (
         <React.Fragment>

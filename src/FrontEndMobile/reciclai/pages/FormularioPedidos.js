@@ -64,41 +64,45 @@ const FormularioPedidos = ({ route }) => {
     }
 
     async function handleSubmit() {
+        console.log(user.userPerfil);
+        if (user.userPerfil == 0) {
+            const novoPedido = await insertPedidos({
+                "idSolicitante": solicitante,
+                "idColetor": coletor,
+                "nomeSolicitante": nomeSolicitante,
+                "dataColeta": formattedDateTime(Aux1Coleta, Aux2Coleta),
+                "endereco": endereco,
+                "lixoPerigoso": lixoPerigoso,
+                "descricao": descricao,
+                "tipoLixo": parseInt(tipoLixo),
+                "qtdLixo": parseInt(quantidadeLixo),
+                "status": 0,
+                //}).then(res => {
+                //navigation.goBack();
+                //console.log(res);
+            });
+            console.log(novoPedido.id);
 
-        const novoPedido = await insertPedidos({
-            "idSolicitante": solicitante,
-            "idColetor": coletor,
-            "nomeSolicitante": nomeSolicitante,
-            "dataColeta": formattedDateTime(Aux1Coleta, Aux2Coleta),
-            "endereco": endereco,
-            "lixoPerigoso": lixoPerigoso,
-            "descricao": descricao,
-            "tipoLixo": parseInt(tipoLixo),
-            "qtdLixo": parseInt(quantidadeLixo),
-            "status": 0,
-            //}).then(res => {
-            //navigation.goBack();
-            //console.log(res);
-        });
-        console.log(novoPedido.id);
+            await insertUsuariosPedidos({
+                "pedidoId": novoPedido.id,
+                "usuarioId": solicitante
+            });
 
-        await insertUsuariosPedidos({
-            "pedidoId": novoPedido.id,
-            "usuarioId": solicitante
-        });
+            await insertUsuariosPedidos({
+                "pedidoId": novoPedido.id,
+                "usuarioId": coletor
+            });
 
-        await insertUsuariosPedidos({
-            "pedidoId": novoPedido.id,
-            "usuarioId": coletor
-        });
+            await enviarEmailColetor({
+                "email": emailColetor
+            });
 
-        await enviarEmailColetor({
-            "email": emailColetor
-        });
-
-        Alert.alert('Formulário de pedidos', 'Seu pedido foi finalizado com sucesso', [
-            { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
-        ]);
+            Alert.alert('Formulário de pedidos', 'Seu pedido foi finalizado com sucesso', [
+                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+            ]);
+        } else {
+            window.alert("Ocorreu um erro, você precisa ser do tipo 'solicitante' para realizar pedidos! — Clique em OK para ser redirecionado.");
+        }
     }
 
     const handleNameChange = (e) => {
@@ -338,7 +342,7 @@ const styles = StyleSheet.create({
     hourIOS: {
         height: 25,
         width: 62,
-        marginLeft:6,
+        marginLeft: 6,
         //paddingEnd: 60,
         //backgroundColorolor: "white"
     }
