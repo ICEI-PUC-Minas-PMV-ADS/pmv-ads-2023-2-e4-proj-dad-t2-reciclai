@@ -12,11 +12,12 @@ import ButtonDelete from '../components/ButtonDelete';
 import Button from '../components/ButtonFormulario';
 
 const PerfilUsuario = () => {
-    const { setSigned, idUsuario } = useUser();
+    const {  idUsuario } = useUser();
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [endereco, setEndereco] = useState('');
     const [perfil, setPerfil] = useState('');
+    const [senha, setSenha] = useState('');
     const [tipoLixo, setTipoLixo] = useState('');
     const [estado, setEstado] = useState('');
     const navigation = useNavigation();
@@ -44,6 +45,7 @@ const PerfilUsuario = () => {
             const res = await getUsuario(idUsuario);
             setNome(res.nome);
             setEmail(res.email);
+            setSenha(res.senha);
             setEndereco(res.endereco);
             setPerfil(Perfis[res.perfil]);
             setTipoLixo(TiposDeLixo[res.tipoLixo]);
@@ -55,7 +57,7 @@ const PerfilUsuario = () => {
     }
 
 const handleEditar = () => {
-    if(item != null & item != {})
+  
         navigation.navigate('CadastroUsuario', { item });
 };
 
@@ -101,7 +103,7 @@ const handleEditar = () => {
                 <Button
                     title="Editar"
                     theme={{ colors: { primary: '#FFFFFF' } }}
-                    onPress={() => handleEditar()}
+                    onPress={handleEditar}
                 />
 
                 <ButtonDelete

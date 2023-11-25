@@ -7,6 +7,8 @@ import AposLogin from '../pages/AposLogin';
 import VerPedido from '../pages/VerPedido';
 import FormularioPedidos from '../pages/FormularioPedidos';
 import Historico from '../pages/Historico';
+import CadastroUsuario from '../pages/CadastroUsuario';
+import PerfilUsuario from '../pages/PerfilUsuario';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,14 +45,14 @@ const Main = () => {
           header: () => null,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Histórico"
         component={Historico}
         options={{
           header: () => null,
         }}
       />
-      
+
       <Stack.Screen
         name="Formulario"
         component={FormularioPedidos}
@@ -58,8 +60,25 @@ const Main = () => {
           header: () => null,
         }}
       />
-      
+      <Stack.Screen
+        name="CadastroUsuario"
+        component={CadastroUsuario}
+        options={{
+          header: () => null,
+        }}
+      />
+
+      <Stack.Screen
+        name="PerfilUsuario"
+        component={PerfilUsuario}
+        options={{
+          header: () => null,
+        }}
+      />
+
     </Stack.Navigator>
+
+
 
   );
 };

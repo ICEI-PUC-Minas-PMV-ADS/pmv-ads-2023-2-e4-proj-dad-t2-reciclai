@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
-import { Picker, Estado } from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 
 
 import Container from '../components/Container';
@@ -40,7 +40,8 @@ const CadastroUsuario =  ({ route }) => {
     useEffect(() => { 
                 if (item) {                    
                     setNome(item.nome);
-                    setEmail(item.email);                   
+                    setEmail(item.email);  
+                    setSenha(item.senha);                 
                     setEndereco(item.endereco);
                     setEstado(item.estado);
                     setPerfil(item.perfil);
@@ -57,17 +58,18 @@ const CadastroUsuario =  ({ route }) => {
     async function handleCadastrarOuEditar(event) {
         
         if(item) {
-            await updateUsuarios(
+             updateUsuarios(
                 {    
                     id: item.id,                
                     nome: item.nome,
-                    email: item.email,                    
+                    email: item.email,  
+                    senha: item.senha,                  
                     endereco: item.endereco,
                     estado: item.estado,
                     perfil: item.perfil,
                     tipoLixo: item.tipoLixo
                 },
-                navigation.navigate("PerfilUsuario")
+                navigation.navigate("AposLogin")
             );
         }
         else {
@@ -114,9 +116,7 @@ const CadastroUsuario =  ({ route }) => {
                         required
                         style={styles.textLableInput}
                     />
-                    {item
-                    ? <div/>
-                    :<InputPedido
+                   <InputPedido
                     label= "* Senha:"
                     value={senha}
                     secureTextEntry
@@ -124,7 +124,7 @@ const CadastroUsuario =  ({ route }) => {
                     keyboardType="default"
                     required
                     style={styles.textLableInput}
-                    />}
+                    />
                     
                     <InputPedido
                         label="* Endereço:"

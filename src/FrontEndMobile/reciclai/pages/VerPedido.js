@@ -148,7 +148,7 @@ const VerPedido = ({ route }) => {
                         <Text1 title="Data da Coleta: " />
                         <Text2 name={dataColeta} />
 
-                        <Text1 title="Tipo de Lixo: " />
+                        <Text1 title="Tipo de Descarte: " />
                         <Text2 name={TipoLixo[tipoLixo]} />
 
                         <Text1 title="Quantidade: " />
