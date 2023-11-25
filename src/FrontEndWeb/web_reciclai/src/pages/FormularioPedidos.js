@@ -8,7 +8,7 @@ import { useUser } from '../contexts/UserContext';
 import styles from './styles/FormularioPedidos.module.css';
 import Input from '../components/Input.js';
 import Botao from '../components/Button.js';
-import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
+import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 
 const FormularioPedidos = () => {
     const location = useLocation();
@@ -63,7 +63,7 @@ const FormularioPedidos = () => {
         event.preventDefault();
         
         console.log(userPerfil);
-        if (userPerfil == 0) {
+        if (userPerfil === 0) {
             const novoPedido = await insertPedidos({
                 "idSolicitante": parseInt(userId),
                 "idColetor": coletor,
@@ -88,8 +88,9 @@ const FormularioPedidos = () => {
                 "usuarioId": coletor
             });
 
-            await enviarEmailColetor({
-                "email": emailColetor
+            await enviarEmail({
+                "email": emailColetor,
+                "perfil": userPerfil
             });
 
             window.alert("Seu pedido foi finalizado com sucesso! — Clique em OK para ser redirecionado.");

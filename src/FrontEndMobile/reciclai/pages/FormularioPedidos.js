@@ -12,7 +12,7 @@ import Button from '../components/ButtonFormulario';
 
 import { useUser } from '../contexts/UserContext';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
-import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
+import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 
 const FormularioPedidos = ({ route }) => {
     const { id, email } = route.params.data;
@@ -93,8 +93,9 @@ const FormularioPedidos = ({ route }) => {
                 "usuarioId": coletor
             });
 
-            await enviarEmailColetor({
-                "email": emailColetor
+            await enviarEmail({
+                "email": emailColetor,
+                "perfil": user.userPerfil
             });
 
             Alert.alert('Formulário de pedidos', 'Seu pedido foi finalizado com sucesso', [

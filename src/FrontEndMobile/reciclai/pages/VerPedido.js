@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { getPedidos, updatePedidos } from '../services/Pedidos.services';
+import { getUsuario } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -86,6 +87,12 @@ const VerPedido = ({ route }) => {
         })
     }
 
+    async function emailSolicitante(){
+        await getUsuario(item.idSolicitante).then(res => {
+            return res.email;
+        })
+    }
+
     async function handleAceitar(event) {
         event.preventDefault();
         if (item.id) {
@@ -102,6 +109,10 @@ const VerPedido = ({ route }) => {
                 "status": 1,
             });
 
+            await enviarEmail({
+                "email": emailSolicitante(),
+                "perfil": 1
+            });
         }
     }
 
@@ -121,7 +132,10 @@ const VerPedido = ({ route }) => {
                 "status": 2,
             });
 
-
+            await enviarEmail({
+                "email": emailSolicitante(),
+                "perfil": 1
+            });
         }
     }
 

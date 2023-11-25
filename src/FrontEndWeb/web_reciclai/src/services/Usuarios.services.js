@@ -78,30 +78,12 @@ export async function deleteUsuario(id) {
   }
 }
 
-export const enviarEmailColetor = async (param) => {
+export const enviarEmail = async (param) => {
   console.log(param);
   console.log(param.email);
+  console.log(param.perfil);
   try {
-    return await API.post(`${BASE_URL}/usuarios/${param.email}/EnviarEmailColetor`).then(
-      response => {
-        return response.data;
-      },
-      error => {
-        console.log(error);
-        return null;
-      }
-    );
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-}
-
-export const enviarEmailSolicitante = async (param) => {
-  console.log(param);
-  console.log(param.email);
-  try {
-    return await API.post(`${BASE_URL}/usuarios/${param.email}/EnviarEmailSolicitante`).then(
+    return await API.post(`${BASE_URL}/usuarios/${param.email}/${param.perfil}/EnviarEmail`).then(
       response => {
         return response.data;
       },

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Modal, Button } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosPedidos, updatePedidos } from '../services/Pedidos.services';
+import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
@@ -72,6 +73,11 @@ const HomeAposLogin = () => {
     editarPedido();
   });
 
+  async function emailSolicitante() {
+    await getUsuario(pedidoSelecionado.idSolicitante).then(res => {
+      return res.email;
+    })
+  }
 
   async function handleAceitar(event) {
     event.preventDefault();
@@ -88,6 +94,12 @@ const HomeAposLogin = () => {
         "tipoLixo": pedidoSelecionado.tipoLixo,
         "status": 1,
       });
+
+      await enviarEmail({
+        "email": emailSolicitante(),
+        "perfil": 1
+      });
+
       alert('O pedido foi aceito com sucesso!');
       navigate(0);
     }
@@ -107,6 +119,11 @@ const HomeAposLogin = () => {
         "descricao": pedidoSelecionado.descricao,
         "tipoLixo": pedidoSelecionado.tipoLixo,
         "status": 2,
+      });
+
+      await enviarEmail({
+        "email": emailSolicitante(),
+        "perfil": 1
       });
 
       alert('O pedido foi cancelado com sucesso!');
@@ -169,18 +186,18 @@ const HomeAposLogin = () => {
               Fechar
             </Button>
             {userPerfil == 1 ?
-            <Button className={styles.botao} onClick={handleAceitar}>
-              Aceitar
-            </Button>
-            :
-            <></>
-            }
-             
-             
-              <Button variant="outline-danger" onClick={handleCancelar}>
-                Cancelar
+              <Button className={styles.botao} onClick={handleAceitar}>
+                Aceitar
               </Button>
-            
+              :
+              <></>
+            }
+
+
+            <Button variant="outline-danger" onClick={handleCancelar}>
+              Cancelar
+            </Button>
+
 
 
 
