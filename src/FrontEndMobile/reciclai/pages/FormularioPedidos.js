@@ -14,7 +14,7 @@ import { useUser } from '../contexts/UserContext';
 import { insertPedidos, insertUsuariosPedidos } from '../services/Pedidos.services';
 import { getUsuario, enviarEmailColetor } from '../services/Usuarios.services';
 
-const FormularioPedidos = ({route}) => {
+const FormularioPedidos = ({ route }) => {
     const { id, email } = route.params.data;
     const coletor = id;
     const emailColetor = email;
@@ -37,25 +37,25 @@ const FormularioPedidos = ({route}) => {
         setTipoLixo(value);
     }
 
-    function formattedDate(date){
-        let myDate; 
+    function formattedDate(date) {
+        let myDate;
         myDate = new Date(date)
-            myDate.setMinutes(myDate.getMinutes() + myDate.getTimezoneOffset())
+        myDate.setMinutes(myDate.getMinutes() + myDate.getTimezoneOffset())
 
-            return myDate;
+        return myDate;
     }
 
-    function formattedDateTime(date1, date2){
+    function formattedDateTime(date1, date2) {
         let data;
         data = formattedDate(date1)
-            data.setHours(date2.getHours())
-            data.setMinutes(date2.getMinutes())
-            data.setSeconds(date2.getSeconds())
-            if(Platform.OS !== 'android'){
-                data.setHours(data.getHours() - (data.getTimezoneOffset()/60))
-            }
-            // console.log(data.getHours())
-            // console.log(data.getTimezoneOffset())
+        data.setHours(date2.getHours())
+        data.setMinutes(date2.getMinutes())
+        data.setSeconds(date2.getSeconds())
+        if (Platform.OS !== 'android') {
+            data.setHours(data.getHours() - (data.getTimezoneOffset() / 60))
+        }
+        // console.log(data.getHours())
+        // console.log(data.getTimezoneOffset())
         return data;
     }
 
@@ -103,17 +103,17 @@ const FormularioPedidos = ({route}) => {
         setNomeSolicitante(e.target.value);
     }
     useEffect(() => {
-        async function fetchUser(){
+        async function fetchUser() {
             const user = await getUsuario(solicitante);
             setNomeSolicitante(user.nome);
         }
         fetchUser();
-      },[]);
+    }, []);
 
     return (
         <Container>
             <ScrollView>
-                <Logo/>
+                <Logo />
                 <Body>
                     <View style={styles.container}>
                         <Text style={styles.titulo} >Formulário de pedido</Text>
@@ -254,6 +254,12 @@ const FormularioPedidos = ({route}) => {
                             onPress={() => handleSubmit()}
                         />
 
+                        <Button
+                            title="Voltar"
+                            theme={{ colors: { primary: '#FFFFFF' } }}
+                            onPress={() => navigation.goBack()}
+                        />
+
                     </View>
                 </Body>
             </ScrollView>
@@ -322,7 +328,7 @@ const styles = StyleSheet.create({
     dateIOS: {
         //height: 30,
         //marginLeft:6,
-        paddingEnd:60,
+        paddingEnd: 60,
     }
 });
 
