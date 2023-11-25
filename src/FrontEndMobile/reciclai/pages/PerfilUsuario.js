@@ -107,12 +107,12 @@ const PerfilUsuario = () => {
             <View style={styles.container}>
                 <Text style={styles.titulo}>Perfil do Usuário</Text>
                 <CardPerfil>
-                    <Text style={styles.cardText}>Nome: {nome}</Text>
-                    <Text style={styles.cardText}>Email: {email}</Text>
-                    <Text style={styles.cardText}>Endereço: {endereco}</Text>
-                    <Text style={styles.cardText}>Estado: {estado}</Text>
-                    <Text style={styles.cardText}>Perfil: {perfil}</Text>
-                    <Text style={styles.cardText}>Tipo de Lixo: {tipoLixo}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Nome:</Text> {nome}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Email:</Text> {email}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Endereço:</Text> {endereco}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Estado:</Text> {estado}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Perfil: </Text>{perfil}</Text>
+                <Text style={styles.cardText}><Text style={{ fontWeight: 'bold' }}>Tipo de Lixo:</Text> {tipoLixo}</Text>
                 </CardPerfil>
 
                 <Button
