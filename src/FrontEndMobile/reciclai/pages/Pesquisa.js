@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity,StyleSheet,ScrollView,} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import { getTodosUsuarios } from '../services/Usuarios.services';
 import Container from '../components/Container';
-import Card from '../components/Card';
 import CardPesquisa from '../components/CardPesquisa';
 import Body from '../components/Body';
 import Logo from '../components/Logo';
@@ -21,7 +14,7 @@ const BuscaColetor = () => {
   const navigation = useNavigation();
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [filtro, setFiltro] = useState('estado'); // Novo estado para o filtro
+  const [filtro, setFiltro] = useState('estado'); 
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -109,7 +102,7 @@ const BuscaColetor = () => {
                       <Text style={styles.itemTitle}>Estado:</Text>
                       <Text style={styles.itemText}>{usuario.estado}</Text>
                     </View>
-                    <Text style={styles.selectText}>Selecionar</Text>
+                    <Icon name="calendar-multiple-check" size={30} color={'#4660BE'}/>
                   </TouchableOpacity>
                 ))}
             </CardPesquisa>
@@ -144,7 +137,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     borderWidth: 2,
-    borderColor: '#3498db',
+    borderColor: '#4660BE',
     padding: 10,
     width: '100%',
     borderRadius: 5,
@@ -207,7 +200,7 @@ const styles = StyleSheet.create({
   },
 
   radioButtonSelected: {
-    backgroundColor: '#3498db',
+    backgroundColor: '#4660BE',
   },
 
   radioButtonText: {
