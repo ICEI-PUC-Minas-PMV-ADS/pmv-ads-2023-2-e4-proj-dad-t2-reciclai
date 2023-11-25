@@ -125,7 +125,7 @@ const FormularioPedidos = ({ route }) => {
         // For example:
         Alert.alert(
             "Atenção!",
-            "Os tipos de resíduos perigosos que aceitamos são pilhas e baterias. Os demais tipos não são aceitos por nossos coletores. Para saber mais sobre resíduos perigosos e como descartá-los corretamente, clique aqui.",
+            "Os tipos de resíduos perigosos que aceitamos são pilhas e baterias. Os demais tipos não são aceitos por nossos coletores. Para saber mais sobre resíduos perigosos e como descartá-los corretamente, clique em saber mais.",
             [
                 { text: "OK", onPress: () => console.log("OK Pressed") },
                 { text: "Saber mais", onPress: () => Linking.openURL("https://www.ufsm.br/pro-reitorias/proinfra/uma/2021/03/19/residuos-perigosos-o-que-sao-e-como-lidar-da-maneira-correta") },
