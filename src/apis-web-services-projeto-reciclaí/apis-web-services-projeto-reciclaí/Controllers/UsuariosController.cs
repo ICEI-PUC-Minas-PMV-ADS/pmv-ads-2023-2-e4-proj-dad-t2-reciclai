@@ -64,7 +64,6 @@ namespace apis_web_services_projeto_reciclai.Controllers
             return Ok(model);
         }
 
-        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUser(int id, UsuarioDto model)
         {
@@ -93,7 +92,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
 
         }
 
-        [Authorize]
+        
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
