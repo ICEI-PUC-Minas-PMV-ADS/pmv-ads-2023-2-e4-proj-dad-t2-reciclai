@@ -13,9 +13,9 @@
     "@emotion/styled": "^11.11.0",
     "@expo/webpack-config": "^19.0.0",
     "@mui/material": "^5.14.17",
-    "@react-native-community/datetimepicker": "^7.2.0",
-    "@react-native-picker/picker": "2.4.10",
     "@react-native-async-storage/async-storage": "1.18.2",
+    "@react-native-community/datetimepicker": "7.2.0",
+    "@react-native-picker/picker": "2.4.10",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "axios": "^1.6.0",
@@ -24,7 +24,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.6",
+    "react-native-elements": "^3.4.3",
     "react-native-paper": "^5.11.1",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
