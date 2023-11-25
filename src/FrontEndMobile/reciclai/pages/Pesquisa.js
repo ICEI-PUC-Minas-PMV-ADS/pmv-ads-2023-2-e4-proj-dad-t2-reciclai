@@ -21,6 +21,7 @@ const BuscaColetor = () => {
   const navigation = useNavigation();
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
+  const [filtro, setFiltro] = useState('estado'); // Novo estado para o filtro
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -46,6 +47,7 @@ const BuscaColetor = () => {
     navigation.navigate('AposLogin');
   };
 
+
   return (
     <Container style={styles.container}>
       <Logo />
@@ -53,43 +55,68 @@ const BuscaColetor = () => {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <View style={styles.contentContainer}>
             <Text style={styles.titulo}>Busca de Coletores</Text>
+            <View style={styles.radioButtonsContainer}>
+              <TouchableOpacity
+                style={[
+                  styles.radioButton,
+                  filtro === 'estado' && styles.radioButtonSelected,
+                ]}
+                onPress={() => setFiltro('estado')}
+              >
+                <Text style={styles.radioButtonText}>Filtrar por Estado</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.radioButton,
+                  filtro === 'nome' && styles.radioButtonSelected,
+                ]}
+                onPress={() => setFiltro('nome')}
+              >
+                <Text style={styles.radioButtonText}>Filtrar por Nome</Text>
+              </TouchableOpacity>
+            </View>
+
             <CardPesquisa>
               <TextInput
                 style={styles.searchInput}
-                placeholder="Buscar por Estado"
+                placeholder={
+                  filtro === 'estado' ? 'Buscar por Estado' : 'Buscar por Nome'
+                }
                 value={searchInput}
                 onChangeText={(text) => setSearchInput(text)}
               />
             </CardPesquisa>
             <CardPesquisa>
-  {data
-    .filter((usuario) =>
-      usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
-    )
-    .map((usuario, index) => (
-      <TouchableOpacity
-        key={usuario.id}
-        style={styles.itemContainer}
-        onPress={() => handleSubmit(index)}
-      >
-        <View style={styles.column}>
-          <Text style={styles.itemTitle}>Nome:</Text>
-          <Text style={styles.itemText}>
-            {usuario.nome.charAt(0).toUpperCase() + usuario.nome.slice(1)}
-          </Text>
-        </View>
-        <View style={styles.column}>
-          <Text style={styles.itemTitle}>Estado:</Text>
-          <Text style={styles.itemText}>{usuario.estado}</Text>
-        </View>
-        <Text style={styles.selectText}>Selecionar</Text>
-      </TouchableOpacity>
-    ))}
-</CardPesquisa>
+              {data
+                .filter((usuario) =>
+                  filtro === 'estado'
+                    ? usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
+                    : usuario.nome.toLowerCase().includes(searchInput.toLowerCase())
+                )
+                .map((usuario, index) => (
+                  <TouchableOpacity
+                    key={usuario.id}
+                    style={styles.itemContainer}
+                    onPress={() => handleSubmit(index)}
+                  >
+                    <View style={styles.column}>
+                      <Text style={styles.itemTitle}>Nome:</Text>
+                      <Text style={styles.itemText}>
+                        {usuario.nome.charAt(0).toUpperCase() + usuario.nome.slice(1)}
+                      </Text>
+                    </View>
+                    <View style={styles.column}>
+                      <Text style={styles.itemTitle}>Estado:</Text>
+                      <Text style={styles.itemText}>{usuario.estado}</Text>
+                    </View>
+                    <Text style={styles.selectText}>Selecionar</Text>
+                  </TouchableOpacity>
+                ))}
+            </CardPesquisa>
             <Button
               title="Voltar"
               theme={{ colors: { primary: '#FFFFFF' } }}
-              onPress={() => navigation.goBack()}
+              onPress={handleGoBack}
             />
           </View>
         </ScrollView>
@@ -125,17 +152,17 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 
-itemContainer: {
-  borderWidth: 1,
-  borderColor: '#ccc',
-  padding: 15,
-  marginBottom: 10,
-  width: '100%',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  backgroundColor: '#ecf0f1',
-  borderRadius: 8,
+  itemContainer: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 15,
+    marginBottom: 10,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#ecf0f1',
+    borderRadius: 8,
   },
   column: {
     flex: 1,
@@ -150,10 +177,10 @@ itemContainer: {
   itemText: {
     marginBottom: 5,
   },
-selectText: {
-  color: '#3498db', 
-  fontWeight: 'bold',
-},
+  selectText: {
+    color: '#3498db',
+    fontWeight: 'bold',
+  },
   backButton: {
     padding: 10,
     justifyContent: 'space-between',
@@ -165,6 +192,27 @@ selectText: {
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 18,
+  },
+  radioButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 10,
+  },
+
+  radioButton: {
+    padding: 10,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+
+  radioButtonSelected: {
+    backgroundColor: '#3498db',
+  },
+
+  radioButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 
