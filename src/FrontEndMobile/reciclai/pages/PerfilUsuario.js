@@ -3,6 +3,7 @@ import { Text, StyleSheet, Alert, View } from 'react-native';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { getUsuario, deleteUsuario } from '../services/Usuarios.services';
 import { useUser } from '../contexts/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Container from '../components/Container';
 import CardPerfil from '../components/CardPerfil';
@@ -12,7 +13,7 @@ import ButtonDelete from '../components/ButtonDelete';
 import Button from '../components/ButtonFormulario';
 
 const PerfilUsuario = () => {
-    const { idUsuario } = useUser();
+    const { setSigned, name, idUsuario, setUserId } = useUser();
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [endereco, setEndereco] = useState('');
@@ -63,15 +64,28 @@ const PerfilUsuario = () => {
 
     async function handleExcluir() {
         try {
-            const confirmacao = await mostrarMensagemConfirmacao('Tem certeza que deseja excluir o usuário?');
-            if (confirmacao) {
-                await deleteUsuario(idUsuario);
-                navigation.navigate('/');
-            }
+          const confirmacao = await mostrarMensagemConfirmacao('Tem certeza que deseja excluir o usuário?');
+          if (confirmacao) {
+           await deleteUsuario(idUsuario);
+           await AsyncStorage.removeItem('jwtToken');
+            setSigned(false);
+          
+            Alert.alert(
+              'Sucesso',
+              'Usuário excluído com sucesso!',
+              [{ text: 'OK', onPress: () => navigation.navigate('Login') }]
+            );
+          }
         } catch (error) {
-            console.error('Erro ao excluir usuário:', error);
+          console.error('Erro ao excluir usuário:', error);
+
+          Alert.alert(
+            'Erro',
+            'Não foi possível excluir o usuário. Por favor, tente novamente mais tarde.',
+            [{ text: 'OK', onPress: () => console.log('OK Pressed') }]
+          );
         }
-    }
+      }
 
     const mostrarMensagemConfirmacao = (mensagem) =>
         new Promise((resolve) => {
