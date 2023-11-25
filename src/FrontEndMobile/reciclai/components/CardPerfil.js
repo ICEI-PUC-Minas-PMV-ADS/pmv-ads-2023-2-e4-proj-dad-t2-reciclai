@@ -9,7 +9,7 @@ const CardPerfil = ({ children, text }) => {
 
 const styles = StyleSheet.create({
     containerCard: {
-        width: "90%",
+        width: "100%",
         alignSelf: 'center',
         borderRadius: 10,
         padding: 20,
