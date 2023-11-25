@@ -67,7 +67,7 @@ const VerPedido = ({ route }) => {
         setDescricao(res.descricao)
         setTipoLixo(res.tipoLixo)
         setStatus(res.status)
-        setQuantidadeLixo(res.quantidadeLixo)
+        setQuantidadeLixo(res.qtdLixo)
 
     };
 
@@ -82,12 +82,12 @@ const VerPedido = ({ route }) => {
                 setDescricao(res.descricao)
                 setTipoLixo(res.tipoLixo)
                 setStatus(res.status)
-                setQuantidadeLixo(res.quantidadeLixo)
+                setQuantidadeLixo(res.qtdLixo)
             }
         })
     }
 
-    async function emailSolicitante(){
+    async function emailSolicitante() {
         await getUsuario(item.idSolicitante).then(res => {
             return res.email;
         })
@@ -106,6 +106,7 @@ const VerPedido = ({ route }) => {
                 "lixoPerigoso": item.lixoPerigoso,
                 "descricao": item.descricao,
                 "tipoLixo": item.tipoLixo,
+                "qtdLixo": item.quantidadeLixo,
                 "status": 1,
             });
 
@@ -129,6 +130,7 @@ const VerPedido = ({ route }) => {
                 "lixoPerigoso": item.lixoPerigoso,
                 "descricao": item.descricao,
                 "tipoLixo": item.tipoLixo,
+                "qtdLixo": item.quantidadeLixo,
                 "status": 2,
             });
 
@@ -143,13 +145,13 @@ const VerPedido = ({ route }) => {
     return (
         <Container>
             <ScrollView>
-               
-        <Logo />
-        
+
+                <Logo />
+
                 <Body>
                     <Card>
-                        <Titulo title={"Número do pedido: "+ id} />
-                       
+                        <Titulo title={"Número do pedido: " + id} />
+
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
 
@@ -172,8 +174,10 @@ const VerPedido = ({ route }) => {
                         <Text2 name={Status[status]} />
 
                         <View style={styles.button}>
-                            <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' }}}/>
-                            <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar" theme={{ colors: { primary: '#a51b0b' } }} />
+                        
+                                <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' } }} />
+                                <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar" theme={{ colors: { primary: '#a51b0b' } }} />
+                            
                         </View>
                     </Card>
 
@@ -196,7 +200,7 @@ const styles = StyleSheet.create({
     logo: {
         alignItems: 'center',
         marginTop: 10,
-      }
+    }
 }
 );
 
