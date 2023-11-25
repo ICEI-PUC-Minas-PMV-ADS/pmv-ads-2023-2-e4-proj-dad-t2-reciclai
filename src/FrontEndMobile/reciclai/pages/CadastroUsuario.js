@@ -60,14 +60,14 @@ const CadastroUsuario =  ({ route }) => {
         if(item) {
              updateUsuarios(
                 {    
-                    id: item.id,                
-                    nome: item.nome,
-                    email: item.email,  
-                    senha: item.senha,                  
-                    endereco: item.endereco,
-                    estado: item.estado,
-                    perfil: item.perfil,
-                    tipoLixo: item.tipoLixo
+                    "id": item.id,                
+                    "nome": nome,
+                    "email": email,  
+                    "senha": senha,                  
+                    "endereco": endereco,
+                    "estado": estado,
+                    "perfil": perfil,
+                    "tipoLixo": tipoLixo
                 },
                 navigation.navigate("AposLogin")
             );
@@ -75,13 +75,13 @@ const CadastroUsuario =  ({ route }) => {
         else {
             await insertUsuarios(
                 {
-                    nome: nome,
-                    email: email,
-                    senha: senha,
-                    endereco: endereco,
-                    estado: estado,
-                    perfil: perfil,
-                    tipoLixo: tipoLixo,
+                    "nome": nome,
+                    "email": email,  
+                    "senha": senha,                  
+                    "endereco": endereco,
+                    "estado": estado,
+                    "perfil": perfil,
+                    "tipoLixo": tipoLixo
                 },
                 navigation.navigate("Login")
             );
