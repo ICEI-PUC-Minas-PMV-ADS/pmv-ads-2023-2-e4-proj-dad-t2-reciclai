@@ -84,11 +84,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-014 |O sistema deve permitir que o usuário altere o tipo de usuário.  |Alta|
 |RF-015 |O sistema deve permitir que o usuário apague sua conta. |Alta|
 |RF-016 |O sistema deve ter uma página que permita ao usuário visualizar informações sobre as empresas cadastradas. |Média |
-|RF-017 |O sistema deve permitir que o coletor recuse uma coleta  . |Alta|
-|RF-018 |O sistema deve permitir que o coletor reagende uma coleta  . |Alta|
-|RF-019 |O sistema deve permitir que o coletor finalize a coleta. |Alta|
-|RF-020 |O sistema deve permitir que o Coletor cancele uma coleta . |Alta|
-|RF-021|O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela inicial.| Média|
+|RF-017 |O sistema deve permitir que o Coletor cancele uma coleta .  |Alta|
+|RF-018 |O sistema deve permitir que o coletor finalize a coleta. |Alta|
+|RF-019 |O sistema deve permitir que o usuário escreva uma mensagem com sua opinião sobre o projeto para aparecer na tela inicial. |Media|
+
+
 
 
 ### Requisitos não Funcionais
