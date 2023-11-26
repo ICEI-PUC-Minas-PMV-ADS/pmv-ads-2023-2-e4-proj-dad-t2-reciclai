@@ -75,14 +75,21 @@ const Historico = () => {
     }
 
     const searchInput = (text) => {
-        if(text){
-            const pesquisaId = text;
-            setPesquisa(text);
-            const pedidosId = originalData.filter(p => p.id == pesquisaId)
-            setData(pedidosId)
+        const pesquisaId = text.trim().toLowerCase(); 
+        setPesquisa(text);
+      
+        if (pesquisaId || checked !== 'Todos') {
+          const pedidosFiltered = originalData.filter((p) => {
+            const idMatch = pesquisaId ? p.id.toString().toLowerCase().includes(pesquisaId) : true;
+            const statusMatch =
+              checked === 'Todos' || (checked === 'Aceito' && p.status === 1) || (checked === 'Cancelado' && p.status === 2);
+            return idMatch && statusMatch;
+          });
+          setData(pedidosFiltered);
+        } else {
+          setData(originalData);
         }
-    }
-
+      };
 
     const ItemView = ({ item }) => {
 
