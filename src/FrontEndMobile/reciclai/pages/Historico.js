@@ -75,21 +75,21 @@ const Historico = () => {
     }
 
     const searchInput = (text) => {
-        const pesquisaId = text.trim().toLowerCase(); 
+        const pesquisaId = text.trim().toLowerCase();
         setPesquisa(text);
-      
+
         if (pesquisaId || checked !== 'Todos') {
-          const pedidosFiltered = originalData.filter((p) => {
-            const idMatch = pesquisaId ? p.id.toString().toLowerCase().includes(pesquisaId) : true;
-            const statusMatch =
-              checked === 'Todos' || (checked === 'Aceito' && p.status === 1) || (checked === 'Cancelado' && p.status === 2);
-            return idMatch && statusMatch;
-          });
-          setData(pedidosFiltered);
+            const pedidosFiltered = originalData.filter((p) => {
+                const idMatch = pesquisaId ? p.id.toString().toLowerCase().includes(pesquisaId) : true;
+                const statusMatch =
+                    checked === 'Todos' || (checked === 'Aceito' && p.status === 1) || (checked === 'Cancelado' && p.status === 2);
+                return idMatch && statusMatch;
+            });
+            setData(pedidosFiltered);
         } else {
-          setData(originalData);
+            setData(originalData);
         }
-      };
+    };
 
     const ItemView = ({ item }) => {
 
@@ -118,12 +118,12 @@ const Historico = () => {
             <Body>
 
                 < Text style={styles.titulo}>Histórico:</Text>
-           
+
                 <View style={styles.radioButton}>
-                <View style={styles.radio1}>
+                    <View style={styles.radio1}>
                         <Text style={styles.labelRadio}>Todos</Text>
                         <RadioButton
-                            
+
                             status={checked === 'Todos' ? 'checked' : 'unchecked'}
                             onPress={searchPedidos}
                             theme={{ colors: { primary: '#4660BE' }, uncheckedColor: { primary: '#fff' } }}
@@ -132,7 +132,7 @@ const Historico = () => {
                     <View style={styles.radio1}>
                         <Text style={styles.labelRadio}>Aceitos</Text>
                         <RadioButton
-                           
+
                             status={checked === 'Aceito' ? 'checked' : 'unchecked'}
                             onPress={searchPedidosAceitos}
                             theme={{ colors: { primary: '#4660BE' }, uncheckedColor: { primary: '#fff' } }}
@@ -142,7 +142,7 @@ const Historico = () => {
 
                         <Text style={styles.labelRadio}>Cancelados</Text>
                         <RadioButton
-                            
+
                             status={checked === 'Cancelado' ? 'checked' : 'unchecked'}
                             onPress={searchPedidosCancelados}
                             theme={{ colors: { primary: '#4660BE' } }}
@@ -150,11 +150,14 @@ const Historico = () => {
                     </View>
                 </View>
                 <TextInput
-                style={styles.searchInput}
-                placeholder='Pesquisar número de pedido'
-                value={pesquisa}
-                onChangeText={(text) => searchInput(text)}
-              />
+                    style={styles.searchInput}
+                    placeholder='Pesquisar número de pedido'
+                    value={pesquisa}
+                    onChangeText={(text) => searchInput(text)}
+                    textColor='grey'
+                    selectionColor="green"
+                    activeUnderlineColor="green"
+                />
                 <Card>
                     <FlatList
                         data={data}
@@ -204,7 +207,7 @@ const styles = StyleSheet.create({
         color: '#333',
         alignSelf: 'center',
         margin: 10,
-      }
+    }
 
 });
 
