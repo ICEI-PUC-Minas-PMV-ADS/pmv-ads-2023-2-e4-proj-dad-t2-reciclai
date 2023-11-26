@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const navigation = useNavigation();
-  const { setSigned, setUserId, setUserName, setUser } = useUser();
+  const { setSigned, setUserId, setUserName, setUser, setUserPerfil } = useUser();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -32,6 +32,7 @@ const Login = () => {
         setUser(res);
         setUserId(res.userId);
         setUserName(res.userName);
+        setUserPerfil(res.userPerfil);
       } else {
         Alert.alert('Atenção, Usuário ou senha inválidos!');
       }

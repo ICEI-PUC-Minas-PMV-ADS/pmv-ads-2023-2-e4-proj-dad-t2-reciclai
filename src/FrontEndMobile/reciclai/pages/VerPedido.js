@@ -4,7 +4,7 @@ import { useIsFocused } from '@react-navigation/native';
 import { getPedidos, updatePedidos } from '../services/Pedidos.services';
 import { getUsuario } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
-
+import { useUser } from '../contexts/UserContext';
 
 import Text1 from '../components/Text';
 import Text2 from '../components/Text2';
@@ -20,6 +20,7 @@ import Logo from '../components/Logo';
 const VerPedido = ({ route }) => {
     const { item } = route.params ? route.params : {};
     const navigation = useNavigation();
+    const { userPerfil } = useUser();
     const [id, setId] = useState('');
     const [nomeSolicitante, setNomeSolicitante] = useState('');
     const [dataColeta, setDataColeta] = useState('');
@@ -180,8 +181,11 @@ const VerPedido = ({ route }) => {
                         <Text2 name={Status[status]} />
 
                         <View style={styles.button}>
-
+                           {userPerfil == 1?
                             <ButtonIcon onPress={handleAceitar} icon="check" title="Aceitar" theme={{ colors: { primary: '#24926D' } }} />
+                            : 
+                            <></>
+                           }
                             <ButtonIcon onPress={handleCancelar} icon="trash-can" title="Cancelar" theme={{ colors: { primary: '#a51b0b' } }} />
 
                         </View>
