@@ -9,6 +9,7 @@ import FormularioPedidos from '../pages/FormularioPedidos';
 import Historico from '../pages/Historico';
 import CadastroUsuario from '../pages/CadastroUsuario';
 import PerfilUsuario from '../pages/PerfilUsuario';
+import Informacoes from '../pages/Informacoes';
 
 
 const Stack = createNativeStackNavigator();
@@ -71,6 +72,13 @@ const Main = () => {
       <Stack.Screen
         name="PerfilUsuario"
         component={PerfilUsuario}
+        options={{
+          header: () => null,
+        }}
+      />
+      <Stack.Screen
+        name="Informacoes"
+        component={Informacoes}
         options={{
           header: () => null,
         }}

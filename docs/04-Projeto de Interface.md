@@ -43,5 +43,27 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 
 ![Formulário de solicitação de pedidos](img/Formulario.png)
 
+### Tela Mobile Pesquisa
+
+![Mobile Pesquisa](img/Tela_Mobile_Pesquisa.png)
+
+### Tela Mobile Perfil
+
+![Tela Perfil](img/Tela_Mobile_Perfil.png)
+
+### Tela Mobile Login
+<img src="img/login.jpg" width=300>
+
+### Tela Cadastro de Usuário
+<img src="img/cadastro.jpg" width=300>
+
+### Tela Mobile Historico
+<img src="img/historico.jpg" width=300>
+
+### Tela Mobile Visualizar Detalhes de Pedido
+<img src="img/verPedido.jpg" width=300>
+
+
+
 
 

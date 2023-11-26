@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, ScrollView, View, Alert } from 'react-native';
+import { Text, StyleSheet, ScrollView, View, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import InputPedido from '../components/inputPedido';
 import Logo from '../components/Logo';
@@ -51,12 +51,12 @@ const Login = () => {
         <ScrollView>
           <Text style={styles.title}>Login</Text>
           <View style={styles.card}>
-            <InputPedido 
+            <InputPedido
               label="E-mail:"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
-            <InputPedido 
+            <InputPedido
               label="Senha:"
               value={senha}
               secureTextEntry
@@ -67,12 +67,10 @@ const Login = () => {
               onPress={handleLogin}>
             </BtnLogin>
             <BtnLogin
-            title="Cadastre-se"
-            onPress={() => navigation.navigate('CadastroUsuario')}>
-          </BtnLogin>
+              title="Cadastre-se"
+              onPress={() => navigation.navigate('CadastroUsuario')}>
+            </BtnLogin>
           </View>
-         
-
         </ScrollView>
       </Body>
 
@@ -95,10 +93,10 @@ const styles = StyleSheet.create({
   },
 
   texto: {
-    fontSize: '18px',
+    fontSize: 18,
     textAlign: 'center',
     color: 'white'
-  }
+  },
 });
 
 export default Login;

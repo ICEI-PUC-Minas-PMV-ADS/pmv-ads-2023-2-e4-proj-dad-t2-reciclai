@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Alert } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { Linking } from 'react-native';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -32,11 +33,11 @@ const FormularioPedidos = ({ route }) => {
     const [tipoLixo, setTipoLixo] = useState('');
     const [status, setStatus] = useState('');
     const [quantidadeLixo, setQuantidadeLixo] = useState();
+    
 
     const handleChangeTipoLixo = (value) => {
         setTipoLixo(value);
     }
-
     function formattedDate(date) {
         let myDate;
         myDate = new Date(date)
@@ -61,8 +62,11 @@ const FormularioPedidos = ({ route }) => {
 
     const handleChangeLixoPerigoso = (value) => {
         setLixoPerigoso(value);
+        if (value === true) {
+            alertaResiduo();
+        
     }
-
+}
     async function handleSubmit() {
         console.log(user.userPerfil);
         if (user.userPerfil == 0) {
@@ -116,7 +120,19 @@ const FormularioPedidos = ({ route }) => {
         }
         fetchUser();
     }, []);
-
+    const alertaResiduo = () => {
+        // Your alert logic here
+        // For example:
+        Alert.alert(
+            "Atenção!",
+            "Os tipos de resíduos perigosos que aceitamos são pilhas e baterias. Os demais tipos não são aceitos por nossos coletores. Para saber mais sobre resíduos perigosos e como descartá-los corretamente, clique em saber mais.",
+            [
+                { text: "OK", onPress: () => console.log("OK Pressed") },
+                { text: "Saber mais", onPress: () => Linking.openURL("https://www.ufsm.br/pro-reitorias/proinfra/uma/2021/03/19/residuos-perigosos-o-que-sao-e-como-lidar-da-maneira-correta") },
+            ],
+            { cancelable: false }
+        );
+    };
     return (
         <Container>
             <ScrollView>
@@ -132,7 +148,6 @@ const FormularioPedidos = ({ route }) => {
                             keyboardType="default"
                             required
                         />
-
                         <View style={styles.uniao}>
                             <View style={styles.littleCard}>
                                 {Platform.OS === 'android' ? (
@@ -215,9 +230,9 @@ const FormularioPedidos = ({ route }) => {
                             style={styles.picker}
                             itemStyle={{ fontSize: 16, height: 50, textAlign: 'left', marginLeft: -13 }}
                         >
-                            <Picker.Item label="Lixo Perigoso" />
+                            <Picker.Item label="Resíduo Perigoso" />
                             <Picker.Item label="Não" value={false} />
-                            <Picker.Item label="Sim" value={true} />
+                            <Picker.Item label="Sim" value={true}/>
                         </Picker>
 
                         <Picker
@@ -228,7 +243,7 @@ const FormularioPedidos = ({ route }) => {
                             style={styles.picker}
                             itemStyle={{ fontSize: 16, height: 50, textAlign: 'left', marginLeft: -13 }}
                         >
-                            <Picker.Item label="Tipo de lixo" />
+                            <Picker.Item label="Tipo de resíduo" />
                             <Picker.Item label="Eletrodoméstico" value={0} />
                             <Picker.Item label="Eletroportáteis" value={1} />
                             <Picker.Item label="Monitores" value={2} />
@@ -240,7 +255,7 @@ const FormularioPedidos = ({ route }) => {
                         </Picker>
 
                         <InputPedido
-                            label="Quantidade de lixo:"
+                            label="Quantidade de resíduo:"
                             value={quantidadeLixo}
                             onChangeText={(text) => setQuantidadeLixo(text)}
                             keyboardType="numeric"
@@ -266,7 +281,6 @@ const FormularioPedidos = ({ route }) => {
                             theme={{ colors: { primary: '#FFFFFF' } }}
                             onPress={() => navigation.goBack()}
                         />
-
                     </View>
                 </Body>
             </ScrollView>

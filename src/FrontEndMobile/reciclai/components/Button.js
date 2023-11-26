@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       marginHorizontal: 40,
       backgroundColor: '#4660BE',
+      width: 150,
+      alignSelf: 'center'
     }
 });
 
