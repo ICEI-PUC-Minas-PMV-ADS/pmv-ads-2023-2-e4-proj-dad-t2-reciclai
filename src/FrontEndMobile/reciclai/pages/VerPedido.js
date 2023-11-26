@@ -156,7 +156,7 @@ const VerPedido = ({ route }) => {
                         <Titulo title={"Número do pedido: " + id} />
 
                         <ButtonGoBack
-                            onPress={() => navigation.navigate('Histórico')} />
+                            onPress={() => navigation.goBack()} />
 
                         <Text1 title="Nome: " />
                         <Text2 name={nomeSolicitante} />
