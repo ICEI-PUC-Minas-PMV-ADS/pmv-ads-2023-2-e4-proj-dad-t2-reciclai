@@ -53,9 +53,24 @@ const VerPedido = ({ route }) => {
     const isFocused = useIsFocused();
 
     useEffect(() => {
+
         fetchPedidos();
-        editarPedido();
+        
     }, [isFocused])
+
+    useEffect(() => {
+        if (item) {
+            setId(item.id)
+            setNomeSolicitante(item.nomeSolicitante)
+            setDataColeta(item.dataColeta)
+            setEndereco(item.endereco)
+            setLixoPerigoso(item.lixoPerigoso)
+            setDescricao(item.descricao)
+            setTipoLixo(item.tipoLixo)
+            setStatus(item.status)
+            setQuantidadeLixo(item.qtdLixo)
+        }
+    }, [item])
 
     async function fetchPedidos() {
 
@@ -72,21 +87,6 @@ const VerPedido = ({ route }) => {
 
     };
 
-    async function editarPedido() {
-        await updatePedidos(item.id).then(res => {
-            if (item) {
-                setId(res.id)
-                setNomeSolicitante(res.nomeSolicitante)
-                setDataColeta(res.dataColeta)
-                setEndereco(res.endereco)
-                setLixoPerigoso(res.lixoPerigoso)
-                setDescricao(res.descricao)
-                setTipoLixo(res.tipoLixo)
-                setStatus(res.status)
-                setQuantidadeLixo(res.qtdLixo)
-            }
-        })
-    }
 
     async function postEmail(email){
         await enviarEmail({
@@ -97,7 +97,7 @@ const VerPedido = ({ route }) => {
 
     async function handleAceitar(event) {
         event.preventDefault();
-        if (item.id) {
+        if (item) {
             await updatePedidos({
                 "id": item.id,
                 "idSolicitante": item.idSolicitante,
@@ -126,7 +126,7 @@ const VerPedido = ({ route }) => {
 
     async function handleCancelar(event) {
         event.preventDefault();
-        if (item.id) {
+        if (item) {
             await updatePedidos({
                 "id": item.id,
                 "idSolicitante": item.idSolicitante,
