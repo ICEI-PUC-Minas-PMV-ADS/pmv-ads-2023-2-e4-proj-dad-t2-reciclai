@@ -114,6 +114,7 @@ const Historico = () => {
 
     return (
         <Container>
+            <ScrollView>
             <Logo />
             <Body>
 
@@ -171,7 +172,7 @@ const Historico = () => {
                 />
 
             </Body>
-
+            </ScrollView>
         </Container>
     );
 }
