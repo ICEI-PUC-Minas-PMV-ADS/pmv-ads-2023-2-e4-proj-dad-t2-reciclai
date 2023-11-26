@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Alert } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { getPedidos, updatePedidos } from '../services/Pedidos.services';
-import { getUsuario } from '../services/Usuarios.services';
+import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
 import { useUser } from '../contexts/UserContext';
 
@@ -88,12 +88,12 @@ const VerPedido = ({ route }) => {
         })
     }
 
-    // async function postEmail(email){
-    //     await enviarEmail({
-    //       "email": email,
-    //       "perfil": 1
-    //     });
-    //   }
+    async function postEmail(email){
+        await enviarEmail({
+          "email": email,
+          "perfil": 1
+        });
+      }
 
     async function handleAceitar(event) {
         event.preventDefault();
@@ -112,11 +112,15 @@ const VerPedido = ({ route }) => {
                 "status": 1,
             });
 
-            // const idEmail = item.idSolicitante;
-            // const sendEmail = await getUsuario(idEmail);
-            // const emailSolicitante = sendEmail.email;
+            const idEmail = item.idSolicitante;
+            const sendEmail = await getUsuario(idEmail);
+            const emailSolicitante = sendEmail.email;
 
-            // postEmail(emailSolicitante);
+            postEmail(emailSolicitante);
+
+            Alert.alert('Status do pedido', 'O pedido foi aceito com sucesso',[
+                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+            ]);
         }
     }
 
@@ -137,10 +141,15 @@ const VerPedido = ({ route }) => {
                 "status": 2,
             });
 
-            // await enviarEmail({
-            //     "email": emailSolicitante(),
-            //     "perfil": 1
-            // });
+            const idEmail = item.idSolicitante;
+            const sendEmail = await getUsuario(idEmail);
+            const emailSolicitante = sendEmail.email;
+
+            postEmail(emailSolicitante);
+
+            Alert.alert('Status do pedido','O pedido foi cancelado com sucesso',[
+                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+            ]);
         }
     }
 
