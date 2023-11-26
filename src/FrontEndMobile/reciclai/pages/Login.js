@@ -70,11 +70,6 @@ const Login = () => {
               title="Cadastre-se"
               onPress={() => navigation.navigate('CadastroUsuario')}>
             </BtnLogin>
-            <Text style={styles.texto}>
-              Dúvidas sobre o app?</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Informacoes')}>
-                <Text style={{ color: 'blue', fontSize:18 }}>Comece por aqui</Text>
-              </TouchableOpacity>
           </View>
         </ScrollView>
       </Body>

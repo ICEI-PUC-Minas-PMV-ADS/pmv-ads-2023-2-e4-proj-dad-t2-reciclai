@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { Headline } from 'react-native-paper';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import Logo from '../components/Logo';
-
+import ButtonLogout from '../components/ButtonLogout';
+import { useUser } from "../contexts/UserContext";
+import { useIsFocused } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Informacoes = () => {
     const navigation = useNavigation();
-
+    const { setSigned, name, idUsuario, setUserId } = useUser();
+    const isFocused = useIsFocused();
+    useEffect(() => {
+    }, [isFocused]);
+    const handleLogout = async () => {
+      setSigned(false);
+      setUserId(null);
+      AsyncStorage.removeItem('jwtToken');
+    }
     return (
         <Container>
-            <Logo  />
+              <View style={styles.headline}>
+          <Headline style={styles.headline2}>Olá, {name}!</Headline>
+        </View>
+        <ButtonLogout onPress={handleLogout} />  
             <ScrollView>
                 <Text style={styles.titulo}>Veja como é fácil utilizar nosso App</Text>
                 <View style={styles.caixa}>
@@ -134,6 +149,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 16,
     },
+    headline: {
+        marginTop: 50,
+        marginBottom: 30,
+        marginLeft: 10,
+      },
+      headline2: {
+        color: '#FFFFFF',
+      }
 });
 
 export default Informacoes;
