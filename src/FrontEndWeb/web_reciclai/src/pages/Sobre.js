@@ -4,6 +4,7 @@ import reciclagem from '../img/reciclagem.png';
 import perfil from '../img/perfil.png';
 import coletor from '../img/coletor.png';
 import card1 from '../img/card1.png';
+import img4 from '../img/img4.png';
 
 function Sobre() {
     return (
@@ -38,42 +39,56 @@ function Sobre() {
                 <div className={styles.cards}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '18rem', height: '320px' }}>
+                        <Card style={{ width: '18rem', height: '360px' }}>
                             <Card.Img variant="top" src={card1} />
                             <Card.Body>
                                 <Card.Title>Primeiro passo</Card.Title>
                                 <Card.Text>
-                                    Faça seu cadastro no site.
+                               Faça seu cadastro no site. Realize o login e entre na sua conta.  
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                    
                         </Col>
                         <Col>
-                    <Card style={{ width: '18rem', height: '320px'  }}>
-                        <Card.Img variant="top" src={perfil}/>
+                    <Card style={{ width: '18rem', height: '360px'  }}>
+                        <Card.Img variant="top" src={coletor}/>
                         <Card.Body>
                             <Card.Title>Segundo passo:</Card.Title>
                             <Card.Text>
-                                Realize o login e entre na sua conta. 
+                            Antes de solicitar a coleta, separe e embale seu material para facilitar o trabalho do coletor.
                             </Card.Text>
                         </Card.Body>
                     </Card>
                     </Col>
                     <Col>
                  
-                    <Card style={{ width: '18rem', height: '320px'  }}>
-                        <Card.Img variant="top" src={coletor} />
+                    <Card style={{ width: '18rem', height: '360px'  }}>
+                        <Card.Img variant="top" src={perfil} />
                         <Card.Body>
                             <Card.Title>Terceiro passo: </Card.Title>
                             <Card.Text>
-                                Clique na lupa no cabeçalho e procure um Coletor perto de você.
+                            Use o campo de busca para escolher um coletor de sua preferência e, agende sua coleta.
                             </Card.Text>
                         </Card.Body>
                     </Card>
                     </Col>
-                
+                    <Col>
+                 
+                 <Card style={{ width: '18rem', height: '360px'  }}>
+                     <Card.Img variant="top" src={img4} />
+                     <Card.Body>
+                         <Card.Title>Atenção: Resíduos perigosos! </Card.Title>
+                         <Card.Text>
+                         Os tipos de resíduos perigosos que aceitamos são pilhas e baterias. Os demais tipos não são aceitos por nossos coletores. 
+                         </Card.Text>
+                     </Card.Body>
+                 </Card>
+                 </Col>
 
+                </Row>
+                <Row style={{margin: 20, alignContent: 'center'}}>
+                
                 </Row>
                 </div>
             </div>
