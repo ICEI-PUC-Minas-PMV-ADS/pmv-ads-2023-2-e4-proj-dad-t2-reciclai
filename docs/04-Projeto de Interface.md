@@ -54,6 +54,9 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 ### Tela Mobile Login
 <img src="img/login.jpg" width=300>
 
+### Tela Cadastro de Usuário
+<img src="img/cadastro.jpg" width=300>
+
 ### Tela Mobile Historico
 <img src="img/historico.jpg" width=300>
 
