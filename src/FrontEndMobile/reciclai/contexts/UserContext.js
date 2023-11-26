@@ -22,7 +22,7 @@ export default function UserProvider({ children }) {
 
   }
 
-  function setUserPerfil(userPerfil){
+  function setUserPerfil(userPerfil) {
     setPerfil(userPerfil)
   }
 
@@ -37,7 +37,7 @@ export default function UserProvider({ children }) {
         setUser,
         name,
         setName,
-        setUserName, 
+        setUserName,
         idUsuario,
         setIdUsuario,
         setUserId,
@@ -58,20 +58,26 @@ export function useUser() {
     setUser,
     name,
     setName,
-    setUserName, 
+    setUserName,
     idUsuario,
     setIdUsuario,
     setUserId,
-    userPerfil } = context;
-  return { signed,
+    userPerfil,
+    setPerfil,
+    setUserPerfil } = context;
+  return {
+    signed,
     setSigned,
     user,
     setUser,
     name,
     setName,
-    setUserName, 
+    setUserName,
     idUsuario,
     setIdUsuario,
     setUserId,
-    userPerfil };
+    userPerfil,
+    setPerfil,
+    setUserPerfil
+  };
 }
