@@ -10,7 +10,7 @@ import BtnNew from '../components/BtnNovaColeta';
 
 const Informacoes = () => {
   const navigation = useNavigation();
-  const { setSigned, name, idUsuario, setUserId } = useUser();
+  const { setSigned, name, setUserId } = useUser();
   const isFocused = useIsFocused();
   useEffect(() => {
   }, [isFocused]);
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   headline: {
     marginTop: 50,
-    marginBottom: 30,
+    marginBottom: 20,
     marginLeft: 10,
   },
   headline2: {
