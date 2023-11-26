@@ -43,5 +43,14 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 
 ![Formulário de solicitação de pedidos](img/Formulario.png)
 
+### Tela Mobile Pesquisa
+
+![Mobile Pesquisa](img/Tela_Mobile_Pesquisa.png)
+
+### Tela Mobile Perfil
+
+![Tela Perfil](img/Tela_Mobile_Perfil.png)
+
+
 
 
