@@ -42,7 +42,8 @@ export default function UserProvider({ children }) {
         setIdUsuario,
         setUserId,
         userPerfil,
-        setUserPerfil
+        setUserPerfil,
+        setPerfil
       }}>
       {children}
     </UserContext.Provider>
