@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Alert } from 'react-native';
 import { Text } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
+import * as Yup from 'yup';
 
 
 import Container from '../components/Container';
@@ -47,7 +48,13 @@ const CadastroUsuario = ({ route }) => {
     const handleChangeTipoLixo = (itemValue, itemIndex) => setTipoLixo(parseInt(itemValue));
 
     async function handleCadastrarOuEditar(event) {
-
+        try{
+        const schema = Yup.object().shape({
+            nome: Yup.string().required("Nome é obrigatório"),
+            email: Yup.string().required("E-mail obrigatório").email("Email inválido"),
+            endereco:  Yup.string().required("Obrigatório informar o endereço")
+        })
+       await schema.validate({nome, email, endereco})
         if (item) {
             updateUsuarios(
                 {
@@ -80,6 +87,11 @@ const CadastroUsuario = ({ route }) => {
                 //navigation.navigate("Login")
 
         }
+    }catch(error){
+        if(error instanceof Yup.ValidationError){
+            Alert.alert(error.message)
+          }
+    }
     }
 
     function handleVoltar() {
