@@ -21,6 +21,7 @@ const Historico = () => {
     const { idUsuario } = useUser();
     const [originalData, setOriginalData] = useState([]);
     const [data, setData] = useState([]);
+    const [pesquisa, setPesquisa] = useState('');
     const isFocused = useIsFocused();
 
 
@@ -70,6 +71,15 @@ const Historico = () => {
             setData(pedidosCancelados)
             setChecked('Cancelado');
 
+        }
+    }
+
+    const searchInput = (text) => {
+        if(text){
+            const pesquisaId = text;
+            setPesquisa(text);
+            const pedidosId = originalData.filter(p => p.id == pesquisaId)
+            setData(pedidosId)
         }
     }
 
@@ -135,8 +145,8 @@ const Historico = () => {
                 <TextInput
                 style={styles.searchInput}
                 placeholder='Pesquisar número de pedido'
-                
-                onChangeText={(text) => setSearchInput(text)}
+                value={pesquisa}
+                onChangeText={(text) => searchInput(text)}
               />
                 <Card>
                     <FlatList
