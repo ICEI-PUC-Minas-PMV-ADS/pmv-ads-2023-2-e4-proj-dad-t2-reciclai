@@ -87,11 +87,12 @@ const VerPedido = ({ route }) => {
         })
     }
 
-    async function emailSolicitante() {
-        await getUsuario(item.idSolicitante).then(res => {
-            return res.email;
-        })
-    }
+    // async function postEmail(email){
+    //     await enviarEmail({
+    //       "email": email,
+    //       "perfil": 1
+    //     });
+    //   }
 
     async function handleAceitar(event) {
         event.preventDefault();
@@ -110,10 +111,11 @@ const VerPedido = ({ route }) => {
                 "status": 1,
             });
 
-            await enviarEmail({
-                "email": emailSolicitante(),
-                "perfil": 1
-            });
+            // const idEmail = item.idSolicitante;
+            // const sendEmail = await getUsuario(idEmail);
+            // const emailSolicitante = sendEmail.email;
+
+            // postEmail(emailSolicitante);
         }
     }
 
@@ -134,10 +136,10 @@ const VerPedido = ({ route }) => {
                 "status": 2,
             });
 
-            await enviarEmail({
-                "email": emailSolicitante(),
-                "perfil": 1
-            });
+            // await enviarEmail({
+            //     "email": emailSolicitante(),
+            //     "perfil": 1
+            // });
         }
     }
 
@@ -152,7 +154,7 @@ const VerPedido = ({ route }) => {
                     <Card>
 
                         <Titulo title={"Número do pedido: " + id} />
-                        
+
                         <ButtonGoBack
                             onPress={() => navigation.navigate('Histórico')} />
 

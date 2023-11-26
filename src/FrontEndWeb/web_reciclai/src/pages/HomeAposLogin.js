@@ -73,10 +73,11 @@ const HomeAposLogin = () => {
     editarPedido();
   });
 
-  async function emailSolicitante() {
-    await getUsuario(pedidoSelecionado.idSolicitante).then(res => {
-      return res.email;
-    })
+  async function postEmail(email){
+    await enviarEmail({
+      "email": email,
+      "perfil": 1
+    });
   }
 
   async function handleAceitar(event) {
@@ -95,10 +96,11 @@ const HomeAposLogin = () => {
         "status": 1,
       });
 
-      await enviarEmail({
-        "email": emailSolicitante(),
-        "perfil": 1
-      });
+      const idEmail = pedidoSelecionado.idSolicitante;
+      const sendEmail = await getUsuario(idEmail);
+      const emailSolicitante = sendEmail.email;
+
+      postEmail(emailSolicitante);
 
       alert('O pedido foi aceito com sucesso!');
       navigate(0);
@@ -121,10 +123,11 @@ const HomeAposLogin = () => {
         "status": 2,
       });
 
-      await enviarEmail({
-        "email": emailSolicitante(),
-        "perfil": 1
-      });
+      const idEmail = pedidoSelecionado.idSolicitante;
+      const sendEmail = await getUsuario(idEmail);
+      const emailSolicitante = sendEmail.email;
+
+      postEmail(emailSolicitante);
 
       alert('O pedido foi cancelado com sucesso!');
       navigate(0);
