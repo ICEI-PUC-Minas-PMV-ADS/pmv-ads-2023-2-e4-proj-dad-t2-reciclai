@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import styles from './styles/UsuarioApagado.module.css';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
