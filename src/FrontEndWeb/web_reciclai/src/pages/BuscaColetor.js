@@ -2,15 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosUsuarios } from '../services/Usuarios.services';
-import {
-  Table,
-  Paper,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material';
+import {Table,Paper,TableBody,TableCell, TableContainer,TableHead,TableRow,} from '@mui/material';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
@@ -22,6 +14,7 @@ const BuscaColetor = () => {
   const { userId } = useUser();
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
+  const [nameSearchInput, setNameSearchInput] = useState('');
 
   useEffect(() => {
     async function fetchUsuarios() {
@@ -43,6 +36,7 @@ const BuscaColetor = () => {
     console.log(data[index]);
   };
 
+
   return (
     <Container>
       <div>
@@ -59,6 +53,15 @@ const BuscaColetor = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
               </Col>
+              <Col xs="auto">
+                <Form.Control
+                  className={Buscastyles.search}
+                  type="text"
+                  placeholder="Buscar por Nome"
+                  value={nameSearchInput}
+                  onChange={(e) => setNameSearchInput(e.target.value)}
+                />
+              </Col>
             </Row>
           </Form>
           <TableContainer component={Paper} className={styles.table}>
@@ -73,19 +76,18 @@ const BuscaColetor = () => {
               <TableBody>
                 {data
                   .filter((usuario) =>
-                    usuario.estado.toLowerCase().includes(searchInput.toLowerCase())
+                    usuario.estado.toLowerCase().includes(searchInput.toLowerCase()) &&
+                    usuario.nome.toLowerCase().includes(nameSearchInput.toLowerCase())
                   )
                   .map((usuario, index) => (
                     <TableRow
                       key={usuario.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-
                       <TableCell align="left">{usuario.nome}</TableCell>
                       <TableCell align="left">{usuario.email}</TableCell>
-                      <TableCell align="left">{usuario.estado}  </TableCell>
+                      <TableCell align="left">{usuario.estado}</TableCell>
                       <Button onClick={() => handleSubmit(index)}>Selecionar Coletor</Button>
-                    
                     </TableRow>
                   ))}
               </TableBody>
@@ -96,5 +98,4 @@ const BuscaColetor = () => {
     </Container>
   );
 };
-
 export default BuscaColetor;
