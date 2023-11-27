@@ -35,7 +35,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
 
@@ -52,7 +52,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
 
@@ -72,7 +72,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
         
@@ -96,7 +96,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
 
@@ -117,7 +117,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
 
@@ -126,12 +126,13 @@ namespace apis_web_services_projeto_reciclai.Controllers
         {
             try
             {
-                if (id != model.PedidoId) return BadRequest();
+                if (id != model.PedidoId) return BadRequest("IDs de pedido não correspondem");
 
-                model.Usuario = _context.Usuarios.First(u => u.Id == model.UsuarioId);
+                model.Usuario = _context.Usuarios.FirstOrDefault(u => u.Id == model.UsuarioId);
+                if (model.Usuario == null) return BadRequest("Usuário não encontrado");
 
                 if (_context.PedidoUsuarios.Any(c => c.Pedido.Id == id && c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
-                    return StatusCode(405);
+                    return StatusCode(405, "Usuário já associado ao pedido");
 
                 _context.PedidoUsuarios.Add(model);
                 await _context.SaveChangesAsync();
@@ -140,7 +141,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
 
         }
@@ -165,7 +166,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
             }
         }
 

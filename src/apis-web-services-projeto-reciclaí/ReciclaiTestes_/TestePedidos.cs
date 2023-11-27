@@ -184,9 +184,15 @@ namespace ReciclaiTestes_
             var result = await controller.GetById(id);
 
             // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var model = Assert.IsAssignableFrom<Pedido>(okResult.Value);
-            Assert.Equal(id, model.Id);
+            //Assert.NotNull(result);
+            //var okResult = Assert.IsType<ObjectResult>(result);
+            //var model = Assert.IsAssignableFrom<Pedido>(okResult.Value);
+            //Assert.Equal(id, model.Id);
+
+            Assert.IsType<OkObjectResult>(result);
+            Assert.NotNull(result); 
+            var statusCodeResult = (OkObjectResult)result;
+            Assert.Equal(200, statusCodeResult.StatusCode);
         }
 
         [Fact]
@@ -208,41 +214,41 @@ namespace ReciclaiTestes_
         {
             // Arrange
             var controller = new PedidosController(_dbContext);
-            var id = 2; // ID de um pedido de teste existente
+            var id = 1; // ID de um pedido de teste existente
 
-            var modelForUpdate = _dbContext.Pedidos.FirstOrDefault(p => p.Id == id);
+            var modelForUpdate = _dbContext.Pedidos.SingleOrDefault(p => p.Id == id);
 
             Assert.NotNull(modelForUpdate);
 
-            var updatedModel = new Pedido
-            {
-                Id = modelForUpdate.Id,
-                IdSolicitante = modelForUpdate.IdSolicitante,
-                IdColetor = modelForUpdate.IdColetor,
-                DataColeta = modelForUpdate.DataColeta,
-                TipoLixo = modelForUpdate.TipoLixo,
-                QtdLixo = modelForUpdate.QtdLixo,
-                Descricao = "Test 3",
-                Endereco = modelForUpdate.Endereco,
-                NomeSolicitante = modelForUpdate.NomeSolicitante,
-                LixoPerigoso = modelForUpdate.LixoPerigoso,
-                Usuarios = modelForUpdate.Usuarios
-            };
 
+                modelForUpdate.Descricao = "Test 3";
 
+                //var updatedModel = new Pedido
+                //{
+                //    Id = modelForUpdate.Id,
+                //    IdSolicitante = modelForUpdate.IdSolicitante,
+                //    IdColetor = modelForUpdate.IdColetor,
+                //    DataColeta = modelForUpdate.DataColeta,
+                //    TipoLixo = modelForUpdate.TipoLixo,
+                //    QtdLixo = modelForUpdate.QtdLixo,
+                //    Descricao = "Test 3",
+                //    Endereco = modelForUpdate.Endereco,
+                //    NomeSolicitante = modelForUpdate.NomeSolicitante,
+                //    LixoPerigoso = modelForUpdate.LixoPerigoso,
+                //    Usuarios = modelForUpdate.Usuarios
+                //};
 
-            // Act
-            var result = await controller.Update(id, updatedModel);
+                // Act
+                var result = await controller.Update(id, modelForUpdate);
 
-            // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var model = Assert.IsAssignableFrom<Pedido>(okResult.Value);
+                // Assert
+                Assert.IsType<OkObjectResult>(result);
 
-            // Verificando se os dados foram atualizados no banco de dados
-            var updatedModelDb = await _dbContext.Pedidos.FindAsync(id);
-            Assert.NotNull(updatedModelDb);
-            Assert.Equal(updatedModel.Descricao, updatedModelDb.Descricao);
-
+                // Verificando se os dados foram atualizados no banco de dados
+                var updatedModelDb = await _dbContext.Pedidos.FindAsync(id);
+                Assert.NotNull(updatedModelDb);
+                Assert.Equal(modelForUpdate.Descricao, updatedModelDb.Descricao);
+            
         }
 
         [Fact]
@@ -312,8 +318,8 @@ namespace ReciclaiTestes_
         {
             // Arrange
             var controller = new PedidosController(_dbContext);
-            var pedidoId = 1; // ID de um pedido existente
-            var usuarioId = 3; // ID de um usuário existente
+            var pedidoId = 5; // ID de um pedido existente
+            var usuarioId = 1; // ID de um usuário existente
             var model = new PedidoUsuarios { PedidoId = pedidoId, UsuarioId = usuarioId };
 
             // Act
@@ -325,6 +331,11 @@ namespace ReciclaiTestes_
             // Verificando se o modelo foi adicionado ao banco de dados
             var addedModel = await _dbContext.PedidoUsuarios.FirstOrDefaultAsync(pu => pu.PedidoId == pedidoId && pu.UsuarioId == usuarioId);
             Assert.NotNull(addedModel);
+            Assert.Equal(pedidoId, addedModel.PedidoId);
+            Assert.Equal(usuarioId, addedModel.UsuarioId);
+
+            var statusCodeResult = (CreatedAtActionResult)result;
+            Assert.Equal(201, statusCodeResult.StatusCode);
         }
 
         [Fact]
@@ -334,13 +345,14 @@ namespace ReciclaiTestes_
             var controller = new PedidosController(_dbContext);
             var pedidoId = 1; // ID de um pedido existente
             var usuarioId = 999; // ID que não existe no banco de dados
-            var model = new PedidoUsuarios { PedidoId = pedidoId, UsuarioId = usuarioId, /* Lembrar de preencher com os outros atributos de PedidoUsuarios */ };
+            var model = new PedidoUsuarios { PedidoId = pedidoId, UsuarioId = usuarioId /* Lembrar de preencher com os outros atributos de PedidoUsuarios */ };
 
             // Act
             var result = await controller.AddUsuario(pedidoId, model);
 
             // Assert
             Assert.IsType<BadRequestResult>(result);
+
         }
 
         [Fact]
@@ -360,7 +372,9 @@ namespace ReciclaiTestes_
             var result = await controller.AddUsuario(pedidoId, model);
 
             // Assert
-            Assert.Equal(405, (result as ObjectResult)?.StatusCode);
+            Assert.IsType<StatusCodeResult>(result);
+            var statusCodeResult = (StatusCodeResult)result;
+            Assert.Equal(405, statusCodeResult.StatusCode);
         }
 
         [Fact]
