@@ -16,10 +16,11 @@ const ButtonDelete = (props) => {
 
 const styles = StyleSheet.create({
 button: {
-width: 'auto',
+width: 150,
 marginVertical: 8,
 marginHorizontal: 40,
 backgroundColor:'#8B0000',
+
 }
 });
 
