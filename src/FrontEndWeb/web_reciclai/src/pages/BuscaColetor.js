@@ -7,7 +7,6 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import Buscastyles from './styles/Busca.module.css';
-import { Link } from 'react-router-dom';
 
 const BuscaColetor = () => {
   const navigate = useNavigate();
@@ -26,10 +25,6 @@ const BuscaColetor = () => {
     }
     fetchUsuarios();
   }, [userId]);
-
-  const redirecionar = () => {
-    navigate('/perfil');
-  };
 
   const handleSubmit = (index) => {
     navigate(`/formulario`, {state:data[index]});
