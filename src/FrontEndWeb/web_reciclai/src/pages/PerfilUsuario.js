@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles/PerfilUsuario.module.css';
 import Button from 'react-bootstrap/Button';
-import { Container, Stack } from '@mui/material';
-import {Link, useNavigate } from 'react-router-dom';
+import { Container} from '@mui/material';
+import {useNavigate } from 'react-router-dom';
 import { getUsuario } from '../services/Usuarios.services.js';
 import { useUser } from '../contexts/UserContext';
 import {deleteUsuario} from '../services/Usuarios.services';
