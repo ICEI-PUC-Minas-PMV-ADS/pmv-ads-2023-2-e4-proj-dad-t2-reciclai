@@ -63,7 +63,7 @@ const FormularioPedidos = () => {
         event.preventDefault();
         
         console.log(userPerfil);
-        if (userPerfil === 0) {
+        if (userPerfil == 0) {
             const novoPedido = await insertPedidos({
                 "idSolicitante": parseInt(userId),
                 "idColetor": coletor,
