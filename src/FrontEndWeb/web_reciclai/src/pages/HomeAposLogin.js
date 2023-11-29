@@ -15,7 +15,7 @@ const HomeAposLogin = () => {
   const { userId, userPerfil } = useUser();
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState('');
   const [pedidoSelecionado, setPedidoSelecionado] = useState({
     id: null,
     nomeSolicitante: '',
@@ -164,15 +164,15 @@ const HomeAposLogin = () => {
             </Col>
             <Col xs="auto">
             <Radio
-                checked={selectedValue}
+                checked={selectedValue === ''}
                 onChange={handleChange}
-                value="disabled"
+                value=''
                 name="radio-buttons"
                 inputProps={{ 'aria-label': 'todos' }}
               />
               <FormLabel id="demo-controlled-radio-buttons-group">Todos</FormLabel>
               <Radio
-                checked={selectedValue === 1}
+                checked={selectedValue === '1'}
                 onChange={handleChange}
                 value='1'
                 name="radio-buttons"
@@ -180,7 +180,7 @@ const HomeAposLogin = () => {
               />
               <FormLabel id="demo-controlled-radio-buttons-group">Aceitos</FormLabel>
               <Radio
-                checked={selectedValue === 2}
+                checked={selectedValue === '2'}
                 onChange={handleChange}
                 value='2'
                 name="radio-buttons"
