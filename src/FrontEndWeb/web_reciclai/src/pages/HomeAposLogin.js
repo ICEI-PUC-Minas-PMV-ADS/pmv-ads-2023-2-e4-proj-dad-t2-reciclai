@@ -3,7 +3,8 @@ import { Container, Modal, Button } from 'react-bootstrap';
 import styles from './styles/HomeAposLogin.module.css';
 import { getTodosPedidos, updatePedidos } from '../services/Pedidos.services';
 import { getUsuario, enviarEmail } from '../services/Usuarios.services';
-import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Radio, FormLabel } from '@mui/material';
+import { Form, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
@@ -13,6 +14,8 @@ const HomeAposLogin = () => {
   const navigate = useNavigate();
   const { userId, userPerfil } = useUser();
   const [data, setData] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [selectedValue, setSelectedValue] = useState();
   const [pedidoSelecionado, setPedidoSelecionado] = useState({
     id: null,
     nomeSolicitante: '',
@@ -73,7 +76,12 @@ const HomeAposLogin = () => {
     editarPedido();
   });
 
-  async function postEmail(email){
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  async function postEmail(email) {
     await enviarEmail({
       "email": email,
       "perfil": 1
@@ -138,11 +146,50 @@ const HomeAposLogin = () => {
     <Container>
 
       <div>
-        {userPerfil == 0 ?
+        {userPerfil === 0 ?
           <h5 className={styles.titulo}>Histórico de pedidos:</h5>
           :
           <h5 className={styles.titulo}>Histórico de coletas:</h5>
         }
+
+        <Form inline>
+          <Row className={styles.row} >
+            <Col xs="auto">
+              <Form.Control
+                type="text"
+                placeholder="Pesquisar pedido"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+              />
+            </Col>
+            <Col xs="auto">
+            <Radio
+                checked={selectedValue}
+                onChange={handleChange}
+                value="disabled"
+                name="radio-buttons"
+                inputProps={{ 'aria-label': 'todos' }}
+              />
+              <FormLabel id="demo-controlled-radio-buttons-group">Todos</FormLabel>
+              <Radio
+                checked={selectedValue === 1}
+                onChange={handleChange}
+                value='1'
+                name="radio-buttons"
+                inputProps={{ 'aria-label': 'aceito' }}
+              />
+              <FormLabel id="demo-controlled-radio-buttons-group">Aceitos</FormLabel>
+              <Radio
+                checked={selectedValue === 2}
+                onChange={handleChange}
+                value='2'
+                name="radio-buttons"
+                inputProps={{ 'aria-label': 'cancelado' }}
+              />
+              <FormLabel id="demo-controlled-radio-buttons-group">Cancelados</FormLabel>
+            </Col>
+          </Row>
+        </Form>
         <TableContainer component={Paper} className={styles.table}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -154,19 +201,25 @@ const HomeAposLogin = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((pedido) => (
-                <TableRow
-                  key={pedido.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell align="left">{pedido.id}</TableCell>
-                  <TableCell align="left">{pedido.nomeSolicitante}</TableCell>
-                  <TableCell align="left">{pedido.dataColeta}</TableCell>
-                  <TableCell align="left">
-                    <Button onClick={() => selecionarPedido(pedido)} className={styles.botao}>Visualizar</Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {data
+                .filter((pedido) =>
+                 
+                  pedido.id.toString().includes(searchInput.toLowerCase()) &&
+                  pedido.status.toString().includes(selectedValue)
+                )
+                .map((pedido) => (
+                  <TableRow
+                    key={pedido.id}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell align="left">{pedido.id}</TableCell>
+                    <TableCell align="left">{pedido.nomeSolicitante}</TableCell>
+                    <TableCell align="left">{pedido.dataColeta}</TableCell>
+                    <TableCell align="left">
+                      <Button onClick={() => selecionarPedido(pedido)} className={styles.botao}>Visualizar</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
@@ -188,7 +241,7 @@ const HomeAposLogin = () => {
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            {userPerfil == 1 ?
+            {userPerfil === 1 ?
               <Button className={styles.botao} onClick={handleAceitar}>
                 Aceitar
               </Button>
