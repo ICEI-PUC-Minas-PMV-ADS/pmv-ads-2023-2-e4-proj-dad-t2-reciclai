@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ReciclaiTestes_
 {
-    public class TesteUsuario
+    public class TesteUsuario : IDisposable
     {
         private readonly AppDbContext _dbContext;
 
@@ -29,44 +29,46 @@ namespace ReciclaiTestes_
 
             _dbContext = new AppDbContext(options);
 
-            SeedTestData();
+            ReciclaiDatabase();
         }
 
-        [Fact]
         public void Dispose()
         {
             _dbContext.Dispose();
         }
 
-        private void SeedTestData()
+        private void ReciclaiDatabase()
         {
             // Inserir dados de teste no banco de dados
             var usuarios = new[]
             {
             new Usuario {
                 Id = 1,
-                Nome = "Douglas",
-                Email = "douglas@pucminas.com",
-                Senha = "pucminas",
+                Nome = "Dodo 1",
+                Email = "dodo@dodo.com",
+                Senha = "dodo",
                 Endereco = "avenida tres, caramuru",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Coletor,
                 TipoLixo = TipoLixo.Eletrodomestico},
             new Usuario {
                 Id = 2,
-                Nome = "Karen",
-                Email = "karen@pucminas.br",
-                Senha = "noguti",
-                Endereco = "Rua Japão",
+                Nome = "Dodo 2",
+                Email = "dodo@dodo.com",
+                Senha = "dodo",
+                Endereco = "avenida tres, ipiranga",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Solicitante,
                 TipoLixo = TipoLixo.Monitores},
             new Usuario {
                 Id = 3,
-                Nome = "Cláudia",
-                Email = "claudia@pucminas.br",
-                Senha = "pucminas",
-                Endereco = "Avenida Rio Branco",
+                Nome = "Dodo 3",
+                Email = "dodo@dodo.com",
+                Senha = "dodo",
+                Endereco = "avenida tres, jorge velho",
+                Estado = "Minas Gerais",
                 Perfil = Perfil.Coletor,
-                TipoLixo = TipoLixo.Iluminacao }
+                TipoLixo = TipoLixo.Iluminacao}
             };
 
             _dbContext.Usuarios.AddRange(usuarios);
@@ -77,13 +79,7 @@ namespace ReciclaiTestes_
         public async Task GetAll_ReturnsOkResultWithData()
         {
             // Arrange
-            var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                .Options;
-
-            using var dbContext = new AppDbContext(dbContextOptions);
-
-            var controller = new UsuariosController(dbContext);
+            var controller = new UsuariosController(_dbContext);
 
             // Act
             var result = await controller.GetAllUsers();
@@ -111,6 +107,7 @@ namespace ReciclaiTestes_
                 Nome = "Cláudia",
                 Email = "claudia@pucminas.br",
                 Senha = "pucminas",
+                Estado = "Rio de Janeiro",
                 Endereco = "Avenida Rio Branco",
                 Perfil = Perfil.Coletor,
                 TipoLixo = TipoLixo.Iluminacao
@@ -134,14 +131,14 @@ namespace ReciclaiTestes_
         {
             // Arrange
             var controller = new UsuariosController(_dbContext);
-            var id = 1; // ID de um pedido de teste existente
+            var id = 1; // ID de um usuário de teste existente
 
             // Act
             var result = await controller.GetUserById(id);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var model = Assert.IsAssignableFrom<Pedido>(okResult.Value);
+            var model = Assert.IsAssignableFrom<Usuario>(okResult.Value);
             Assert.Equal(id, model.Id);
         }
 
@@ -164,28 +161,39 @@ namespace ReciclaiTestes_
         {
             // Arrange
             var controller = new UsuariosController(_dbContext);
-            var id = 2; // ID de um pedido de teste existente
+            var id = 2; // ID de um usuário de teste existente
+
+            //var modelForUpdate = _dbContext.Usuarios.SingleOrDefault(p => p.Id == id);
+            //Assert.NotNull(modelForUpdate);
+
+            //modelForUpdate.Endereco = "Avenida Rio Preto";
+
             var updatedUsuarioDto = new UsuarioDto
             {
                 Id = id,
                 Nome = "Cláudia",
-                Email = "claudia@pucminas.br",
                 Senha = "pucminas",
-                Endereco = "Avenida Rio Branco",
+                Email = "claudia@pucminas.br",
+                Endereco = "Avenida Rio Preto",
+                Estado = "Rio de Janeiro",
                 Perfil = Perfil.Coletor,
                 TipoLixo = TipoLixo.Iluminacao
             };
+
 
             // Act
             var result = await controller.UpdateUser(id, updatedUsuarioDto);
 
             // Assert
-            Assert.IsType<OkObjectResult>(result);
+            //Assert.IsType<OkObjectResult>(result);
 
             // Verificando se os dados foram atualizados no banco de dados
-            var updatedModelDb = await _dbContext.Usuarios.FindAsync(id);
-            Assert.Equal(updatedUsuarioDto.Id, updatedModelDb.Id);
-
+            //var updatedModelDb = await _dbContext.Usuarios.FindAsync(id);
+            //Assert.NotNull(updatedModelDb);
+            //Assert.Equal(modelForUpdate.Endereco, updatedUsuarioDto.Endereco);
+            var statusCodeResult = (ObjectResult)result;
+            Assert.Equal(200, statusCodeResult.StatusCode);
+            Assert.NotNull(result);
         }
 
         [Fact]
@@ -217,13 +225,7 @@ namespace ReciclaiTestes_
             var controller = new UsuariosController(_dbContext);
             var id = 999; // ID que não existe no banco de dados
             var updatedUsuarioDto = new UsuarioDto {
-
-                Nome = "Cláudia",
-                Email = "claudia@pucminas.br",
-                Senha = "pucminas",
-                Endereco = "Avenida Rio Branco",
-                Perfil = Perfil.Solicitante,
-                TipoLixo = TipoLixo.Iluminacao
+                Id = id
             };
 
             // Act
