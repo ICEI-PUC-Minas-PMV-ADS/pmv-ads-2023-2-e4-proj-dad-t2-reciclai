@@ -8,9 +8,9 @@ import { useUser } from "../contexts/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BtnNew from '../components/BtnNovaColeta';
 
-import IMG1 from '../assets/img1.png';
+import Card1 from '../assets/card1.png';
 import IMG3 from '../assets/img3.jpg';
-import IMG4 from '../assets/img4.jpg';
+import IMG4 from '../assets/img4.png';
 import IMG2 from '../assets/img2.jpg';
 
 const Informacoes = () => {
@@ -41,7 +41,7 @@ const Informacoes = () => {
         <View style={styles.caixa}>
           <View style={styles.card}>
             <Image
-              source={IMG1}
+              source={Card1}
               style={styles.cardImage}
             />
             <View style={styles.cardContent}>
