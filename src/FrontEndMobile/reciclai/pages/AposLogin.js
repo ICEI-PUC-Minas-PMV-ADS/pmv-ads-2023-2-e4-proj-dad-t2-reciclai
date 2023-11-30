@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { useNavigation,useIsFocused } from "@react-navigation/native";
 import { Headline } from 'react-native-paper';
@@ -7,6 +7,11 @@ import ButtonLogout from '../components/ButtonLogout';
 import { useUser } from "../contexts/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BtnNew from '../components/BtnNovaColeta';
+
+import IMG1 from '../assets/img1.png';
+import IMG3 from '../assets/img3.jpg';
+import IMG4 from '../assets/img4.jpg';
+import IMG2 from '../assets/img2.jpg';
 
 const Informacoes = () => {
   const navigation = useNavigation();
@@ -36,7 +41,7 @@ const Informacoes = () => {
         <View style={styles.caixa}>
           <View style={styles.card}>
             <Image
-              source={require('../assets/img1.png')}
+              source={IMG1}
               style={styles.cardImage}
             />
             <View style={styles.cardContent}>
@@ -52,7 +57,7 @@ const Informacoes = () => {
 
           <View style={styles.card}>
             <Image
-              source={require('../assets/img3.jpg')}
+              source={IMG3}
               style={styles.cardImage}
             />
             <View style={styles.cardContent}>
@@ -67,7 +72,7 @@ const Informacoes = () => {
           </View>
           <View style={styles.card}>
             <Image
-              source={require('../assets/img2.jpg')}
+              source={IMG2}
               style={styles.cardImage}
             />
             <View style={styles.cardContent}>
@@ -82,7 +87,7 @@ const Informacoes = () => {
           </View>
           <View style={styles.card}>
             <Image
-              source={require('../assets/img4.png')}
+              source={IMG4}
               style={styles.cardImage}
             />
             <View style={styles.cardContent}>
