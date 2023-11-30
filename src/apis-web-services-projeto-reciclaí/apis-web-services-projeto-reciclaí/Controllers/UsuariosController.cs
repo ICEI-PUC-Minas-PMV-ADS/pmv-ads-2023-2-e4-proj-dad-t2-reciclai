@@ -67,28 +67,34 @@ namespace apis_web_services_projeto_reciclai.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUser(int id, UsuarioDto model)
         {
-            if (id != model.Id) return BadRequest();
+            try
+            {
+                if (id != model.Id) return BadRequest();
 
-            var modelDb = await _context.Usuarios.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == id);
+                var modelDb = await _context.Usuarios.AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (modelDb == null) return NotFound();
+                if (modelDb == null) return NotFound();
 
-            modelDb.Nome = model.Nome;
-            modelDb.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
-            modelDb.Email = model.Email;
-            modelDb.Endereco = model.Endereco;
-            modelDb.Estado = model.Estado;
-            modelDb.Perfil = model.Perfil;
-            modelDb.TipoLixo = model.TipoLixo;  
+                modelDb.Nome = model.Nome;
+                modelDb.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+                modelDb.Email = model.Email;
+                modelDb.Endereco = model.Endereco;
+                modelDb.Estado = model.Estado;
+                modelDb.Perfil = model.Perfil;
+                modelDb.TipoLixo = model.TipoLixo;
 
-            
-            _context.Usuarios.Update(modelDb);
 
-            await _context.SaveChangesAsync();
+                _context.Usuarios.Update(modelDb);
 
-            return NoContent();
+                await _context.SaveChangesAsync();
 
+                return Ok(model);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Erro interno do servidor: {e.Message}");
+            }
 
         }
 

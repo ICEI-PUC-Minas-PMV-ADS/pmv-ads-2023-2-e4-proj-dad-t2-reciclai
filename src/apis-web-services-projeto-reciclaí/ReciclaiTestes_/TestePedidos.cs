@@ -223,21 +223,6 @@ namespace ReciclaiTestes_
 
                 modelForUpdate.Descricao = "Test 3";
 
-                //var updatedModel = new Pedido
-                //{
-                //    Id = modelForUpdate.Id,
-                //    IdSolicitante = modelForUpdate.IdSolicitante,
-                //    IdColetor = modelForUpdate.IdColetor,
-                //    DataColeta = modelForUpdate.DataColeta,
-                //    TipoLixo = modelForUpdate.TipoLixo,
-                //    QtdLixo = modelForUpdate.QtdLixo,
-                //    Descricao = "Test 3",
-                //    Endereco = modelForUpdate.Endereco,
-                //    NomeSolicitante = modelForUpdate.NomeSolicitante,
-                //    LixoPerigoso = modelForUpdate.LixoPerigoso,
-                //    Usuarios = modelForUpdate.Usuarios
-                //};
-
                 // Act
                 var result = await controller.Update(id, modelForUpdate);
 
