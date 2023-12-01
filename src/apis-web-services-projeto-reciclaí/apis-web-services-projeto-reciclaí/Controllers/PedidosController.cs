@@ -129,7 +129,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
                 if (id != model.PedidoId) return BadRequest("IDs de pedido não correspondem");
 
                 model.Usuario = _context.Usuarios.FirstOrDefault(u => u.Id == model.UsuarioId);
-                if (model.Usuario == null) return BadRequest("Usuário não encontrado");
+                if (model.Usuario == null) return NotFound("Usuário não encontrado");
 
                 if (_context.PedidoUsuarios.Any(c => c.Pedido.Id == id && c.Usuario.Perfil.Equals(model.Usuario.Perfil)))
                     return StatusCode(405, "Usuário já associado ao pedido");

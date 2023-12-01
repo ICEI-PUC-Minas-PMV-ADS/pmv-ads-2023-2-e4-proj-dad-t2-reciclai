@@ -161,16 +161,11 @@ namespace ReciclaiTestes_
         {
             // Arrange
             var controller = new UsuariosController(_dbContext);
-            var id = 2; // ID de um usuário de teste existente
-
-            //var modelForUpdate = _dbContext.Usuarios.SingleOrDefault(p => p.Id == id);
-            //Assert.NotNull(modelForUpdate);
-
-            //modelForUpdate.Endereco = "Avenida Rio Preto";
+            var id = 1; // ID de um usuário de teste existente
 
             var updatedUsuarioDto = new UsuarioDto
             {
-                Id = id,
+                Id = 1,
                 Nome = "Cláudia",
                 Senha = "pucminas",
                 Email = "claudia@pucminas.br",
@@ -185,14 +180,7 @@ namespace ReciclaiTestes_
             var result = await controller.UpdateUser(id, updatedUsuarioDto);
 
             // Assert
-            //Assert.IsType<OkObjectResult>(result);
-
-            // Verificando se os dados foram atualizados no banco de dados
-            //var updatedModelDb = await _dbContext.Usuarios.FindAsync(id);
-            //Assert.NotNull(updatedModelDb);
-            //Assert.Equal(modelForUpdate.Endereco, updatedUsuarioDto.Endereco);
-            var statusCodeResult = (ObjectResult)result;
-            Assert.Equal(200, statusCodeResult.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
             Assert.NotNull(result);
         }
 

@@ -1,6 +1,6 @@
 namespace ReciclaiTestes_
 {
-    public class UnitTest1
+    public class Monitores
     {
         [Fact]
         public void Test1()

@@ -324,7 +324,7 @@ namespace ReciclaiTestes_
         }
 
         [Fact]
-        public async Task AddUsuario_ReturnsBadRequestResult()
+        public async Task AddUsuario_ReturnsNotFoundObjectResult()
         {
             // Arrange
             var controller = new PedidosController(_dbContext);
@@ -336,7 +336,24 @@ namespace ReciclaiTestes_
             var result = await controller.AddUsuario(pedidoId, model);
 
             // Assert
-            Assert.IsType<BadRequestResult>(result);
+            Assert.IsType<NotFoundObjectResult>(result);
+
+        }
+
+        [Fact]
+        public async Task AddUsuario_ReturnsBadRequestObjectResult()
+        {
+            // Arrange
+            var controller = new PedidosController(_dbContext);
+            var pedidoId = 1; // ID de um pedido existente
+            var usuarioId = 1; // ID que existe no banco de dados
+            var model = new PedidoUsuarios { PedidoId = 2, UsuarioId = usuarioId };
+
+            // Act
+            var result = await controller.AddUsuario(pedidoId, model);
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
 
         }
 
@@ -357,8 +374,8 @@ namespace ReciclaiTestes_
             var result = await controller.AddUsuario(pedidoId, model);
 
             // Assert
-            Assert.IsType<StatusCodeResult>(result);
-            var statusCodeResult = (StatusCodeResult)result;
+            Assert.IsType<ObjectResult>(result);
+            var statusCodeResult = (ObjectResult)result;
             Assert.Equal(405, statusCodeResult.StatusCode);
         }
 
