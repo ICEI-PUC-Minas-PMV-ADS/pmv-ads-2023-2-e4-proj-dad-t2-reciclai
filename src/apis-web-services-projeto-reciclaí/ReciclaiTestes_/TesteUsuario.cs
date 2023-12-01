@@ -88,7 +88,6 @@ namespace ReciclaiTestes_
             var okResult = Assert.IsType<OkObjectResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<Usuario>>(okResult.Value);
 
-           
             var unexpectedItemId = 99;
             var itemDoesNotExist = model.All(p => p.Id != unexpectedItemId);
             Assert.True(itemDoesNotExist);

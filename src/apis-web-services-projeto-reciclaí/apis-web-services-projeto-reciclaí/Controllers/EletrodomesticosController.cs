@@ -48,7 +48,7 @@ namespace apis_web_services_projeto_reciclai.Controllers
         {
             if (id != model.Id) return BadRequest();
 
-            var modeloDb = await _context.FiosCabos.AsNoTracking()
+            var modeloDb = await _context.Eletrodomesticos.AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (modeloDb == null) return NotFound();
