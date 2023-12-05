@@ -9,6 +9,5 @@ export const login = async (param) => {
 
     const res = await axios.post(`${BASE_URL}/usuarios/authenticate`, user)
 
-    console.log(res.data)
     return res.data;
 }

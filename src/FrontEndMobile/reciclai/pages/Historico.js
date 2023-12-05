@@ -36,7 +36,7 @@ const Historico = () => {
                     let PedidosUsuario = pedidosUser.filter((pedido) => pedido.idSolicitante == idUsuario || pedido.idColetor == idUsuario);
                     setData(PedidosUsuario);
                     setOriginalData(PedidosUsuario);
-                    console.log(PedidosUsuario);
+                    
                 }
             } catch (error) {
                 console.error('Error fetching pedidos:', error);
@@ -114,7 +114,7 @@ const Historico = () => {
 
     return (
         <Container>
-            <ScrollView>
+        
             <Logo />
             <Body>
 
@@ -172,7 +172,7 @@ const Historico = () => {
                 />
 
             </Body>
-            </ScrollView>
+          
         </Container>
     );
 }

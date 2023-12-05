@@ -15,7 +15,7 @@ export async function getUsuario(id) {
 
 
 export const insertUsuarios = async (params) => {
-  console.log(params);
+ 
   try {
     return await API.post(`${BASE_URL}/usuarios`, params).then(
       response => {

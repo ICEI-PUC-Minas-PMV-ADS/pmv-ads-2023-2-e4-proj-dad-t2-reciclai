@@ -119,7 +119,7 @@ const VerPedido = ({ route }) => {
             postEmail(emailSolicitante);
 
             Alert.alert('Status do pedido', 'O pedido foi aceito com sucesso',[
-                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+                { text: 'OK', onPress: () => navigation.goBack() }
             ]);
         }
     }
@@ -148,7 +148,7 @@ const VerPedido = ({ route }) => {
             postEmail(emailSolicitante);
 
             Alert.alert('Status do pedido','O pedido foi cancelado com sucesso',[
-                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+                { text: 'OK', onPress: () => navigation.goBack() }
             ]);
         }
     }

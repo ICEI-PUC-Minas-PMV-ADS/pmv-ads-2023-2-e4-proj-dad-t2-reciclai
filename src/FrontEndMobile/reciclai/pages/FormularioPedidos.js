@@ -103,7 +103,7 @@ const FormularioPedidos = ({ route }) => {
             });
 
             Alert.alert('Formulário de pedidos', 'Seu pedido foi finalizado com sucesso', [
-                { text: 'OK', onPress: () => navigation.navigate("AposLogin") }
+                { text: 'OK', onPress: () => navigation.goBack() }
             ]);
         } else {
             window.alert("Ocorreu um erro, você precisa ser do tipo 'solicitante' para realizar pedidos! — Clique em OK para ser redirecionado.");
