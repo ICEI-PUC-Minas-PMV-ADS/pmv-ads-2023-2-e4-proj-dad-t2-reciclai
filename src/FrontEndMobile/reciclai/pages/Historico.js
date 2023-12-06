@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import { List, RadioButton, Text, TextInput } from 'react-native-paper';
 import { useIsFocused } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -117,7 +117,7 @@ const Historico = () => {
         
             <Logo />
             <Body>
-
+            <SafeAreaView style={styles.container}>
                 < Text style={styles.titulo}>Histórico:</Text>
 
                 <View style={styles.radioButton}>
@@ -170,7 +170,7 @@ const Historico = () => {
                 <Button1
                     onPress={() => navigation.navigate('AposLogin')} title="Voltar"
                 />
-
+</SafeAreaView>
             </Body>
           
         </Container>
@@ -178,7 +178,9 @@ const Historico = () => {
 }
 
 const styles = StyleSheet.create({
-    titulo: {
+    container: {
+        flex: 1,
+      },titulo: {
         fontSize: 25,
         color: '#FFFFFF',
         marginLeft: 20,

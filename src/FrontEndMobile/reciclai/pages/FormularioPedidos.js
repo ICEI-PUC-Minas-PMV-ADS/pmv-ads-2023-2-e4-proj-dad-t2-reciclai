@@ -32,7 +32,7 @@ const FormularioPedidos = ({ route }) => {
     const [descricao, setDescricao] = useState('');
     const [tipoLixo, setTipoLixo] = useState('');
     const [status, setStatus] = useState('');
-    const [quantidadeLixo, setQuantidadeLixo] = useState();
+    const [qtdLixo, setQtdLixo] = useState();
     
 
     const handleChangeTipoLixo = (value) => {
@@ -79,7 +79,7 @@ const FormularioPedidos = ({ route }) => {
                 "lixoPerigoso": lixoPerigoso,
                 "descricao": descricao,
                 "tipoLixo": parseInt(tipoLixo),
-                "qtdLixo": parseInt(quantidadeLixo),
+                "qtdLixo": parseInt(qtdLixo),
                 "status": 0,
                 //}).then(res => {
                 //navigation.goBack();
@@ -256,8 +256,8 @@ const FormularioPedidos = ({ route }) => {
 
                         <InputPedido
                             label="Quantidade de resíduo:"
-                            value={quantidadeLixo}
-                            onChangeText={(text) => setQuantidadeLixo(text)}
+                            value={qtdLixo}
+                            onChangeText={(text) => setQtdLixo(text)}
                             keyboardType="numeric"
                             required
                         />

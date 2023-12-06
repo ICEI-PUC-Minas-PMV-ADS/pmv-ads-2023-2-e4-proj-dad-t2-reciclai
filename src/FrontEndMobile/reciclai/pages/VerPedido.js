@@ -5,6 +5,7 @@ import { getPedidos, updatePedidos } from '../services/Pedidos.services';
 import { getUsuario, enviarEmail } from '../services/Usuarios.services';
 import { useNavigation } from '@react-navigation/native';
 import { useUser } from '../contexts/UserContext';
+import moment from 'moment/moment';
 
 import Text1 from '../components/Text';
 import Text2 from '../components/Text2';
@@ -23,13 +24,13 @@ const VerPedido = ({ route }) => {
     const { userPerfil } = useUser();
     const [id, setId] = useState('');
     const [nomeSolicitante, setNomeSolicitante] = useState('');
-    const [dataColeta, setDataColeta] = useState('');
+    const [dataColeta, setDataColeta] = useState();
     const [endereco, setEndereco] = useState('');
     const [lixoPerigoso, setLixoPerigoso] = useState();
     const [descricao, setDescricao] = useState();
     const [tipoLixo, setTipoLixo] = useState();
     const [status, setStatus] = useState();
-    const [quantidadeLixo, setQuantidadeLixo] = useState();
+    const [qtdLixo, setQtdLixo] = useState();
 
     const Status =
         [
@@ -68,7 +69,7 @@ const VerPedido = ({ route }) => {
             setDescricao(item.descricao)
             setTipoLixo(item.tipoLixo)
             setStatus(item.status)
-            setQuantidadeLixo(item.qtdLixo)
+            setQtdLixo(item.qtdLixo)
         }
     }, [item])
 
@@ -83,7 +84,7 @@ const VerPedido = ({ route }) => {
         setDescricao(res.descricao)
         setTipoLixo(res.tipoLixo)
         setStatus(res.status)
-        setQuantidadeLixo(res.qtdLixo)
+        setQtdLixo(res.qtdLixo)
 
     };
 
@@ -108,7 +109,7 @@ const VerPedido = ({ route }) => {
                 "lixoPerigoso": item.lixoPerigoso,
                 "descricao": item.descricao,
                 "tipoLixo": item.tipoLixo,
-                "qtdLixo": item.quantidadeLixo,
+                "qtdLixo": item.qtdLixo,
                 "status": 1,
             });
 
@@ -137,7 +138,7 @@ const VerPedido = ({ route }) => {
                 "lixoPerigoso": item.lixoPerigoso,
                 "descricao": item.descricao,
                 "tipoLixo": item.tipoLixo,
-                "qtdLixo": item.quantidadeLixo,
+                "qtdLixo": item.qtdLixo,
                 "status": 2,
             });
 
@@ -184,7 +185,7 @@ const VerPedido = ({ route }) => {
                         <Text2 name={TipoLixo[tipoLixo]} />
 
                         <Text1 title="Quantidade: " />
-                        <Text2 name={quantidadeLixo} />
+                        <Text2 name={qtdLixo} />
 
                         <Text1 title="Status: " />
                         <Text2 name={Status[status]} />
