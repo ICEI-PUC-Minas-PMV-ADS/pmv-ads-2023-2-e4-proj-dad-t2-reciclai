@@ -7,7 +7,7 @@ import { Table, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow
 import { Form, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
-
+import moment from 'moment';
 
 
 const HomeAposLogin = () => {
@@ -34,6 +34,11 @@ const HomeAposLogin = () => {
     setPedidoSelecionado(pedido)
     handleShow();
   }
+
+  function dataFormatada(data){
+    let date = moment(data).format('DD/MM/YYYY hh:mm');
+   return date
+    }
 
   const Status =
     [
@@ -74,6 +79,7 @@ const HomeAposLogin = () => {
     }
     fetchPedidos();
     editarPedido();
+    dataFormatada();
   });
 
 
@@ -214,7 +220,7 @@ const HomeAposLogin = () => {
                   >
                     <TableCell align="left">{pedido.id}</TableCell>
                     <TableCell align="left">{pedido.nomeSolicitante}</TableCell>
-                    <TableCell align="left">{pedido.dataColeta}</TableCell>
+                    <TableCell align="left">{dataFormatada(pedido.dataColeta)}</TableCell>
                     <TableCell align="left">
                       <Button onClick={() => selecionarPedido(pedido)} className={styles.botao}>Visualizar</Button>
                     </TableCell>
@@ -230,7 +236,7 @@ const HomeAposLogin = () => {
           </Modal.Header>
           <Modal.Body>
             <p>Nome: {pedidoSelecionado.nomeSolicitante}</p>
-            <p>Data da Coleta: {pedidoSelecionado.dataColeta}</p>
+            <p>Data da Coleta: {dataFormatada(pedidoSelecionado.dataColeta)}</p>
             <p>Tipo de Lixo: {TipoLixo[pedidoSelecionado.tipoLixo]}</p>
             <p>Quantidade de Lixo: {pedidoSelecionado.qtdLixo}</p>
             <p>Descrição: {pedidoSelecionado.descricao}</p>
