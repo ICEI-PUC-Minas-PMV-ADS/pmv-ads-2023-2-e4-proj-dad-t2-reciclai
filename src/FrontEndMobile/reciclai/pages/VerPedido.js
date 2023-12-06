@@ -31,7 +31,7 @@ const VerPedido = ({ route }) => {
     const [tipoLixo, setTipoLixo] = useState();
     const [status, setStatus] = useState();
     const [qtdLixo, setQtdLixo] = useState();
-
+    const [data, setData] = useState();
     const Status =
         [
             'Processando',
@@ -71,6 +71,8 @@ const VerPedido = ({ route }) => {
             setStatus(item.status)
             setQtdLixo(item.qtdLixo)
         }
+
+        dataFormatada();
     }, [item])
 
     async function fetchPedidos() {
@@ -87,6 +89,11 @@ const VerPedido = ({ route }) => {
         setQtdLixo(res.qtdLixo)
 
     };
+
+    function dataFormatada(dataColeta){
+        let date = moment(dataColeta).format('DD/MM/YYYY hh:mm');
+        setData(date)
+        }
 
 
     async function postEmail(email){
@@ -179,7 +186,7 @@ const VerPedido = ({ route }) => {
                         <Text2 name={descricao} />
 
                         <Text1 title="Data da Coleta: " />
-                        <Text2 name={dataColeta} />
+                        <Text2 name={data} />
 
                         <Text1 title="Tipo de Descarte: " />
                         <Text2 name={TipoLixo[tipoLixo]} />
