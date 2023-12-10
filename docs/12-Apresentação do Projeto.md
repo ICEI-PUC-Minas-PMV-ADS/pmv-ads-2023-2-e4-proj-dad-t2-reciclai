@@ -20,4 +20,4 @@ O grupo fez um estudo de cores e escolheu a paleta de cores abaixo para utilizar
 
 ## Conjunto de Slides (Estrutura)
 
-Acesse os slides clicando [aqui](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t2-reciclai/blob/main/docs/img/Reciclai_slides.pdf)
+Acesse os slides clicando [aqui](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-dad-t2-reciclai/blob/main/presentation/Reciclai_slides_apresentacao_final.pdf)
